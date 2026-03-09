@@ -10,7 +10,6 @@ in
 {
   imports = [
     ezModules.agenix
-    ezModules.devenv
     ezModules.git
     ezModules.omci
     ezModules.ssh

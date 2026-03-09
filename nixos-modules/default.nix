@@ -16,11 +16,11 @@
     kdePackages.okular
     kdePackages.dolphin
     google-chrome
-    anytype
+    # anytype
   ];
 
   nix = {
-    extraOptions = "experimental-features = nix-command flakes";
+    extraOptions = "experimental-features = nix-command flakes ca-derivations";
 
     settings = {
       trusted-users = [
