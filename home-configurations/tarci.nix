@@ -61,6 +61,13 @@ in
 
         "CODEBERG_TOKEN".file = "${inputs.secrets}/codeberg-pat.age";
 
+        "codeberg-ssh-key" = {
+          symlink = true;
+          path = "${homeDir}/.ssh/id_ed25519_codeberg";
+          file = "${inputs.secrets}/codeberg-ssh-key.age";
+          mode = "600";
+        };
+
         "github-ssh-key" = {
           symlink = true;
           path = "${homeDir}/.ssh/id_github";

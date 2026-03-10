@@ -461,11 +461,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1773164870,
-        "narHash": "sha256-Cqf0TsrdIpN/h8F/wPCr8AMm0ZPV50MrTsG9cSwnZ9A=",
+        "lastModified": 1773173401,
+        "narHash": "sha256-/s80vGiTbS5M3logOP+jQvUiF2ans4WcPuu/IjLniXA=",
         "ref": "refs/heads/main",
-        "rev": "c119d9ddbf7dadf9773a4ed8da12e37d4222233c",
-        "revCount": 21,
+        "rev": "f1f681f58f52930ce683ce5bfea3f8aadab5a418",
+        "revCount": 23,
         "type": "git",
         "url": "ssh://git@github.com/tarc/nix-secrets.git"
       },

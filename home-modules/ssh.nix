@@ -19,6 +19,12 @@
         identitiesOnly = true;
       };
 
+      "codeberg.org" = {
+        hostname = "codeberg.org";
+        user = "git";
+        identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519_codeberg";
+      };
+
     };
   };
 }
