@@ -19,6 +19,7 @@ in
   config =
     let
       githubToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.GITHUB_TOKEN.path})";
+      codebergToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.CODEBERG_TOKEN.path})";
     in
     {
       home = {
@@ -27,6 +28,7 @@ in
         username = "tarci";
         sessionVariables = {
           GITHUB_TOKEN = githubToken;
+          CODEBERG_TOKEN = codebergToken;
           EDITOR = "vim";
           VISUAL = "vim";
           LANG = "en_US.UTF-8";
@@ -51,6 +53,8 @@ in
 
       age.secrets = {
         "GITHUB_TOKEN".file = "${inputs.secrets}/nixpkgs-review-github-pat.age";
+
+        "CODEBERG_TOKEN".file = "${inputs.secrets}/codeberg-pat.age";
 
         "github-ssh-key" = {
           symlink = true;

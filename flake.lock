@@ -178,11 +178,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772985285,
-        "narHash": "sha256-wEEmvfqJcl9J0wyMgMrj1TixOgInBW/6tLPhWGoZE3s=",
+        "lastModified": 1773093840,
+        "narHash": "sha256-u/96NoAyN8BSRuM3ZimGf7vyYgXa3pLx4MYWjokuoH4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5be5d8245cbc7bc0c09fbb5f38f23f223c543f85",
+        "rev": "bb014746edb2a98d975abde4dd40fa240de4cf86",
         "type": "github"
       },
       "original": {
@@ -461,11 +461,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1771084573,
-        "narHash": "sha256-7e/EqpZOMvkYycRJaF/OZh1CWc39Sa1ENi01euPv+4c=",
+        "lastModified": 1773164870,
+        "narHash": "sha256-Cqf0TsrdIpN/h8F/wPCr8AMm0ZPV50MrTsG9cSwnZ9A=",
         "ref": "refs/heads/main",
-        "rev": "14a59151fe96ae576c3520b5654735ff76e539e6",
-        "revCount": 19,
+        "rev": "c119d9ddbf7dadf9773a4ed8da12e37d4222233c",
+        "revCount": 21,
         "type": "git",
         "url": "ssh://git@github.com/tarc/nix-secrets.git"
       },
