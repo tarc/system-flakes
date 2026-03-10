@@ -41,9 +41,13 @@ in
         };
       };
 
-      programs.git.settings = {
-        user.email = "tarcisio.genaro@gmail.com";
-        user.name = "tarcisio";
+      programs.git = {
+        settings.user.email = "tarcisio.genaro@gmail.com";
+        settings.user.name = "tarcisio";
+        extraConfig.credential.helper = "manager";
+        extraConfig.credential."https://github.com".username = "tarc";
+        extraConfig.credential."https://codeberg.org".username = "tarcisio";
+        extraConfig.credential.credentialStore = "cache";
       };
 
       direnv.enable = true;
