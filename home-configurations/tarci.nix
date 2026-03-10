@@ -43,7 +43,7 @@ in
 
       programs.git.settings = {
         user.email = "tarcisio.genaro@gmail.com";
-        user.name = "tarc";
+        user.name = "tarcisio";
       };
 
       direnv.enable = true;
