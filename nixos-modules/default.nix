@@ -9,7 +9,6 @@
     file
     wget
     vim
-    git
     home-manager
     nssTools
     openssl
