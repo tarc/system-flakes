@@ -41,14 +41,19 @@ in
         };
       };
 
-      programs.git = {
-        settings.user.email = "tarcisio.genaro@gmail.com";
-        settings.user.name = "tarcisio";
-        settings.credential.helper = "manager";
-        settings.credential."https://github.com".username = "tarc";
-        settings.credential."https://codeberg.org".username = "tarcisio";
-        settings.credential."https://codeberg.org".provider = "generic";
-        settings.credential.credentialStore = "cache";
+      programs.git.settings = {
+        user = {
+          email = "tarcisio.genaro@gmail.com";
+          name = "tarcisio";
+        };
+
+        credential = {
+          helper = "manager";
+          credentialStore = "cache";
+          "https://github.com".username = "tarc";
+          "https://codeberg.org".username = "tarcisio";
+          "https://codeberg.org".provider = "generic";
+        };
       };
 
       direnv.enable = true;
