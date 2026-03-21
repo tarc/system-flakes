@@ -5,6 +5,10 @@
 , ...
 }:
 {
+  imports = [
+    ../overlays
+  ];
+
   environment.systemPackages = with pkgs; [
     file
     wget
