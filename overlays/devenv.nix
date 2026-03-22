@@ -1,6 +1,8 @@
 final: prev:
 let
   version = "2.0.6";
+  versionHash = "sha256-i1G6n/7Z5fO9RhplzXQSTiLyh1Cs0GhoCoEStFLARtA=";
+  versionCargoHash = "sha256-p5kI7HlG6RVxCCEb/J0L2gh36jkm/atAV98ny3h4vqo=";
   devenvNixVersion = "2.32";
   devenvNixRev = "41eee9d3b1f611b1b90d51caa858b6d83834c44a";
 
@@ -28,10 +30,10 @@ in
       owner = "cachix";
       repo = "devenv";
       tag = "v${version}";
-      hash = "sha256-i1G6n/7Z5fO9RhplzXQSTiLyh1Cs0GhoCoEStFLARtA=";
+      hash = versionHash;
     };
 
-    cargoHash = "sha256-p5kI7HlG6RVxCCEb/J0L2gh36jkm/atAV98ny3h4vqo=";
+    cargoHash = versionCargoHash;
 
     env = {
       RUSTFLAGS = "--cfg tracing_unstable";
