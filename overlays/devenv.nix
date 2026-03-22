@@ -1,7 +1,6 @@
 final: prev:
 let
   version = "2.0.6";
-  devenvRev = "07dd08dbd637b09173cad4097896bd169d09cbb3";
   devenvNixVersion = "2.32";
   devenvNixRev = "41eee9d3b1f611b1b90d51caa858b6d83834c44a";
 
@@ -28,11 +27,11 @@ in
     src = prev.fetchFromGitHub {
       owner = "cachix";
       repo = "devenv";
-      rev = "${devenvRev}";
-      hash = "sha256-NvT7Oek2GTTHsMfRtIzJYm1EbRtUoKsusOVBrmyGBQc=";
+      tag = "v${version}";
+      hash = "sha256-i1G6n/7Z5fO9RhplzXQSTiLyh1Cs0GhoCoEStFLARtA=";
     };
 
-    cargoHash = "sha256-xw2DLvSy5h7jBx6KM+AdAxM7WyOiCJlyle+4QmtHrls=";
+    cargoHash = "sha256-p5kI7HlG6RVxCCEb/J0L2gh36jkm/atAV98ny3h4vqo=";
 
     env = {
       RUSTFLAGS = "--cfg tracing_unstable";
