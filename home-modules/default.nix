@@ -4,9 +4,10 @@
 }:
 {
   imports = [
+    ezModules.bat
     ezModules.devenv
     ezModules.direnv
-    ezModules.bat
+    ezModules.swaylock
     ezModules.tldr
   ];
 }
