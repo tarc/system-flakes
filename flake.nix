@@ -80,7 +80,6 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     systems.url = "github:nix-systems/default";
     agenix.url = "github:ryantm/agenix";
-    omnix.url = "github:juspay/omnix";
 
     # Non flake inputs
     secrets.url = "git+ssh://git@github.com/tarc/nix-secrets.git";

@@ -11,7 +11,6 @@ in
   imports = [
     ezModules.agenix
     ezModules.git
-    ezModules.omci
     ezModules.ssh
     ezModules.zsh-shell
   ];

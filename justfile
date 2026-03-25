@@ -4,10 +4,6 @@ override := "--override-input conan-flake ../.."
 default:
     @just --list
 
-# Show flake outputs
-show:
-    om show .
-
 # Rebuild the system
 rebuild:
     sudo nixos-rebuild switch --flake .#poita --show-trace
