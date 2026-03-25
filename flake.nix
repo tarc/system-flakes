@@ -48,6 +48,7 @@
             ];
             packages = with pkgs; [
               just
+              nil
             ];
             TREEFMT_CONFIG_FILE = config.treefmt.build.configFile;
             shellHook = ''

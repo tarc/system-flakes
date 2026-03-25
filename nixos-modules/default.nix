@@ -1,4 +1,5 @@
-{ inputs
+{ ezModules
+, inputs
 , lib
 , modulesPath
 , pkgs
@@ -6,6 +7,7 @@
 }:
 {
   imports = [
+    ezModules.cache
     ../overlays
   ];
 
@@ -19,8 +21,13 @@
     kdePackages.okular
     kdePackages.dolphin
     google-chrome
-    # anytype
   ];
+
+  cache = {
+    enable = true;
+    name = "tarcisio-system-flakes";
+    publicKey = "0aH1vqCStSra4G5ndJGn81naNM5RSugt9yhxQsoYlNA=";
+  };
 
   nix = {
     extraOptions = "experimental-features = nix-command flakes ca-derivations";
@@ -33,7 +40,6 @@
       ];
       trusted-substituters = [
         "https://cache.nixos.org"
-        "https://tarc.cachix.org"
         "https://nix-community.cachix.org"
         "https://devenv.cachix.org"
         "https://cache.iog.io"
@@ -41,7 +47,6 @@
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "tarc.cachix.org-1:wIYVNrWvfOFESyas4plhMmGv91TjiTBVWB0oqf1fHcE="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
         "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="

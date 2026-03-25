@@ -1,0 +1,8 @@
+{
+  "nix.serverPath": "nil",
+  "nix.enableLanguageServer": true,
+  "editor.defaultFormatter": "B4dM4n.nixpkgs-fmt",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}

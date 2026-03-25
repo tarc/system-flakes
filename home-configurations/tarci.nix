@@ -20,6 +20,9 @@ in
     let
       githubToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.GITHUB_TOKEN.path})";
       codebergToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.CODEBERG_TOKEN.path})";
+      cachixAuthToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.CACHIX_AUTH_TOKEN.path})";
+      tarcDevenvNixpkgsRollingGenericToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.TARC_DEVENV_NIXPKGS_ROLLING_GENERIC_TOKEN.path})";
+      tarcDevenvNixpkgsRollingPlayConanToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.TARC_DEVENV_NIXPKGS_ROLLING_PLAY_CONAN_TOKEN.path})";
     in
     {
       home = {
@@ -29,6 +32,9 @@ in
         sessionVariables = {
           GITHUB_TOKEN = githubToken;
           CODEBERG_TOKEN = codebergToken;
+          CACHIX_AUTH_TOKEN = cachixAuthToken;
+          TARC_DEVENV_NIXPKGS_ROLLING_GENERIC_TOKEN = tarcDevenvNixpkgsRollingGenericToken;
+          TARC_DEVENV_NIXPKGS_ROLLING_PLAY_CONAN_TOKEN = tarcDevenvNixpkgsRollingPlayConanToken;
           EDITOR = "vim";
           VISUAL = "vim";
           LANG = "en_US.UTF-8";
@@ -65,6 +71,14 @@ in
         "GITHUB_TOKEN".file = "${inputs.secrets}/nixpkgs-review-github-pat.age";
 
         "CODEBERG_TOKEN".file = "${inputs.secrets}/codeberg-pat.age";
+
+        "CACHIX_AUTH_TOKEN".file = "${inputs.secrets}/tarcisio-system-flakes-auth-token.age";
+
+        "TARC_DEVENV_NIXPKGS_ROLLING_GENERIC_TOKEN".file =
+          "${inputs.secrets}/tarc-devenv-nixpkgs-rolling-generic-auth-token.age";
+
+        "TARC_DEVENV_NIXPKGS_ROLLING_PLAY_CONAN_TOKEN".file =
+          "${inputs.secrets}/tarc-devenv-nixpkgs-rolling-play-conan-auth-token.age";
 
         "codeberg-ssh-key" = {
           symlink = true;
