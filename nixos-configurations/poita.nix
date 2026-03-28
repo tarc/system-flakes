@@ -31,6 +31,8 @@
   nixpkgs = {
     hostPlatform = "x86_64-linux";
     config.allowUnfree = true;
+    config.allowUnsupportedSystem = false;
+    config.cudaSupport = true;
   };
 
   home-manager.useGlobalPkgs = true;
