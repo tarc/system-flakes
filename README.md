@@ -2,13 +2,6 @@
 
 This is based on the [`flake-parts`]' [`ez-configs`] module, with binary caching supported by [Cachix].
 
-[NixOS-WSL]: https://github.com/nix-community/NixOS-WSL
-[Home Manger]: https://github.com/nix-community/home-manager
-[`flake-parts`]: https://flake.parts
-[`ez-configs`]: https://github.com/ehllie/ez-configs
-[Cachix]: https://www.cachix.org/
-
-
 ## Custom commands
 
 To push a specific version of the flake inputs to the cache, run this command on the root of a local checkout of this repository:
@@ -16,3 +9,9 @@ To push a specific version of the flake inputs to the cache, run this command on
 ```shell
 flake-archive | cachix-cache push
 ```
+
+[cachix]: https://www.cachix.org/
+[home manger]: https://github.com/nix-community/home-manager
+[nixos-wsl]: https://github.com/nix-community/NixOS-WSL
+[`ez-configs`]: https://github.com/ehllie/ez-configs
+[`flake-parts`]: https://flake.parts
