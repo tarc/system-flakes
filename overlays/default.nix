@@ -5,6 +5,6 @@
 }:
 {
   nixpkgs.overlays = [
-    (import ./devenv.nix)
+    # (import ./devenv.nix)
   ];
 }
