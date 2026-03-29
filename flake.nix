@@ -25,7 +25,6 @@
         }:
         {
           treefmt.config = {
-            projectRoot = inputs.conan-flake;
             projectRootFile = "README.md";
             programs = {
               clang-format.enable = true;

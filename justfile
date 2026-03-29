@@ -1,5 +1,4 @@
 flags := "--show-trace --accept-flake-config"
-override := "--override-input conan-flake ../.."
 
 default:
     @just --list
