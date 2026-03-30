@@ -1,5 +1,6 @@
-{ ezModules
-, ...
+{
+  ezModules,
+  ...
 }:
 {
   imports = [

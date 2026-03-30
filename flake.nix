@@ -18,10 +18,11 @@
       systems = import inputs.systems;
 
       perSystem =
-        { pkgs
-        , lib
-        , config
-        , ...
+        {
+          pkgs,
+          lib,
+          config,
+          ...
         }:
         {
           treefmt.config = {
@@ -29,7 +30,6 @@
             programs = {
               clang-format.enable = true;
               cmake-format.enable = true;
-              nixpkgs-fmt.enable = true;
               alejandra.enable = false;
               nixfmt.enable = true;
               deadnix = {

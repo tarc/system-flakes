@@ -1,8 +1,9 @@
-{ inputs
-, pkgs
-, ezModules
-, config
-, ...
+{
+  inputs,
+  pkgs,
+  ezModules,
+  config,
+  ...
 }:
 let
   homeDir = config.home.homeDirectory;

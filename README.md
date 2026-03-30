@@ -1,4 +1,4 @@
-# system-flakes - [NixOS-WSL]/[Home Manger] configuration
+# system-flakes — [NixOS-WSL]/[Home Manger] configuration
 
 This is based on the [`flake-parts`]' [`ez-configs`] module, with binary caching supported by [Cachix].
 

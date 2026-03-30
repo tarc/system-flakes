@@ -1,9 +1,10 @@
-{ ezModules
-, inputs
-, lib
-, modulesPath
-, pkgs
-, ...
+{
+  ezModules,
+  inputs,
+  lib,
+  modulesPath,
+  pkgs,
+  ...
 }:
 {
   imports = [

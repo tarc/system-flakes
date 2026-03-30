@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   inherit (config.home) username;
@@ -65,9 +66,9 @@ in
   programs.zsh =
     let
       mkZshPlugin =
-        { pkg
-        , file ? "${pkg.pname}.plugin.zsh"
-        ,
+        {
+          pkg,
+          file ? "${pkg.pname}.plugin.zsh",
         }:
         {
           name = pkg.pname;
