@@ -35,9 +35,17 @@ Variants:
 
 - [`ez-configs`]'s author own dotfiles: [ehllie/dotfiles]
 
+## References
+
+- [NVIDIA][nixos/nvidia] ([Official NixOS Wiki][nixos])
+- [CUDA][nixos/cuda] ([Official NixOS Wiki][nixos])
+
 [cachix]: https://www.cachix.org/
 [ehllie/dotfiles]: https://github.com/ehllie/dotfiles
 [home manger]: https://github.com/nix-community/home-manager
+[nixos]: https://wiki.nixos.org/wiki/NixOS_Wiki
 [nixos-wsl]: https://github.com/nix-community/NixOS-WSL
+[nixos/cuda]: https://wiki.nixos.org/wiki/CUDA
+[nixos/nvidia]: https://wiki.nixos.org/wiki/NVIDIA
 [`ez-configs`]: https://github.com/ehllie/ez-configs
 [`flake-parts`]: https://flake.parts
