@@ -31,6 +31,19 @@ Variants:
 
 - `nix run 'github:nixos/nixpkgs/nixpkgs-unstable#jq'`
 
+### `glxinfo -B`
+
+Variants:
+
+- `nix run 'github:nixos/nixpkgs/nixpkgs-unstable#jq'`
+- `GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA glxinfo -B | grep "OpenGL renderer"`
+
+### `vulkaninfo`
+
+Variants:
+
+- `vulkaninfo --summary`
+
 ## Related projects
 
 - [`ez-configs`]'s author own dotfiles: [ehllie/dotfiles]

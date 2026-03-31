@@ -13,7 +13,10 @@
   system.stateVersion = "24.05";
 
   environment.systemPackages = [
+    pkgs.lshw
+    pkgs.pciutils
     pkgs.mesa-demos
+    pkgs.vulkan-tools
     pkgs.rocmPackages.rocminfo
   ];
 
@@ -28,7 +31,6 @@
 
   programs.nix-ld = {
     enable = true;
-    libraries = config.hardware.graphics.extraPackages;
   };
 
   users.users.tarci = {
@@ -43,6 +45,7 @@
     hostPlatform = "x86_64-linux";
     config.allowUnfree = true;
     config.allowUnsupportedSystem = false;
+    config.cudaForwardCompat = true;
     config.cudaSupport = true;
   };
 

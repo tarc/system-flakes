@@ -26,6 +26,12 @@
           config,
           ...
         }:
+        let
+          someBuildInputs = with pkgs; [
+            linuxPackages.nvidia_x11
+            ncurses5
+          ];
+        in
         {
           treefmt.config = {
             projectRootFile = "README.md";
@@ -57,6 +63,13 @@
               echo "🍎🍎 Run 'just <recipe>' to get started"
               just
             '';
+            env = {
+              LD_LIBRARY_PATH = "/usr/lib/wsl/lib:${
+                with pkgs.lib; makeLibraryPath someBuildInputs
+              }:/run/opengl-driver/lib";
+              MESA_D3D12_DEFAULT_ADAPTER_NAME = "NVIDIA";
+              GALLIUM_DRIVER = "d3d12";
+            };
           };
         };
     };
