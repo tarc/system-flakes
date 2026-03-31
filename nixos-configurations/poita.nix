@@ -12,6 +12,11 @@
 
   system.stateVersion = "24.05";
 
+  environment.systemPackages = [
+    pkgs.mesa-demos
+    pkgs.rocmPackages.rocminfo
+  ];
+
   wsl = {
     enable = true;
     defaultUser = "tarci";
@@ -19,6 +24,11 @@
     wslConf.automount.root = "/mnt";
     docker-desktop.enable = true;
     useWindowsDriver = true;
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = config.hardware.graphics.extraPackages;
   };
 
   users.users.tarci = {
@@ -38,6 +48,5 @@
 
   home-manager.useGlobalPkgs = true;
 
-  programs.nix-ld.enable = true;
   programs.zsh.enable = true;
 }

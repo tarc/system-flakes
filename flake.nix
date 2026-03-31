@@ -4,6 +4,8 @@
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      debug = true;
+
       imports = [
         inputs.ez-configs.flakeModule
         inputs.treefmt-nix.flakeModule
