@@ -64,9 +64,7 @@
               just
             '';
             env = {
-              LD_LIBRARY_PATH = "/usr/lib/wsl/lib:${
-                with pkgs.lib; makeLibraryPath someBuildInputs
-              }:/run/opengl-driver/lib";
+              LD_LIBRARY_PATH = "/usr/lib/wsl/lib";
               MESA_D3D12_DEFAULT_ADAPTER_NAME = "NVIDIA";
               GALLIUM_DRIVER = "d3d12";
             };
