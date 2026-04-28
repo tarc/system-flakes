@@ -30,7 +30,7 @@ let
     DEFAULT_USER = "${username}";
     CLICOLOR = 1;
     TERM = "xterm-256color";
-    DISABLE_MAGIC_FUNCTIONS = true;
+    DISABLE_MAGIC_FUNCTIONS = (toString true);
   };
 in
 {
