@@ -26,12 +26,6 @@
           config,
           ...
         }:
-        let
-          someBuildInputs = with pkgs; [
-            linuxPackages.nvidia_x11
-            ncurses5
-          ];
-        in
         {
           treefmt.config = {
             projectRootFile = "README.md";
