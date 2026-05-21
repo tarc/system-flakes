@@ -30,7 +30,7 @@
           treefmt.config = {
             projectRootFile = "README.md";
             programs = {
-              clang-format.enable = true;
+              # clang-format.enable = true;
               cmake-format.enable = true;
               alejandra.enable = false;
               nixfmt.enable = true;
