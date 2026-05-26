@@ -74,6 +74,8 @@
     # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     # nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     # nixpkgs-darwin-lib.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin?dir=lib";
+    nixos-26-05.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixos-26-05-lib.url = "github:NixOS/nixpkgs/nixos-26.05?dir=lib";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-unstable-lib.url = "github:NixOS/nixpkgs/nixpkgs-unstable?dir=lib";
 
@@ -92,8 +94,8 @@
     secrets.flake = false;
 
     # Default nixpkgs
-    nixpkgs.follows = "nixpkgs-unstable";
-    nixpkgs-lib.follows = "nixpkgs-unstable-lib";
+    nixpkgs.follows = "nixos-26-05";
+    nixpkgs-lib.follows = "nixos-26-05-lib";
 
     # Minimize duplicate instances of inputs
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
