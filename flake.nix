@@ -94,8 +94,8 @@
     secrets.flake = false;
 
     # Default nixpkgs
-    nixpkgs.follows = "nixos-26-05";
-    nixpkgs-lib.follows = "nixos-26-05-lib";
+    nixpkgs.follows = "nixpkgs-unstable";
+    nixpkgs-lib.follows = "nixpkgs-unstable-lib";
 
     # Minimize duplicate instances of inputs
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
