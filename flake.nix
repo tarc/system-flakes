@@ -88,6 +88,7 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     systems.url = "github:nix-systems/default";
     agenix.url = "github:ryantm/agenix";
+    rust-overlay.url = "github:oxalica/rust-overlay";
 
     # Non flake inputs
     secrets.url = "git+ssh://git@github.com/tarc/nix-secrets.git";
@@ -109,5 +110,6 @@
     agenix.inputs.darwin.follows = "nix-darwin";
     agenix.inputs.home-manager.follows = "home-manager";
     agenix.inputs.systems.follows = "systems";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
