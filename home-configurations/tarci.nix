@@ -47,6 +47,8 @@ in
         };
       };
 
+      weechat.enable = true;
+
       programs.git.settings = {
         user = {
           email = "tarcisio.genaro@gmail.com";

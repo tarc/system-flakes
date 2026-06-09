@@ -10,5 +10,6 @@
     # (import ./devenv.nix)
     # (import ./devenv-package.nix)
     # (import ./devenv-override-input.nix)
+    (import ./weechat.nix)
   ];
 }

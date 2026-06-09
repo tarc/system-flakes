@@ -9,5 +9,6 @@
     ezModules.direnv
     ezModules.swaylock
     ezModules.tldr
+    ezModules.weechat
   ];
 }
