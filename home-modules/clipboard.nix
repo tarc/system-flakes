@@ -10,7 +10,7 @@ let
     types
     ;
 
-  weechatSubmodule = types.submodule {
+  clipboardSubmodule = types.submodule {
     options = {
       enable = mkOption {
         type = types.bool;
@@ -18,23 +18,22 @@ let
       };
       package = mkOption {
         type = types.package;
-        default = pkgs.weechat;
+        default = pkgs.wl-clipboard;
       };
     };
   };
 
-  cfg = config.weechat;
+  cfg = config.clipboard;
 in
 {
   options = {
-    weechat = mkOption {
-      type = weechatSubmodule;
+    clipboard = mkOption {
+      type = clipboardSubmodule;
       default = { };
     };
   };
 
   config = {
-    # ircs://irc.libera.chat/#felinebuildservices
     home = {
       packages = lib.optionalAttrs cfg.enable [
         cfg.package

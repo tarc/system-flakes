@@ -48,6 +48,7 @@ in
       };
 
       weechat.enable = true;
+      clipboard.enable = true;
 
       programs.git.settings = {
         user = {

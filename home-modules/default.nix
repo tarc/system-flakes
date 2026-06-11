@@ -10,5 +10,6 @@
     ezModules.swaylock
     ezModules.tldr
     ezModules.weechat
+    ezModules.clipboard
   ];
 }
