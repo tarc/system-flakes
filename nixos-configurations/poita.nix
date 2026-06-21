@@ -18,6 +18,7 @@
     pkgs.mesa-demos
     pkgs.vulkan-tools
     pkgs.rocmPackages.rocminfo
+    pkgs.zed-editor
   ];
 
   wsl = {
