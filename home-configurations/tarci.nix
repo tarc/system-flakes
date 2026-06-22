@@ -45,6 +45,13 @@ in
             target = ".ssh/id_github.pub";
           };
         };
+        pointerCursor = {
+          gtk.enable = true;
+          x11.enable = true;
+          package = pkgs.vanilla-dmz;
+          name = "Vanilla-DMZ";
+          size = 24;
+        };
       };
 
       weechat.enable = true;
