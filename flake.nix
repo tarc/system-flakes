@@ -22,7 +22,6 @@
       perSystem =
         {
           pkgs,
-          lib,
           config,
           ...
         }:
@@ -49,7 +48,6 @@
             ];
             packages = with pkgs; [
               just
-              nil
             ];
             TREEFMT_CONFIG_FILE = config.treefmt.build.configFile;
             shellHook = ''
@@ -74,8 +72,8 @@
     # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     # nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     # nixpkgs-darwin-lib.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin?dir=lib";
-    nixos-26-05.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nixos-26-05-lib.url = "github:NixOS/nixpkgs/nixos-26.05?dir=lib";
+    # nixos-26-05.url = "github:NixOS/nixpkgs/nixos-26.05";
+    # nixos-26-05-lib.url = "github:NixOS/nixpkgs/nixos-26.05?dir=lib";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-unstable-lib.url = "github:NixOS/nixpkgs/nixpkgs-unstable?dir=lib";
 

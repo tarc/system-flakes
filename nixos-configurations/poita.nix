@@ -1,8 +1,6 @@
 {
-  config,
   inputs,
   pkgs,
-  ezModules,
   ...
 }:
 {
@@ -13,9 +11,12 @@
   system.stateVersion = "24.05";
 
   environment.systemPackages = [
+    pkgs.auggie
     pkgs.lshw
-    pkgs.pciutils
     pkgs.mesa-demos
+    pkgs.nixd
+    pkgs.nil
+    pkgs.pciutils
     pkgs.vulkan-tools
     pkgs.rocmPackages.rocminfo
     pkgs.zed-editor

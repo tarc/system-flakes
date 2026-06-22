@@ -1,7 +1,4 @@
 {
-  inputs,
-  pkgs,
-  lib,
   ...
 }:
 {
@@ -11,5 +8,6 @@
     # (import ./devenv-package.nix)
     # (import ./devenv-override-input.nix)
     (import ./weechat.nix)
+    (import ./auggie.nix)
   ];
 }
