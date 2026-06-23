@@ -2,9 +2,18 @@
   description = "NixOS/nix-darwin/home-manager configuration using Nix Flakes.";
 
   outputs =
-    inputs@{ flake-parts, ... }:
+    { flake-parts, ... }@inputs:
+    let
+      lib = import ./lib/system-flakes.nix { inherit inputs; };
+    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       debug = true;
+
+      flake = {
+        lib = {
+          inherit (lib) systemFlakes;
+        };
+      };
 
       imports = [
         inputs.ez-configs.flakeModule
@@ -13,7 +22,10 @@
 
       ezConfigs = {
         root = ./.;
-        globalArgs = { inherit inputs; };
+        globalArgs = {
+          inherit inputs;
+          inherit (lib) systemFlakes;
+        };
         nixos.hosts.poita.userHomeModules = [ "tarci" ];
       };
 

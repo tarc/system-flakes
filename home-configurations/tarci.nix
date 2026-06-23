@@ -50,7 +50,7 @@ in
           x11.enable = true;
           package = pkgs.vanilla-dmz;
           name = "Vanilla-DMZ";
-          size = 24;
+          size = 28;
         };
       };
 

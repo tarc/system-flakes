@@ -1,4 +1,7 @@
-final: prev: {
+{
+  ...
+}:
+(final: prev: {
   devenv = prev.writeShellApplication {
     name = "devenv";
 
@@ -8,4 +11,4 @@ final: prev: {
       devenv --override-input devenv 'github:tarc/devenv/feature/conan-flake-2.1.2' "$@"
     '';
   };
-}
+})

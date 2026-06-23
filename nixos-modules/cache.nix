@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  systemFlakes,
   ...
 }:
 let
@@ -32,7 +33,7 @@ let
       };
       flakeArchiveCommandName = mkOption {
         type = types.str;
-        default = "flake-archive";
+        default = systemFlakes.constants.FLAKE_ARCHIVE_COMMAND_NAME;
       };
     };
   };

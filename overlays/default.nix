@@ -1,13 +1,16 @@
 {
+  systemFlakes,
   ...
 }:
 {
-  nixpkgs.overlays = [
-    # inputs.rust-overlay.overlays.default
-    # (import ./devenv.nix)
-    # (import ./devenv-package.nix)
-    # (import ./devenv-override-input.nix)
-    (import ./weechat.nix)
-    (import ./auggie.nix)
-  ];
+  nixpkgs = {
+    overlays = [
+      # inputs.rust-overlay.overlays.default
+      # (import ./devenv.nix { inherit systemFlakes; })
+      # (import ./devenv-package.nix { inherit systemFlakes; })
+      # (import ./devenv-override-input.nix { inherit systemFlakes; })
+      (import ./weechat.nix { inherit systemFlakes; })
+      (import ./auggie.nix { inherit systemFlakes; })
+    ];
+  };
 }

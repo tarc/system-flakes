@@ -1,8 +1,5 @@
 {
   ezModules,
-  inputs,
-  lib,
-  modulesPath,
   pkgs,
   ...
 }:
