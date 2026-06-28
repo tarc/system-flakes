@@ -6,10 +6,10 @@
   final: prev:
   let
     pname = "auggie";
-    version = "0.30.0";
+    version = "0.31.0";
     src = prev.fetchurl {
       url = "https://registry.npmjs.org/@augmentcode/auggie/-/auggie-${version}.tgz";
-      hash = "sha256-WQX0bAh9wvkYX7T6WvXGr7RBXyF1mrSl6iC9VsYTNE8=";
+      hash = "sha256-JDzUu6gyomHbqJNtSfgys0P9827WZGLCpnEQVeidOzo=";
     };
     pnpm = prev.pnpm_10;
     nodejs = prev.nodejs_22;
