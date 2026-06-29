@@ -1,12 +1,6 @@
 {
-  inputs,
-  pkgs,
   ...
 }:
 {
-  home = {
-    packages = [
-      pkgs.devenv
-    ];
-  };
+  programs.devenv.enable = true;
 }
