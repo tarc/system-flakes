@@ -88,7 +88,7 @@ in
       cachixDryRunScript
       flakeArchiveScript
     ];
-    nix.settings.trusted-substituters = lib.optional cfg.enable "https://${cfg.name}.cachix.org";
-    nix.settings.trusted-public-keys = lib.optional cfg.enable "${cfg.name}.cachix.org-1:${cfg.publicKey}";
+    nix.settings.extra-substituters = lib.optional cfg.enable "https://${cfg.name}.cachix.org";
+    nix.settings.extra-trusted-public-keys = lib.optional cfg.enable "${cfg.name}.cachix.org-1:${cfg.publicKey}";
   };
 }
