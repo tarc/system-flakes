@@ -29,7 +29,7 @@
   };
 
   nix = {
-    extraOptions = "experimental-features = nix-command flakes ca-derivations";
+    extraOptions = "experimental-features = nix-command flakes ca-derivations pipe-operators";
 
     settings = {
       trusted-users = [
