@@ -11,6 +11,7 @@
   system.stateVersion = "24.05";
 
   environment.systemPackages = [
+    pkgs.age
     pkgs.auggie
     pkgs.lshw
     pkgs.mesa-demos
