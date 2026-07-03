@@ -54,13 +54,13 @@ in
       enable = true;
       defaultCommand = "${fd} -H --type f";
       defaultOptions = [ "--height 50%" ];
-      fileWidgetCommand = "${defaultCommand}";
-      fileWidgetOptions = [
+      fileWidget.command = "${defaultCommand}";
+      fileWidget.options = [
         "--preview '${lib.getExe pkgs.bat} --color=always --plain --line-range=:200 {}'"
       ];
-      changeDirWidgetCommand = "${fd} -H --type d";
-      changeDirWidgetOptions = [ "--preview '${pkgs.tree}/bin/tree -C {} | head -200'" ];
-      historyWidgetOptions = [ ];
+      changeDirWidget.command = "${fd} -H --type d";
+      changeDirWidget.options = [ "--preview '${pkgs.tree}/bin/tree -C {} | head -200'" ];
+      historyWidget.options = [ ];
     };
 
   programs.zsh =
