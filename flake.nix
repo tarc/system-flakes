@@ -93,7 +93,8 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     flake-parts.url = "github:hercules-ci/flake-parts";
     ez-configs.url = "github:ehllie/ez-configs";
-    home-manager.url = "github:nix-community/home-manager";
+    # home-manager-pinned.url = "github:nix-community/home-manager?rev=f09af49406ffad37acb6538d3207189a1a1e0b7e";
+    home-manager-master.url = "github:nix-community/home-manager";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     systems.url = "github:nix-systems/default";
@@ -104,16 +105,18 @@
     secrets.url = "git+ssh://git@github.com/tarc/nix-secrets.git";
     secrets.flake = false;
 
-    # Default nixpkgs
+    # Select defaults
     nixpkgs.follows = "nixpkgs-unstable";
     nixpkgs-lib.follows = "nixpkgs-unstable-lib";
+    home-manager.follows = "home-manager-master";
 
     # Minimize duplicate instances of inputs
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs-lib";
     ez-configs.inputs.nixpkgs.follows = "nixpkgs";
     ez-configs.inputs.flake-parts.follows = "flake-parts";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # home-manager-pinned.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager-master.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
