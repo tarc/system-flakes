@@ -13,6 +13,7 @@
   environment.systemPackages = [
     pkgs.age
     pkgs.auggie
+    pkgs.embedme
     pkgs.lshw
     pkgs.mesa-demos
     pkgs.nixd
