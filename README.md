@@ -44,6 +44,51 @@ Variants:
 
 - `vulkaninfo --summary`
 
+### Garbage collecting
+
+```sh > text $
+nix-collect-garbage --delete-old 2>&1 | tail -n 10
+```
+
+<!-- BEGIN mdsh -->
+```text
+deleting '/nix/store/bzl2ib7plndmp8bh45znbvxck5scfbwh-tk8.6.16-src.tar.gz.drv'
+deleting '/nix/store/gqazg4lqz2wp70hfay2lxnz86748ib4l-python3.14-markupsafe-3.0.3'
+deleting '/nix/store/q7bq0zzrxskrz1zcs4lxwdxld48w17nr-source.drv'
+deleting '/nix/store/d60gfnq8gvzwly4b9ak1hkv4z47r7kr3-kiwisolver-1.4.9.tar.gz.drv'
+deleting '/nix/store/5b47icl4qzy9bz9mygk0hsc41646j0lm-python3.14-six-1.17.0'
+deleting '/nix/store/59i3w5yw4bsvj9cb0hx2lpndlyyc8n6s-python3.14-mccabe-0.7.0'
+deleting '/nix/store/xwhfbyyfxxkflkbfql877lm3hy3jsz3g-matplotlib-3.11.0.tar.gz.drv'
+deleting unused links...
+note: hard linking is currently saving 20.6 GiB
+164 store paths deleted, 25.5 MiB freed
+```
+<!-- END mdsh -->
+
+```sh > text $
+sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
+```
+
+<!-- BEGIN mdsh -->
+```text
+removing old generations of profile /nix/var/nix/profiles/system
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+deleting garbage...
+deleting unused links...
+note: hard linking is currently saving 20.6 GiB
+0 store paths deleted, 0.0 KiB freed
+```
+<!-- END mdsh -->
+
+### `nix fmt`
+
+Calls the flake default formatter.
+
+> [!WARNING]
+> This will run commands embedded in markdown.
+
 ## Related projects
 
 - [`ez-configs`]'s author own dotfiles: [ehllie/dotfiles]
@@ -54,46 +99,6 @@ Variants:
 - [CUDA][nixos/cuda] ([Official NixOS Wiki][nixos])
 
 ## Troubleshooting
-
-- Garbage collecting
-
-```sh > text $
-nix-collect-garbage --delete-old 2>&1 | tail -n 10
-```
-
-<!-- BEGIN mdsh -->
-```text
-deleting '/nix/store/q7bq0zzrxskrz1zcs4lxwdxld48w17nr-source.drv'
-deleting '/nix/store/d60gfnq8gvzwly4b9ak1hkv4z47r7kr3-kiwisolver-1.4.9.tar.gz.drv'
-deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
-deleting '/nix/store/r37pv6iqy0x1l2nnzqa738gz261k2dc6-source.drv'
-deleting '/nix/store/5b47icl4qzy9bz9mygk0hsc41646j0lm-python3.14-six-1.17.0'
-deleting '/nix/store/59i3w5yw4bsvj9cb0hx2lpndlyyc8n6s-python3.14-mccabe-0.7.0'
-deleting '/nix/store/xwhfbyyfxxkflkbfql877lm3hy3jsz3g-matplotlib-3.11.0.tar.gz.drv'
-deleting unused links...
-note: hard linking is currently saving 20.6 GiB
-237 store paths deleted, 25.8 MiB freed
-```
-<!-- END mdsh -->
-
-```sh > text $
-sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
-```
-
-<!-- BEGIN mdsh -->
-```text
-deleting '/nix/store/1ixfrii6g13cqp1dyhdqv60pniqk3c5y-system-units.drv'
-deleting '/nix/store/jb5597q084rid7i2zzs57gqh8gdz3zfn-unit-dbus-broker.service.drv'
-deleting '/nix/store/zg627lp5y4wxp3myjb2kpnp9sxn023rc-user-units.drv'
-deleting '/nix/store/il4nxvidza932xlxqfdyklkxs04z8mzb-unit-dbus-broker.service.drv'
-deleting '/nix/store/yfrnxfzxchvis9vpkkk4v93i48b0306i-X-Restart-Triggers-dbus-broker.drv'
-deleting '/nix/store/di4rci87q3knqzka9fjz62w85yybbkri-dbus-1.drv'
-deleting '/nix/store/gldvl79baz56ywppj2rsr7cc2axdlg57-system-path.drv'
-deleting unused links...
-note: hard linking is currently saving 20.6 GiB
-19 store paths deleted, 4.2 MiB freed
-```
-<!-- END mdsh -->
 
 - [How would i set a cursor on NixOS using Home Manager?][how-set-cursor-on-nixos-home-manager]
 
