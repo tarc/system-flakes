@@ -6,75 +6,143 @@
     let
       lib = import ./lib/system-flakes.nix { inherit inputs; };
     in
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      debug = true;
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      { flake-parts-lib, ... }: {
 
-      flake = {
-        lib = {
-          inherit (lib) systemFlakes;
-        };
-      };
+        imports = [
+          inputs.ez-configs.flakeModule
+        ];
 
-      imports = [
-        inputs.ez-configs.flakeModule
-        inputs.treefmt-nix.flakeModule
-      ];
-
-      ezConfigs = {
-        root = ./.;
-        globalArgs = {
-          inherit inputs;
-          inherit (lib) systemFlakes;
-        };
-        nixos.hosts.poita.userHomeModules = [ "tarci" ];
-      };
-
-      systems = import inputs.systems;
-
-      perSystem =
-        {
-          pkgs,
-          config,
-          ...
-        }:
-        {
-          treefmt.config = {
-            projectRootFile = "README.md";
-            programs = {
-              # clang-format.enable = true;
-              cmake-format.enable = true;
-              alejandra.enable = false;
-              nixfmt.enable = true;
-              deadnix = {
-                enable = true;
-                no-lambda-pattern-names = true;
-                no-lambda-arg = true;
+        options = {
+          perSystem = flake-parts-lib.mkPerSystemOption (
+            {
+              config,
+              pkgs,
+              lib,
+              ...
+            }:
+            {
+              options.treefmt = lib.mkOption {
+                type = inputs.treefmt-nix.lib.submoduleWith lib {
+                  modules = [
+                    {
+                      options.pkgs = lib.mkOption {
+                        default = pkgs;
+                      };
+                      options.flakeFormatter = lib.mkOption {
+                        type = lib.types.bool;
+                        default = true;
+                      };
+                      config.projectRootFile = lib.mkDefault "flake.nix";
+                    }
+                  ];
+                };
+                default = { };
               };
-              mdformat.enable = true;
-              just.enable = true;
-            };
-          };
-          devShells.default = pkgs.mkShell {
-            inputsFrom = [
-              config.treefmt.build.devShell
-            ];
-            packages = with pkgs; [
-              just
-            ];
-            TREEFMT_CONFIG_FILE = config.treefmt.build.configFile;
-            shellHook = ''
-              echo
-              echo "🍎🍎 Run 'just <recipe>' to get started"
-              just
-            '';
-            env = {
-              LD_LIBRARY_PATH = "/usr/lib/wsl/lib";
-              MESA_D3D12_DEFAULT_ADAPTER_NAME = "NVIDIA";
-              GALLIUM_DRIVER = "d3d12";
-            };
-          };
+              config = {
+                formatter = lib.mkIf config.treefmt.flakeFormatter (lib.mkDefault config.treefmt.build.wrapper);
+              };
+            }
+          );
         };
-    };
+
+        config = {
+          debug = true;
+
+          ezConfigs = {
+            root = ./.;
+            globalArgs = {
+              inherit inputs;
+              inherit (lib) systemFlakes;
+            };
+            nixos.hosts.poita.userHomeModules = [ "tarci" ];
+          };
+
+          flake = {
+            lib = {
+              inherit (lib) systemFlakes;
+            };
+          };
+
+          systems = import inputs.systems;
+
+          perSystem =
+            {
+              pkgs,
+              system,
+              ...
+            }:
+            {
+              treefmt.config = {
+                projectRootFile = "README.md";
+                programs = {
+                  # clang-format.enable = true;
+                  cmake-format.enable = true;
+                  alejandra.enable = false;
+                  nixfmt.enable = true;
+                  deadnix = {
+                    enable = true;
+                    no-lambda-pattern-names = true;
+                    no-lambda-arg = true;
+                  };
+                  mdformat.enable = true;
+                  just.enable = true;
+                  mdsh.enable = true;
+                };
+              };
+
+              _module.args.pkgs = import inputs.nixpkgs {
+                inherit system;
+                overlays = [
+                  (
+                    _: prev:
+                    let
+                      name = "mdsh";
+                      version = "0.9.3";
+                      versionHash = "sha256-W9znh93RokghlqIjRRjIUJmkXxUAtLZtpZfGceTPK14=";
+                      versionCargoHash = "sha256-JbmHwAn3oXUUXsiQgCcZSBBS9o9Kam66MWHnbo25Fxg=";
+                      src = prev.fetchFromGitHub {
+                        owner = "tarc";
+                        repo = name;
+                        # tag = "v${version}";
+                        rev = "cd7d2374b551fbe5bf02367398cf6d6b140fca38";
+                        hash = versionHash;
+                      };
+                    in
+                    {
+                      mdsh = prev.mdsh.overrideAttrs (_: rec {
+                        inherit version src;
+                        cargoDeps = prev.rustPlatform.fetchCargoVendor {
+                          inherit src;
+                          name = "${name}-${version}-vendor";
+                          hash = versionCargoHash;
+                        };
+                      });
+                    }
+                  )
+                ];
+                config = { };
+              };
+
+              devShells.default = pkgs.mkShell {
+                packages = with pkgs; [
+                  just
+                ];
+                shellHook = ''
+                  echo
+                  echo "🍎🍎 Run 'just <recipe>' to get started"
+                  just
+                '';
+                env = {
+                  LD_LIBRARY_PATH = "/usr/lib/wsl/lib";
+                  MESA_D3D12_DEFAULT_ADAPTER_NAME = "NVIDIA";
+                  GALLIUM_DRIVER = "d3d12";
+                };
+              };
+            };
+        };
+      }
+    );
 
   inputs = {
     ### -- nixpkgs

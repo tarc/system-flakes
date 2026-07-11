@@ -56,7 +56,7 @@
       meta = {
         description = "An AI agent that brings Augment Code's power to the terminal";
         homepage = "https://www.augmentcode.com/";
-        license = final.lib.licenses.mit;
+        license = prev.lib.licenses.mit;
         mainProgram = "auggie";
         maintainers = [
           systemFlakes.maintainers.tarc

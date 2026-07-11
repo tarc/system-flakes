@@ -3,7 +3,7 @@
 }:
 (final: prev: {
   weechat = prev.weechat.override {
-    configure = { availablePlugins, ... }: {
+    configure = { ... }: {
       scripts = with prev.weechatScripts; [
         wee-slack
       ];

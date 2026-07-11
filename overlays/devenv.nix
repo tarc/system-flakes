@@ -11,6 +11,7 @@
     src = prev.fetchFromGitHub {
       owner = "cachix";
       repo = name;
+      # tag = "v${version}";
       tag = "v${version}";
       hash = versionHash;
     };
