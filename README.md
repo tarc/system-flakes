@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/bzl2ib7plndmp8bh45znbvxck5scfbwh-tk8.6.16-src.tar.gz.drv'
-deleting '/nix/store/gqazg4lqz2wp70hfay2lxnz86748ib4l-python3.14-markupsafe-3.0.3'
-deleting '/nix/store/q7bq0zzrxskrz1zcs4lxwdxld48w17nr-source.drv'
-deleting '/nix/store/d60gfnq8gvzwly4b9ak1hkv4z47r7kr3-kiwisolver-1.4.9.tar.gz.drv'
-deleting '/nix/store/5b47icl4qzy9bz9mygk0hsc41646j0lm-python3.14-six-1.17.0'
+deleting '/nix/store/jkhrym497h1iz0lchaaali64l13cnax3-fhsenv-ensure-gsettings-schemas-directory'
+deleting '/nix/store/3vvvgxggqj0rbvjk46y1n9xg8nbpzk2m-glib-2.88.1-bin'
 deleting '/nix/store/59i3w5yw4bsvj9cb0hx2lpndlyyc8n6s-python3.14-mccabe-0.7.0'
 deleting '/nix/store/xwhfbyyfxxkflkbfql877lm3hy3jsz3g-matplotlib-3.11.0.tar.gz.drv'
+deleting '/nix/store/lx6fmhlq0p4g2wqzc48n8cgynn0radlv-fonts.conf'
+deleting '/nix/store/yy2gr1nxnb6vvrnw7hv66fi07sa96b51-clap_builder-4.6.0'
+deleting '/nix/store/k4hpbh3jfip9zvwmsx35l7q2bzr55g8z-systemd-journal-logger-2.2.2'
 deleting unused links...
-note: hard linking is currently saving 20.6 GiB
-164 store paths deleted, 25.5 MiB freed
+note: hard linking is currently saving 20.5 GiB
+650 store paths deleted, 11.5 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,14 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-deleting garbage...
+deleting '/nix/store/c8s6b99xdkr7n0ic7jd10dm58lca953b-options.json.drv'
+deleting '/nix/store/q75vrf0spilic2l8r9ric7kwg58k3daa-kservice-6.27.0.tar.xz.drv'
+deleting '/nix/store/fm645zx9wmqaqky2qgvkq0m1nh1p60w6-baloo-6.27.0.tar.xz.drv'
+deleting '/nix/store/xd6ivw04hlv12m7jad1raq87k1h39pjk-kidletime-6.27.0.tar.xz.drv'
+deleting '/nix/store/qmny5k3dx6ggq686bdj8x78nkjw43kq6-attica-6.27.0.tar.xz.drv'
+deleting '/nix/store/8bq5sr4ryqp8l6dlfbj1wmfn9hfs67vm-kdeclarative-6.27.0.tar.xz.drv'
+deleting '/nix/store/5p83hw9s7alcsn6gr2la2lblm19wj2f1-nixos-render-docs-0.0.drv'
 deleting unused links...
-note: hard linking is currently saving 20.6 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 20.4 GiB
+303 store paths deleted, 1.3 GiB freed
 ```
 <!-- END mdsh -->
 

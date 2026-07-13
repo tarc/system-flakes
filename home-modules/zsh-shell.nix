@@ -31,6 +31,9 @@ let
     CLICOLOR = 1;
     TERM = "xterm-256color";
     DISABLE_MAGIC_FUNCTIONS = (toString true);
+    LD_LIBRARY_PATH = "/usr/lib/wsl/lib";
+    MESA_D3D12_DEFAULT_ADAPTER_NAME = "NVIDIA";
+    GALLIUM_DRIVER = "d3d12";
   };
 in
 {
