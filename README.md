@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/jkhrym497h1iz0lchaaali64l13cnax3-fhsenv-ensure-gsettings-schemas-directory'
-deleting '/nix/store/3vvvgxggqj0rbvjk46y1n9xg8nbpzk2m-glib-2.88.1-bin'
+deleting '/nix/store/i4gs9q2hnnpv1082sfwag2rniq4rxa9r-nix-shell.drv'
+deleting '/nix/store/cyrj805hm6kkxbmknf363sn6pfr9i0xj-texinfo-7.2'
+deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
+deleting '/nix/store/r37pv6iqy0x1l2nnzqa738gz261k2dc6-source.drv'
+deleting '/nix/store/5b47icl4qzy9bz9mygk0hsc41646j0lm-python3.14-six-1.17.0'
 deleting '/nix/store/59i3w5yw4bsvj9cb0hx2lpndlyyc8n6s-python3.14-mccabe-0.7.0'
 deleting '/nix/store/xwhfbyyfxxkflkbfql877lm3hy3jsz3g-matplotlib-3.11.0.tar.gz.drv'
-deleting '/nix/store/lx6fmhlq0p4g2wqzc48n8cgynn0radlv-fonts.conf'
-deleting '/nix/store/yy2gr1nxnb6vvrnw7hv66fi07sa96b51-clap_builder-4.6.0'
-deleting '/nix/store/k4hpbh3jfip9zvwmsx35l7q2bzr55g8z-systemd-journal-logger-2.2.2'
 deleting unused links...
-note: hard linking is currently saving 20.5 GiB
-650 store paths deleted, 11.5 GiB freed
+note: hard linking is currently saving 20.4 GiB
+296 store paths deleted, 92.4 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/c8s6b99xdkr7n0ic7jd10dm58lca953b-options.json.drv'
-deleting '/nix/store/q75vrf0spilic2l8r9ric7kwg58k3daa-kservice-6.27.0.tar.xz.drv'
-deleting '/nix/store/fm645zx9wmqaqky2qgvkq0m1nh1p60w6-baloo-6.27.0.tar.xz.drv'
-deleting '/nix/store/xd6ivw04hlv12m7jad1raq87k1h39pjk-kidletime-6.27.0.tar.xz.drv'
-deleting '/nix/store/qmny5k3dx6ggq686bdj8x78nkjw43kq6-attica-6.27.0.tar.xz.drv'
-deleting '/nix/store/8bq5sr4ryqp8l6dlfbj1wmfn9hfs67vm-kdeclarative-6.27.0.tar.xz.drv'
-deleting '/nix/store/5p83hw9s7alcsn6gr2la2lblm19wj2f1-nixos-render-docs-0.0.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 379
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/mb8mvki2g3ig2z1z2anlj5pprkssykg7" to "/nix/var/nix/profiles/system-379-link"
+deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 20.4 GiB
-303 store paths deleted, 1.3 GiB freed
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
@@ -90,6 +90,66 @@ Calls the flake default formatter.
 
 > [!WARNING]
 > This will run commands embedded in markdown.
+
+### Optimizing VHD size
+
+Be sure to know the name of your WSL distribution:
+
+```sh
+wsl --list -v
+```
+
+```text
+  NAME                      STATE           VERSION
+* NixOS                     Running         2
+  podman-machine-default    Stopped         2
+  docker-desktop            Stopped         2
+```
+
+It must not be sparsed already:
+
+```sh
+wsl --manage NixOS --set-sparse false
+```
+
+Learn the path of its VHDX file:
+
+```sh
+Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss\*"
+```
+
+```text
+State               : 1
+Version             : 2
+BasePath            : C:\Users\tarci\AppData\Local\wsl\{7527fb51-83d7-4564-bc19-617c2e6b096a}
+Flags               : 15
+DefaultUid          : 0
+RunOOBE             : 0
+VhdFileName         : ext4.vhdx
+DistributionName    : NixOS
+Modern              : 1
+ShortcutPath        : C:\Users\tarci\AppData\Roaming\Microsoft\Windows\Start Menu\NixOS.lnk
+TerminalProfilePath : C:\Users\tarci\AppData\Local\Microsoft\Windows Terminal\Fragments\Microsoft.WSL\{96dc692a-1006-5fa5-bc6b-f63e8df2226b}.json
+Flavor              : nixos
+OsVersion           : 26.11
+PSPath              : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\{7527fb51-83d7-4564-bc19-617c2e6b096a}
+PSParentPath        : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss
+PSChildName         : {7527fb51-83d7-4564-bc19-617c2e6b096a}
+PSDrive             : HKCU
+PSProvider          : Microsoft.PowerShell.Core\Registry
+```
+
+Optimize the disk:
+
+```sh
+optimize-vhd -Path  'C:\Users\tarci\AppData\Local\wsl\{7527fb51-83d7-4564-bc19-617c2e6b096a}\ext4.vhdx'  -Mode full
+```
+
+(Re)Enable sparse mode:
+
+```sh
+wsl --manage NixOS --set-sparse true --allow-unsafe
+```
 
 ## Related projects
 
