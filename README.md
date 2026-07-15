@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/s1q9lvp5scq016shgk4hfd3g8bfsvcxj-cups-2.4.19-dev'
+deleting '/nix/store/cyrj805hm6kkxbmknf363sn6pfr9i0xj-texinfo-7.2'
+deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
+deleting '/nix/store/r37pv6iqy0x1l2nnzqa738gz261k2dc6-source.drv'
+deleting '/nix/store/5b47icl4qzy9bz9mygk0hsc41646j0lm-python3.14-six-1.17.0'
+deleting '/nix/store/59i3w5yw4bsvj9cb0hx2lpndlyyc8n6s-python3.14-mccabe-0.7.0'
 deleting '/nix/store/xwhfbyyfxxkflkbfql877lm3hy3jsz3g-matplotlib-3.11.0.tar.gz.drv'
-deleting '/nix/store/mw86gkhk76iq0h7i6i20z78ip9algb9b-libunistring-1.4.1.drv'
-deleting '/nix/store/x4gfr9qp2z991c4496n3y0gb25112ndn-automake-1.18.1.tar.xz.drv'
-deleting '/nix/store/gsq1ic6d7sz7ckbjjkx1vpf9xy2hr8wj-source.drv'
-deleting '/nix/store/am2z34lv77gk469pvxq8g1pj62xcxxij-e230f474b87134e8c6c85b630084c612057f253e.patch.drv'
-deleting '/nix/store/gdnszj090fhvdqlq6j49274b67jb4f6c-gcc.patch-salted-6zq357z2dppi.drv'
-deleting '/nix/store/wlw74r99zz8zdy5rb4rd666f3vn0qvrd-114615812dcf9398c957b0833e860befe15f840f.patch.drv'
 deleting unused links...
-note: hard linking is currently saving 21.2 GiB
-1176 store paths deleted, 278.9 MiB freed
+note: hard linking is currently saving 22.5 GiB
+320 store paths deleted, 317.2 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,14 +72,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 380
+removing profile version 382
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/6ghvw6ml95dc14sw86x7sfydgn1frfay" to "/nix/var/nix/profiles/system-380-link"
+removing stale link from "/nix/var/nix/gcroots/auto/7g8pldnrgjfxyair1gf1c8isq33pyzxg" to "/nix/var/nix/profiles/system-382-link"
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 21.4 GiB
+note: hard linking is currently saving 22.5 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
