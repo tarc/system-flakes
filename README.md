@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/c46884xkli332vjarppgnsy97hzrjzy4-fuse-2.9.9-closefrom-glibc-2-34.patch?id=8a970396fca7aca2d5a761b8e7a8242f1eef14c9.drv'
-deleting '/nix/store/cfq1hyrxzmwzvxvllj5bzrvjcyp5xvx9-make-binary-wrapper-hook.drv'
-deleting '/nix/store/x4gfr9qp2z991c4496n3y0gb25112ndn-automake-1.18.1.tar.xz.drv'
-deleting '/nix/store/gsq1ic6d7sz7ckbjjkx1vpf9xy2hr8wj-source.drv'
-deleting '/nix/store/am2z34lv77gk469pvxq8g1pj62xcxxij-e230f474b87134e8c6c85b630084c612057f253e.patch.drv'
-deleting '/nix/store/gdnszj090fhvdqlq6j49274b67jb4f6c-gcc.patch-salted-6zq357z2dppi.drv'
-deleting '/nix/store/7k4smhj1xgjhh6c9w2dcmnwldwnih9w9-config.sub-948ae97.drv'
+deleting '/nix/store/isi2z0lmh58a68mg8dkvdm3irlq24m7k-install-shell-files'
+deleting '/nix/store/68dsxm2ygchmk1fw9lml9nc6mjials5j-boot.json'
+deleting '/nix/store/y5lalh87pv2f42jvpnmg5zyx0b9l3jxj-dry-activate'
+deleting '/nix/store/8qqk96y7qjr17ncixwpgz2y485qfxdps-deps.json'
+deleting '/nix/store/s9vb6agxbx5p05j79wh3z6rzak7bvmfp-ensure-all-wrappers-paths-exist'
+deleting '/nix/store/cyrj805hm6kkxbmknf363sn6pfr9i0xj-texinfo-7.2'
+deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
 deleting unused links...
-note: hard linking is currently saving 22.7 GiB
-1691 store paths deleted, 2.0 GiB freed
+note: hard linking is currently saving 22.1 GiB
+69 store paths deleted, 22.2 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,12 +72,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 383
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/jddfcmal3njhpvz2xm59d43idg22gc3k" to "/nix/var/nix/profiles/system-383-link"
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 22.7 GiB
+note: hard linking is currently saving 22.1 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
