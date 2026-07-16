@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/s1q9lvp5scq016shgk4hfd3g8bfsvcxj-cups-2.4.19-dev'
-deleting '/nix/store/cyrj805hm6kkxbmknf363sn6pfr9i0xj-texinfo-7.2'
-deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
-deleting '/nix/store/r37pv6iqy0x1l2nnzqa738gz261k2dc6-source.drv'
-deleting '/nix/store/5b47icl4qzy9bz9mygk0hsc41646j0lm-python3.14-six-1.17.0'
-deleting '/nix/store/59i3w5yw4bsvj9cb0hx2lpndlyyc8n6s-python3.14-mccabe-0.7.0'
-deleting '/nix/store/xwhfbyyfxxkflkbfql877lm3hy3jsz3g-matplotlib-3.11.0.tar.gz.drv'
+deleting '/nix/store/c46884xkli332vjarppgnsy97hzrjzy4-fuse-2.9.9-closefrom-glibc-2-34.patch?id=8a970396fca7aca2d5a761b8e7a8242f1eef14c9.drv'
+deleting '/nix/store/cfq1hyrxzmwzvxvllj5bzrvjcyp5xvx9-make-binary-wrapper-hook.drv'
+deleting '/nix/store/x4gfr9qp2z991c4496n3y0gb25112ndn-automake-1.18.1.tar.xz.drv'
+deleting '/nix/store/gsq1ic6d7sz7ckbjjkx1vpf9xy2hr8wj-source.drv'
+deleting '/nix/store/am2z34lv77gk469pvxq8g1pj62xcxxij-e230f474b87134e8c6c85b630084c612057f253e.patch.drv'
+deleting '/nix/store/gdnszj090fhvdqlq6j49274b67jb4f6c-gcc.patch-salted-6zq357z2dppi.drv'
+deleting '/nix/store/7k4smhj1xgjhh6c9w2dcmnwldwnih9w9-config.sub-948ae97.drv'
 deleting unused links...
-note: hard linking is currently saving 22.5 GiB
-320 store paths deleted, 317.2 MiB freed
+note: hard linking is currently saving 22.7 GiB
+1691 store paths deleted, 2.0 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,14 +72,12 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 382
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/7g8pldnrgjfxyair1gf1c8isq33pyzxg" to "/nix/var/nix/profiles/system-382-link"
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 22.5 GiB
+note: hard linking is currently saving 22.7 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
@@ -90,6 +88,13 @@ Calls the flake default formatter.
 
 > [!WARNING]
 > This will run commands embedded in markdown.
+
+After a successful and non-idempotent `just switch`, it may make sense to free up disk space by running `nix-collect-garbage`. Formatting the `README.md` file is an unusual way to accomplish this:
+
+```shell
+touch README.md
+nix fmt
+```
 
 ### Optimizing VHD size
 
