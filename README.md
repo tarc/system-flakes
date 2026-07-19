@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/isi2z0lmh58a68mg8dkvdm3irlq24m7k-install-shell-files'
-deleting '/nix/store/68dsxm2ygchmk1fw9lml9nc6mjials5j-boot.json'
-deleting '/nix/store/y5lalh87pv2f42jvpnmg5zyx0b9l3jxj-dry-activate'
-deleting '/nix/store/8qqk96y7qjr17ncixwpgz2y485qfxdps-deps.json'
-deleting '/nix/store/s9vb6agxbx5p05j79wh3z6rzak7bvmfp-ensure-all-wrappers-paths-exist'
+deleting '/nix/store/jkiwy2qzrb1v6n6fgag9cdly1av909rn-activate'
+deleting '/nix/store/bjns8q822s1fwmmgm5i5bhvaqyhgkxvg-libxrandr-1.5.5-dev'
+deleting '/nix/store/jd4h0lvqva3c4iiw45jribbmxdfy4adv-boot.json'
+deleting '/nix/store/3402r0sc3f13cbgrrqw0frp8956pdwd6-source'
+deleting '/nix/store/s1q9lvp5scq016shgk4hfd3g8bfsvcxj-cups-2.4.19-dev'
 deleting '/nix/store/cyrj805hm6kkxbmknf363sn6pfr9i0xj-texinfo-7.2'
 deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
 deleting unused links...
-note: hard linking is currently saving 22.1 GiB
-69 store paths deleted, 22.2 MiB freed
+note: hard linking is currently saving 23.6 GiB
+114 store paths deleted, 294.0 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,14 +72,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 383
+removing profile version 384
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/jddfcmal3njhpvz2xm59d43idg22gc3k" to "/nix/var/nix/profiles/system-383-link"
+removing stale link from "/nix/var/nix/gcroots/auto/a8adgkx2d8wqr8jgx1jjcrcphqxm6sl3" to "/nix/var/nix/profiles/system-384-link"
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 22.1 GiB
+note: hard linking is currently saving 23.6 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
