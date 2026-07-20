@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
-deleting '/nix/store/15p0qwrsdwibkrjsgw4y0g6549wqr3qv-devenv-files-cleanup.drv'
-deleting '/nix/store/7kyrpw7hkiaskr68f7823xs410wkppcq-moreutils.drv'
-deleting '/nix/store/1i1i33ad0c70dzs83fkhs2449lcxa75a-Python-3.11.6.tgz.drv'
-deleting '/nix/store/7jpdljcgrrh3d8n4rpgqc0rqzh3y6vzp-source'
-deleting '/nix/store/m5bac37qb3hcjny3bjygbc5k7235ci6v-3.11-no-ldconfig.patch'
-deleting '/nix/store/v9c28g1s04nm1s434fsnadfkpr7h6s7i-devenv-files-cleanup.drv'
+deleting '/nix/store/gx78n9g226hcbw65rr02a2x8wxmfwvmm-rust_half-2.7.1'
+deleting '/nix/store/hyp5rxndlip8wv8zx0sglm9lyszxwnga-config-install-wrapper.drv'
+deleting '/nix/store/ga25hcbl2ffkbjgjf1c0945p5w8a0lyr-rust_clap_lex-1.1.0'
+deleting '/nix/store/kj942d8daa4gix45m69jk0b39143rgfd-rust_convert_case-0.10.0'
+deleting '/nix/store/4p3kbm4bjmfqcmpnrczlp0bxvs0w58xw-rust_potential_utf-0.1.5'
+deleting '/nix/store/c97ni9hbdvc2m6m35l85977p6wzslfz8-rust_notify-types-2.1.0'
+deleting '/nix/store/27igdgy5x1rw35bcmg00n4yd1mz4pn7a-rust_ref-cast-impl-1.0.25'
 deleting unused links...
 note: hard linking is currently saving 23.4 GiB
-1302 store paths deleted, 3.6 GiB freed
+1330 store paths deleted, 5.3 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing stale link from "/nix/var/nix/gcroots/auto/0kdcam9pppms1fz2rh78ny3b2bls1ixy" to "/nix/var/nix/profiles/system-385-link"
-removing stale temporary roots file "/nix/var/nix/temproots/349199"
-removing stale temporary roots file "/nix/var/nix/temproots/348774"
-removing stale temporary roots file "/nix/var/nix/temproots/349302"
-deleting garbage...
-deleting '/nix/store/jkgl7psah7hypb42q3i874qbk9cdi3in-devenv-shell-env'
-deleting '/nix/store/7nvxqrpn825hq6x980159f3qk5hc4a36-devenv-shell-env.drv'
+deleting '/nix/store/66vhr92pkz20pmzih3dpnzr0mfn4c1pf-nixos-configuration-reference-manpage.drv'
+deleting '/nix/store/ivabyvcwqzy9i132vsk111kfadf3sac2-options.json.drv'
+deleting '/nix/store/587nli4l03pba7yxylz3k6zv8bd5kx3k-issue'
+deleting '/nix/store/0bza673imxv62raxzyswksfb86jakzx9-issue.drv'
+deleting '/nix/store/ywhvkv3bzb973m7ii2c2cs8mrjjb0yb8-nixos-version'
+deleting '/nix/store/50q45qj8476ib1mm06bv7c07k4xaxmkd-boot.json.drv'
+deleting '/nix/store/9r7h785fwrw3i3dfmfqmn5w2iakqypy3-nixos-version.drv'
 deleting unused links...
 note: hard linking is currently saving 23.4 GiB
-2 store paths deleted, 94.0 KiB freed
+51 store paths deleted, 42.5 MiB freed
 ```
 <!-- END mdsh -->
 
