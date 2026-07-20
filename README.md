@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/jkiwy2qzrb1v6n6fgag9cdly1av909rn-activate'
-deleting '/nix/store/bjns8q822s1fwmmgm5i5bhvaqyhgkxvg-libxrandr-1.5.5-dev'
-deleting '/nix/store/jd4h0lvqva3c4iiw45jribbmxdfy4adv-boot.json'
-deleting '/nix/store/3402r0sc3f13cbgrrqw0frp8956pdwd6-source'
-deleting '/nix/store/s1q9lvp5scq016shgk4hfd3g8bfsvcxj-cups-2.4.19-dev'
-deleting '/nix/store/cyrj805hm6kkxbmknf363sn6pfr9i0xj-texinfo-7.2'
 deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
+deleting '/nix/store/15p0qwrsdwibkrjsgw4y0g6549wqr3qv-devenv-files-cleanup.drv'
+deleting '/nix/store/7kyrpw7hkiaskr68f7823xs410wkppcq-moreutils.drv'
+deleting '/nix/store/1i1i33ad0c70dzs83fkhs2449lcxa75a-Python-3.11.6.tgz.drv'
+deleting '/nix/store/7jpdljcgrrh3d8n4rpgqc0rqzh3y6vzp-source'
+deleting '/nix/store/m5bac37qb3hcjny3bjygbc5k7235ci6v-3.11-no-ldconfig.patch'
+deleting '/nix/store/v9c28g1s04nm1s434fsnadfkpr7h6s7i-devenv-files-cleanup.drv'
 deleting unused links...
-note: hard linking is currently saving 23.6 GiB
-114 store paths deleted, 294.0 MiB freed
+note: hard linking is currently saving 23.4 GiB
+1302 store paths deleted, 3.6 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 384
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/a8adgkx2d8wqr8jgx1jjcrcphqxm6sl3" to "/nix/var/nix/profiles/system-384-link"
+removing stale link from "/nix/var/nix/gcroots/auto/0kdcam9pppms1fz2rh78ny3b2bls1ixy" to "/nix/var/nix/profiles/system-385-link"
+removing stale temporary roots file "/nix/var/nix/temproots/349199"
+removing stale temporary roots file "/nix/var/nix/temproots/348774"
+removing stale temporary roots file "/nix/var/nix/temproots/349302"
 deleting garbage...
+deleting '/nix/store/jkgl7psah7hypb42q3i874qbk9cdi3in-devenv-shell-env'
+deleting '/nix/store/7nvxqrpn825hq6x980159f3qk5hc4a36-devenv-shell-env.drv'
 deleting unused links...
-note: hard linking is currently saving 23.6 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 23.4 GiB
+2 store paths deleted, 94.0 KiB freed
 ```
 <!-- END mdsh -->
 
