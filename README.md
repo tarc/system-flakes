@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/gx78n9g226hcbw65rr02a2x8wxmfwvmm-rust_half-2.7.1'
-deleting '/nix/store/hyp5rxndlip8wv8zx0sglm9lyszxwnga-config-install-wrapper.drv'
-deleting '/nix/store/ga25hcbl2ffkbjgjf1c0945p5w8a0lyr-rust_clap_lex-1.1.0'
-deleting '/nix/store/kj942d8daa4gix45m69jk0b39143rgfd-rust_convert_case-0.10.0'
-deleting '/nix/store/4p3kbm4bjmfqcmpnrczlp0bxvs0w58xw-rust_potential_utf-0.1.5'
-deleting '/nix/store/c97ni9hbdvc2m6m35l85977p6wzslfz8-rust_notify-types-2.1.0'
-deleting '/nix/store/27igdgy5x1rw35bcmg00n4yd1mz4pn7a-rust_ref-cast-impl-1.0.25'
+deleting '/nix/store/9a0f1mfx8n1b8y64qx9999pq70j48ms6-git-2.54.0-doc'
+deleting '/nix/store/9z5sx37y6z3c3sd29yka59gmy127x1zp-source.drv'
+deleting '/nix/store/2f650cjlaispc6lqbs3pybf3bw5h335s-libnice-0.1.22.tar.gz.drv'
+deleting '/nix/store/pwi1dm0l3wr425adzrla3fm2bjqi0azs-gst-plugins-bad-1.26.11.tar.xz.drv'
+deleting '/nix/store/fmc8kzd0jyx5f433f2kkx6sdfcl7s2pp-patch-interface_interface.c.drv'
+deleting '/nix/store/wh803waqs2hs94avgrig71ic1mj3fnjx-libaio-libaio-0.3.113.tar.gz.drv'
+deleting '/nix/store/9cx1i7ff37hglgp5y7zd9a4hsjmcjsk9-bash-interactive-5.3p9.drv'
 deleting unused links...
-note: hard linking is currently saving 23.4 GiB
-1330 store paths deleted, 5.3 GiB freed
+note: hard linking is currently saving 21.9 GiB
+2636 store paths deleted, 27.3 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/66vhr92pkz20pmzih3dpnzr0mfn4c1pf-nixos-configuration-reference-manpage.drv'
-deleting '/nix/store/ivabyvcwqzy9i132vsk111kfadf3sac2-options.json.drv'
-deleting '/nix/store/587nli4l03pba7yxylz3k6zv8bd5kx3k-issue'
-deleting '/nix/store/0bza673imxv62raxzyswksfb86jakzx9-issue.drv'
-deleting '/nix/store/ywhvkv3bzb973m7ii2c2cs8mrjjb0yb8-nixos-version'
-deleting '/nix/store/50q45qj8476ib1mm06bv7c07k4xaxmkd-boot.json.drv'
-deleting '/nix/store/9r7h785fwrw3i3dfmfqmn5w2iakqypy3-nixos-version.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 387
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/jdgqk6znsjq6757hgxmawakg3vv5228n" to "/nix/var/nix/profiles/system-387-link"
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 23.4 GiB
-51 store paths deleted, 42.5 MiB freed
+note: hard linking is currently saving 21.9 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
