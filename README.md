@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/9a0f1mfx8n1b8y64qx9999pq70j48ms6-git-2.54.0-doc'
-deleting '/nix/store/9z5sx37y6z3c3sd29yka59gmy127x1zp-source.drv'
-deleting '/nix/store/2f650cjlaispc6lqbs3pybf3bw5h335s-libnice-0.1.22.tar.gz.drv'
-deleting '/nix/store/pwi1dm0l3wr425adzrla3fm2bjqi0azs-gst-plugins-bad-1.26.11.tar.xz.drv'
-deleting '/nix/store/fmc8kzd0jyx5f433f2kkx6sdfcl7s2pp-patch-interface_interface.c.drv'
-deleting '/nix/store/wh803waqs2hs94avgrig71ic1mj3fnjx-libaio-libaio-0.3.113.tar.gz.drv'
-deleting '/nix/store/9cx1i7ff37hglgp5y7zd9a4hsjmcjsk9-bash-interactive-5.3p9.drv'
+deleting '/nix/store/5cd6knx9knjfdy0958ya8v4cljx9q4fz-lndir-1.0.5'
+deleting '/nix/store/isi2z0lmh58a68mg8dkvdm3irlq24m7k-install-shell-files'
+deleting '/nix/store/y5lalh87pv2f42jvpnmg5zyx0b9l3jxj-dry-activate'
+deleting '/nix/store/s9vb6agxbx5p05j79wh3z6rzak7bvmfp-ensure-all-wrappers-paths-exist'
+deleting '/nix/store/8vkxdkxfbhk543ccnqk252h80pnkb4r9-source'
+deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
+deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
 deleting unused links...
-note: hard linking is currently saving 21.9 GiB
-2636 store paths deleted, 27.3 GiB freed
+note: hard linking is currently saving 23.5 GiB
+90 store paths deleted, 14.7 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 387
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/jdgqk6znsjq6757hgxmawakg3vv5228n" to "/nix/var/nix/profiles/system-387-link"
-deleting garbage...
+deleting '/nix/store/55z4j8pa2c9cyxklrwl5n0bak0ydwlgf-unit-dbus-broker.service.drv'
+deleting '/nix/store/6adhx8fwgz5jyaax1h8vl4jxx38b21im-X-Restart-Triggers-dbus-broker.drv'
+deleting '/nix/store/78rv1q35i0jypji891ywfj54gmixhafs-dbus-1.drv'
+deleting '/nix/store/dx0f3qh01k2jdp75lik8zkh6fdhajmag-system-path'
+deleting '/nix/store/3xsh5fazfkcz4bqj8z8cx2zwbjhwxqm4-nixos-wsl-version'
+deleting '/nix/store/cjkdxx9ah95l9y1k8m9z6az6128slf9w-system-path.drv'
+deleting '/nix/store/b9jbj515gqcxfcanf08y4hh5rzdvvbvs-nixos-wsl-version.drv'
 deleting unused links...
-note: hard linking is currently saving 21.9 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 23.5 GiB
+21 store paths deleted, 140.3 KiB freed
 ```
 <!-- END mdsh -->
 
