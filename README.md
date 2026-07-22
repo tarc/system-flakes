@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/bs7nfqs5kl83l3rbkbrb0yldqhf1vwzi-stage-2-init.sh'
 deleting '/nix/store/5cd6knx9knjfdy0958ya8v4cljx9q4fz-lndir-1.0.5'
-deleting '/nix/store/isi2z0lmh58a68mg8dkvdm3irlq24m7k-install-shell-files'
 deleting '/nix/store/y5lalh87pv2f42jvpnmg5zyx0b9l3jxj-dry-activate'
 deleting '/nix/store/s9vb6agxbx5p05j79wh3z6rzak7bvmfp-ensure-all-wrappers-paths-exist'
-deleting '/nix/store/8vkxdkxfbhk543ccnqk252h80pnkb4r9-source'
 deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
 deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
+deleting '/nix/store/kdnh4a6vmb2i01l3gids6pgaxw4mxgwa-source'
 deleting unused links...
 note: hard linking is currently saving 23.5 GiB
-90 store paths deleted, 14.7 MiB freed
+79 store paths deleted, 15.0 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/55z4j8pa2c9cyxklrwl5n0bak0ydwlgf-unit-dbus-broker.service.drv'
-deleting '/nix/store/6adhx8fwgz5jyaax1h8vl4jxx38b21im-X-Restart-Triggers-dbus-broker.drv'
-deleting '/nix/store/78rv1q35i0jypji891ywfj54gmixhafs-dbus-1.drv'
-deleting '/nix/store/dx0f3qh01k2jdp75lik8zkh6fdhajmag-system-path'
-deleting '/nix/store/3xsh5fazfkcz4bqj8z8cx2zwbjhwxqm4-nixos-wsl-version'
-deleting '/nix/store/cjkdxx9ah95l9y1k8m9z6az6128slf9w-system-path.drv'
-deleting '/nix/store/b9jbj515gqcxfcanf08y4hh5rzdvvbvs-nixos-wsl-version.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 390
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/b8h0q2dqdg4xl1qg4vdxrffrwg8dv2l9" to "/nix/var/nix/profiles/system-390-link"
+deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 23.5 GiB
-21 store paths deleted, 140.3 KiB freed
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
