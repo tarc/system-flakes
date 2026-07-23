@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/bs7nfqs5kl83l3rbkbrb0yldqhf1vwzi-stage-2-init.sh'
-deleting '/nix/store/5cd6knx9knjfdy0958ya8v4cljx9q4fz-lndir-1.0.5'
-deleting '/nix/store/y5lalh87pv2f42jvpnmg5zyx0b9l3jxj-dry-activate'
-deleting '/nix/store/s9vb6agxbx5p05j79wh3z6rzak7bvmfp-ensure-all-wrappers-paths-exist'
 deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/8jdzz99ypl5kljvj22yjpyj8fbs16jsv-source.drv'
-deleting '/nix/store/kdnh4a6vmb2i01l3gids6pgaxw4mxgwa-source'
+deleting '/nix/store/092cq6y9dcvr4c4y9zk0nv20zmykr7br-source'
+deleting '/nix/store/ka8i872w9ajmhrm7jmixmvh9b2sarpg8-options.md.drv'
+deleting '/nix/store/rm2b8wrhc9j5xpqsqn191zyd95nqy55r-options.json.drv'
+deleting '/nix/store/pqq36i8jngfc817wqfdydndidnwml8n7-options.md.drv'
+deleting '/nix/store/jhs4mssdg1mb9gg8xiniqq085xy3z16r-options.json.drv'
+deleting '/nix/store/v152x4sfw98dasn2wsj79422m4ylylcg-embedmd-1.0.0.lock'
 deleting unused links...
-note: hard linking is currently saving 23.5 GiB
-79 store paths deleted, 15.0 MiB freed
+note: hard linking is currently saving 23.6 GiB
+384 store paths deleted, 810.7 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,14 +72,12 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 390
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/b8h0q2dqdg4xl1qg4vdxrffrwg8dv2l9" to "/nix/var/nix/profiles/system-390-link"
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 23.5 GiB
+note: hard linking is currently saving 23.6 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
