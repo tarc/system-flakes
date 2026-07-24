@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/092cq6y9dcvr4c4y9zk0nv20zmykr7br-source'
-deleting '/nix/store/ka8i872w9ajmhrm7jmixmvh9b2sarpg8-options.md.drv'
-deleting '/nix/store/rm2b8wrhc9j5xpqsqn191zyd95nqy55r-options.json.drv'
-deleting '/nix/store/pqq36i8jngfc817wqfdydndidnwml8n7-options.md.drv'
-deleting '/nix/store/jhs4mssdg1mb9gg8xiniqq085xy3z16r-options.json.drv'
-deleting '/nix/store/v152x4sfw98dasn2wsj79422m4ylylcg-embedmd-1.0.0.lock'
+deleting '/nix/store/vipzpg0cahdrrilwl0n8nrhg18w7aikl-python3.14-ddt-1.7.2.drv'
+deleting '/nix/store/cpbrgl1bciyay6qfqwymscfws529wc0p-ddt-1.7.2.tar.gz.drv'
+deleting '/nix/store/ym1zz085amv53gyjpgi5c7f0klxj5fmh-fixup-yarn-lock-26.11'
+deleting '/nix/store/0f7v73wfccb594s137p30fjj5gcpkwvx-wayland-1.26.0-dev'
+deleting '/nix/store/gm3n2sbalqyn5nl00hgcjwx6zini214f-outcome-1.3.0.post0.tar.gz.drv'
+deleting '/nix/store/hp9vs3412gafkd7hcy9vdmdbmwxik1pj-python3.14-pyyaml-6.0.3'
+deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
 note: hard linking is currently saving 23.6 GiB
-384 store paths deleted, 810.7 MiB freed
+435 store paths deleted, 1.9 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,9 +72,11 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 391
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/8vfs64xvks6bzcpn8wj13prafg23jq0f" to "/nix/var/nix/profiles/system-391-link"
 deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 23.6 GiB
