@@ -5,13 +5,12 @@
   final: prev:
   let
     name = "devenv";
-    version = "2.0.6"; # "2.0.5";
-    versionHash = "sha256-i1G6n/7Z5fO9RhplzXQSTiLyh1Cs0GhoCoEStFLARtA="; # "sha256-8tO3NLG9Lc/NUee0Owcf/z63TNTrUcx7eVRxSb294rk=";
-    versionCargoHash = "sha256-p5kI7HlG6RVxCCEb/J0L2gh36jkm/atAV98ny3h4vqo="; # "sha256-ecntFSPDWblllDtS/D086UKtQJG9La4TGEBhP3q0CfY=";
+    version = "2.1.2"; # "2.0.5";
+    versionHash = "sha256-EQnZCy7r4VMO6KDoytxHBa0mFbM1D9g1kaDfs/s0YZA="; # "sha256-8tO3NLG9Lc/NUee0Owcf/z63TNTrUcx7eVRxSb294rk=";
+    versionCargoHash = "sha256-uEwxqnLqCFpyV2NbnfuUyVqKrMeVeQzoGQmElaVeGU8="; # "sha256-ecntFSPDWblllDtS/D086UKtQJG9La4TGEBhP3q0CfY=";
     src = prev.fetchFromGitHub {
       owner = "cachix";
       repo = name;
-      # tag = "v${version}";
       tag = "v${version}";
       hash = versionHash;
     };
