@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/k3qs4rz761x1zpssgcxz5c5jgxfl0jwi-cabal-add-0.2.tar.gz.drv'
-deleting '/nix/store/0dvj979hir3s6ddala0d2v8lx32q7kya-haskell-language-server-2.13.0.0.tar.gz.drv'
-deleting '/nix/store/hp9vs3412gafkd7hcy9vdmdbmwxik1pj-python3.14-pyyaml-6.0.3'
-deleting '/nix/store/axsi6bq48g1balzvscd5kiiyjjss66gn-fourmolu-absolute-build-tool-paths.patch.drv'
+deleting '/nix/store/a894q5acw2jzymai2p8j2qqlpxhvqrpp-binutils-2.46.drv'
+deleting '/nix/store/fmc8kzd0jyx5f433f2kkx6sdfcl7s2pp-patch-interface_interface.c.drv'
+deleting '/nix/store/m5bac37qb3hcjny3bjygbc5k7235ci6v-3.11-no-ldconfig.patch'
 deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
-deleting '/nix/store/89vvw7xyscps118yqmnmjjn54b4hhrzh-dir-traverse-0.2.3.0.tar.gz.drv'
-deleting '/nix/store/3nnpn7az8y70y88wzmg3h8q9bsxz4nhp-profile.drv'
+deleting '/nix/store/wh803waqs2hs94avgrig71ic1mj3fnjx-libaio-libaio-0.3.113.tar.gz.drv'
+deleting '/nix/store/9cx1i7ff37hglgp5y7zd9a4hsjmcjsk9-bash-interactive-5.3p9.drv'
+deleting '/nix/store/52dpizwm630kkkw5x8qzzz9l0qw9vwwd-hpack-0.38.3.tar.gz.drv'
 deleting unused links...
-note: hard linking is currently saving 23.6 GiB
-2176 store paths deleted, 13.5 GiB freed
+note: hard linking is currently saving 22.0 GiB
+2725 store paths deleted, 28.2 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,14 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-deleting garbage...
+deleting '/nix/store/slad5myacsjcck8si67rfpyn46lc8g4f-home-manager-generation.drv'
+deleting '/nix/store/lz5ningawfrjwpfcdj6v0c8dj10pchh5-home-manager-files'
+deleting '/nix/store/6gq6nbxshms9mb1sgxhlhjphw3g7bsif-home-manager-files.drv'
+deleting '/nix/store/h1ap5a971xd7678zfbbbmsk5wdix1ywm-agenix.service.drv'
+deleting '/nix/store/5fifiz8s0xjj8vh0p7fx5hz4abag5jnx-agenix.service'
+deleting '/nix/store/qbds3n8w4g2i65pgvxps9yjiandpng31-agenix-home-manager-mount-secrets'
+deleting '/nix/store/izkk7bwzv5s01c4isbfp5l7yr4c9lfcw-agenix-home-manager-mount-secrets.drv'
 deleting unused links...
-note: hard linking is currently saving 23.6 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 22.0 GiB
+30 store paths deleted, 292.6 KiB freed
 ```
 <!-- END mdsh -->
 
