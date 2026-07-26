@@ -20,6 +20,7 @@
     pkgs.nixd
     pkgs.nil
     pkgs.pciutils
+    pkgs.seahorse
     pkgs.vulkan-tools
     pkgs.rocmPackages.rocminfo
     pkgs.zed-editor
@@ -57,4 +58,6 @@
   home-manager.useGlobalPkgs = true;
 
   programs.zsh.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
 }

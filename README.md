@@ -55,13 +55,13 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
 deleting '/nix/store/vipzpg0cahdrrilwl0n8nrhg18w7aikl-python3.14-ddt-1.7.2.drv'
 deleting '/nix/store/cpbrgl1bciyay6qfqwymscfws529wc0p-ddt-1.7.2.tar.gz.drv'
-deleting '/nix/store/3gb56hrzk49b2wgc81ij96x58081arb3-libarchive-3.8.8'
+deleting '/nix/store/fvzy0cdlcdi35fvf984lkcpz3xdhc3vw-source'
 deleting '/nix/store/gm3n2sbalqyn5nl00hgcjwx6zini214f-outcome-1.3.0.post0.tar.gz.drv'
 deleting '/nix/store/hp9vs3412gafkd7hcy9vdmdbmwxik1pj-python3.14-pyyaml-6.0.3'
 deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
-note: hard linking is currently saving 23.0 GiB
-406 store paths deleted, 4.2 GiB freed
+note: hard linking is currently saving 20.3 GiB
+296 store paths deleted, 52.5 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/l53lg01mfaz18177m3gbgk2iyxmcpv4s-home-manager-files'
-deleting '/nix/store/zk390xqskh9dmk5vd9pclxb2apxbm9ji-hm_.configzsh.zshrc'
-deleting '/nix/store/v4cxg4hy00giffzz4myzrxf4jvjb5v50-home-manager-files.drv'
-deleting '/nix/store/fhp3sx0kil2h5yrmbfj9inx6ms9b96xj-hm_.configzsh.zshrc.drv'
-deleting '/nix/store/12r6yg4iazgfza2764d7lwcmv7yd39hf-home-manager-path'
-deleting '/nix/store/fvv7fzxahdq14l0l3wmslrifqmv2xsh4-activation-script.drv'
-deleting '/nix/store/1067a3h2v6i3042yip4sycy6fmykqjwd-home-manager-path.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 401
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/yj063gkzgxihpa5d7gcj8w8sizmcb2i5" to "/nix/var/nix/profiles/system-401-link"
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 23.0 GiB
-18 store paths deleted, 2.9 MiB freed
+note: hard linking is currently saving 20.3 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
