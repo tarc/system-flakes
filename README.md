@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/6lki3sww78917dqvic66skm4nn8x5w8c-source'
-deleting '/nix/store/gfg5k2w7y3a6bralkb1g418czm3hs9kx-source'
-deleting '/nix/store/dcyd3k01988mgcjndnfxbh0qm787jh5j-rustc-bootstrap-1.95.0'
-deleting '/nix/store/0f7v73wfccb594s137p30fjj5gcpkwvx-wayland-1.26.0-dev'
+deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
+deleting '/nix/store/vipzpg0cahdrrilwl0n8nrhg18w7aikl-python3.14-ddt-1.7.2.drv'
+deleting '/nix/store/cpbrgl1bciyay6qfqwymscfws529wc0p-ddt-1.7.2.tar.gz.drv'
+deleting '/nix/store/3gb56hrzk49b2wgc81ij96x58081arb3-libarchive-3.8.8'
 deleting '/nix/store/gm3n2sbalqyn5nl00hgcjwx6zini214f-outcome-1.3.0.post0.tar.gz.drv'
 deleting '/nix/store/hp9vs3412gafkd7hcy9vdmdbmwxik1pj-python3.14-pyyaml-6.0.3'
 deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
-note: hard linking is currently saving 23.1 GiB
-655 store paths deleted, 5.7 GiB freed
+note: hard linking is currently saving 23.0 GiB
+406 store paths deleted, 4.2 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/g5lgcgc8ga37m8rc3xm9zx19ffpl04mx-google-chrome-stable_150.0.7871.181-1_amd64.deb.drv'
-deleting '/nix/store/8mw6b48qlymm7yp1dw1nrd4jxz7ariil-etc-nix-registry.json.drv'
-deleting '/nix/store/qqhks8fp8qd7dx1b2grmjw789p4dmm0d-issue'
-deleting '/nix/store/bp08yj94wbd4h95afj6x3pn94mgbsybw-issue.drv'
-deleting '/nix/store/48j8caqwxfahpziz19svh0gl7rbvliki-hm_.configzsh.zshrc.drv'
-deleting '/nix/store/74fn67k3laplmndlpk34xrap1vnkbibz-etc-os-release.drv'
-deleting '/nix/store/mlmx8v4m9gkl3pkpnp7m5knxy4xnwaiz-options.json.drv'
+deleting '/nix/store/l53lg01mfaz18177m3gbgk2iyxmcpv4s-home-manager-files'
+deleting '/nix/store/zk390xqskh9dmk5vd9pclxb2apxbm9ji-hm_.configzsh.zshrc'
+deleting '/nix/store/v4cxg4hy00giffzz4myzrxf4jvjb5v50-home-manager-files.drv'
+deleting '/nix/store/fhp3sx0kil2h5yrmbfj9inx6ms9b96xj-hm_.configzsh.zshrc.drv'
+deleting '/nix/store/12r6yg4iazgfza2764d7lwcmv7yd39hf-home-manager-path'
+deleting '/nix/store/fvv7fzxahdq14l0l3wmslrifqmv2xsh4-activation-script.drv'
+deleting '/nix/store/1067a3h2v6i3042yip4sycy6fmykqjwd-home-manager-path.drv'
 deleting unused links...
 note: hard linking is currently saving 23.0 GiB
-101 store paths deleted, 516.3 MiB freed
+18 store paths deleted, 2.9 MiB freed
 ```
 <!-- END mdsh -->
 

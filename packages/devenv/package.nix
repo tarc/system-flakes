@@ -24,7 +24,7 @@
 }:
 
 let
-  version = "2.1.3";
+  version = "2.1.3.126fa14";
   devenvNixVersion = "2.34";
   devenvNixRev = "782ac1b155679b065ec945ae50d0fa1d495883b7";
 
