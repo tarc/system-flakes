@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/fnj5a1p9nfq66692lqrg4q1n9s91n1w7-python3.14-eradicate-3.0.1.drv'
-deleting '/nix/store/pirvxn36wmz03brqi7q2gx1g1hz7jvgm-gitdb-4.0.12.tar.gz.drv'
-deleting '/nix/store/ay5a7gg4zrp5s51q8jvbwsncz8vmii5f-source.drv'
-deleting '/nix/store/qwgyhww9xw045yxs75rg78lkdhfwxmfy-smmap-6.0.0.tar.gz.drv'
-deleting '/nix/store/vipzpg0cahdrrilwl0n8nrhg18w7aikl-python3.14-ddt-1.7.2.drv'
-deleting '/nix/store/cpbrgl1bciyay6qfqwymscfws529wc0p-ddt-1.7.2.tar.gz.drv'
+deleting '/nix/store/6lki3sww78917dqvic66skm4nn8x5w8c-source'
+deleting '/nix/store/gfg5k2w7y3a6bralkb1g418czm3hs9kx-source'
+deleting '/nix/store/dcyd3k01988mgcjndnfxbh0qm787jh5j-rustc-bootstrap-1.95.0'
+deleting '/nix/store/0f7v73wfccb594s137p30fjj5gcpkwvx-wayland-1.26.0-dev'
+deleting '/nix/store/gm3n2sbalqyn5nl00hgcjwx6zini214f-outcome-1.3.0.post0.tar.gz.drv'
 deleting '/nix/store/hp9vs3412gafkd7hcy9vdmdbmwxik1pj-python3.14-pyyaml-6.0.3'
+deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
-note: hard linking is currently saving 22.0 GiB
-162 store paths deleted, 25.7 MiB freed
+note: hard linking is currently saving 23.1 GiB
+655 store paths deleted, 5.7 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,15 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale temporary roots file "/nix/var/nix/temproots/762966"
-deleting garbage...
+deleting '/nix/store/g5lgcgc8ga37m8rc3xm9zx19ffpl04mx-google-chrome-stable_150.0.7871.181-1_amd64.deb.drv'
+deleting '/nix/store/8mw6b48qlymm7yp1dw1nrd4jxz7ariil-etc-nix-registry.json.drv'
+deleting '/nix/store/qqhks8fp8qd7dx1b2grmjw789p4dmm0d-issue'
+deleting '/nix/store/bp08yj94wbd4h95afj6x3pn94mgbsybw-issue.drv'
+deleting '/nix/store/48j8caqwxfahpziz19svh0gl7rbvliki-hm_.configzsh.zshrc.drv'
+deleting '/nix/store/74fn67k3laplmndlpk34xrap1vnkbibz-etc-os-release.drv'
+deleting '/nix/store/mlmx8v4m9gkl3pkpnp7m5knxy4xnwaiz-options.json.drv'
 deleting unused links...
-note: hard linking is currently saving 22.0 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 23.0 GiB
+101 store paths deleted, 516.3 MiB freed
 ```
 <!-- END mdsh -->
 
