@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/vipzpg0cahdrrilwl0n8nrhg18w7aikl-python3.14-ddt-1.7.2.drv'
 deleting '/nix/store/cpbrgl1bciyay6qfqwymscfws529wc0p-ddt-1.7.2.tar.gz.drv'
-deleting '/nix/store/fvzy0cdlcdi35fvf984lkcpz3xdhc3vw-source'
+deleting '/nix/store/mhafbcg9vxd2q9n4m1w0vd6gprmsrrg6-source'
+deleting '/nix/store/dcyd3k01988mgcjndnfxbh0qm787jh5j-rustc-bootstrap-1.95.0'
 deleting '/nix/store/gm3n2sbalqyn5nl00hgcjwx6zini214f-outcome-1.3.0.post0.tar.gz.drv'
 deleting '/nix/store/hp9vs3412gafkd7hcy9vdmdbmwxik1pj-python3.14-pyyaml-6.0.3'
+deleting '/nix/store/imiy4i41hai8ni7jv84c81arpvg0ab4m-mhafbcg9vxd2q9n4m1w0vd6gprmsrrg6-source'
 deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
 note: hard linking is currently saving 20.3 GiB
-296 store paths deleted, 52.5 MiB freed
+1013 store paths deleted, 1.8 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 401
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/yj063gkzgxihpa5d7gcj8w8sizmcb2i5" to "/nix/var/nix/profiles/system-401-link"
-deleting garbage...
+deleting '/nix/store/9mavh17ak1sa13qrqbb5fbma4n3fx8k6-unit-script-suid-sgid-wrappers-start.drv'
+deleting '/nix/store/3mlwqdv26430zyi9asryp3p9wxjgsybi-unit-script-suid-sgid-wrappers-start'
+deleting '/nix/store/9m4zzxjpax4fa7029icd68n0fnscgbjl-system-path.drv'
+deleting '/nix/store/k5bfwa6yyy2cgdc7p4gq29csrb41bcqb-system-path.drv'
+deleting '/nix/store/ds4pxw0q7wwmh6r0ga0mhm2y80mk79m9-system-path'
+deleting '/nix/store/77sl6gw1ivbifm3la807ghlzy46vppwx-system-shutdown.drv'
+deleting '/nix/store/pfjlcp62bjxpk1kw893rl5iqi1jpxkkx-ensure-all-wrappers-paths-exist.drv'
 deleting unused links...
 note: hard linking is currently saving 20.3 GiB
-0 store paths deleted, 0.0 KiB freed
+107 store paths deleted, 17.1 MiB freed
 ```
 <!-- END mdsh -->
 
