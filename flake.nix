@@ -149,6 +149,8 @@
     # nixpkgs-darwin-lib.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin?dir=lib";
     # nixos-26-05.url = "github:NixOS/nixpkgs/nixos-26.05";
     # nixos-26-05-lib.url = "github:NixOS/nixpkgs/nixos-26.05?dir=lib";
+    devenv-nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
+    devenv-nixpkgs-lib.url = "github:cachix/devenv-nixpkgs/rolling";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-unstable-lib.url = "github:NixOS/nixpkgs/nixpkgs-unstable?dir=lib";
 

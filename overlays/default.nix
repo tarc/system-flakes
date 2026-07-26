@@ -1,13 +1,19 @@
 {
   systemFlakes,
+  pkgs,
   ...
 }:
+let
+  devenv = pkgs.callPackage ../packages/devenv/package.nix { };
+in
 {
   nixpkgs = {
     overlays = [
       # inputs.rust-overlay.overlays.default
-      (import ./devenv.nix { inherit systemFlakes; })
-      # (import ./devenv-package.nix { inherit systemFlakes; })
+      # (import ./devenv.nix { inherit systemFlakes; })
+      (final: prev: {
+        inherit devenv;
+      })
       # (import ./devenv-override-input.nix { inherit systemFlakes; })
       (import ./weechat.nix { inherit systemFlakes; })
       (import ./auggie.nix { inherit systemFlakes; })

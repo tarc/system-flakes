@@ -14,6 +14,7 @@
     pkgs.age
     pkgs.auggie
     pkgs.embedme
+    pkgs.gh
     pkgs.lshw
     pkgs.mesa-demos
     pkgs.nixd

@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/a894q5acw2jzymai2p8j2qqlpxhvqrpp-binutils-2.46.drv'
-deleting '/nix/store/fmc8kzd0jyx5f433f2kkx6sdfcl7s2pp-patch-interface_interface.c.drv'
-deleting '/nix/store/m5bac37qb3hcjny3bjygbc5k7235ci6v-3.11-no-ldconfig.patch'
-deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
-deleting '/nix/store/wh803waqs2hs94avgrig71ic1mj3fnjx-libaio-libaio-0.3.113.tar.gz.drv'
-deleting '/nix/store/9cx1i7ff37hglgp5y7zd9a4hsjmcjsk9-bash-interactive-5.3p9.drv'
-deleting '/nix/store/52dpizwm630kkkw5x8qzzz9l0qw9vwwd-hpack-0.38.3.tar.gz.drv'
+deleting '/nix/store/fnj5a1p9nfq66692lqrg4q1n9s91n1w7-python3.14-eradicate-3.0.1.drv'
+deleting '/nix/store/pirvxn36wmz03brqi7q2gx1g1hz7jvgm-gitdb-4.0.12.tar.gz.drv'
+deleting '/nix/store/ay5a7gg4zrp5s51q8jvbwsncz8vmii5f-source.drv'
+deleting '/nix/store/qwgyhww9xw045yxs75rg78lkdhfwxmfy-smmap-6.0.0.tar.gz.drv'
+deleting '/nix/store/vipzpg0cahdrrilwl0n8nrhg18w7aikl-python3.14-ddt-1.7.2.drv'
+deleting '/nix/store/cpbrgl1bciyay6qfqwymscfws529wc0p-ddt-1.7.2.tar.gz.drv'
+deleting '/nix/store/hp9vs3412gafkd7hcy9vdmdbmwxik1pj-python3.14-pyyaml-6.0.3'
 deleting unused links...
 note: hard linking is currently saving 22.0 GiB
-2725 store paths deleted, 28.2 GiB freed
+162 store paths deleted, 25.7 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,15 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/slad5myacsjcck8si67rfpyn46lc8g4f-home-manager-generation.drv'
-deleting '/nix/store/lz5ningawfrjwpfcdj6v0c8dj10pchh5-home-manager-files'
-deleting '/nix/store/6gq6nbxshms9mb1sgxhlhjphw3g7bsif-home-manager-files.drv'
-deleting '/nix/store/h1ap5a971xd7678zfbbbmsk5wdix1ywm-agenix.service.drv'
-deleting '/nix/store/5fifiz8s0xjj8vh0p7fx5hz4abag5jnx-agenix.service'
-deleting '/nix/store/qbds3n8w4g2i65pgvxps9yjiandpng31-agenix-home-manager-mount-secrets'
-deleting '/nix/store/izkk7bwzv5s01c4isbfp5l7yr4c9lfcw-agenix-home-manager-mount-secrets.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale temporary roots file "/nix/var/nix/temproots/762966"
+deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 22.0 GiB
-30 store paths deleted, 292.6 KiB freed
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
