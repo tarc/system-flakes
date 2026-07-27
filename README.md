@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/cpbrgl1bciyay6qfqwymscfws529wc0p-ddt-1.7.2.tar.gz.drv'
-deleting '/nix/store/mhafbcg9vxd2q9n4m1w0vd6gprmsrrg6-source'
-deleting '/nix/store/dcyd3k01988mgcjndnfxbh0qm787jh5j-rustc-bootstrap-1.95.0'
+deleting '/nix/store/6d3yvglp35sygh58pb5r82k6dap3qrwr-fakeroot-no64.patch.drv'
+deleting '/nix/store/58yc8yc4x1gj59zfmy1vydnl34lm6sra-pnpm-11.9.0.tgz.drv'
+deleting '/nix/store/q0nzb50n4xisp7r6h11nsrn1qswy13rz-source'
 deleting '/nix/store/gm3n2sbalqyn5nl00hgcjwx6zini214f-outcome-1.3.0.post0.tar.gz.drv'
 deleting '/nix/store/hp9vs3412gafkd7hcy9vdmdbmwxik1pj-python3.14-pyyaml-6.0.3'
-deleting '/nix/store/imiy4i41hai8ni7jv84c81arpvg0ab4m-mhafbcg9vxd2q9n4m1w0vd6gprmsrrg6-source'
+deleting '/nix/store/v6w8ljk4l5x7paca8wbg65fjh7i6s3d9-devenv-2.1.3-vendor'
 deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
-note: hard linking is currently saving 20.3 GiB
-1013 store paths deleted, 1.8 GiB freed
+note: hard linking is currently saving 23.1 GiB
+733 store paths deleted, 6.7 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/9mavh17ak1sa13qrqbb5fbma4n3fx8k6-unit-script-suid-sgid-wrappers-start.drv'
-deleting '/nix/store/3mlwqdv26430zyi9asryp3p9wxjgsybi-unit-script-suid-sgid-wrappers-start'
-deleting '/nix/store/9m4zzxjpax4fa7029icd68n0fnscgbjl-system-path.drv'
-deleting '/nix/store/k5bfwa6yyy2cgdc7p4gq29csrb41bcqb-system-path.drv'
-deleting '/nix/store/ds4pxw0q7wwmh6r0ga0mhm2y80mk79m9-system-path'
-deleting '/nix/store/77sl6gw1ivbifm3la807ghlzy46vppwx-system-shutdown.drv'
-deleting '/nix/store/pfjlcp62bjxpk1kw893rl5iqi1jpxkkx-ensure-all-wrappers-paths-exist.drv'
+deleting '/nix/store/7x75c4005383pn2ikdm9s6abzkyhxz9c-user-units'
+deleting '/nix/store/nbimkn2ypy5wx07r8387k1w91rxvy8y7-unit-dbus-broker.service'
+deleting '/nix/store/rbgazz3l4cm1pajw2jjzz0grbcsvd176-X-Restart-Triggers-dbus-broker'
+deleting '/nix/store/m9gpv6as317r6aw2z04k3izjv7gzp6x0-dbus-1'
+deleting '/nix/store/pwpylp2fjg6xci72037qkmlkpal12bnd-system-path'
+deleting '/nix/store/ing11qrz2r5n5agvrx7q2qsayd3nhbsf-system-path.drv'
+deleting '/nix/store/g7iiphnzs9llb6bifsf09ib7w4b5rsv1-activation-script.drv'
 deleting unused links...
-note: hard linking is currently saving 20.3 GiB
-107 store paths deleted, 17.1 MiB freed
+note: hard linking is currently saving 23.1 GiB
+24 store paths deleted, 4.2 MiB freed
 ```
 <!-- END mdsh -->
 
