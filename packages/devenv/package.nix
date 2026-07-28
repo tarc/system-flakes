@@ -24,7 +24,7 @@
 }:
 
 let
-  version = "2.1.3";
+  version = "2.2.0";
   devenvNixVersion = "2.34";
   devenvNixRev = "782ac1b155679b065ec945ae50d0fa1d495883b7";
 
@@ -49,11 +49,11 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "cachix";
     repo = "devenv";
-    rev = "6319d63344675f65c2c213be95084544866d8951";
-    hash = "sha256-vX6OVIUWiEiD5v1InHQk1OTjJsK2WgEqWmMPeIS5l78=";
+    tag = "v2.2";
+    hash = "sha256-9ewHcbuOk7wvBRBM28g06MkjcEIWyqoD04QZKouiRKI=";
   };
 
-  cargoHash = "sha256-AHnVrQnTHOssEF8WKDNM3h5Z/frguB/acwETRroQE5o=";
+  cargoHash = "sha256-OJqaOJx++WON7SvWQQmSQW0t/8lym5csf3gkSPYaDYY=";
 
   env = {
     RUSTFLAGS = "--cfg tracing_unstable";
