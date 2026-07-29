@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/6d3yvglp35sygh58pb5r82k6dap3qrwr-fakeroot-no64.patch.drv'
-deleting '/nix/store/58yc8yc4x1gj59zfmy1vydnl34lm6sra-pnpm-11.9.0.tgz.drv'
-deleting '/nix/store/q0nzb50n4xisp7r6h11nsrn1qswy13rz-source'
-deleting '/nix/store/gm3n2sbalqyn5nl00hgcjwx6zini214f-outcome-1.3.0.post0.tar.gz.drv'
-deleting '/nix/store/hp9vs3412gafkd7hcy9vdmdbmwxik1pj-python3.14-pyyaml-6.0.3'
-deleting '/nix/store/v6w8ljk4l5x7paca8wbg65fjh7i6s3d9-devenv-2.1.3-vendor'
+deleting '/nix/store/qq46gwcm6gj2pdzi3zk93p2sa0sbk85d-unit-script-network-local-commands-start.drv'
+deleting '/nix/store/baprdc3clxd0sqh4m9ikq5aw4nymx68c-install-shell-files'
+deleting '/nix/store/qxl27p6s58v4jf1sddvvj3jsrzj2529i-nix-shell.drv'
+deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
+deleting '/nix/store/ymdpa5j0z27v8gzkjmq654wxzl6w1jgn-make-binary-wrapper-hook'
+deleting '/nix/store/v8kpmy2gp2a24hn3zc997ij5s7afkjfs-source'
 deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
-note: hard linking is currently saving 23.1 GiB
-733 store paths deleted, 6.7 GiB freed
+note: hard linking is currently saving 22.1 GiB
+111 store paths deleted, 31.0 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/7x75c4005383pn2ikdm9s6abzkyhxz9c-user-units'
-deleting '/nix/store/nbimkn2ypy5wx07r8387k1w91rxvy8y7-unit-dbus-broker.service'
-deleting '/nix/store/rbgazz3l4cm1pajw2jjzz0grbcsvd176-X-Restart-Triggers-dbus-broker'
-deleting '/nix/store/m9gpv6as317r6aw2z04k3izjv7gzp6x0-dbus-1'
-deleting '/nix/store/pwpylp2fjg6xci72037qkmlkpal12bnd-system-path'
-deleting '/nix/store/ing11qrz2r5n5agvrx7q2qsayd3nhbsf-system-path.drv'
-deleting '/nix/store/g7iiphnzs9llb6bifsf09ib7w4b5rsv1-activation-script.drv'
+deleting '/nix/store/6kmx0ikvgvphya7bd3nd8pxvaizda03w-home-configuration-reference-manpage.drv'
+deleting '/nix/store/m59g76lvdfi7qh7g0i85msybpxcwkvgl-options.json.drv'
+deleting '/nix/store/1vqmnsjnpx23d8fvj7dqp0p7lyfyxzsz-home-configuration-reference-manpage'
+deleting '/nix/store/abwvhras1hyqqhh7ky1dh5nm4fkpcn6k-home-configuration-reference-manpage.drv'
+deleting '/nix/store/fwrp2nhk64rj9qm9vk2xkgwspva0wbcq-options.json.drv'
+deleting '/nix/store/al9x8fkicfyacd0phwwwnzrs5jd996py-devenv-2.1.3-vendor-staging.drv'
+deleting '/nix/store/s1sygyv5yvsdkdd58ymjkyqxz99vfwb1-source.drv'
 deleting unused links...
-note: hard linking is currently saving 23.1 GiB
-24 store paths deleted, 4.2 MiB freed
+note: hard linking is currently saving 22.1 GiB
+78 store paths deleted, 279.5 MiB freed
 ```
 <!-- END mdsh -->
 
