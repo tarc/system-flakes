@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/qq46gwcm6gj2pdzi3zk93p2sa0sbk85d-unit-script-network-local-commands-start.drv'
 deleting '/nix/store/baprdc3clxd0sqh4m9ikq5aw4nymx68c-install-shell-files'
 deleting '/nix/store/qxl27p6s58v4jf1sddvvj3jsrzj2529i-nix-shell.drv'
 deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
 deleting '/nix/store/ymdpa5j0z27v8gzkjmq654wxzl6w1jgn-make-binary-wrapper-hook'
-deleting '/nix/store/v8kpmy2gp2a24hn3zc997ij5s7afkjfs-source'
+deleting '/nix/store/3gb56hrzk49b2wgc81ij96x58081arb3-libarchive-3.8.8'
+deleting '/nix/store/pdn7by1mnkjbkj5y0i54d9g7v7v2w6nf-source'
 deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
-note: hard linking is currently saving 22.1 GiB
-111 store paths deleted, 31.0 MiB freed
+note: hard linking is currently saving 20.3 GiB
+182 store paths deleted, 3.3 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/6kmx0ikvgvphya7bd3nd8pxvaizda03w-home-configuration-reference-manpage.drv'
-deleting '/nix/store/m59g76lvdfi7qh7g0i85msybpxcwkvgl-options.json.drv'
-deleting '/nix/store/1vqmnsjnpx23d8fvj7dqp0p7lyfyxzsz-home-configuration-reference-manpage'
-deleting '/nix/store/abwvhras1hyqqhh7ky1dh5nm4fkpcn6k-home-configuration-reference-manpage.drv'
-deleting '/nix/store/fwrp2nhk64rj9qm9vk2xkgwspva0wbcq-options.json.drv'
-deleting '/nix/store/al9x8fkicfyacd0phwwwnzrs5jd996py-devenv-2.1.3-vendor-staging.drv'
-deleting '/nix/store/s1sygyv5yvsdkdd58ymjkyqxz99vfwb1-source.drv'
+deleting '/nix/store/jkvdl40ykzr7qsnrw5k7fl4m9bcy18c0-X-Restart-Triggers-nix-daemon.drv'
+deleting '/nix/store/fimzayqw03r3sb5mbww3p4rxcq0wpf4q-nix.conf.drv'
+deleting '/nix/store/23rpl3ls2k2a6k3f35y7hdnjs8qimwpq-system-units'
+deleting '/nix/store/9bini17nrhi0q51a4vxd042hh27zk0zf-unit-nix-daemon.service'
+deleting '/nix/store/77m5askcz7iyaabwzx7gcnf70mbmk07p-X-Restart-Triggers-nix-daemon'
+deleting '/nix/store/nvdj2322wmpyfv8bv7x64gcz9rrar4wk-nix.conf'
+deleting '/nix/store/ap317j4g9mbrq5g1w1zcsfh6l5zrbc1l-source.drv'
 deleting unused links...
-note: hard linking is currently saving 22.1 GiB
-78 store paths deleted, 279.5 MiB freed
+note: hard linking is currently saving 20.3 GiB
+72 store paths deleted, 162.6 MiB freed
 ```
 <!-- END mdsh -->
 
