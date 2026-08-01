@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/qxl27p6s58v4jf1sddvvj3jsrzj2529i-nix-shell.drv'
 deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
+deleting '/nix/store/68sa16ilnzh64dd8vvlbf9g2s3inl3wq-source'
 deleting '/nix/store/ymdpa5j0z27v8gzkjmq654wxzl6w1jgn-make-binary-wrapper-hook'
-deleting '/nix/store/dsc17da3hc7nphdz3kwxz9sk1mg5nm2n-source'
-deleting '/nix/store/56l4b4rrr6pw3dlrys92j1pz23mkf60d-options.json'
 deleting '/nix/store/0f7v73wfccb594s137p30fjj5gcpkwvx-wayland-1.26.0-dev'
+deleting '/nix/store/4bjzypmc0k1bw2xwhvcd607nv15x6353-source.drv'
+deleting '/nix/store/ssvbmpan9a5pyg549cchf4vbpb9p6x85-source'
 deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
-note: hard linking is currently saving 20.2 GiB
-124 store paths deleted, 1.2 GiB freed
+note: hard linking is currently saving 21.3 GiB
+752 store paths deleted, 1.5 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,14 +72,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 418
+removing profile version 419
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/ag2lw774f7khvpgdrlxfxjzvnrsx25dk" to "/nix/var/nix/profiles/system-418-link"
+removing stale link from "/nix/var/nix/gcroots/auto/71hm3rmbryzrw3hf9b18qylk3mhb4pwd" to "/nix/var/nix/profiles/system-419-link"
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 20.2 GiB
+note: hard linking is currently saving 21.3 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
