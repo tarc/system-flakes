@@ -12,7 +12,7 @@
 
   environment.systemPackages = [
     pkgs.age
-    pkgs.auggie
+    # pkgs.auggie
     pkgs.embedme
     pkgs.gh
     pkgs.lshw

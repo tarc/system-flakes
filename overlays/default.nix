@@ -16,7 +16,7 @@ in
       })
       # (import ./devenv-override-input.nix { inherit systemFlakes; })
       (import ./weechat.nix { inherit systemFlakes; })
-      (import ./auggie.nix { inherit systemFlakes; })
+      # (import ./auggie.nix { inherit systemFlakes; })
       (import ./embedme.nix { inherit systemFlakes; })
       (import ./mdsh.nix { inherit systemFlakes; })
     ];

@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/68sa16ilnzh64dd8vvlbf9g2s3inl3wq-source'
-deleting '/nix/store/ymdpa5j0z27v8gzkjmq654wxzl6w1jgn-make-binary-wrapper-hook'
-deleting '/nix/store/0f7v73wfccb594s137p30fjj5gcpkwvx-wayland-1.26.0-dev'
-deleting '/nix/store/4bjzypmc0k1bw2xwhvcd607nv15x6353-source.drv'
-deleting '/nix/store/ssvbmpan9a5pyg549cchf4vbpb9p6x85-source'
-deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
+deleting '/nix/store/g4bvx9wd9rwsi6gyrdrq2pr0krn7x85a-option-doc-nix-bindings-rust'
+deleting '/nix/store/d2vrwk5a06vnijwdbn405q8w09nlb5gl-call-stack-0.4.0.tar.gz.drv'
+deleting '/nix/store/zllzhmrdpfmrx8mxgdl7zhwlms2q8imn-StateVar-1.2.2.tar.gz.drv'
+deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
+deleting '/nix/store/4jnlkz2w0g2g66dlssxrr0z0baygmnkn-dotnet-sdk-8.0.125-linux-x64.tar.gz.drv'
+deleting '/nix/store/hm72b0c93vyrhbc8i2qhfriwkfk7ys3v-source'
+deleting '/nix/store/h4cv8qyyali0b4ab6vwn6j173mcrzwqs-network-info-0.2.1.tar.gz.drv'
 deleting unused links...
-note: hard linking is currently saving 21.3 GiB
-752 store paths deleted, 1.5 GiB freed
+note: hard linking is currently saving 23.9 GiB
+5074 store paths deleted, 13.0 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 419
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/71hm3rmbryzrw3hf9b18qylk3mhb4pwd" to "/nix/var/nix/profiles/system-419-link"
-deleting garbage...
+deleting '/nix/store/br48ghd436pcprdlpfww7h0byh873gdh-conan-flake-dev-env.drv'
+deleting '/nix/store/3bm523dpv877s1k09wj6cwrm8k8z6qmw-source'
+deleting '/nix/store/8djrz6n99va8f4nmlx04z2xd6r1ql0vh-infuse.nix'
+deleting '/nix/store/as9icfcfz75a56hr5nbkh5w0pl2i077j-source'
+deleting '/nix/store/n0h4z5rxjhr3j4bgnkyy8xnd1xqpip70-stdenv-linux-no-cc'
+deleting '/nix/store/4v8nn2z2vl74yz1557n1dha3l7rzzbgs-source'
+deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting unused links...
-note: hard linking is currently saving 21.3 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 23.9 GiB
+12 store paths deleted, 205.6 MiB freed
 ```
 <!-- END mdsh -->
 
