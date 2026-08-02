@@ -13,6 +13,7 @@
   environment.systemPackages = [
     pkgs.age
     # pkgs.auggie
+    pkgs.claude-code
     pkgs.embedme
     pkgs.gh
     pkgs.lshw

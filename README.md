@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/p8sld7vskdkkrbswx6h9hgdv1mhvin7m-options.md'
+deleting '/nix/store/wnyjhxz6h57x2g2wjcsqjla9p4d7wxc4-options.md'
+deleting '/nix/store/5iqpm377dcnzaj0bjip0alh6shvjrfpc-cf-setup-hook.sh'
+deleting '/nix/store/8g7v7bdip4qhlvr1rxz2fndm3k0g45f6-0007-Add-CrashReporterClient-header.patch'
+deleting '/nix/store/bbq4ab17p1d4nlmk88rgr3ngi7551r96-meson.build.in'
 deleting '/nix/store/g4bvx9wd9rwsi6gyrdrq2pr0krn7x85a-option-doc-nix-bindings-rust'
-deleting '/nix/store/d2vrwk5a06vnijwdbn405q8w09nlb5gl-call-stack-0.4.0.tar.gz.drv'
-deleting '/nix/store/zllzhmrdpfmrx8mxgdl7zhwlms2q8imn-StateVar-1.2.2.tar.gz.drv'
 deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
-deleting '/nix/store/4jnlkz2w0g2g66dlssxrr0z0baygmnkn-dotnet-sdk-8.0.125-linux-x64.tar.gz.drv'
-deleting '/nix/store/hm72b0c93vyrhbc8i2qhfriwkfk7ys3v-source'
-deleting '/nix/store/h4cv8qyyali0b4ab6vwn6j173mcrzwqs-network-info-0.2.1.tar.gz.drv'
 deleting unused links...
-note: hard linking is currently saving 23.9 GiB
-5074 store paths deleted, 13.0 GiB freed
+note: hard linking is currently saving 23.8 GiB
+3319 store paths deleted, 7.3 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/br48ghd436pcprdlpfww7h0byh873gdh-conan-flake-dev-env.drv'
-deleting '/nix/store/3bm523dpv877s1k09wj6cwrm8k8z6qmw-source'
-deleting '/nix/store/8djrz6n99va8f4nmlx04z2xd6r1ql0vh-infuse.nix'
-deleting '/nix/store/as9icfcfz75a56hr5nbkh5w0pl2i077j-source'
-deleting '/nix/store/n0h4z5rxjhr3j4bgnkyy8xnd1xqpip70-stdenv-linux-no-cc'
-deleting '/nix/store/4v8nn2z2vl74yz1557n1dha3l7rzzbgs-source'
-deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
+deleting '/nix/store/bj2y1a26dcr5xrcz1n23knh9rvjwvr7d-home-manager-files.drv'
+deleting '/nix/store/lvk3k80z2akggvnjrzj0bcq2wd0rhc8w-hm_.configzsh.zshrc.drv'
+deleting '/nix/store/h78nakayjgpcarmbxvnmianip3l2597w-devenv-2.2.1'
+deleting '/nix/store/27fwzn9fik17pxrv9fr4rzvsl4a6jzy9-devenv-2.2.1.drv'
+deleting '/nix/store/z6vciymwm686cglj4ngvj106whxjn2pd-devenv-2.2.1-vendor.drv'
+deleting '/nix/store/hxqnxdr95p0c652zljrgmzfak5pafalm-devenv-2.2.1-vendor-staging.drv'
+deleting '/nix/store/17cpnghyrxplpa0b4j39qkr0s9vdmvyj-source.drv'
 deleting unused links...
-note: hard linking is currently saving 23.9 GiB
-12 store paths deleted, 205.6 MiB freed
+note: hard linking is currently saving 23.8 GiB
+42 store paths deleted, 154.3 MiB freed
 ```
 <!-- END mdsh -->
 
