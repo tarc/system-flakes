@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/9yhf5jasabwp5l02yyyy56ldbn4hmni2-getopt-1.1.6.tar.gz.drv'
-deleting '/nix/store/q738l2mv8lw2i6g53lk70zg2489166dc-source'
+deleting '/nix/store/20d8d40gj3h5ywwrlkwbflvia86fc7j7-source.drv'
+deleting '/nix/store/0if974cia7kfvdbprnsjcv2zppjfmk5z-mdsh-0.9.3-vendor-vendor'
+deleting '/nix/store/3byrkxiv08mscx2ra6j6xl7maf18zyn0-match-repr-fix.patch.drv'
+deleting '/nix/store/nf7634z7axcsvcn8mlz3fnchmzy4jxwq-crate-thread_local-1.1.9.tar.gz.drv'
 deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
 deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
-deleting '/nix/store/2vcx03d5hnir75m4na319f7937n9q03m-unit-script-sleep-actions-start.drv'
-deleting '/nix/store/fh934gq2y4xbz8ld2qcbaclv8s9smpp0-file-5.48.tar.gz.drv'
-deleting '/nix/store/mmzfxdq98zdf9rlv7n2dw8nlw67n8vzy-source-salted-wqdb5z5z17lc.drv'
+deleting '/nix/store/y7jdm8jgl3s84l9c8kqi7n3crahgx96f-source'
 deleting unused links...
-note: hard linking is currently saving 23.5 GiB
-3966 store paths deleted, 3.5 GiB freed
+note: hard linking is currently saving 21.4 GiB
+416 store paths deleted, 1.2 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/idvyswwbwhvailivzzss5ryx4w1qi9il-source'
-deleting '/nix/store/q385mvcvvg80j24rswwp1rg7d9546k7r-options.json.drv'
-deleting '/nix/store/5ksjmh7c43v8wpvbn3drsbjmky99xy69-boot.json.drv'
-deleting '/nix/store/55z08f1cchp4qk1m5v0z8ckz4x79vmy7-source.drv'
-deleting '/nix/store/vpfk2x76y6bnhwx1skipi3i2w5cmnyrr-etc-os-release.drv'
-deleting '/nix/store/1334ak8aamnsk4nxsbmi47aqnvw4v7ak-nixos-version.drv'
-deleting '/nix/store/9pd46mh8p51zm2ahsscjm84s558jigsz-options.json.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 23.3 GiB
-89 store paths deleted, 497.5 MiB freed
+note: hard linking is currently saving 21.4 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
