@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/20d8d40gj3h5ywwrlkwbflvia86fc7j7-source.drv'
+deleting '/nix/store/jjq7p960shi47smwlxbd149mvr1i7af4-ShellCheck-0.11.0'
+deleting '/nix/store/afsckw7mm8bl4f96994picw0rgjdn2jf-source'
+deleting '/nix/store/yvi4xlapcg88jbkjl6n0yfaxa51jbw0x-source.drv'
+deleting '/nix/store/mgaxx7kw21454hdsrm10kvj7c51jlcm1-source'
+deleting '/nix/store/phivs80dv4h86992r9c8pgk8g5vn4avj-glibc-2.42-67-source.drv'
+deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
 deleting '/nix/store/0if974cia7kfvdbprnsjcv2zppjfmk5z-mdsh-0.9.3-vendor-vendor'
-deleting '/nix/store/3byrkxiv08mscx2ra6j6xl7maf18zyn0-match-repr-fix.patch.drv'
-deleting '/nix/store/nf7634z7axcsvcn8mlz3fnchmzy4jxwq-crate-thread_local-1.1.9.tar.gz.drv'
-deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
-deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
-deleting '/nix/store/y7jdm8jgl3s84l9c8kqi7n3crahgx96f-source'
 deleting unused links...
-note: hard linking is currently saving 21.4 GiB
-416 store paths deleted, 1.2 GiB freed
+note: hard linking is currently saving 23.0 GiB
+1167 store paths deleted, 1.2 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -77,7 +77,7 @@ removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 21.4 GiB
+note: hard linking is currently saving 23.0 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
