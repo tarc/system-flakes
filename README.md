@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/jjq7p960shi47smwlxbd149mvr1i7af4-ShellCheck-0.11.0'
-deleting '/nix/store/afsckw7mm8bl4f96994picw0rgjdn2jf-source'
-deleting '/nix/store/yvi4xlapcg88jbkjl6n0yfaxa51jbw0x-source.drv'
-deleting '/nix/store/mgaxx7kw21454hdsrm10kvj7c51jlcm1-source'
-deleting '/nix/store/phivs80dv4h86992r9c8pgk8g5vn4avj-glibc-2.42-67-source.drv'
-deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
 deleting '/nix/store/0if974cia7kfvdbprnsjcv2zppjfmk5z-mdsh-0.9.3-vendor-vendor'
+deleting '/nix/store/5rnmn11567zxr258w86sgzykgcp1ngqd-install-shell-files'
+deleting '/nix/store/cgcfzvr3gz2b66sdii4x9s589a9xvkax-source'
+deleting '/nix/store/dnyxz8i6n520d12scrajahvds32pd3dm-dry-activate'
+deleting '/nix/store/zh63ryr5l2ksnn63cz41lnbpibam2hpm-source'
+deleting '/nix/store/ixancnagi1l65y5zkzlf6yd3qnbdiil2-source'
+deleting '/nix/store/9w2al02vwiz5d673bh7hawgjcj3jw61s-gexiv2-0.14.6.tar.xz.drv'
 deleting unused links...
-note: hard linking is currently saving 23.0 GiB
-1167 store paths deleted, 1.2 GiB freed
+note: hard linking is currently saving 24.1 GiB
+3062 store paths deleted, 4.0 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,12 +72,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 424
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/s6janwsjdwwjrwwp6ynrgzri2gynkvl2" to "/nix/var/nix/profiles/system-424-link"
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 23.0 GiB
+note: hard linking is currently saving 24.1 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
