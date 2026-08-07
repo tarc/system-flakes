@@ -15,6 +15,7 @@
     # pkgs.auggie
     pkgs.claude-code
     pkgs.embedme
+    pkgs.jfrog-boost
     pkgs.gh
     pkgs.lshw
     pkgs.mesa-demos
