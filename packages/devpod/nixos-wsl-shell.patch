@@ -1,0 +1,27 @@
+From 3c0b6c8753b8d15119a72dcba82d7b92c1460916 Mon Sep 17 00:00:00 2001
+From: tarcisio <tarcisio.genaro@gmail.com>
+Date: Sat, 8 Aug 2026 23:03:33 +0000
+Subject: [PATCH] Get shell from SHELL if available
+
+---
+ pkg/shell/shell.go | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/pkg/shell/shell.go b/pkg/shell/shell.go
+index 0ea716e7..21b3e08c 100644
+--- a/pkg/shell/shell.go
++++ b/pkg/shell/shell.go
+@@ -166,6 +166,10 @@ func getUserShell(userName string) (string, error) {
+ 	if err != nil {
+ 		return "", err
+ 	}
++	if shell := os.Getenv("SHELL"); shell != "" {
++		return shell, nil
++	}
++
+ 	output, err := exec.Command("getent", "passwd", currentUser.Username).Output()
+ 	if err != nil {
+ 		return "", err
+-- 
+2.55.0
+
