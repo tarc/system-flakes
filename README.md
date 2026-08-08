@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/phivs80dv4h86992r9c8pgk8g5vn4avj-glibc-2.42-67-source.drv'
-deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/r9chiqzb36g031nlk2p7v0mbmhm0s8pw-claude-agents-assist.md.drv'
-deleting '/nix/store/0if974cia7kfvdbprnsjcv2zppjfmk5z-mdsh-0.9.3-vendor-vendor'
+deleting '/nix/store/vfc4j7xzrba2d7ap6n56ngmg6lf961ck-f198f6vgwjsql9794w9rz881wabqdw4r-source'
+deleting '/nix/store/8hnp7n3dzf2n81s9m27ygmjvckmsd97n-source'
+deleting '/nix/store/gizxwm019823qpmdx3f1n416j7pc1b27-liberation-fonts-2.1.5.drv'
 deleting '/nix/store/mzi189wgndi6mh5fwi8nwdsaky1415c0-source'
 deleting '/nix/store/5rnmn11567zxr258w86sgzykgcp1ngqd-install-shell-files'
+deleting '/nix/store/f8zymj3rfha76jw3wxqb1cjs7b7m6kvr-akkoma.md'
 deleting '/nix/store/dnyxz8i6n520d12scrajahvds32pd3dm-dry-activate'
 deleting unused links...
-note: hard linking is currently saving 24.3 GiB
-213 store paths deleted, 1.5 GiB freed
+note: hard linking is currently saving 23.9 GiB
+343 store paths deleted, 4.4 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 430
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/wqp6jh4bcwfgbm05k8vkkz68qp2vwzci" to "/nix/var/nix/profiles/system-430-link"
-deleting garbage...
+deleting '/nix/store/ghg94hc6sik2kqnfgx3w6qr5crvzqk5r-dbus-1'
+deleting '/nix/store/kr5pr3wmmm0qw0brf3pl6xzszaxh45y3-system-units.drv'
+deleting '/nix/store/gl0f117zlcvl4fqwjbf4jw2iqzcgkvv1-system-path'
+deleting '/nix/store/41ap63r0f0py84a4b0b8xrnfdwd7a4rd-unit-dbus-broker.service.drv'
+deleting '/nix/store/0bixnd64d58vdacyp357djr1zcgsscxs-X-Restart-Triggers-dbus-broker.drv'
+deleting '/nix/store/myir72ish3z5zxnk3ld3s3h762ynxgy6-dbus-1.drv'
+deleting '/nix/store/lg64ksgvkpgdgwmhf39481715mfk5vv8-system-path.drv'
 deleting unused links...
-note: hard linking is currently saving 24.3 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 23.9 GiB
+19 store paths deleted, 4.2 MiB freed
 ```
 <!-- END mdsh -->
 
