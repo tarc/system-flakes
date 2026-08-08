@@ -14,6 +14,8 @@
     pkgs.age
     # pkgs.auggie
     pkgs.claude-code
+    pkgs.devpod
+    pkgs.devpod-desktop
     pkgs.embedme
     pkgs.jfrog-boost
     pkgs.gh
