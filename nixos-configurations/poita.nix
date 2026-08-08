@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   ...
 }:
@@ -35,9 +36,11 @@
     defaultUser = "tarci";
     startMenuLaunchers = true;
     wslConf.automount.root = "/mnt";
-    docker-desktop.enable = true;
+    docker-desktop.enable = false;
     useWindowsDriver = true;
   };
+
+  virtualisation.docker.enable = true;
 
   programs.nix-ld = {
     enable = true;
@@ -48,7 +51,10 @@
     home = "/home/tarci";
     description = "Tarcisio Genaro Rodrigues";
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "docker"
+      "wheel"
+    ];
   };
 
   nixpkgs = {

@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/vfc4j7xzrba2d7ap6n56ngmg6lf961ck-f198f6vgwjsql9794w9rz881wabqdw4r-source'
-deleting '/nix/store/8hnp7n3dzf2n81s9m27ygmjvckmsd97n-source'
-deleting '/nix/store/gizxwm019823qpmdx3f1n416j7pc1b27-liberation-fonts-2.1.5.drv'
-deleting '/nix/store/mzi189wgndi6mh5fwi8nwdsaky1415c0-source'
-deleting '/nix/store/5rnmn11567zxr258w86sgzykgcp1ngqd-install-shell-files'
-deleting '/nix/store/f8zymj3rfha76jw3wxqb1cjs7b7m6kvr-akkoma.md'
-deleting '/nix/store/dnyxz8i6n520d12scrajahvds32pd3dm-dry-activate'
+deleting '/nix/store/r2c01rqvg08805sv6srn43skzhmg98v8-source.drv'
+deleting '/nix/store/jnjirhgs0zfxkf6z6nvllkn0jvdcvfl0-activate'
+deleting '/nix/store/56xz0nfy84ywiqafb8c3rmihykkv8xrm-make-binary-wrapper-hook'
+deleting '/nix/store/6mics979bnl12jh2bi60zrlr0mlsqi8a-ensure-all-wrappers-paths-exist'
+deleting '/nix/store/bdi7mni3jvd0hb6c6yk8gh5917rbaaqr-unit-console-getty.service-disabled'
+deleting '/nix/store/yvi4xlapcg88jbkjl6n0yfaxa51jbw0x-source.drv'
+deleting '/nix/store/phivs80dv4h86992r9c8pgk8g5vn4avj-glibc-2.42-67-source.drv'
 deleting unused links...
 note: hard linking is currently saving 23.9 GiB
-343 store paths deleted, 4.4 GiB freed
+67 store paths deleted, 153.4 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/ghg94hc6sik2kqnfgx3w6qr5crvzqk5r-dbus-1'
-deleting '/nix/store/kr5pr3wmmm0qw0brf3pl6xzszaxh45y3-system-units.drv'
-deleting '/nix/store/gl0f117zlcvl4fqwjbf4jw2iqzcgkvv1-system-path'
-deleting '/nix/store/41ap63r0f0py84a4b0b8xrnfdwd7a4rd-unit-dbus-broker.service.drv'
-deleting '/nix/store/0bixnd64d58vdacyp357djr1zcgsscxs-X-Restart-Triggers-dbus-broker.drv'
-deleting '/nix/store/myir72ish3z5zxnk3ld3s3h762ynxgy6-dbus-1.drv'
-deleting '/nix/store/lg64ksgvkpgdgwmhf39481715mfk5vv8-system-path.drv'
+deleting '/nix/store/f3cj578fmxwjf1byy6kg3c7z4q6rrfym-user-generators.drv'
+deleting '/nix/store/akbfd1s5bal31dl240fdmsdiw8r1ls34-system-shutdown'
+deleting '/nix/store/14b57sy36vwlhxclzhaby5is139gkrxg-dbus-1.drv'
+deleting '/nix/store/as5la4pg4vnr5r041cj4p3braajqif44-system-path.drv'
+deleting '/nix/store/51ph1d0i80y9hbqxsl22g7zw5azqjqll-user-generators.drv'
+deleting '/nix/store/0idkb8nmiwhnz1f575lkkrxsd87dqvja-system-shutdown.drv'
+deleting '/nix/store/wglvzn4gp4d4ab9di95xb47vf844liil-system-generators.drv'
 deleting unused links...
 note: hard linking is currently saving 23.9 GiB
-19 store paths deleted, 4.2 MiB freed
+39 store paths deleted, 4.3 MiB freed
 ```
 <!-- END mdsh -->
 
