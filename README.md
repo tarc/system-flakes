@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/50ql5q0raqkcydmpi6wqvnhs9hpdgg5f-cpio.drv'
-deleting '/nix/store/ins9k4dw0gs9iqi2gd2dhj1g4y9dcycw-0005-Fix-configure.ac-for-Linux-headers.patch'
-deleting '/nix/store/5iqpm377dcnzaj0bjip0alh6shvjrfpc-cf-setup-hook.sh'
-deleting '/nix/store/y64m3miy9jd5h6hfwkdigbgp8ipb4cmr-python-namespaces-hook.sh'
-deleting '/nix/store/8g7v7bdip4qhlvr1rxz2fndm3k0g45f6-0007-Add-CrashReporterClient-header.patch'
-deleting '/nix/store/bbq4ab17p1d4nlmk88rgr3ngi7551r96-meson.build.in'
-deleting '/nix/store/rb8rna9gkhs0ybl6z2p904myslh8llg8-gettext-1.0'
+deleting '/nix/store/phivs80dv4h86992r9c8pgk8g5vn4avj-glibc-2.42-67-source.drv'
+deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
+deleting '/nix/store/r9chiqzb36g031nlk2p7v0mbmhm0s8pw-claude-agents-assist.md.drv'
+deleting '/nix/store/0if974cia7kfvdbprnsjcv2zppjfmk5z-mdsh-0.9.3-vendor-vendor'
+deleting '/nix/store/mzi189wgndi6mh5fwi8nwdsaky1415c0-source'
+deleting '/nix/store/5rnmn11567zxr258w86sgzykgcp1ngqd-install-shell-files'
+deleting '/nix/store/dnyxz8i6n520d12scrajahvds32pd3dm-dry-activate'
 deleting unused links...
-note: hard linking is currently saving 24.1 GiB
-5542 store paths deleted, 2.3 GiB freed
+note: hard linking is currently saving 24.3 GiB
+213 store paths deleted, 1.5 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/19pl2si8pms53kvs8f0y0w8k2qr633hg-activate.drv'
-deleting '/nix/store/clwpvh9g61bgiv3y9ab68155n03g5ha9-etc.drv'
-deleting '/nix/store/9sd3cm3xd2vsdpa4wh088qp1j75wy6pb-system-units.drv'
-deleting '/nix/store/x8al6b1r0znpbjk6n33dmbh70v6i560y-jfrog-boost-0.11.1'
-deleting '/nix/store/6xzfrs40nn3gvs1r6pynybqvhhng0061-node-v22.23.2.tar.xz.drv'
-deleting '/nix/store/b5z0ikimfmy2n0dsvx2wxycivw8cs38y-jfrog-boost-0.11.1.drv'
-deleting '/nix/store/zc2zgk2qqxkcgs4r7k1kga9mz3xr2wzi-pnpm-10.34.5.tgz.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 430
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/wqp6jh4bcwfgbm05k8vkkz68qp2vwzci" to "/nix/var/nix/profiles/system-430-link"
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 24.1 GiB
-77 store paths deleted, 44.9 MiB freed
+note: hard linking is currently saving 24.3 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
