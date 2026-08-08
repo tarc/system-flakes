@@ -14,7 +14,13 @@ let
   systemSplit = lib.strings.splitString "-" system;
   arch = builtins.head systemSplit;
   os = builtins.head (builtins.tail systemSplit);
-  arch' = if arch == "x86_64" then "amd64" else if arch == "aarch64" then "arm64" else arch;
+  arch' =
+    if arch == "x86_64" then
+      "amd64"
+    else if arch == "aarch64" then
+      "arm64"
+    else
+      arch;
 in
 stdenv.mkDerivation (finalAttrs: {
   inherit pname version;
