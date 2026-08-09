@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/xx0ffjgv8y6gl6d52vm6p3j79dxg797k-source'
+deleting '/nix/store/yvi4xlapcg88jbkjl6n0yfaxa51jbw0x-source.drv'
+deleting '/nix/store/mfnhgf4ks2dh650i0rkip62pm8bkqfgs-python3.14-mock-5.2.0'
+deleting '/nix/store/phivs80dv4h86992r9c8pgk8g5vn4avj-glibc-2.42-67-source.drv'
 deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/0czns0dj7sggk8kxwv5z7p6jbrxj5bvc-root.drv'
-deleting '/nix/store/r9chiqzb36g031nlk2p7v0mbmhm0s8pw-claude-agents-assist.md.drv'
-deleting '/nix/store/0if974cia7kfvdbprnsjcv2zppjfmk5z-mdsh-0.9.3-vendor-vendor'
-deleting '/nix/store/y4ras759ngnpc9aq5zxx4snca9cwzh1q-source'
-deleting '/nix/store/7kyrpw7hkiaskr68f7823xs410wkppcq-moreutils.drv'
+deleting '/nix/store/sa2qvd26yrbsk2z8mm9a77l1f1szhln2-python3.14-wheel-0.47.0'
+deleting '/nix/store/8bslpkr08kj7fwbqma5cga7n8iha4s11-source'
+deleting '/nix/store/fgv5zvdb0w3xxmlla6nwqhf6f1b60i69-source'
 deleting unused links...
 note: hard linking is currently saving 23.0 GiB
-2458 store paths deleted, 2.9 GiB freed
+1255 store paths deleted, 875.4 MiB freed
 ```
 <!-- END mdsh -->
 
