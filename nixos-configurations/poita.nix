@@ -15,8 +15,8 @@
     pkgs.age
     # pkgs.auggie
     pkgs.claude-code
-    pkgs.devpod
-    pkgs.devpod-desktop
+    # pkgs.devpod
+    # pkgs.devpod-desktop
     pkgs.embedme
     pkgs.jfrog-boost
     pkgs.gh
@@ -36,11 +36,11 @@
     defaultUser = "tarci";
     startMenuLaunchers = true;
     wslConf.automount.root = "/mnt";
-    docker-desktop.enable = false;
     useWindowsDriver = true;
   };
 
   virtualisation.docker.enable = true;
+  wsl.docker-desktop.enable = false;
 
   programs.nix-ld = {
     enable = true;

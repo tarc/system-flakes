@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/6mics979bnl12jh2bi60zrlr0mlsqi8a-ensure-all-wrappers-paths-exist'
+deleting '/nix/store/jjq7p960shi47smwlxbd149mvr1i7af4-ShellCheck-0.11.0'
 deleting '/nix/store/bdi7mni3jvd0hb6c6yk8gh5917rbaaqr-unit-console-getty.service-disabled'
 deleting '/nix/store/yvi4xlapcg88jbkjl6n0yfaxa51jbw0x-source.drv'
 deleting '/nix/store/phivs80dv4h86992r9c8pgk8g5vn4avj-glibc-2.42-67-source.drv'
 deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/0if974cia7kfvdbprnsjcv2zppjfmk5z-mdsh-0.9.3-vendor-vendor'
-deleting '/nix/store/5rnmn11567zxr258w86sgzykgcp1ngqd-install-shell-files'
-deleting '/nix/store/4l49l2jdcvd2qym6mxbh58shd0ffs79l-source'
+deleting '/nix/store/kndnff7ih0zifymvwhd58n1cfqq9jyna-devenv-profile.drv'
 deleting unused links...
 note: hard linking is currently saving 23.0 GiB
-339 store paths deleted, 1.7 GiB freed
+108 store paths deleted, 253.1 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 435
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/jyavikks5jdibbk38g4nbzz1im9dplfh" to "/nix/var/nix/profiles/system-435-link"
-deleting garbage...
+deleting '/nix/store/sgrx7nm1b8h8vv9gbrzxa5ag4dm2v2ih-dbus-1'
+deleting '/nix/store/qk1wcc56a8qjzfnbh7ba1hsksqwadxca-user-units.drv'
+deleting '/nix/store/kaag1xsid05sw35dq4kzw98chlsbb8nw-unit-dbus-broker.service.drv'
+deleting '/nix/store/vwzfbx9122ly804fd48kfqp0ji52244p-system-path'
+deleting '/nix/store/763ba9bab8gh7v35a5hv5rbvhlxi0njw-X-Restart-Triggers-dbus-broker.drv'
+deleting '/nix/store/2amrc5np2m2n96ld8pb9wkiyn755ny56-dbus-1.drv'
+deleting '/nix/store/j672mmwdn81yf13rimzhindk54kakvgv-system-path.drv'
 deleting unused links...
 note: hard linking is currently saving 23.0 GiB
-0 store paths deleted, 0.0 KiB freed
+19 store paths deleted, 4.2 MiB freed
 ```
 <!-- END mdsh -->
 
