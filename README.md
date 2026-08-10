@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/bdi7mni3jvd0hb6c6yk8gh5917rbaaqr-unit-console-getty.service-disabled'
 deleting '/nix/store/yvi4xlapcg88jbkjl6n0yfaxa51jbw0x-source.drv'
-deleting '/nix/store/mfnhgf4ks2dh650i0rkip62pm8bkqfgs-python3.14-mock-5.2.0'
 deleting '/nix/store/phivs80dv4h86992r9c8pgk8g5vn4avj-glibc-2.42-67-source.drv'
 deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/sa2qvd26yrbsk2z8mm9a77l1f1szhln2-python3.14-wheel-0.47.0'
-deleting '/nix/store/8bslpkr08kj7fwbqma5cga7n8iha4s11-source'
-deleting '/nix/store/fgv5zvdb0w3xxmlla6nwqhf6f1b60i69-source'
+deleting '/nix/store/0if974cia7kfvdbprnsjcv2zppjfmk5z-mdsh-0.9.3-vendor-vendor'
+deleting '/nix/store/5rnmn11567zxr258w86sgzykgcp1ngqd-install-shell-files'
+deleting '/nix/store/4l49l2jdcvd2qym6mxbh58shd0ffs79l-source'
 deleting unused links...
 note: hard linking is currently saving 23.0 GiB
-1255 store paths deleted, 875.4 MiB freed
+339 store paths deleted, 1.7 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,9 +72,11 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 435
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/jyavikks5jdibbk38g4nbzz1im9dplfh" to "/nix/var/nix/profiles/system-435-link"
 deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 23.0 GiB
