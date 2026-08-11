@@ -95,7 +95,7 @@ in
         unset RPS1
       '';
       plugins = with pkgs; [
-        (mkZshPlugin { pkg = zsh-autopair; })
+        # (mkZshPlugin { pkg = zsh-autopair; })
         (mkZshPlugin { pkg = zsh-completions; })
         (mkZshPlugin { pkg = zsh-autosuggestions; })
         (mkZshPlugin {
