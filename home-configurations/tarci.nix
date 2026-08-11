@@ -74,6 +74,10 @@ in
       direnv.enable = true;
       xdg.enable = true;
 
+      xdg.configFile."opencode/opencode.json".text = builtins.toJSON {
+        plugin = [ "opencode-claude-auth@latest" ];
+      };
+
       age.identityPaths = [ "${homeDir}/.ssh/id_ed25519" ];
 
       age.secrets = {
