@@ -24,6 +24,8 @@
     pkgs.mesa-demos
     pkgs.nixd
     pkgs.nil
+    pkgs.opencode
+    pkgs.opencode-claude-auth
     pkgs.pciutils
     pkgs.seahorse
     pkgs.vulkan-tools
