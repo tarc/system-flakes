@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/a8fvlvds9xcwgn3ginirsk802ys7r5v1-source'
-deleting '/nix/store/829lx03svv2d419waj7ddxwzm0ijqy17-linux-6.18.43.tar.xz.drv'
-deleting '/nix/store/sa2qvd26yrbsk2z8mm9a77l1f1szhln2-python3.14-wheel-0.47.0'
-deleting '/nix/store/4zfpjwg74yv7576mqdz1m6zzn2xnskwf-source'
-deleting '/nix/store/j94c44z3za7mp989sd5lfq1s2c2qs6ml-options.json.drv'
-deleting '/nix/store/07i7cpf8bi58l34jarlhis4jphi0dhnc-source'
-deleting '/nix/store/flqffpx9ila8fa4rzhxavg4dshp02ngr-opencode-agents-supervise.md.drv'
+deleting '/nix/store/y64m3miy9jd5h6hfwkdigbgp8ipb4cmr-python-namespaces-hook.sh'
+deleting '/nix/store/hvp0svyrbklil8f0idk5ivvgiznmhk9q-profile.REPLACE_REQUIRES.2.lock'
+deleting '/nix/store/rd0bgq7120xymcl6y806224gnvg8hq4y-source.drv'
+deleting '/nix/store/0iqcyjqzgacmndm6zrplfxrik0ghknl1-conan-profile-default.drv'
+deleting '/nix/store/zrzsmvb87kyqn8jf528a1kb7f4472hm7-python3.13-tomli-2.4.0'
+deleting '/nix/store/8898hbq514klqxsal1cgzziqfz4yfy7g-source.drv'
+deleting '/nix/store/rb8rna9gkhs0ybl6z2p904myslh8llg8-gettext-1.0'
 deleting unused links...
-note: hard linking is currently saving 22.8 GiB
-3050 store paths deleted, 5.3 GiB freed
+note: hard linking is currently saving 23.0 GiB
+4771 store paths deleted, 14.0 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/5f748cpqxg3k9ccy19mnkghax04cmji2-system-units.drv'
-deleting '/nix/store/yggay2dcdwcdlvnima4lx8f9vqfd2r2g-home-manager-generation'
-deleting '/nix/store/mrbi0c1bkkk6hyyjg3qh8f0kp7vaq2ck-home-manager-generation.drv'
-deleting '/nix/store/fkzrf7hrxqcnj6252zwfkinj0fiw0ijp-home-manager-files'
-deleting '/nix/store/87c4c0i2s57rvqsnfpif9asdglk1g2q1-home-manager-files.drv'
-deleting '/nix/store/zls8w5lbzy1f4jn82wdn1nb08xi3jvmi-hm_opencodeopencode.json'
-deleting '/nix/store/p9qxmsyi46qlcaajvhyphgls7k30dbqk-hm_opencodeopencode.json.drv'
+deleting '/nix/store/bdm7y8qrjl5ibf2g367wkg12p27falfp-system-units.drv'
+deleting '/nix/store/bays29xj7i7v3p8iwc1wkd94m136kvz0-unit-dbus-broker.service.drv'
+deleting '/nix/store/9i1llmd0w0h93m1mx1bnlk39rcb891qj-user-units.drv'
+deleting '/nix/store/pnjmka9sngxrk41pkf3isrxgaxzm7dh6-unit-dbus-broker.service.drv'
+deleting '/nix/store/4niyfk097ks3msvckxwk997hfq3mq3c4-X-Restart-Triggers-dbus-broker.drv'
+deleting '/nix/store/vr3wvvpcdiazwl3aqcapgvj7j263vsn6-dbus-1.drv'
+deleting '/nix/store/025mpqiaq49w1r9hdkd1vdvmrgcy43sp-system-path.drv'
 deleting unused links...
-note: hard linking is currently saving 22.8 GiB
-35 store paths deleted, 376.5 KiB freed
+note: hard linking is currently saving 23.0 GiB
+19 store paths deleted, 4.2 MiB freed
 ```
 <!-- END mdsh -->
 
