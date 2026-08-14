@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/8g7v7bdip4qhlvr1rxz2fndm3k0g45f6-0007-Add-CrashReporterClient-header.patch'
-deleting '/nix/store/bbq4ab17p1d4nlmk88rgr3ngi7551r96-meson.build.in'
-deleting '/nix/store/0iqcyjqzgacmndm6zrplfxrik0ghknl1-conan-profile-default.drv'
-deleting '/nix/store/6z7bbs0ic30flgzglqqqnsxi2wvrnpny-source'
-deleting '/nix/store/9fg2j4jh0yri9v7xnq7b4z68ksaa9fna-source'
-deleting '/nix/store/dwsg0ipnhzb35vfnjjvgmv3gxcsi8a2s-source'
-deleting '/nix/store/v7cilmlsghvwn1yzbwfnl0v4il920jc0-root.drv'
+deleting '/nix/store/na17m7qj3riyclh01j71p4766fs7q7l6-qsilrfahkaff457l9x1yigha8kyki1fd-source'
+deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
+deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
+deleting '/nix/store/lsnlb642639571bdfakc4p8hls6kcv57-source'
+deleting '/nix/store/s8pf43hx9a71bbkw77v5rnqd038ihzmv-source.drv'
+deleting '/nix/store/5ag1c82fh7ailv388n92g3dyfa1f914d-source'
+deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
 deleting unused links...
 note: hard linking is currently saving 24.7 GiB
-7108 store paths deleted, 12.4 GiB freed
+308 store paths deleted, 1.0 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/d3i33jx6hk4cybrjp1cpzf4k89cbribf-unit-dbus-broker.service.drv'
-deleting '/nix/store/2zxj1zhq8psmvjkclyfvg4y6wdxfcgc3-X-Restart-Triggers-dbus-broker.drv'
-deleting '/nix/store/xffk278mjl31d018mdgg6i6ixw9kzx1l-dbus-1.drv'
-deleting '/nix/store/bzi7qpz7xdwf7cjzjs99bc1idpc8ag6j-system-path'
-deleting '/nix/store/k9q0siqrhlk1njnc8fljmqahpx1isicw-system-path.drv'
-deleting '/nix/store/j9cwi0v75vk5hk7nyw83s2iiyg7rncff-system-path'
-deleting '/nix/store/27v4bsrjkkk59zj3vsc3jq3002zndc4q-system-path.drv'
+deleting '/nix/store/34gd3i68kcnbx6dpg5qiazd156ivi0qc-etc-nix-registry.json.drv'
+deleting '/nix/store/36l2slym4grj74dbv71z2xvwd6ppm958-claude-agent-acp-0.66.0'
+deleting '/nix/store/s01cdi0ccp42lwmc7qip9a0mb4zdmv0i-source'
+deleting '/nix/store/90k08cf849dmm8ajgmkrknjwf1amp30y-source.drv'
+deleting '/nix/store/hszxkna3kjjd8w966c9dqllhfa6maq8f-claude-agent-acp-0.66.0.drv'
+deleting '/nix/store/gmypg3g3vnm3gdabk1cz7sd8z47hph9s-boot.json.drv'
+deleting '/nix/store/xkpidp4r5l7hw7f19zcl01lb6gzf7n03-nixos-version.drv'
 deleting unused links...
 note: hard linking is currently saving 24.7 GiB
-38 store paths deleted, 312.0 KiB freed
+62 store paths deleted, 537.9 MiB freed
 ```
 <!-- END mdsh -->
 
