@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/y64m3miy9jd5h6hfwkdigbgp8ipb4cmr-python-namespaces-hook.sh'
-deleting '/nix/store/hvp0svyrbklil8f0idk5ivvgiznmhk9q-profile.REPLACE_REQUIRES.2.lock'
-deleting '/nix/store/rd0bgq7120xymcl6y806224gnvg8hq4y-source.drv'
+deleting '/nix/store/8g7v7bdip4qhlvr1rxz2fndm3k0g45f6-0007-Add-CrashReporterClient-header.patch'
+deleting '/nix/store/bbq4ab17p1d4nlmk88rgr3ngi7551r96-meson.build.in'
 deleting '/nix/store/0iqcyjqzgacmndm6zrplfxrik0ghknl1-conan-profile-default.drv'
-deleting '/nix/store/zrzsmvb87kyqn8jf528a1kb7f4472hm7-python3.13-tomli-2.4.0'
-deleting '/nix/store/8898hbq514klqxsal1cgzziqfz4yfy7g-source.drv'
-deleting '/nix/store/rb8rna9gkhs0ybl6z2p904myslh8llg8-gettext-1.0'
+deleting '/nix/store/6z7bbs0ic30flgzglqqqnsxi2wvrnpny-source'
+deleting '/nix/store/9fg2j4jh0yri9v7xnq7b4z68ksaa9fna-source'
+deleting '/nix/store/dwsg0ipnhzb35vfnjjvgmv3gxcsi8a2s-source'
+deleting '/nix/store/v7cilmlsghvwn1yzbwfnl0v4il920jc0-root.drv'
 deleting unused links...
-note: hard linking is currently saving 23.0 GiB
-4771 store paths deleted, 14.0 GiB freed
+note: hard linking is currently saving 24.7 GiB
+7108 store paths deleted, 12.4 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/bdm7y8qrjl5ibf2g367wkg12p27falfp-system-units.drv'
-deleting '/nix/store/bays29xj7i7v3p8iwc1wkd94m136kvz0-unit-dbus-broker.service.drv'
-deleting '/nix/store/9i1llmd0w0h93m1mx1bnlk39rcb891qj-user-units.drv'
-deleting '/nix/store/pnjmka9sngxrk41pkf3isrxgaxzm7dh6-unit-dbus-broker.service.drv'
-deleting '/nix/store/4niyfk097ks3msvckxwk997hfq3mq3c4-X-Restart-Triggers-dbus-broker.drv'
-deleting '/nix/store/vr3wvvpcdiazwl3aqcapgvj7j263vsn6-dbus-1.drv'
-deleting '/nix/store/025mpqiaq49w1r9hdkd1vdvmrgcy43sp-system-path.drv'
+deleting '/nix/store/d3i33jx6hk4cybrjp1cpzf4k89cbribf-unit-dbus-broker.service.drv'
+deleting '/nix/store/2zxj1zhq8psmvjkclyfvg4y6wdxfcgc3-X-Restart-Triggers-dbus-broker.drv'
+deleting '/nix/store/xffk278mjl31d018mdgg6i6ixw9kzx1l-dbus-1.drv'
+deleting '/nix/store/bzi7qpz7xdwf7cjzjs99bc1idpc8ag6j-system-path'
+deleting '/nix/store/k9q0siqrhlk1njnc8fljmqahpx1isicw-system-path.drv'
+deleting '/nix/store/j9cwi0v75vk5hk7nyw83s2iiyg7rncff-system-path'
+deleting '/nix/store/27v4bsrjkkk59zj3vsc3jq3002zndc4q-system-path.drv'
 deleting unused links...
-note: hard linking is currently saving 23.0 GiB
-19 store paths deleted, 4.2 MiB freed
+note: hard linking is currently saving 24.7 GiB
+38 store paths deleted, 312.0 KiB freed
 ```
 <!-- END mdsh -->
 

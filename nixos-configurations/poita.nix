@@ -11,26 +11,25 @@
 
   system.stateVersion = "24.05";
 
-  environment.systemPackages = [
-    pkgs.age
-    # pkgs.auggie
-    pkgs.claude-code
-    # pkgs.devpod
-    # pkgs.devpod-desktop
-    pkgs.embedme
-    pkgs.jfrog-boost
-    pkgs.gh
-    pkgs.lshw
-    pkgs.mesa-demos
-    pkgs.nixd
-    pkgs.nil
-    pkgs.opencode
-    pkgs.opencode-claude-auth
-    pkgs.pciutils
-    pkgs.seahorse
-    pkgs.vulkan-tools
-    pkgs.rocmPackages.rocminfo
-    pkgs.zed-editor
+  environment.systemPackages = with pkgs; [
+    age
+    # auggie
+    claude-agent-acp
+    claude-code
+    embedme
+    jfrog-boost
+    gh
+    lshw
+    mesa-demos
+    nixd
+    nil
+    opencode
+    opencode-claude-auth
+    pciutils
+    seahorse
+    vulkan-tools
+    rocmPackages.rocminfo
+    zed-editor
   ];
 
   wsl = {
@@ -72,4 +71,6 @@
   programs.zsh.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
+
+  services.netbird.enable = true;
 }
