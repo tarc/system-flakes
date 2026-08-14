@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/na17m7qj3riyclh01j71p4766fs7q7l6-qsilrfahkaff457l9x1yigha8kyki1fd-source'
+deleting '/nix/store/r6wl492xm7hi45m4qhg3bhpq8yn8ayyc-crate-lodepng-3.12.1.tar.gz.drv'
 deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
+deleting '/nix/store/p2xwlbwhzlw5l267pscm9sdpanlz9sk6-flex-2.6.4'
 deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
-deleting '/nix/store/lsnlb642639571bdfakc4p8hls6kcv57-source'
 deleting '/nix/store/s8pf43hx9a71bbkw77v5rnqd038ihzmv-source.drv'
-deleting '/nix/store/5ag1c82fh7ailv388n92g3dyfa1f914d-source'
-deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
+deleting '/nix/store/vp4ha3gygz1cm6f7qgrrysyyk1nzfgps-abseil-cpp-20260107.1'
+deleting '/nix/store/ymc296bfq75wwf7n44gzz8xng7xrsaci-nlohmann_json-3.12.0'
 deleting unused links...
 note: hard linking is currently saving 24.7 GiB
-308 store paths deleted, 1.0 GiB freed
+389 store paths deleted, 4.9 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/34gd3i68kcnbx6dpg5qiazd156ivi0qc-etc-nix-registry.json.drv'
-deleting '/nix/store/36l2slym4grj74dbv71z2xvwd6ppm958-claude-agent-acp-0.66.0'
-deleting '/nix/store/s01cdi0ccp42lwmc7qip9a0mb4zdmv0i-source'
-deleting '/nix/store/90k08cf849dmm8ajgmkrknjwf1amp30y-source.drv'
-deleting '/nix/store/hszxkna3kjjd8w966c9dqllhfa6maq8f-claude-agent-acp-0.66.0.drv'
-deleting '/nix/store/gmypg3g3vnm3gdabk1cz7sd8z47hph9s-boot.json.drv'
-deleting '/nix/store/xkpidp4r5l7hw7f19zcl01lb6gzf7n03-nixos-version.drv'
+deleting '/nix/store/sps393r8lvi8h7vxgzb1b3chi6gy9fp7-nix-store-2.34.drv'
+deleting '/nix/store/sw9a4frsh6jyzxxca0a5wckpyhcwwv7r-devenv-2.2.1-vendor.drv'
+deleting '/nix/store/iznx9g9sqyqxlylzdrph44w83amnzwpa-devenv-2.2.1-vendor-staging.drv'
+deleting '/nix/store/xpw640p2qy259jphi6inkh50z1gbdsrd-source.drv'
+deleting '/nix/store/bhydnyqajbrkzjwfjrg0ik3r56zj0vzw-nix-util-c-2.34.drv'
+deleting '/nix/store/mw11c6h9alzn3k6vcb0j8c2r1k3mb0sj-nix-util-2.34.drv'
+deleting '/nix/store/xx23jwhv9r2a4img3fwnbnhyr7whp341-devenv-nix-2.34-source.drv'
 deleting unused links...
 note: hard linking is currently saving 24.7 GiB
-62 store paths deleted, 537.9 MiB freed
+43 store paths deleted, 3.0 MiB freed
 ```
 <!-- END mdsh -->
 
