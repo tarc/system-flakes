@@ -139,6 +139,13 @@ in
           file = "${inputs.secrets}/google-api-key.age";
           mode = "600";
         };
+
+        "netbird-secret-key" = {
+          symlink = true;
+          path = "${config.xdg.dataHome}/netbird/secret-key";
+          file = "${inputs.secrets}/poita-local-netbird-setup-key.age";
+          mode = "600";
+        };
       };
     };
 }
