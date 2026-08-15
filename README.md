@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/r6wl492xm7hi45m4qhg3bhpq8yn8ayyc-crate-lodepng-3.12.1.tar.gz.drv'
-deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
-deleting '/nix/store/p2xwlbwhzlw5l267pscm9sdpanlz9sk6-flex-2.6.4'
-deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
-deleting '/nix/store/s8pf43hx9a71bbkw77v5rnqd038ihzmv-source.drv'
-deleting '/nix/store/vp4ha3gygz1cm6f7qgrrysyyk1nzfgps-abseil-cpp-20260107.1'
-deleting '/nix/store/ymc296bfq75wwf7n44gzz8xng7xrsaci-nlohmann_json-3.12.0'
+deleting '/nix/store/jiyj2vyirjncpgb2in801qk64gh9bc4q-adwaita-icon-theme-50.0.tar.xz.drv'
+deleting '/nix/store/6x94s1l6cqrq3w62ccrq24jnj9qdva22-filepattern-0.1.3.tar.gz.drv'
+deleting '/nix/store/g8i0lrivl8a05b3fyp5xqz3ll64s14lh-gtk4-layer-shell-1.1.0.tar.gz.drv'
+deleting '/nix/store/pr3ddjlgvfkvwzf7sy9ld1shpxrphi0n-source.drv'
+deleting '/nix/store/sfgjdpkxx1wipgrjzry4q5zm9qlc4s5g-ansi-terminal-types-1.1.3.tar.gz.drv'
+deleting '/nix/store/r74rf5jyza4k48m3b0vi5a2v78makdbh-source.drv'
+deleting '/nix/store/0ki28jlrchy7mknab2xg50d2qq2rpds2-pqueue-1.5.0.0.tar.gz.drv'
 deleting unused links...
-note: hard linking is currently saving 24.7 GiB
-389 store paths deleted, 4.9 GiB freed
+note: hard linking is currently saving 25.4 GiB
+9389 store paths deleted, 7.9 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/sps393r8lvi8h7vxgzb1b3chi6gy9fp7-nix-store-2.34.drv'
-deleting '/nix/store/sw9a4frsh6jyzxxca0a5wckpyhcwwv7r-devenv-2.2.1-vendor.drv'
-deleting '/nix/store/iznx9g9sqyqxlylzdrph44w83amnzwpa-devenv-2.2.1-vendor-staging.drv'
-deleting '/nix/store/xpw640p2qy259jphi6inkh50z1gbdsrd-source.drv'
-deleting '/nix/store/bhydnyqajbrkzjwfjrg0ik3r56zj0vzw-nix-util-c-2.34.drv'
-deleting '/nix/store/mw11c6h9alzn3k6vcb0j8c2r1k3mb0sj-nix-util-2.34.drv'
-deleting '/nix/store/xx23jwhv9r2a4img3fwnbnhyr7whp341-devenv-nix-2.34-source.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 24.7 GiB
-43 store paths deleted, 3.0 MiB freed
+note: hard linking is currently saving 25.4 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
