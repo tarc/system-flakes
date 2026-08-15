@@ -26,7 +26,7 @@ in
     {
       home = {
         stateVersion = "22.05";
-        homeDirectory = if pkgs.stdenv.isDarwin then "/Users/tarci" else "/home/tarci";
+        homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/tarci" else "/home/tarci";
         username = "tarci";
         sessionVariables = {
           GITHUB_TOKEN = githubToken;

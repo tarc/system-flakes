@@ -4,6 +4,11 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.wsl;
+  defaultUser = cfg.defaultUser;
+  home = config.users.users.${defaultUser}.home;
+in
 {
   imports = [
     inputs.nixos-wsl.nixosModules.default
@@ -72,5 +77,21 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  services.netbird.enable = true;
+  # services.netbird.enable = true;
+  services.netbird.clients.wt0 = {
+    login = {
+      enable = true;
+      setupKeyFile = "${home}/.local/share/netbird/secret-key";
+    };
+    port = 51821;
+    ui.enable = false;          # no GUI needed in WSL
+    openFirewall = true;
+    openInternalFirewall = true;
+  };
+
+  networking.nameservers = [ ];
+  services.resolved.enable = true;
+
+  # stop WSL from overwriting resolv.conf out from under systemd-resolved
+  wsl.wslConf.network.generateResolvConf = false;
 }
