@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/jiyj2vyirjncpgb2in801qk64gh9bc4q-adwaita-icon-theme-50.0.tar.xz.drv'
-deleting '/nix/store/6x94s1l6cqrq3w62ccrq24jnj9qdva22-filepattern-0.1.3.tar.gz.drv'
-deleting '/nix/store/g8i0lrivl8a05b3fyp5xqz3ll64s14lh-gtk4-layer-shell-1.1.0.tar.gz.drv'
-deleting '/nix/store/pr3ddjlgvfkvwzf7sy9ld1shpxrphi0n-source.drv'
-deleting '/nix/store/sfgjdpkxx1wipgrjzry4q5zm9qlc4s5g-ansi-terminal-types-1.1.3.tar.gz.drv'
-deleting '/nix/store/r74rf5jyza4k48m3b0vi5a2v78makdbh-source.drv'
-deleting '/nix/store/0ki28jlrchy7mknab2xg50d2qq2rpds2-pqueue-1.5.0.0.tar.gz.drv'
+deleting '/nix/store/ycfj17wlm7p8350wakacrkgmf34v5r32-lodepng-3.12.1.drv'
+deleting '/nix/store/r6wl492xm7hi45m4qhg3bhpq8yn8ayyc-crate-lodepng-3.12.1.tar.gz.drv'
+deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
+deleting '/nix/store/5rnmn11567zxr258w86sgzykgcp1ngqd-install-shell-files'
+deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
+deleting '/nix/store/1pj6vr8fz0rvq3602bp480dnihsxzdm9-nix-util-2.34-dev'
+deleting '/nix/store/n59wlr1k3n43c8xxlkmybc3m8c6grah6-devenv-generate-languages-example-script.drv'
 deleting unused links...
 note: hard linking is currently saving 25.4 GiB
-9389 store paths deleted, 7.9 GiB freed
+413 store paths deleted, 4.1 GiB freed
 ```
 <!-- END mdsh -->
 
