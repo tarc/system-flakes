@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
 deleting '/nix/store/ycfj17wlm7p8350wakacrkgmf34v5r32-lodepng-3.12.1.drv'
 deleting '/nix/store/r6wl492xm7hi45m4qhg3bhpq8yn8ayyc-crate-lodepng-3.12.1.tar.gz.drv'
 deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
-deleting '/nix/store/5rnmn11567zxr258w86sgzykgcp1ngqd-install-shell-files'
 deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
-deleting '/nix/store/1pj6vr8fz0rvq3602bp480dnihsxzdm9-nix-util-2.34-dev'
-deleting '/nix/store/n59wlr1k3n43c8xxlkmybc3m8c6grah6-devenv-generate-languages-example-script.drv'
+deleting '/nix/store/s8pf43hx9a71bbkw77v5rnqd038ihzmv-source.drv'
+deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
 deleting unused links...
 note: hard linking is currently saving 25.4 GiB
-413 store paths deleted, 4.1 GiB freed
+348 store paths deleted, 2.3 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,14 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-deleting garbage...
+deleting '/nix/store/b4cnasfrr9wjz5dp6698m3wy6snbjwjq-dry-activate.drv'
+deleting '/nix/store/s8vkakik0a6ygja8f2kqlr2c0mp7dmla-users-groups.json.drv'
+deleting '/nix/store/gzybksqmamr6y3wz4mvk7dmc13xvy6m5-etc-wsl.conf.drv'
+deleting '/nix/store/9r37s32a7y5w9xy8j1ch59li1d0aq1md-dry-activate.drv'
+deleting '/nix/store/vz1qhzxvv8i779k1lxcsv5wqvrs0v2a4-etc-netbird-config.d-50-nixos.json.drv'
+deleting '/nix/store/ifl78bv87yi5qrmcgs4d48mxl9fp9xz3-unit-netbird-wt0-login.service.drv'
+deleting '/nix/store/0xb81inc61mk20jdxb4vigibdn19s249-users-groups.json.drv'
 deleting unused links...
 note: hard linking is currently saving 25.4 GiB
-0 store paths deleted, 0.0 KiB freed
+127 store paths deleted, 104.1 MiB freed
 ```
 <!-- END mdsh -->
 
