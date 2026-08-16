@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
-deleting '/nix/store/ycfj17wlm7p8350wakacrkgmf34v5r32-lodepng-3.12.1.drv'
-deleting '/nix/store/r6wl492xm7hi45m4qhg3bhpq8yn8ayyc-crate-lodepng-3.12.1.tar.gz.drv'
-deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
+deleting '/nix/store/hi835m8jyzlpx4452wvzgcv6k4wkw9an-conan-flake-docs-source'
 deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
 deleting '/nix/store/s8pf43hx9a71bbkw77v5rnqd038ihzmv-source.drv'
+deleting '/nix/store/yncmcbbv3zk06r0d651k9l9avzd05vzh-conan-flake-docs-source'
+deleting '/nix/store/7kyrpw7hkiaskr68f7823xs410wkppcq-moreutils.drv'
 deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
+deleting '/nix/store/wi2kxrdx3zvqhik3zd4h7mdc7vbcnds5-source'
 deleting unused links...
-note: hard linking is currently saving 25.4 GiB
-348 store paths deleted, 2.3 GiB freed
+note: hard linking is currently saving 24.1 GiB
+3709 store paths deleted, 7.2 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/b4cnasfrr9wjz5dp6698m3wy6snbjwjq-dry-activate.drv'
-deleting '/nix/store/s8vkakik0a6ygja8f2kqlr2c0mp7dmla-users-groups.json.drv'
-deleting '/nix/store/gzybksqmamr6y3wz4mvk7dmc13xvy6m5-etc-wsl.conf.drv'
-deleting '/nix/store/9r37s32a7y5w9xy8j1ch59li1d0aq1md-dry-activate.drv'
-deleting '/nix/store/vz1qhzxvv8i779k1lxcsv5wqvrs0v2a4-etc-netbird-config.d-50-nixos.json.drv'
-deleting '/nix/store/ifl78bv87yi5qrmcgs4d48mxl9fp9xz3-unit-netbird-wt0-login.service.drv'
-deleting '/nix/store/0xb81inc61mk20jdxb4vigibdn19s249-users-groups.json.drv'
+deleting '/nix/store/05s64smls7dwn6fzam6kijzfkxsfa1bc-X-Restart-Triggers-dbus-broker'
+deleting '/nix/store/jx7741kk0vwqrywaam3mx38xpxn5gi1w-dbus-1'
+deleting '/nix/store/nbi3i1rvqgcspf3mphl7lvdzxba8pgip-system-path.drv'
+deleting '/nix/store/i6qai5w07bpj4w7hji5b5bdcm65j8g9l-jfrog-boost-0.11.14.drv'
+deleting '/nix/store/7nck9cxdl2x5n7r5z2g2b6z3rm34xbfr-system-path'
+deleting '/nix/store/7f607ldjkgw9lqb631f93lg7wpzx18k8-jfrog-boost-0.11.14'
+deleting '/nix/store/5lvp32j9kp4y00fp359y7jnvj8kxcjf2-boost-linux-amd64.tar.gz.drv'
 deleting unused links...
-note: hard linking is currently saving 25.4 GiB
-127 store paths deleted, 104.1 MiB freed
+note: hard linking is currently saving 24.1 GiB
+22 store paths deleted, 107.4 MiB freed
 ```
 <!-- END mdsh -->
 
