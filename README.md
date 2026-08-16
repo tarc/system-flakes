@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/yazcbg2gxgw14zm34y7804h5fvp13aqv-crate-zlib-rs-0.5.2.tar.gz.drv'
-deleting '/nix/store/g2pmvp08l9h5xahh7gy20wgkfj6n0m7z-source.drv'
-deleting '/nix/store/g1arm8lwyc7rjxinlwhbs9w2xb0fd4r3-source'
-deleting '/nix/store/ycfj17wlm7p8350wakacrkgmf34v5r32-lodepng-3.12.1.drv'
-deleting '/nix/store/r6wl492xm7hi45m4qhg3bhpq8yn8ayyc-crate-lodepng-3.12.1.tar.gz.drv'
-deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
-deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
+deleting '/nix/store/imksc127bb6gq2lsp82al44q7i260vdr-conan-flake-publish-pages-ci.sh'
+deleting '/nix/store/gkr5iq61wdmvsyn5sag5yh942pfmc12y-autoconf-2.73.tar.xz.drv'
+deleting '/nix/store/9lpfb30vjp7zp5ggqjgbz12wqq9x7a5x-source'
+deleting '/nix/store/1rnfaj6w7cc0h4yy2gfankii54yhvjry-tcl8.6.16-src.tar.gz.drv'
+deleting '/nix/store/c9z78y8dap90d4n0agcxbvq1fvvgjxc3-docbook-xsl-nons-1.79.2.tar.bz2.drv'
+deleting '/nix/store/7idn96xls9kg5q86s7jlx15jm4qank0p-source.drv'
+deleting '/nix/store/i5h4a2lb3c5p2y9c5rn7fhillyf8sq9m-source'
 deleting unused links...
 note: hard linking is currently saving 24.1 GiB
-193 store paths deleted, 1.2 GiB freed
+1953 store paths deleted, 3.0 GiB freed
 ```
 <!-- END mdsh -->
 

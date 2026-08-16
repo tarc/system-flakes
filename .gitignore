@@ -9,3 +9,7 @@ devenv.local.nix
 .claude/commands
 .mcp.json
 .devcontainer.json
+
+# opencode
+opencode.jsonc
+.opencode/commands

@@ -25,6 +25,13 @@
     just
   ];
 
+  opencode = {
+    enable = true;
+    commands = {
+      inherit (config.claude.code.commands) update-boost;
+    };
+  };
+
   claude.code = {
     enable = true;
     mcpServers = {
