@@ -1,0 +1,11 @@
+# devenv
+.devenv
+devenv.local.nix
+
+# claude
+**/.claude/settings.local.json
+.claude/settings.json
+.claude/agents
+.claude/commands
+.mcp.json
+.devcontainer.json
