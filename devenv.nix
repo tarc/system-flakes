@@ -28,7 +28,7 @@
   opencode = {
     enable = true;
     commands = {
-      inherit (config.claude.code.commands) update-boost;
+      inherit (config.claude.code.commands) update-boost update;
     };
   };
 
@@ -53,6 +53,16 @@
         2. If the latest version is different from the current version, run `wget https://github.com/jfrog/boost/releases/download/v<version>/boost-<os>-<arch'>.tar.gz`, substituing variables according to @jfrog-boost/package.nix, dont't extract the compressed file
         3. Compute the hash with `nix hash file boost-<os>-<arch'>.tar.gz`
         4. Update the version and hash in @jfrog-boost/package.nix
+        5. Commit the changes
+      '';
+
+      update = ''
+        Update jfrog-boost, update flake.lock, format README.md, switch and commit.
+
+        1. Run the custom command `/update-boost` to update @jfrog-boost/package.nix
+        2. Run `just update` to update flake.lock
+        4. Run `just switch` to switch
+        3. Run `touch README.md` and `nix fmt` to format README.md
         5. Commit the changes
       '';
     };
