@@ -28,7 +28,7 @@
   opencode = {
     enable = true;
     commands = {
-      inherit (config.claude.code.commands) update-boost update;
+      inherit (config.claude.code.commands) update-boost upgrade;
     };
   };
 
@@ -56,13 +56,13 @@
         5. Commit the changes
       '';
 
-      update = ''
+      upgrade = ''
         Update jfrog-boost, update flake.lock, format README.md, switch and commit.
 
         1. Run the custom command `/update-boost` to update @jfrog-boost/package.nix
-        2. Run `just update` to update flake.lock
-        4. Run `just switch` to switch
-        3. Run `touch README.md` and `nix fmt` to format README.md
+        2. Run `just update` to update flake.lock. If there's no change to the flake.lock file and no committed changes in the previous step, finish.
+        3. Run `just switch` to switch
+        4. Run `touch README.md` and `nix fmt` to format README.md
         5. Commit the changes
       '';
     };
