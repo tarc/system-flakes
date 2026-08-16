@@ -12,6 +12,7 @@ in
 {
   imports = [
     inputs.nixos-wsl.nixosModules.default
+    inputs.agenix.nixosModules.default
   ];
 
   system.stateVersion = "24.05";
@@ -77,14 +78,22 @@ in
 
   services.gnome.gnome-keyring.enable = true;
 
+  age.identityPaths = [ "${home}/.ssh/id_ed25519" ];
+
+  age.secrets.netbird-setupkey = {
+    file = "${inputs.secrets}/poita-local-netbird-setup-key.age";
+    # owner/mode default to root:root, 0400 — fine since netbird's
+    # client daemon runs as root by default
+  };
+
   # services.netbird.enable = true;
   services.netbird.clients.wt0 = {
     login = {
       enable = true;
-      setupKeyFile = "${home}/.local/share/netbird/secret-key";
+      setupKeyFile = config.age.secrets.netbird-setupkey.path;
     };
     port = 51821;
-    ui.enable = false;          # no GUI needed in WSL
+    ui.enable = false; # no GUI needed in WSL
     openFirewall = true;
     openInternalFirewall = true;
   };
