@@ -51,20 +51,18 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 ```
 
 <!-- BEGIN mdsh -->
-
 ```text
-deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
+deleting '/nix/store/yazcbg2gxgw14zm34y7804h5fvp13aqv-crate-zlib-rs-0.5.2.tar.gz.drv'
+deleting '/nix/store/g2pmvp08l9h5xahh7gy20wgkfj6n0m7z-source.drv'
+deleting '/nix/store/g1arm8lwyc7rjxinlwhbs9w2xb0fd4r3-source'
 deleting '/nix/store/ycfj17wlm7p8350wakacrkgmf34v5r32-lodepng-3.12.1.drv'
 deleting '/nix/store/r6wl492xm7hi45m4qhg3bhpq8yn8ayyc-crate-lodepng-3.12.1.tar.gz.drv'
 deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
 deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
-deleting '/nix/store/s8pf43hx9a71bbkw77v5rnqd038ihzmv-source.drv'
-deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
 deleting unused links...
 note: hard linking is currently saving 24.1 GiB
-303 store paths deleted, 207.6 MiB freed
+193 store paths deleted, 1.2 GiB freed
 ```
-
 <!-- END mdsh -->
 
 ```sh > text $
@@ -72,20 +70,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 ```
 
 <!-- BEGIN mdsh -->
-
 ```text
-deleting '/nix/store/pq7dgg1cncscm9sxzxsywxqy0x9qjwp8-nixos-system-poita-26.11.20260814.8be7bd0'
-deleting '/nix/store/3s2pgc4lljag28b1l4w0f0wngl70gr2i-etc'
-deleting '/nix/store/pvibh8d12i76f23hjnzqlzj2bx0bhwsg-nixos-system-poita-26.11.20260814.8be7bd0.drv'
-deleting '/nix/store/1r83ykr2sypf6ck5nqv9aiz0b13z6wdz-activate.drv'
-deleting '/nix/store/v65r8yxb604m9kdv9z3rqzhg7v1a964m-etc.drv'
-deleting '/nix/store/y9zbb4nqxx9hc6sc0am4sm0s7dlxh9ps-system-units.drv'
-deleting '/nix/store/gh7mb0m2wdy0hqfhbpzxzk7wxphcqv7c-system-units'
+removing old generations of profile /nix/var/nix/profiles/system
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 24.1 GiB
-7 store paths deleted, 110.9 KiB freed
+0 store paths deleted, 0.0 KiB freed
 ```
-
 <!-- END mdsh -->
 
 ### `nix fmt`
