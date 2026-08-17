@@ -57,13 +57,14 @@
       '';
 
       upgrade-system = ''
-        Update jfrog-boost, update flake.lock, format README.md, switch and commit.
+        Update jfrog-boost, update flake.lock, format README.md, switch, fix boost if needed and commit.
 
         1. Run the custom command `/update-boost` to update @jfrog-boost/package.nix
-        2. Run `just update` to update flake.lock. If there's no change to the flake.lock file and no committed changes in the previous step, finish.
+        2. Run `just update` to update flake.lock. If there's no change to the flake.lock file and no committed changes in the previous step, finish
         3. Run `just switch` to switch
-        4. Run `touch README.md` and `nix fmt` to format README.md
-        5. Commit the changes
+        4. If there was a successful switch and the first step (update-boost) committed a new version, run `boost init` to fix jfrog-boost installation
+        5. Run `touch README.md` and `nix fmt` to format README.md
+        6. Commit the changes
       '';
     };
     permissions = {
