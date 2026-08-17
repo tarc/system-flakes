@@ -114,7 +114,7 @@
   ];
 
   treefmt = {
-    enable = true;
+    enable = false;
     config = ./treefmt.nix;
   };
 }

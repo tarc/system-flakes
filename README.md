@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/4dhn11plvppy3x06pks9wpaidbwd5x64-python3.14-tomlkit-0.15.0'
-deleting '/nix/store/yazcbg2gxgw14zm34y7804h5fvp13aqv-crate-zlib-rs-0.5.2.tar.gz.drv'
-deleting '/nix/store/g2pmvp08l9h5xahh7gy20wgkfj6n0m7z-source.drv'
-deleting '/nix/store/ycfj17wlm7p8350wakacrkgmf34v5r32-lodepng-3.12.1.drv'
-deleting '/nix/store/r6wl492xm7hi45m4qhg3bhpq8yn8ayyc-crate-lodepng-3.12.1.tar.gz.drv'
-deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
-deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
+deleting '/nix/store/997ggqihh1zv1rqaf9k8xdzfsd4qrnfv-crate-once_cell-1.19.0.tar.gz.drv'
+deleting '/nix/store/hrcr94arcrnq7k0cyrgrrccllp5xnklj-pathspec-1.1.1.tar.gz.drv'
+deleting '/nix/store/gkr5iq61wdmvsyn5sag5yh942pfmc12y-autoconf-2.73.tar.xz.drv'
+deleting '/nix/store/1rnfaj6w7cc0h4yy2gfankii54yhvjry-tcl8.6.16-src.tar.gz.drv'
+deleting '/nix/store/51145wi01kjvpn2mb3qip52a525c9w2w-source.lock'
+deleting '/nix/store/c9z78y8dap90d4n0agcxbvq1fvvgjxc3-docbook-xsl-nons-1.79.2.tar.bz2.drv'
+deleting '/nix/store/7idn96xls9kg5q86s7jlx15jm4qank0p-source.drv'
 deleting unused links...
 note: hard linking is currently saving 24.5 GiB
-164 store paths deleted, 26.1 MiB freed
+1589 store paths deleted, 705.2 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,11 +72,9 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 461
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/vrpcbvnyrala38ivj3dgnnr5nl99fh9a" to "/nix/var/nix/profiles/system-461-link"
 deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 24.5 GiB
