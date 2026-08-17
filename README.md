@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/4pqzw4y5adp6jsp8njv2s7k7lqi0a6sk-source.drv'
-deleting '/nix/store/xn8rw45crk0yalyzizc44h0ps2d9v881-source.drv'
-deleting '/nix/store/18vk11ii2a46v1xb451j83wr9ca5pl03-python3.14-astor-0.8.1-unstable-2024-03-30.drv'
-deleting '/nix/store/di1lk4qjcs8ckngip1injxbng7gabvx3-source.drv'
-deleting '/nix/store/8wd9dysc3rpymz7nrx9qxiz05r579bc2-glibc-2.42-67-source.drv'
-deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
-deleting '/nix/store/s8pf43hx9a71bbkw77v5rnqd038ihzmv-source.drv'
+deleting '/nix/store/4dhn11plvppy3x06pks9wpaidbwd5x64-python3.14-tomlkit-0.15.0'
+deleting '/nix/store/yazcbg2gxgw14zm34y7804h5fvp13aqv-crate-zlib-rs-0.5.2.tar.gz.drv'
+deleting '/nix/store/g2pmvp08l9h5xahh7gy20wgkfj6n0m7z-source.drv'
+deleting '/nix/store/ycfj17wlm7p8350wakacrkgmf34v5r32-lodepng-3.12.1.drv'
+deleting '/nix/store/r6wl492xm7hi45m4qhg3bhpq8yn8ayyc-crate-lodepng-3.12.1.tar.gz.drv'
+deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
+deleting '/nix/store/2zsaab8p3hxgm18jr3w7v7wy59yp95k4-wheel-unpack-hook.sh.drv'
 deleting unused links...
-note: hard linking is currently saving 24.1 GiB
-95 store paths deleted, 12.4 MiB freed
+note: hard linking is currently saving 24.5 GiB
+164 store paths deleted, 26.1 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,12 +72,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 461
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/vrpcbvnyrala38ivj3dgnnr5nl99fh9a" to "/nix/var/nix/profiles/system-461-link"
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 24.1 GiB
+note: hard linking is currently saving 24.5 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
