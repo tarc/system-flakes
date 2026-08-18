@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/8j3mzrghlva01rwiln8qcarry7pxrn1w-claude-agents-architecture-designer.md.drv'
-deleting '/nix/store/8wd9dysc3rpymz7nrx9qxiz05r579bc2-glibc-2.42-67-source.drv'
-deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
-deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
-deleting '/nix/store/3whj6lmj92iqd1r4ybxn5cd4k8m4hf7q-source'
-deleting '/nix/store/m677cfb6mirj24h76vny5s2iacg1b97b-claude-agents-documentation-writer.md.drv'
+deleting '/nix/store/gkr5iq61wdmvsyn5sag5yh942pfmc12y-autoconf-2.73.tar.xz.drv'
+deleting '/nix/store/s0vgry2060r9ydrxfi3v42vrhv221srm-sqlite-3.51.2-doc'
+deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
+deleting '/nix/store/1rnfaj6w7cc0h4yy2gfankii54yhvjry-tcl8.6.16-src.tar.gz.drv'
+deleting '/nix/store/c9z78y8dap90d4n0agcxbvq1fvvgjxc3-docbook-xsl-nons-1.79.2.tar.bz2.drv'
+deleting '/nix/store/7idn96xls9kg5q86s7jlx15jm4qank0p-source.drv'
+deleting '/nix/store/13iy7p7grhr4gbzhwnqdsw3cfi6mbyxf-libxcb-1.17.0-doc'
 deleting unused links...
-note: hard linking is currently saving 26.4 GiB
-72 store paths deleted, 33.3 MiB freed
+note: hard linking is currently saving 26.1 GiB
+2087 store paths deleted, 2.1 GiB freed
 ```
 <!-- END mdsh -->
 
