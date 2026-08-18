@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/997ggqihh1zv1rqaf9k8xdzfsd4qrnfv-crate-once_cell-1.19.0.tar.gz.drv'
-deleting '/nix/store/hrcr94arcrnq7k0cyrgrrccllp5xnklj-pathspec-1.1.1.tar.gz.drv'
-deleting '/nix/store/gkr5iq61wdmvsyn5sag5yh942pfmc12y-autoconf-2.73.tar.xz.drv'
-deleting '/nix/store/1rnfaj6w7cc0h4yy2gfankii54yhvjry-tcl8.6.16-src.tar.gz.drv'
-deleting '/nix/store/51145wi01kjvpn2mb3qip52a525c9w2w-source.lock'
-deleting '/nix/store/c9z78y8dap90d4n0agcxbvq1fvvgjxc3-docbook-xsl-nons-1.79.2.tar.bz2.drv'
-deleting '/nix/store/7idn96xls9kg5q86s7jlx15jm4qank0p-source.drv'
+deleting '/nix/store/1w2bzqn8xlq5qkhic7iaz8xdh63nwqrs-source'
+deleting '/nix/store/yavszz6nggxdhn3fk7a0060ghyynda5f-conan-profile-default'
+deleting '/nix/store/xwqymwlly2175m4pw3mvikzf7rjd2fr2-source'
+deleting '/nix/store/x2ah005rn9x11w9l1qrw1hnww6yl5bdr-conan-flake-woodpecker-pages.yml'
+deleting '/nix/store/zrzsmvb87kyqn8jf528a1kb7f4472hm7-python3.13-tomli-2.4.0'
+deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
+deleting '/nix/store/pn4vpkn5bw3sx4ksfn5n5l66q1q8xm0x-conan-shell-env.drv'
 deleting unused links...
 note: hard linking is currently saving 24.5 GiB
-1589 store paths deleted, 705.2 MiB freed
+200 store paths deleted, 216.7 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,14 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-deleting garbage...
+deleting '/nix/store/sk1ip709p2j4vacmiy963isfa3nzgmdx-source'
+deleting '/nix/store/kr0x56gc2awim0yzvp93gp2zinx44id4-activation-script.drv'
+deleting '/nix/store/xszrm256hwc3phf140lxnsj5piznp07r-home-manager-path.drv'
+deleting '/nix/store/f51iymz9505g8dxyg1xmjlsdpb9na7ql-home-manager-path'
+deleting '/nix/store/xrx5w0gv29j7dyy4a43d3qrxgdnm6kl1-home-configuration-reference-manpage.drv'
+deleting '/nix/store/9k12wznakm9kzsa2haqhj25pkpns1j1y-home-configuration-reference-manpage'
+deleting '/nix/store/g8hia7z5illk6gvzs38xy56xbxip5g4k-options.json.drv'
 deleting unused links...
 note: hard linking is currently saving 24.5 GiB
-0 store paths deleted, 0.0 KiB freed
+24 store paths deleted, 8.6 MiB freed
 ```
 <!-- END mdsh -->
 
