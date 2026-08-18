@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/1w2bzqn8xlq5qkhic7iaz8xdh63nwqrs-source'
-deleting '/nix/store/yavszz6nggxdhn3fk7a0060ghyynda5f-conan-profile-default'
-deleting '/nix/store/xwqymwlly2175m4pw3mvikzf7rjd2fr2-source'
-deleting '/nix/store/x2ah005rn9x11w9l1qrw1hnww6yl5bdr-conan-flake-woodpecker-pages.yml'
-deleting '/nix/store/zrzsmvb87kyqn8jf528a1kb7f4472hm7-python3.13-tomli-2.4.0'
-deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
-deleting '/nix/store/pn4vpkn5bw3sx4ksfn5n5l66q1q8xm0x-conan-shell-env.drv'
+deleting '/nix/store/8j3mzrghlva01rwiln8qcarry7pxrn1w-claude-agents-architecture-designer.md.drv'
+deleting '/nix/store/8wd9dysc3rpymz7nrx9qxiz05r579bc2-glibc-2.42-67-source.drv'
+deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
+deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
+deleting '/nix/store/fk92j8f25mjvc5sayia9f13kjzj8ww2g-source.drv'
+deleting '/nix/store/3whj6lmj92iqd1r4ybxn5cd4k8m4hf7q-source'
+deleting '/nix/store/m677cfb6mirj24h76vny5s2iacg1b97b-claude-agents-documentation-writer.md.drv'
 deleting unused links...
-note: hard linking is currently saving 24.5 GiB
-200 store paths deleted, 216.7 MiB freed
+note: hard linking is currently saving 26.4 GiB
+72 store paths deleted, 33.3 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,7 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/sk1ip709p2j4vacmiy963isfa3nzgmdx-source'
-deleting '/nix/store/kr0x56gc2awim0yzvp93gp2zinx44id4-activation-script.drv'
-deleting '/nix/store/xszrm256hwc3phf140lxnsj5piznp07r-home-manager-path.drv'
-deleting '/nix/store/f51iymz9505g8dxyg1xmjlsdpb9na7ql-home-manager-path'
-deleting '/nix/store/xrx5w0gv29j7dyy4a43d3qrxgdnm6kl1-home-configuration-reference-manpage.drv'
-deleting '/nix/store/9k12wznakm9kzsa2haqhj25pkpns1j1y-home-configuration-reference-manpage'
-deleting '/nix/store/g8hia7z5illk6gvzs38xy56xbxip5g4k-options.json.drv'
-deleting unused links...
-note: hard linking is currently saving 24.5 GiB
-24 store paths deleted, 8.6 MiB freed
+sudo: /run/current-system/sw/bin/sudo must be owned by uid 0 and have the setuid bit set
 ```
 <!-- END mdsh -->
 
