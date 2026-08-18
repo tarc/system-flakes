@@ -68,23 +68,25 @@
       '';
     };
     permissions = {
-      WebFetch = {
-        allow = [
-          "domain:github.com"
-          "domain:docs.anthropic.com"
-        ];
-      };
-      Edit = {
-        allow = [ "packages/jfrog-boost/package.nix" ];
-      };
-      Bash = {
-        allow = [
-          "nix search:*"
-          "nix-instantiate:*"
-          "git:*"
-          "sudo:nixos-rebuild"
-          "rm -f:/tmp/boost-linux-amd64.tar.gz"
-        ];
+      rules = {
+        WebFetch = {
+          allow = [
+            "domain:github.com"
+            "domain:docs.anthropic.com"
+          ];
+        };
+        Edit = {
+          allow = [ "packages/jfrog-boost/package.nix" ];
+        };
+        Bash = {
+          allow = [
+            "nix search:*"
+            "nix-instantiate:*"
+            "git:*"
+            "sudo:nixos-rebuild"
+            "rm -f:/tmp/boost-linux-amd64.tar.gz"
+          ];
+        };
       };
     };
   };
