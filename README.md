@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/qxdmz1ff7qvf9iyi3p870zr71ya5lz6q-json2x-0.1.0'
-deleting '/nix/store/yld1xbwk79r51nqx8q1mmlgzpxx17zwr-stdenv-linux-no-cc'
-deleting '/nix/store/8djrz6n99va8f4nmlx04z2xd6r1ql0vh-infuse.nix'
-deleting '/nix/store/lfybracabapzyg2f16k77sw6jbkmwqx2-conan-flake-dev-env.drv'
-deleting '/nix/store/gn2zrfxv6ihkx76x48ikgakcif7ifmvi-python3.14-mdurl-0.1.2'
-deleting '/nix/store/j73ld7rz4bx662v3mxs1vsba1b45i4kx-options.json'
-deleting '/nix/store/4kri1alrxka7018a7vp1a41gq5vvys5c-options.json.drv'
+deleting '/nix/store/zkdggq5bl545z5kzng447yrc44qv6bh2-source'
+deleting '/nix/store/91l4ccak6zfvschjk0ck71x2xknsy144-firewall-reload.drv'
+deleting '/nix/store/hwwjrw6lsq5y6pa2b171n8hnlx1s6g6g-source'
+deleting '/nix/store/897pc8y5xxlqwldm1i36h9cimx5hj1s4-source'
+deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
+deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
+deleting '/nix/store/bkrb76lwkf4n3zf75zf3f9j27scw16wh-source'
 deleting unused links...
 note: hard linking is currently saving 25.0 GiB
-23 store paths deleted, 24.9 MiB freed
+54 store paths deleted, 36.2 MiB freed
 ```
 <!-- END mdsh -->
 
