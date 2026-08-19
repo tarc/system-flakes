@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/h78mw9mbzngbfzdp6pyf01nx8mjlivam-graphite2-1.3.15-dev'
-deleting '/nix/store/5iqpm377dcnzaj0bjip0alh6shvjrfpc-cf-setup-hook.sh'
-deleting '/nix/store/y5ih7jl0cwfc0ljnwxbygjg8cd7kirqc-bash-static-5.3'
-deleting '/nix/store/p2hk80gvhqrd395hgmfc6h5lx56dx71g-source'
-deleting '/nix/store/6ny6pcyji0760nzpncsjgjbxaas3imzz-conan-profile-default.drv'
-deleting '/nix/store/s22ihiba318s4dfqsw831ilk1bvw66s3-source.drv'
-deleting '/nix/store/bszv8zy9gpq2x2037j4bnymdfl9g97qz-immortal-0.3.tar.gz.drv'
+deleting '/nix/store/f4yjmlckg614n4gwjaiaz2yd1zwyawbz-source'
+deleting '/nix/store/zkdggq5bl545z5kzng447yrc44qv6bh2-source'
+deleting '/nix/store/91l4ccak6zfvschjk0ck71x2xknsy144-firewall-reload.drv'
+deleting '/nix/store/hwwjrw6lsq5y6pa2b171n8hnlx1s6g6g-source'
+deleting '/nix/store/m0a6bnkfw6c95rwdni4gyr5f2ximahka-source'
+deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
+deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
 deleting unused links...
-note: hard linking is currently saving 25.9 GiB
-9458 store paths deleted, 32.7 GiB freed
+note: hard linking is currently saving 25.0 GiB
+68 store paths deleted, 180.4 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/69l04wylnyyb5rma8c9ha3qx810zx3aq-etc-os-release.drv'
-deleting '/nix/store/c3rxlfx9qggh5l50c10q83dm4cjsnbxv-lazy-options.json.drv'
-deleting '/nix/store/85zzcakdjqyhl0shns520hfph3by1x7r-source'
-deleting '/nix/store/v1fyykq355cibzxhl0850g4d81gyirx8-issue'
-deleting '/nix/store/h7c9s7pck44rzw7q997f0xdk00pvbid6-google-chrome-151.0.7922.137.drv'
-deleting '/nix/store/2llx0wg130rxasgjcadvf0r89rac3h8w-google-chrome-stable_151.0.7922.137-1_amd64.deb.drv'
-deleting '/nix/store/q4m92z5zwrq4yck31pp59zfdb6yidblz-issue.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 25.0 GiB
-124 store paths deleted, 1.0 GiB freed
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
