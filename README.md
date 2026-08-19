@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/gkr5iq61wdmvsyn5sag5yh942pfmc12y-autoconf-2.73.tar.xz.drv'
-deleting '/nix/store/s0vgry2060r9ydrxfi3v42vrhv221srm-sqlite-3.51.2-doc'
-deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
-deleting '/nix/store/1rnfaj6w7cc0h4yy2gfankii54yhvjry-tcl8.6.16-src.tar.gz.drv'
-deleting '/nix/store/c9z78y8dap90d4n0agcxbvq1fvvgjxc3-docbook-xsl-nons-1.79.2.tar.bz2.drv'
-deleting '/nix/store/7idn96xls9kg5q86s7jlx15jm4qank0p-source.drv'
-deleting '/nix/store/13iy7p7grhr4gbzhwnqdsw3cfi6mbyxf-libxcb-1.17.0-doc'
+deleting '/nix/store/6ny6pcyji0760nzpncsjgjbxaas3imzz-conan-profile-default.drv'
+deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
+deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
+deleting '/nix/store/2nb8yzq7cxpb2ycsfdyvh3l9h4psyrc7-conduit-zstd-0.0.2.0.tar.gz.drv'
+deleting '/nix/store/gwv35hlkzsjj32d0npc2jmcyav9nnffk-crate-log-0.4.27.tar.gz.drv'
+deleting '/nix/store/g8i0lrivl8a05b3fyp5xqz3ll64s14lh-gtk4-layer-shell-1.1.0.tar.gz.drv'
+deleting '/nix/store/0ki28jlrchy7mknab2xg50d2qq2rpds2-pqueue-1.5.0.0.tar.gz.drv'
 deleting unused links...
-note: hard linking is currently saving 26.1 GiB
-2087 store paths deleted, 2.1 GiB freed
+note: hard linking is currently saving 23.2 GiB
+2000 store paths deleted, 7.1 GiB freed
 ```
 <!-- END mdsh -->
 

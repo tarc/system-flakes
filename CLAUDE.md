@@ -32,9 +32,10 @@ There is no test suite; correctness is checked by `just switch` actually buildin
 ## Updating `jfrog-boost`
 
 `packages/jfrog-boost/package.nix` fetches a prebuilt GitHub release tarball, so version bumps aren't automatic:
+
 1. Check the latest release: `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/jfrog/boost/releases/latest" | sed 's#.*/tag/##'`.
-2. If newer than `version` in the package, `wget` the matching `boost-<os>-<arch>.tar.gz` asset and hash it with `nix hash file`.
-3. Update `version` and `hash` in the derivation.
+1. If newer than `version` in the package, `wget` the matching `boost-<os>-<arch>.tar.gz` asset and hash it with `nix hash file`.
+1. Update `version` and `hash` in the derivation.
 
 This is exactly what the `/update-boost` slash command automates, and `/upgrade-system` chains it with `just update` → `just switch` → (`boost init` if boost was bumped) → `nix fmt` on `README.md` → commit.
 
