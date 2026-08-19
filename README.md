@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/h78mw9mbzngbfzdp6pyf01nx8mjlivam-graphite2-1.3.15-dev'
+deleting '/nix/store/5iqpm377dcnzaj0bjip0alh6shvjrfpc-cf-setup-hook.sh'
+deleting '/nix/store/y5ih7jl0cwfc0ljnwxbygjg8cd7kirqc-bash-static-5.3'
+deleting '/nix/store/p2hk80gvhqrd395hgmfc6h5lx56dx71g-source'
 deleting '/nix/store/6ny6pcyji0760nzpncsjgjbxaas3imzz-conan-profile-default.drv'
-deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
-deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
-deleting '/nix/store/2nb8yzq7cxpb2ycsfdyvh3l9h4psyrc7-conduit-zstd-0.0.2.0.tar.gz.drv'
-deleting '/nix/store/gwv35hlkzsjj32d0npc2jmcyav9nnffk-crate-log-0.4.27.tar.gz.drv'
-deleting '/nix/store/g8i0lrivl8a05b3fyp5xqz3ll64s14lh-gtk4-layer-shell-1.1.0.tar.gz.drv'
-deleting '/nix/store/0ki28jlrchy7mknab2xg50d2qq2rpds2-pqueue-1.5.0.0.tar.gz.drv'
+deleting '/nix/store/s22ihiba318s4dfqsw831ilk1bvw66s3-source.drv'
+deleting '/nix/store/bszv8zy9gpq2x2037j4bnymdfl9g97qz-immortal-0.3.tar.gz.drv'
 deleting unused links...
-note: hard linking is currently saving 23.2 GiB
-2000 store paths deleted, 7.1 GiB freed
+note: hard linking is currently saving 25.9 GiB
+9458 store paths deleted, 32.7 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,7 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-sudo: /run/current-system/sw/bin/sudo must be owned by uid 0 and have the setuid bit set
+deleting '/nix/store/69l04wylnyyb5rma8c9ha3qx810zx3aq-etc-os-release.drv'
+deleting '/nix/store/c3rxlfx9qggh5l50c10q83dm4cjsnbxv-lazy-options.json.drv'
+deleting '/nix/store/85zzcakdjqyhl0shns520hfph3by1x7r-source'
+deleting '/nix/store/v1fyykq355cibzxhl0850g4d81gyirx8-issue'
+deleting '/nix/store/h7c9s7pck44rzw7q997f0xdk00pvbid6-google-chrome-151.0.7922.137.drv'
+deleting '/nix/store/2llx0wg130rxasgjcadvf0r89rac3h8w-google-chrome-stable_151.0.7922.137-1_amd64.deb.drv'
+deleting '/nix/store/q4m92z5zwrq4yck31pp59zfdb6yidblz-issue.drv'
+deleting unused links...
+note: hard linking is currently saving 25.0 GiB
+124 store paths deleted, 1.0 GiB freed
 ```
 <!-- END mdsh -->
 
