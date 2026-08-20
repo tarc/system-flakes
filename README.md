@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/zai523qcvkx1lh4vf9hql40wcw5zzaps-cargo-install-hook.sh'
-deleting '/nix/store/pmcj2q5kzsny2gcgjqc4ld5nszmdqgpg-cargo-check-hook.sh'
-deleting '/nix/store/rlc30xg2rk463205b2qpb3szv6zscmv2-nghttp2-1.69.0-lib'
-deleting '/nix/store/897pc8y5xxlqwldm1i36h9cimx5hj1s4-source'
-deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
-deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
+deleting '/nix/store/y64m3miy9jd5h6hfwkdigbgp8ipb4cmr-python-namespaces-hook.sh'
+deleting '/nix/store/zrzsmvb87kyqn8jf528a1kb7f4472hm7-python3.13-tomli-2.4.0'
+deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
+deleting '/nix/store/zzmspl8wdn2a3ancrz8dg3kci887nw6d-builder.pl'
+deleting '/nix/store/4jmfy1wl759n36g596yglrzmyjb6ar9x-binutils-wrapper-2.46.drv'
+deleting '/nix/store/ymc296bfq75wwf7n44gzz8xng7xrsaci-nlohmann_json-3.12.0'
+deleting '/nix/store/rb8rna9gkhs0ybl6z2p904myslh8llg8-gettext-1.0'
 deleting unused links...
-note: hard linking is currently saving 26.0 GiB
-127 store paths deleted, 2.4 GiB freed
+note: hard linking is currently saving 25.9 GiB
+2118 store paths deleted, 9.4 GiB freed
 ```
 <!-- END mdsh -->
 
