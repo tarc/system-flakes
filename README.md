@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/gmp2s4mvvrj4i0mca577fjnqq2jgv4qm-source.drv'
-deleting '/nix/store/pgv82srj77i3vddk30ssl27hpyk6cw93-source.drv'
-deleting '/nix/store/nf7634z7axcsvcn8mlz3fnchmzy4jxwq-crate-thread_local-1.1.9.tar.gz.drv'
+deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
 deleting '/nix/store/zj4xkd3f4j64d8gvgdcqsx9aklm7m33i-littleutils-0.2.4.tar.gz.drv'
+deleting '/nix/store/h78mw9mbzngbfzdp6pyf01nx8mjlivam-graphite2-1.3.15-dev'
+deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
 deleting '/nix/store/gpi7aysyvsbw6bbpmbkf3ya5liwczbcd-source.drv'
 deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
 deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
 deleting unused links...
 note: hard linking is currently saving 28.2 GiB
-747 store paths deleted, 175.8 MiB freed
+967 store paths deleted, 2.7 GiB freed
 ```
 <!-- END mdsh -->
 
