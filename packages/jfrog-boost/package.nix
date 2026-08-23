@@ -27,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchurl {
     url = "https://github.com/jfrog/boost/releases/download/v${version}/boost-${os}-${arch'}.tar.gz";
-    hash = "sha256-v5cq3Wjrl0VstdDeUlOjoUSAT7jWXY82YOCPkJMj3aU=";
+    hash = "sha256-mK6iD5ZV+UH/3XuGPyXwK06PHK8IFIcvQ0kpSfxFkoU=";
   };
 
   sourceRoot = ".";
