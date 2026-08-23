@@ -35,6 +35,7 @@ in
     seahorse
     vulkan-tools
     rocmPackages.rocminfo
+    xdg-utils
     zed-editor
   ];
 
