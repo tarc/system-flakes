@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
-deleting '/nix/store/zj4xkd3f4j64d8gvgdcqsx9aklm7m33i-littleutils-0.2.4.tar.gz.drv'
-deleting '/nix/store/h78mw9mbzngbfzdp6pyf01nx8mjlivam-graphite2-1.3.15-dev'
-deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
+deleting '/nix/store/jsw9i4sj0iwn5gwn81s7srbf6wgi4a6n-home.drv'
 deleting '/nix/store/gpi7aysyvsbw6bbpmbkf3ya5liwczbcd-source.drv'
+deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
+deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
 deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
+deleting '/nix/store/hm72b0c93vyrhbc8i2qhfriwkfk7ys3v-source'
 deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
 deleting unused links...
 note: hard linking is currently saving 28.2 GiB
-967 store paths deleted, 2.7 GiB freed
+3151 store paths deleted, 13.6 GiB freed
 ```
 <!-- END mdsh -->
 
