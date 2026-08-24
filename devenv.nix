@@ -29,7 +29,13 @@
   opencode = {
     enable = true;
     commands = {
-      inherit (config.claude.code.commands) update-boost upgrade-system;
+      inherit (config.claude.code.commands)
+        update-boost
+        upgrade-system
+        update-devenv-version
+        update-devenv-nix
+        update-devenv
+        ;
     };
   };
 
@@ -82,10 +88,11 @@
         In @jfrog-boost/package.nix bump the version, and update the hash in the fetchurl call if necessary.
 
         1. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/jfrog/boost/releases/latest" | sed 's#.*/tag/##'` to get the latest version and decide if it needs to be updated
-        2. If the latest version is different from the current version, run `wget https://github.com/jfrog/boost/releases/download/v<version>/boost-<os>-<arch'>.tar.gz`, substituing variables according to @jfrog-boost/package.nix, dont't extract the compressed file
-        3. Compute the hash with `nix hash file boost-<os>-<arch'>.tar.gz`
+        2. If the latest version is different from the current version, run `wget -O /tmp/boost-<os>-<arch'>.tar.gz https://github.com/jfrog/boost/releases/download/v<version>/boost-<os>-<arch'>.tar.gz`, substituting variables according to @jfrog-boost/package.nix (`-O` overwrites any stale download left over from a previous run — plain `wget` appends `.1`/`.2` instead of overwriting), don't extract the compressed file
+        3. Compute the hash with `nix hash file /tmp/boost-<os>-<arch'>.tar.gz`
         4. Update the version and hash in @jfrog-boost/package.nix
-        5. Commit the changes if the version or hash was updated
+        5. Remove the downloaded tarball: `rm -f /tmp/boost-<os>-<arch'>.tar.gz`
+        6. Commit the changes if the version or hash was updated
       '';
 
       upgrade-system = ''
@@ -120,7 +127,6 @@
             "git:*"
             "sudo:nixos-rebuild"
             "rm -f:/tmp/boost-linux-amd64.tar.gz"
-            "rm -rf:/tmp/boost-linux-amd64.tar.gz /tmp/boost-extract"
             "boost:*"
             "boost init:*"
             "curl -fsSLI:*"
