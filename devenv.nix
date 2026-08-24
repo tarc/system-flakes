@@ -22,6 +22,7 @@
   };
 
   packages = with pkgs; [
+    jq
     just
   ];
 
@@ -46,14 +47,24 @@
       };
     };
     commands = {
+      update-devenv-version = ''
+        In @devenv/package.nix bump the version, and update the hash in the `src = fetchFromGitHub` call if necessary.
+
+        1. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/cachix/devenv/releases/latest" | sed 's#.*/tag/v##'` to get the latest released version to know if there was a new main release since the last update
+        2. Update the version in @devenv/package.nix (it's in the let binding, the `version` variable) to the latest released version, if necessary
+        3. Run `nix flake metadata github:cachix/devenv --json | jq '.locked | .rev, .narHash'` to get, respectivelly, devenv's latest commit hash and NAR hash
+        4. Use these values to update devenv's rev and hash in the `src = fetchFromGitHub` call of @devenv/package.nix, if necessary
+        5. Commit the changes if the version or hash was updated
+      '';
+
       update-boost = ''
-        In @jfrog-boost/package.nix bump the version, and update the hash in the fetchurl call.
+        In @jfrog-boost/package.nix bump the version, and update the hash in the fetchurl call if necessary.
 
         1. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/jfrog/boost/releases/latest" | sed 's#.*/tag/##'` to get the latest version and decide if it needs to be updated
         2. If the latest version is different from the current version, run `wget https://github.com/jfrog/boost/releases/download/v<version>/boost-<os>-<arch'>.tar.gz`, substituing variables according to @jfrog-boost/package.nix, dont't extract the compressed file
         3. Compute the hash with `nix hash file boost-<os>-<arch'>.tar.gz`
         4. Update the version and hash in @jfrog-boost/package.nix
-        5. Commit the changes
+        5. Commit the changes if the version or hash was updated
       '';
 
       upgrade-system = ''
@@ -85,7 +96,9 @@
             "git:*"
             "sudo:nixos-rebuild"
             "rm -f:/tmp/boost-linux-amd64.tar.gz"
+            "rm -rf:/tmp/boost-linux-amd64.tar.gz /tmp/boost-extract"
             "boost:*"
+            "boost init:*"
           ];
         };
       };
