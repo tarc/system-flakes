@@ -57,6 +57,27 @@
         5. Commit the changes if the version or hash was updated
       '';
 
+      update-devenv-nix = ''
+        In @devenv/package.nix update `devenvNixVersion`, `devenvNixRev`, and update the hash in the `devenvNixSrc = fetchFromGitHub` call if necessary.
+
+        1. Run `nix flake metadata github:cachix/devenv --json | jq '.locks.nodes.nix | .original.ref, .locked.rev, .locked.narHash' | sed 's/devenv-//'` to get, respectivelly, devenvNixVersion, devenvNixRev and the NAR hash
+        2. Use these values to update `devenvNixVersion` and `devenvNixRev` in @devenv/package.nix (they are let bindings), and the hash in the `devenvNixSrc = fetchFromGitHub` call of @devenv/package.nix, if necessary
+        3. Commit the changes if devenvNixVersion, devenvNixRev, or the hash were updated
+      '';
+
+      update-devenv = ''
+        Update @devenv/package.nix (both version and nix) and try to switch the system. If the switch fails, update `cargoHash` and try again.
+
+        1. Run the custom command `/update-devenv-version` to update @devenv/package.nix
+        2. Run the custom command `/update-devenv-nix` to update the nix source in @devenv/package.nix
+        3. If some of the above steps result in a change (or if a previous update of @devenv/package.nix was never switched on), run `just switch` to switch to the updated configuration
+        4. If the switch fails, update `cargoHash` in @devenv/package.nix setting it to the empty string: `cargoHash = "";`, but only if the failure hasn't already reported the correct hash (in which case, skip the next step and use this hash directly in the step after)
+        5. Run `just switch` again to get the right cargo hash. It will be automatically computed and reported in the logs
+        6. Use this hash to update `cargoHash` in @devenv/package.nix
+        7. Run `just switch` again to switch to the updated configuration
+        8. Commit the changes if the switch succeeds and the cargo hash is updated
+      '';
+
       update-boost = ''
         In @jfrog-boost/package.nix bump the version, and update the hash in the fetchurl call if necessary.
 
