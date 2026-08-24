@@ -50,9 +50,9 @@
       update-devenv-version = ''
         In @devenv/package.nix bump the version, and update the hash in the `src = fetchFromGitHub` call if necessary.
 
-        1. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/cachix/devenv/releases/latest" | sed 's#.*/tag/v##'` to get the latest released version to know if there was a new main release since the last update
+        1. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/cachix/devenv/releases/latest" | sed 's#.*/tag/v##'` to get the latest released version, used only as a human-readable version label (this does NOT pin `src` — see step 3)
         2. Update the version in @devenv/package.nix (it's in the let binding, the `version` variable) to the latest released version, if necessary
-        3. Run `nix flake metadata "github:cachix/devenv/v<version>" --json | jq '.locked | .rev, .narHash'`, substituting `<version>` with the version from step 1, to get, respectively, the commit and NAR hash for that release tag (not the rolling default branch)
+        3. Run `nix flake metadata github:cachix/devenv --json | jq '.locked | .rev, .narHash'` to get, respectively, the current HEAD commit and NAR hash of devenv's default branch — `src` intentionally tracks the rolling main branch, not the release tag from step 1
         4. Use these values to update devenv's rev and hash in the `src = fetchFromGitHub` call of @devenv/package.nix, if necessary
         5. Commit the changes if the version or hash was updated
       '';
@@ -60,7 +60,7 @@
       update-devenv-nix = ''
         In @devenv/package.nix update `devenvNixVersion`, `devenvNixRev`, and update the hash in the `devenvNixSrc = fetchFromGitHub` call if necessary.
 
-        1. Run `nix flake metadata "github:cachix/devenv/v<version>" --json | jq '.locks.nodes.nix | .original.ref, .locked.rev, .locked.narHash' | sed 's/devenv-//'`, substituting `<version>` with the current `version` in @devenv/package.nix, to get, respectively, devenvNixVersion, devenvNixRev and the NAR hash pinned to that same release tag (not the rolling default branch)
+        1. Run `nix flake metadata github:cachix/devenv --json | jq '.locks.nodes.nix | .original.ref, .locked.rev, .locked.narHash' | sed 's/devenv-//'` to get, respectively, devenvNixVersion, devenvNixRev and the NAR hash pinned by devenv's default (rolling main) branch — kept in sync with `src` in update-devenv-version, which tracks the same branch
         2. Use these values to update `devenvNixVersion` and `devenvNixRev` in @devenv/package.nix (they are let bindings), and the hash in the `devenvNixSrc = fetchFromGitHub` call of @devenv/package.nix, if necessary
         3. Commit the changes if devenvNixVersion, devenvNixRev, or the hash were updated
       '';
