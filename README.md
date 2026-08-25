@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/gvj4wsmmmvdn02nn7rxa899qvpsmlrcs-js-dgtable-0.5.2.drv'
+deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
+deleting '/nix/store/gpi7aysyvsbw6bbpmbkf3ya5liwczbcd-source.drv'
+deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
 deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
-deleting '/nix/store/y10rc5pcyycsd0c0918g3fd4v5dibn5z-options.json.drv'
 deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
-deleting '/nix/store/ymc296bfq75wwf7n44gzz8xng7xrsaci-nlohmann_json-3.12.0'
-deleting '/nix/store/q0wnrw8yah0p15f6v3a3hpbc317kv7pa-options.json.drv'
-deleting '/nix/store/hm72b0c93vyrhbc8i2qhfriwkfk7ys3v-source'
 deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
 deleting unused links...
-note: hard linking is currently saving 26.8 GiB
-903 store paths deleted, 5.7 GiB freed
+note: hard linking is currently saving 27.5 GiB
+2973 store paths deleted, 2.6 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,7 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-sudo: /run/current-system/sw/bin/sudo must be owned by uid 0 and have the setuid bit set
+deleting '/nix/store/2sy0iwq5r6ha7kj3nax1wdcsh4kf4jai-gh-2.97.0'
+deleting '/nix/store/g59crfxxlmfslp77521ww0f15f1c8bz5-runtime.osx-arm64.Microsoft.NETCore.ILAsm.8.0.28-servicing.26264.13.nupkg.drv'
+deleting '/nix/store/cp6zzkblxfhbf868z4q5plz5kflrsi71-Private.SourceBuilt.Artifacts.8.0.128-servicing.26270.1.centos.9-x64.tar.gz.drv'
+deleting '/nix/store/1fgdqr1vvb936bpkdih8gp3ghfca8qzk-packagekit-1.3.5.drv'
+deleting '/nix/store/3kc16vf0q1l5ny6sbfp28mqv3yw4b7rl-options.json.drv'
+deleting '/nix/store/swfx0xbglpigwfj2rnj065cc5ib9haiz-packagekit-qt-1.1.4'
+deleting '/nix/store/cab3vrrq9m45hb9whl1fjr13zq4xmx7g-dotnet-sdk-8.0.128-linux-x64.tar.gz.drv'
+deleting unused links...
+note: hard linking is currently saving 26.5 GiB
+411 store paths deleted, 1.8 GiB freed
 ```
 <!-- END mdsh -->
 
