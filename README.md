@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/rlc30xg2rk463205b2qpb3szv6zscmv2-nghttp2-1.69.0-lib'
-deleting '/nix/store/2w5zpwwriwv0d3n80cpv0wibd1qkq9j1-source'
-deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
-deleting '/nix/store/r4x2pbix7zgzcr9m7a1ilb1b7ymad9hp-source'
-deleting '/nix/store/xnksx2cahyzbgs2dmsx20spxbzy9cxh0-texinfo-7.2'
 deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
+deleting '/nix/store/y10rc5pcyycsd0c0918g3fd4v5dibn5z-options.json.drv'
+deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
+deleting '/nix/store/ymc296bfq75wwf7n44gzz8xng7xrsaci-nlohmann_json-3.12.0'
+deleting '/nix/store/q0wnrw8yah0p15f6v3a3hpbc317kv7pa-options.json.drv'
+deleting '/nix/store/hm72b0c93vyrhbc8i2qhfriwkfk7ys3v-source'
+deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
 deleting unused links...
-note: hard linking is currently saving 28.0 GiB
-153 store paths deleted, 1.3 GiB freed
+note: hard linking is currently saving 26.8 GiB
+903 store paths deleted, 5.7 GiB freed
 ```
 <!-- END mdsh -->
 
