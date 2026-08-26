@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/pmcj2q5kzsny2gcgjqc4ld5nszmdqgpg-cargo-check-hook.sh'
-deleting '/nix/store/rlc30xg2rk463205b2qpb3szv6zscmv2-nghttp2-1.69.0-lib'
-deleting '/nix/store/z7bd45yh6nrpgygyn7gyinyikw759h68-source'
-deleting '/nix/store/8wd9dysc3rpymz7nrx9qxiz05r579bc2-glibc-2.42-67-source.drv'
-deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
-deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
-deleting '/nix/store/6h0z9fnmawgymll9rlmdcaiy1xwjin4n-source'
+deleting '/nix/store/gvj4wsmmmvdn02nn7rxa899qvpsmlrcs-js-dgtable-0.5.2.drv'
+deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
+deleting '/nix/store/gpi7aysyvsbw6bbpmbkf3ya5liwczbcd-source.drv'
+deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
+deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
+deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
+deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
 deleting unused links...
 note: hard linking is currently saving 27.1 GiB
-93 store paths deleted, 1.2 GiB freed
+2306 store paths deleted, 2.5 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing stale temporary roots file "/nix/var/nix/temproots/16857"
-removing stale temporary roots file "/nix/var/nix/temproots/16550"
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 485
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/f6vfphy259xy10sk7fwzy1waxivc4dxw" to "/nix/var/nix/profiles/system-485-link"
 deleting garbage...
-deleting '/nix/store/ccj5wbhxnf6dq9qx7377irs3c8zp1l87-nix-shell-env'
-deleting '/nix/store/l9ffji3llkmm1646yqi0ys4viqawxalj-nix-shell-env.drv'
-deleting '/nix/store/i4cv44yqlw3ykbj1a23w2alawncsra9a-conan-flake-dev.drv'
-deleting '/nix/store/as5zzb2qxva9k9nkgvvig60xpwrvcy17-conan-flake-dev'
 deleting unused links...
 note: hard linking is currently saving 27.1 GiB
-4 store paths deleted, 149.7 KiB freed
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
