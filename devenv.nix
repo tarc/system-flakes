@@ -128,7 +128,6 @@
             "sudo:nixos-rebuild"
             "rm -f:/tmp/boost-linux-amd64.tar.gz"
             "boost:*"
-            "boost init:*"
             "curl -fsSLI:*"
             "nix flake metadata:*"
             "jq:*"
