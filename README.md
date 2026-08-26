@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
-deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
-deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
-deleting '/nix/store/ymc296bfq75wwf7n44gzz8xng7xrsaci-nlohmann_json-3.12.0'
-deleting '/nix/store/rb8rna9gkhs0ybl6z2p904myslh8llg8-gettext-1.0'
-deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
-deleting '/nix/store/l8wd4951vs18hwpig3cfs5rhv8xbacn4-jaraco_text-4.0.0.tar.gz.drv'
+deleting '/nix/store/pmcj2q5kzsny2gcgjqc4ld5nszmdqgpg-cargo-check-hook.sh'
+deleting '/nix/store/rlc30xg2rk463205b2qpb3szv6zscmv2-nghttp2-1.69.0-lib'
+deleting '/nix/store/z7bd45yh6nrpgygyn7gyinyikw759h68-source'
+deleting '/nix/store/8wd9dysc3rpymz7nrx9qxiz05r579bc2-glibc-2.42-67-source.drv'
+deleting '/nix/store/xp7j6c4adb0ca8yglwagvkdb38bk9lpb-source'
+deleting '/nix/store/fp8c7klksg64wx6bvhy8w882qx76ciix-firewall-start.drv'
+deleting '/nix/store/6h0z9fnmawgymll9rlmdcaiy1xwjin4n-source'
 deleting unused links...
-note: hard linking is currently saving 26.2 GiB
-3728 store paths deleted, 11.4 GiB freed
+note: hard linking is currently saving 27.1 GiB
+93 store paths deleted, 1.2 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/k0piv7z35h0ldrj7smy0d41jl0w1il6y-unit-home-manager-tarci.service.drv'
-deleting '/nix/store/m1dkmpa219xi2p8f4q08maz51l12l0mp-home-manager-generation.drv'
-deleting '/nix/store/hnjrkdspfcib9bpp7zzdlxavwz0jqp8y-home-manager-files.drv'
-deleting '/nix/store/hfcyvgia38dwzrkq9idmb2d95kmwhmid-hm_.configzsh.zshrc.drv'
-deleting '/nix/store/791mjq5gjr31xn38hv4wsmwi440ynb4g-hm_.configzsh.zshrc'
-deleting '/nix/store/cg4lx504w41hixaln5yxk8bypnaxan26-activation-script.drv'
-deleting '/nix/store/vldkvavjpqja9pk0q65zpi84w70d62x4-home-manager-path.drv'
+removing stale temporary roots file "/nix/var/nix/temproots/16857"
+removing stale temporary roots file "/nix/var/nix/temproots/16550"
+deleting garbage...
+deleting '/nix/store/ccj5wbhxnf6dq9qx7377irs3c8zp1l87-nix-shell-env'
+deleting '/nix/store/l9ffji3llkmm1646yqi0ys4viqawxalj-nix-shell-env.drv'
+deleting '/nix/store/i4cv44yqlw3ykbj1a23w2alawncsra9a-conan-flake-dev.drv'
+deleting '/nix/store/as5zzb2qxva9k9nkgvvig60xpwrvcy17-conan-flake-dev'
 deleting unused links...
-note: hard linking is currently saving 26.2 GiB
-18 store paths deleted, 2.9 MiB freed
+note: hard linking is currently saving 27.1 GiB
+4 store paths deleted, 149.7 KiB freed
 ```
 <!-- END mdsh -->
 
