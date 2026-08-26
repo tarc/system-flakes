@@ -58,7 +58,7 @@
 
         1. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/cachix/devenv/releases/latest" | sed 's#.*/tag/v##'` to get the latest released version, used only as a human-readable version label (this does NOT pin `src` — see step 3)
         2. Update the version in @packages/devenv/package.nix (it's in the let binding, the `version` variable) to the latest released version, if necessary
-        3. Run `nix flake metadata github:cachix/devenv --json | jq '.locked | .rev, .narHash'` to get, respectively, the current HEAD commit and NAR hash of devenv's default branch — `src` intentionally tracks the rolling main branch, not the release tag from step 1
+        3. Run `nix flake metadata github:cachix/devenv --json | jq '.locked | .rev, .narHash'` to get, respectively, the latest commit and NAR hash of devenv's default branch — `src` intentionally tracks the rolling main branch, not the release tag from step 1
         4. Use these values to update devenv's rev and hash in the `src = fetchFromGitHub` call of @packages/devenv/package.nix, if necessary
         5. Commit the changes if the version or hash was updated
       '';
@@ -76,7 +76,7 @@
 
         1. Run the custom command `/update-devenv-version` to update @packages/devenv/package.nix
         2. Run the custom command `/update-devenv-nix` to update the nix source in @packages/devenv/package.nix
-        3. If some of the above steps result in a change (or if a previous update of @packages/devenv/package.nix was never switched on), run `just switch` to switch to the updated configuration
+        3. If update-devenv-version or update-devenv-nix committed a change (or if a previous update of @packages/devenv/package.nix was never switched on), run `just switch` to switch to the updated configuration
         4. If the switch fails, update `cargoHash` in @packages/devenv/package.nix setting it to the empty string: `cargoHash = "";`, but only if the failure hasn't already reported the correct hash (in which case, skip the next step and use this hash directly in the step after)
         5. Run `just switch` again to get the right cargo hash. It will be automatically computed and reported in the logs
         6. Use this hash to update `cargoHash` in @packages/devenv/package.nix
