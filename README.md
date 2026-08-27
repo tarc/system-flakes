@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/gvj4wsmmmvdn02nn7rxa899qvpsmlrcs-js-dgtable-0.5.2.drv'
 deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
 deleting '/nix/store/gpi7aysyvsbw6bbpmbkf3ya5liwczbcd-source.drv'
 deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
 deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
 deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
+deleting '/nix/store/rb8rna9gkhs0ybl6z2p904myslh8llg8-gettext-1.0'
 deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
 deleting unused links...
-note: hard linking is currently saving 27.1 GiB
-2306 store paths deleted, 2.5 GiB freed
+note: hard linking is currently saving 27.4 GiB
+3018 store paths deleted, 5.3 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 485
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/f6vfphy259xy10sk7fwzy1waxivc4dxw" to "/nix/var/nix/profiles/system-485-link"
-deleting garbage...
+deleting '/nix/store/a638x3d3mp5xwxjcs797s03ivnz42q98-home-manager-path'
+deleting '/nix/store/94svd3l5kl6hjismmpp3zlfgv39ggy84-home-manager-generation.drv'
+deleting '/nix/store/6fg4szg5r30jiaqbsj39ajqlgdsh9fab-activation-script.drv'
+deleting '/nix/store/ziqwmp8m0k05lqqj27srynpqsp9ibw3m-home-manager-path.drv'
+deleting '/nix/store/3ywl41m8i4wmlp6p6kmaj4jw13ajc8y0-home-configuration-reference-manpage.drv'
+deleting '/nix/store/1wx7l9rv9zdvsz34l732p8bwrxm5nf2j-home-configuration-reference-manpage'
+deleting '/nix/store/dbxg6ca3f3l7h2i4a7k71z8wsj5py03i-options.json.drv'
 deleting unused links...
-note: hard linking is currently saving 27.1 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 27.4 GiB
+31 store paths deleted, 5.8 MiB freed
 ```
 <!-- END mdsh -->
 
