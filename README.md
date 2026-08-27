@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
-deleting '/nix/store/gpi7aysyvsbw6bbpmbkf3ya5liwczbcd-source.drv'
-deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
-deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
-deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
-deleting '/nix/store/rb8rna9gkhs0ybl6z2p904myslh8llg8-gettext-1.0'
-deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
+deleting '/nix/store/jvisbvcg999b5np5qi9nk8mrj70xaj0j-mdformat-wrapped'
+deleting '/nix/store/d1s3j8qyzr7hc7lfqylgbcmgsys1x2jk-python3.14-mdformat-1.0.0'
+deleting '/nix/store/s0fpxz3rvfip9bc50wfmwpigxiyl6nkg-source'
+deleting '/nix/store/rkpiax7mn7md238wiql1r6g43v3j189y-python3.14-markdown-it-py-4.2.0'
+deleting '/nix/store/qxdmz1ff7qvf9iyi3p870zr71ya5lz6q-json2x-0.1.0'
+deleting '/nix/store/yld1xbwk79r51nqx8q1mmlgzpxx17zwr-stdenv-linux-no-cc'
+deleting '/nix/store/gn2zrfxv6ihkx76x48ikgakcif7ifmvi-python3.14-mdurl-0.1.2'
 deleting unused links...
-note: hard linking is currently saving 27.4 GiB
-3018 store paths deleted, 5.3 GiB freed
+note: hard linking is currently saving 27.1 GiB
+15 store paths deleted, 2.5 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/a638x3d3mp5xwxjcs797s03ivnz42q98-home-manager-path'
-deleting '/nix/store/94svd3l5kl6hjismmpp3zlfgv39ggy84-home-manager-generation.drv'
-deleting '/nix/store/6fg4szg5r30jiaqbsj39ajqlgdsh9fab-activation-script.drv'
-deleting '/nix/store/ziqwmp8m0k05lqqj27srynpqsp9ibw3m-home-manager-path.drv'
-deleting '/nix/store/3ywl41m8i4wmlp6p6kmaj4jw13ajc8y0-home-configuration-reference-manpage.drv'
-deleting '/nix/store/1wx7l9rv9zdvsz34l732p8bwrxm5nf2j-home-configuration-reference-manpage'
-deleting '/nix/store/dbxg6ca3f3l7h2i4a7k71z8wsj5py03i-options.json.drv'
+deleting '/nix/store/fyzkj6mi8c2ysmcbs4silbj72mxclfq4-home-manager-generation.drv'
+deleting '/nix/store/l3inr534vbi8w9bcx680ziflwjx17md0-activation-script.drv'
+deleting '/nix/store/y7zn9m24kiyy7k5dkrcwaj0lrg3wcdf3-home-manager-path.drv'
+deleting '/nix/store/gk35iyg6y7yxy29rjpq33nn1hk8xly28-home-manager-files'
+deleting '/nix/store/qc2b6lrng24jz18m609xmpjjz79pl04h-hm_.configzsh.zshrc'
+deleting '/nix/store/8dd0rywgj7hpaahbmdj2pi9d847xl1n1-home-manager-files.drv'
+deleting '/nix/store/xqw2f7ybawrfq5z3j8n2s2irikh0027q-hm_.configzsh.zshrc.drv'
 deleting unused links...
-note: hard linking is currently saving 27.4 GiB
-31 store paths deleted, 5.8 MiB freed
+note: hard linking is currently saving 27.1 GiB
+18 store paths deleted, 2.9 MiB freed
 ```
 <!-- END mdsh -->
 
