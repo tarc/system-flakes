@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/jvisbvcg999b5np5qi9nk8mrj70xaj0j-mdformat-wrapped'
-deleting '/nix/store/d1s3j8qyzr7hc7lfqylgbcmgsys1x2jk-python3.14-mdformat-1.0.0'
-deleting '/nix/store/s0fpxz3rvfip9bc50wfmwpigxiyl6nkg-source'
-deleting '/nix/store/rkpiax7mn7md238wiql1r6g43v3j189y-python3.14-markdown-it-py-4.2.0'
-deleting '/nix/store/qxdmz1ff7qvf9iyi3p870zr71ya5lz6q-json2x-0.1.0'
-deleting '/nix/store/yld1xbwk79r51nqx8q1mmlgzpxx17zwr-stdenv-linux-no-cc'
-deleting '/nix/store/gn2zrfxv6ihkx76x48ikgakcif7ifmvi-python3.14-mdurl-0.1.2'
+deleting '/nix/store/hv74hhpkzbxrmfj3w6hq4ivsj4hsfal9-yaml-0.11.11.2.tar.gz.drv'
+deleting '/nix/store/xw09m9cnc9ayb2j53y2rj8jhm1h7kkxa-diffutils-3.12'
+deleting '/nix/store/vplv2lbhy801v71nvma6269hz9gl9bq4-bitflags-2.13.0'
+deleting '/nix/store/na1rshb116s1n87p1f4g31y0274ghqsi-http-client-tls-0.3.6.4.tar.gz.drv'
+deleting '/nix/store/gpcgi7qfwqjy7g15im1h5kwqcznlc543-logging-facade-0.3.1.tar.gz.drv'
+deleting '/nix/store/nm4077rajbdl0w87zckpyy6ghj27b8qv-source.drv'
+deleting '/nix/store/pkxwyibwxi0xiam61syzzbhz2pxls0k0-CVE-2025-26519_1.patch.drv'
 deleting unused links...
-note: hard linking is currently saving 27.1 GiB
-15 store paths deleted, 2.5 MiB freed
+note: hard linking is currently saving 25.4 GiB
+2848 store paths deleted, 9.6 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,7 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/fyzkj6mi8c2ysmcbs4silbj72mxclfq4-home-manager-generation.drv'
-deleting '/nix/store/l3inr534vbi8w9bcx680ziflwjx17md0-activation-script.drv'
-deleting '/nix/store/y7zn9m24kiyy7k5dkrcwaj0lrg3wcdf3-home-manager-path.drv'
-deleting '/nix/store/gk35iyg6y7yxy29rjpq33nn1hk8xly28-home-manager-files'
-deleting '/nix/store/qc2b6lrng24jz18m609xmpjjz79pl04h-hm_.configzsh.zshrc'
-deleting '/nix/store/8dd0rywgj7hpaahbmdj2pi9d847xl1n1-home-manager-files.drv'
-deleting '/nix/store/xqw2f7ybawrfq5z3j8n2s2irikh0027q-hm_.configzsh.zshrc.drv'
-deleting unused links...
-note: hard linking is currently saving 27.1 GiB
-18 store paths deleted, 2.9 MiB freed
+sudo: /run/current-system/sw/bin/sudo must be owned by uid 0 and have the setuid bit set
 ```
 <!-- END mdsh -->
 
