@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/hv74hhpkzbxrmfj3w6hq4ivsj4hsfal9-yaml-0.11.11.2.tar.gz.drv'
+deleting '/nix/store/2k38qrrk66jp7bxzhwcpfz28wcr9cwpm-crate-libc-0.2.177.tar.gz.drv'
+deleting '/nix/store/63gkcqs26wpv2zjd4s2i78azwzvd9hs6-python3.14-tomli-w-1.2.0'
+deleting '/nix/store/fq6xkzyq2wv4sv31ybnqx44n1808jva6-setuptools_rust-1.13.0.tar.gz.drv'
+deleting '/nix/store/7nmh864alhk3322c786w2vskfp9n8knd-python312-compat.patch.drv'
+deleting '/nix/store/yizz72bdc775f2lcas34c7xwsmvgzjqx-python3.14-six-1.17.0'
+deleting '/nix/store/f4s31w8mfym4fs375v3dkiv5b130zkm0-source.drv'
 deleting '/nix/store/xw09m9cnc9ayb2j53y2rj8jhm1h7kkxa-diffutils-3.12'
-deleting '/nix/store/vplv2lbhy801v71nvma6269hz9gl9bq4-bitflags-2.13.0'
-deleting '/nix/store/na1rshb116s1n87p1f4g31y0274ghqsi-http-client-tls-0.3.6.4.tar.gz.drv'
-deleting '/nix/store/gpcgi7qfwqjy7g15im1h5kwqcznlc543-logging-facade-0.3.1.tar.gz.drv'
-deleting '/nix/store/nm4077rajbdl0w87zckpyy6ghj27b8qv-source.drv'
-deleting '/nix/store/pkxwyibwxi0xiam61syzzbhz2pxls0k0-CVE-2025-26519_1.patch.drv'
 deleting unused links...
-note: hard linking is currently saving 25.4 GiB
-2848 store paths deleted, 9.6 GiB freed
+note: hard linking is currently saving 28.6 GiB
+338 store paths deleted, 1.3 GiB freed
 ```
 <!-- END mdsh -->
 

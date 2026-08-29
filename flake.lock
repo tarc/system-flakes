@@ -291,11 +291,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787834454,
-        "narHash": "sha256-jXSvqn04IOecJCvSvl8+g3PsbDVNP6qKs6dKUs/b16k=",
+        "lastModified": 1787993548,
+        "narHash": "sha256-+IAEnmmx5YIhUWo0lp15jLLHchnXo5yKgWsi6C6Cf+0=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "dc2fd1acc537f3583744e1373597a5731ff7a6e3",
+        "rev": "996e9b0b019a4a9eb9e9a5641aefa06d801b5895",
         "type": "github"
       },
       "original": {
@@ -307,11 +307,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1787015109,
-        "narHash": "sha256-qxvcojeHhWaP1/Z8qdvyMzxzDDbAiO10t80lKdzzAqE=",
+        "lastModified": 1787958306,
+        "narHash": "sha256-WN2ZRYg0mzAR6puDlXIWUYHXudsww+j+9OCUq1MYUOA=",
         "ref": "refs/heads/main",
-        "rev": "39e9d34c0050db0dd10bbd6f12a36175cafdc743",
-        "revCount": 34,
+        "rev": "16d7a040c8a43e2088be7011798e267b0a273c2e",
+        "revCount": 35,
         "type": "git",
         "url": "ssh://git@github.com/tarc/nix-secrets.git"
       },
