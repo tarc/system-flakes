@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/fq6xkzyq2wv4sv31ybnqx44n1808jva6-setuptools_rust-1.13.0.tar.gz.drv'
-deleting '/nix/store/wfk7hizfxni5fyaqg3x5pwnpy0qf5d13-cargo-nextest-0.9.143'
-deleting '/nix/store/z748aqzi90bajvybj7fbsxmrlxqbk89h-libidn2-2.3.8-bin'
 deleting '/nix/store/7nmh864alhk3322c786w2vskfp9n8knd-python312-compat.patch.drv'
+deleting '/nix/store/rhdmpr0vm97p71pr0dnvbvz54mr86yr1-env-manifest.nix'
+deleting '/nix/store/82i3jv881738wv474826vggij18s0pya-options.json'
 deleting '/nix/store/yizz72bdc775f2lcas34c7xwsmvgzjqx-python3.14-six-1.17.0'
+deleting '/nix/store/bjrf5bsah6ks3c78hf9wmbi1p82d2ih3-option-doc-github-actions-nix'
+deleting '/nix/store/l3c2b227vaz1f35zsw508kbv3d3wdf78-nix-shell.drv'
 deleting '/nix/store/f4s31w8mfym4fs375v3dkiv5b130zkm0-source.drv'
-deleting '/nix/store/xw09m9cnc9ayb2j53y2rj8jhm1h7kkxa-diffutils-3.12'
 deleting unused links...
-note: hard linking is currently saving 28.6 GiB
-421 store paths deleted, 4.8 GiB freed
+note: hard linking is currently saving 29.2 GiB
+921 store paths deleted, 9.5 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,7 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-sudo: /run/current-system/sw/bin/sudo must be owned by uid 0 and have the setuid bit set
+deleting '/nix/store/b524gz5m45bijz2iqypws7b70ibyhf7r-source.drv'
+deleting '/nix/store/5xxnjxv72c9fkj7dky0r2xlkp663ivm8-source.drv'
+deleting '/nix/store/vkg6vv6y4wn1qv5l4v15p44d7h1m2ywg-options.json.drv'
+deleting '/nix/store/9ka5a33kb0ggrinxssnqgmnyvwmscd5c-gssdp-1.6.6'
+deleting '/nix/store/bl51z4y6lw33280dvy9sy0vcybcdc59h-hostname-debian-3.25'
+deleting '/nix/store/411905jr754hmh8k09c9kmqi9f71fzmp-source.drv'
+deleting '/nix/store/c1naidasrs5l799am8xq2n28rzncfb2m-stdenv-linux.drv'
+deleting unused links...
+note: hard linking is currently saving 26.7 GiB
+3366 store paths deleted, 4.5 GiB freed
 ```
 <!-- END mdsh -->
 
