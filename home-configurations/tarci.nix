@@ -146,6 +146,13 @@ in
           file = "${inputs.secrets}/poita-local-netbird-setup-key.age";
           mode = "600";
         };
+
+        "hostinger-ssh-key" = {
+          symlink = true;
+          path = "${homeDir}/.ssh/id_ed25519_hostinger";
+          file = "${inputs.secrets}/hostinger-ssh-key.age";
+          mode = "600";
+        };
       };
     };
 }

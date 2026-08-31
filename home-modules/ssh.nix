@@ -26,6 +26,12 @@
         identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519_codeberg";
       };
 
+      "hostinger" = {
+        hostname = "179.198.127.235";
+        user = "tarcisio";
+        identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519_hostinger";
+      };
+
     };
   };
 }
