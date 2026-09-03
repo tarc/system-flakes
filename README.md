@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/fq6xkzyq2wv4sv31ybnqx44n1808jva6-setuptools_rust-1.13.0.tar.gz.drv'
 deleting '/nix/store/wfk7hizfxni5fyaqg3x5pwnpy0qf5d13-cargo-nextest-0.9.143'
 deleting '/nix/store/z748aqzi90bajvybj7fbsxmrlxqbk89h-libidn2-2.3.8-bin'
 deleting '/nix/store/7nmh864alhk3322c786w2vskfp9n8knd-python312-compat.patch.drv'
 deleting '/nix/store/yizz72bdc775f2lcas34c7xwsmvgzjqx-python3.14-six-1.17.0'
 deleting '/nix/store/f4s31w8mfym4fs375v3dkiv5b130zkm0-source.drv'
+deleting '/nix/store/shwppaz8kcsyxy4hridnv10bkiqd86ar-source'
 deleting '/nix/store/xw09m9cnc9ayb2j53y2rj8jhm1h7kkxa-diffutils-3.12'
 deleting unused links...
-note: hard linking is currently saving 26.2 GiB
-488 store paths deleted, 5.4 GiB freed
+note: hard linking is currently saving 26.6 GiB
+574 store paths deleted, 6.3 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/ydjr0h2p8ypfcf1jwxh20lcmr4gqn6c3-agenix.service.drv'
-deleting '/nix/store/fja1kl3zcdwh2jpx7w6jj27njd7c0jnl-agenix-home-manager-mount-secrets.drv'
-deleting '/nix/store/wilwpvwdijdbhk2bzkgdkp1zgm24f7bb-hm_.sshconfig'
-deleting '/nix/store/99ya72dqmw1m9wnym2584jrnalhaaz51-hm_.sshconfig.drv'
-deleting '/nix/store/hsp576xmx2i8qhymbfsm1z0iscas5n2i-activation-script.drv'
-deleting '/nix/store/7y9jz6v5wmrmd16132y1d08jdlqgf3ss-home-manager-path.drv'
-deleting '/nix/store/94dvvf2sy91hb6dzlkgdam20cxg7kl29-source'
+deleting '/nix/store/bsgy8y2ci3azsck4dvr4rxsyx4n0z4lf-home-manager-path.drv'
+deleting '/nix/store/6nw1d4d7pjal43xbm8j6cji4ifp2jf8r-home-manager-path'
+deleting '/nix/store/83qnml71c8v52k588igda5n08mhg1m3g-home-manager-files.drv'
+deleting '/nix/store/r7bh3w6m8vvcazzlwk7pi8qzhdcw46bv-hm_.configzsh.zshrc.drv'
+deleting '/nix/store/miflw76ss8ff6a8d45hmqbm9256700rm-hm_.configzsh.zshrc'
+deleting '/nix/store/5j69df4y8s4n990zy8488j9p61jl72q6-devenv-2.2.2'
+deleting '/nix/store/vkwan07715jmahygbx91x20n69n1lcmg-devenv-2.2.2.drv'
 deleting unused links...
-note: hard linking is currently saving 26.2 GiB
-91 store paths deleted, 9.1 MiB freed
+note: hard linking is currently saving 26.6 GiB
+20 store paths deleted, 189.8 MiB freed
 ```
 <!-- END mdsh -->
 
