@@ -35,6 +35,7 @@
         update-devenv-version
         update-devenv-nix
         update-devenv
+        rebase-devenv-branch
         ;
     };
   };
@@ -82,6 +83,19 @@
         6. Use this hash to update `cargoHash` in @packages/devenv/package.nix
         7. Run `just switch` again to switch to the updated configuration
         8. Commit the changes if the switch succeeds and the cargo hash is updated
+      '';
+
+      rebase-devenv-branch = ''
+        Branch to rebase in git@github.com:tarc/devenv.git: $1
+
+        1. If no branch name was given above, stop and report the error
+        2. Run `git ls-remote --exit-code git@github.com:tarc/devenv.git "refs/heads/$1"` to verify the branch exists on the fork; fail if it doesn't (non-zero exit code)
+        3. Determine the working branch: if `$1` already ends with `-temp`, the working branch is `$1` itself; otherwise the working branch is `$1-temp`, created from `$1`
+        4. Clone `git@github.com:tarc/devenv.git` into a fresh temporary directory and check out the working branch there: `git checkout -b <working-branch> "origin/$1"` if it needs to be created, or `git checkout <working-branch>` if it already exists
+        5. Fetch cachix/devenv's main branch: `git fetch https://github.com/cachix/devenv.git main`
+        6. Rebase the working branch onto it: `git rebase FETCH_HEAD`
+        7. Force-push the rebased working branch back to the fork: `git push --force-with-lease origin HEAD:refs/heads/<working-branch>`
+        8. Remove the temporary clone directory
       '';
 
       update-boost = ''
