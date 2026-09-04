@@ -51,8 +51,8 @@ rustPlatform.buildRustPackage {
     # upstream review: https://github.com/cachix/devenv/pull/3158
     owner = "tarc";
     repo = "devenv";
-    rev = "13dbc49a2cecbaa2bf375cf879bba2717505827c"; # fix/wsl-zero-terminal-size
-    hash = "sha256-JpliMqtmsp2MdMoqaDbQKtwK/k/NZmjkjcxzFgScPCs=";
+    rev = "05831d1c3d62af4a8d078c0925cbfc34e610b97c"; # fix/wsl-zero-terminal-size-temp
+    hash = "sha256-utB9zeT4lx8UROQgAGoTfjFrFlYHcji0gfQ7EMu+sSk=";
   };
 
   cargoHash = "sha256-NMR/VQ8/Pxl8JwUAcGL+l9YaOCJEQyNAroEP/2ukBwc=";
