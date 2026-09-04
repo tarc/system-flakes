@@ -48,7 +48,7 @@ A mismatched revision **builds successfully** but crashes devenv's interactive s
 `overlays/default.nix` works around this by overriding `libghostty-vt` to build from the `ghostty` flake input instead of nixpkgs, pinned to the exact commit devenv's `Cargo.lock` requires. When bumping `packages/devenv/package.nix` to a newer devenv revision:
 
 1. Check whether the required commit moved: either the `GHOSTTY_COMMIT` constant in `crates/libghostty-vt-sys/build.rs` of the `libghostty-rs` repo devenv vendors, or more directly devenv's own `flake.nix`, which pins the same `ghostty` input for the same reason (see its comment there: "Keep this in sync with the Ghostty revision pinned by libghostty-rs").
-2. If it moved, update the `ghostty` input's URL in this repo's `flake.nix` to match, before running `just update`.
+1. If it moved, update the `ghostty` input's URL in this repo's `flake.nix` to match, before running `just update`.
 
 ## Known environment gotcha: sudo via PATH
 

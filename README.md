@@ -52,7 +52,7 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/fq6xkzyq2wv4sv31ybnqx44n1808jva6-setuptools_rust-1.13.0.tar.gz.drv'
+deleting '/nix/store/dyhlmmf4i82xzxapavrjwysxbjp9cvh1-NerdFontsSymbolsOnly-3.4.0.tar.gz'
 deleting '/nix/store/wfk7hizfxni5fyaqg3x5pwnpy0qf5d13-cargo-nextest-0.9.143'
 deleting '/nix/store/z748aqzi90bajvybj7fbsxmrlxqbk89h-libidn2-2.3.8-bin'
 deleting '/nix/store/7nmh864alhk3322c786w2vskfp9n8knd-python312-compat.patch.drv'
@@ -61,7 +61,7 @@ deleting '/nix/store/f4s31w8mfym4fs375v3dkiv5b130zkm0-source.drv'
 deleting '/nix/store/xw09m9cnc9ayb2j53y2rj8jhm1h7kkxa-diffutils-3.12'
 deleting unused links...
 note: hard linking is currently saving 26.2 GiB
-712 store paths deleted, 9.2 GiB freed
+815 store paths deleted, 8.9 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 504
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/7051258f4cdmz3lpb37bphy0vy7dzkm2" to "/nix/var/nix/profiles/system-504-link"
-deleting garbage...
+deleting '/nix/store/r09kjy3x8xyppz8jhl0qqp483malvg66-hm_.configzsh.zshrc'
+deleting '/nix/store/sbsp6bpb7ax6g6dyg1j95phjkzl0c56a-devenv-2.2.2'
+deleting '/nix/store/hj6s65yd6iw2zr3d0n1lqz2k1v47k44y-hm_.configzsh.zshrc.drv'
+deleting '/nix/store/qy39krhhsirfcvin4v64n9hzxgqa2wlw-devenv-2.2.2.drv'
+deleting '/nix/store/fmplqlyy31v3whgfqg7wpqkhrwwbvkcy-home-configuration-reference-manpage.drv'
+deleting '/nix/store/v96xmpqzyvf88721lnfw75j9i25k3q4g-options.json.drv'
+deleting '/nix/store/pm1x0821frkk7mw6qhi3f9kryl16r212-home-manager-files.drv'
 deleting unused links...
 note: hard linking is currently saving 26.2 GiB
-0 store paths deleted, 0.0 KiB freed
+105 store paths deleted, 585.1 MiB freed
 ```
 <!-- END mdsh -->
 
