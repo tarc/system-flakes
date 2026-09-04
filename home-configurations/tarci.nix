@@ -20,6 +20,7 @@ in
     let
       githubToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.GITHUB_TOKEN.path})";
       codebergToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.CODEBERG_TOKEN.path})";
+      devenvGithubToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.DEVENV_GITHUB_TOKEN.path})";
       tarcDevenvNixpkgsRollingGenericToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.TARC_DEVENV_NIXPKGS_ROLLING_GENERIC_TOKEN.path})";
       tarcDevenvNixpkgsRollingPlayConanToken = "$(${pkgs.coreutils-full}/bin/cat ${config.age.secrets.TARC_DEVENV_NIXPKGS_ROLLING_PLAY_CONAN_TOKEN.path})";
     in
@@ -31,6 +32,7 @@ in
         sessionVariables = {
           GITHUB_TOKEN = githubToken;
           CODEBERG_TOKEN = codebergToken;
+          DEVENV_GITHUB_TOKEN = devenvGithubToken;
           TARC_DEVENV_NIXPKGS_ROLLING_GENERIC_TOKEN = tarcDevenvNixpkgsRollingGenericToken;
           TARC_DEVENV_NIXPKGS_ROLLING_PLAY_CONAN_TOKEN = tarcDevenvNixpkgsRollingPlayConanToken;
           EDITOR = "vim";
@@ -84,6 +86,8 @@ in
         "GITHUB_TOKEN".file = "${inputs.secrets}/nixpkgs-review-github-pat.age";
 
         "CODEBERG_TOKEN".file = "${inputs.secrets}/codeberg-pat.age";
+
+        "DEVENV_GITHUB_TOKEN".file = "${inputs.secrets}/poita-gh-devenv-pat.age";
 
         "TARC_DEVENV_NIXPKGS_ROLLING_GENERIC_TOKEN".file =
           "${inputs.secrets}/tarc-devenv-nixpkgs-rolling-generic-auth-token.age";
