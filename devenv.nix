@@ -57,11 +57,15 @@
       update-devenv-version = ''
         In @packages/devenv/package.nix bump the version, and update the hash in the `src = fetchFromGitHub` call if necessary.
 
-        1. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/cachix/devenv/releases/latest" | sed 's#.*/tag/v##'` to get the latest released version, used only as a human-readable version label (this does NOT pin `src` — see step 3)
-        2. Update the version in @packages/devenv/package.nix (it's in the let binding, the `version` variable) to the latest released version, if necessary
-        3. Run `nix flake metadata github:cachix/devenv --json | jq '.locked | .rev, .narHash'` to get, respectively, the latest commit and NAR hash of devenv's default branch — `src` intentionally tracks the rolling main branch, not the release tag from step 1
-        4. Use these values to update devenv's rev and hash in the `src = fetchFromGitHub` call of @packages/devenv/package.nix, if necessary
-        5. Commit the changes if the version or hash was updated
+        1. Check whether `src = fetchFromGitHub` in @packages/devenv/package.nix has `owner = "tarc"` and `repo = "devenv"` — this is an overridden scenario (a fork branch pinned in place of upstream cachix/devenv, typically with a comment above `src` linking to a cachix/devenv PR, and a comment on the `rev` line naming the branch). If it's not overridden (owner/repo are anything else), skip straight to step 5.
+        2. In the overridden scenario, look for the branch in git@github.com:tarc/devenv.git that `src`'s `rev` belongs to: run `git ls-remote git@github.com:tarc/devenv.git | grep <rev>` to find a live branch whose tip is exactly that commit.
+        3. If step 2 finds nothing (e.g. the branch was deleted after merging), fall back to the PR referenced in the comment above `src` (e.g. `https://github.com/cachix/devenv/pull/<number>`): run `curl -fsSL "https://api.github.com/repos/cachix/devenv/pulls/<number>" | jq -r '.head.ref, .merged'` to recover the branch name and merge status directly, even though the PR may already be closed.
+        4. Decide based on the above: if the PR is merged (or the branch is gone and the PR shows merged), the override is finished — revert it by setting `owner = "cachix"` in @packages/devenv/package.nix and removing the comment block above `src`, then continue to step 5 so the normal flow below fills in the correct upstream rev/hash. Otherwise the override is still pending — run the custom command `/rebase-devenv-branch <branch>` (the branch name from step 2 or 3) to rebase it onto cachix/devenv's main, then run `git ls-remote git@github.com:tarc/devenv.git "refs/heads/<branch-or-its-rebase-devenv-branch--temp-variant>"` to get the new HEAD commit and `nix flake metadata "github:tarc/devenv/<new-rev>" --json | jq '.locked.narHash'` to get its hash, and update `rev`/`hash` in @packages/devenv/package.nix to these new values (`owner`/`repo` stay "tarc"/"devenv"; update the branch-name comment on `rev` too if `rebase-devenv-branch` created a new branch). Commit, then stop — steps 5-9 below only apply to the non-overridden case.
+        5. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/cachix/devenv/releases/latest" | sed 's#.*/tag/v##'` to get the latest released version, used only as a human-readable version label (this does NOT pin `src` — see step 7)
+        6. Update the version in @packages/devenv/package.nix (it's in the let binding, the `version` variable) to the latest released version, if necessary
+        7. Run `nix flake metadata github:cachix/devenv --json | jq '.locked | .rev, .narHash'` to get, respectively, the latest commit and NAR hash of devenv's default branch — `src` intentionally tracks the rolling main branch, not the release tag from step 5
+        8. Use these values to update devenv's rev and hash in the `src = fetchFromGitHub` call of @packages/devenv/package.nix, if necessary
+        9. Commit the changes if the version or hash was updated
       '';
 
       update-devenv-nix = ''
@@ -144,6 +148,7 @@
             "rm -f:/tmp/boost-linux-amd64.tar.gz"
             "boost:*"
             "curl -fsSLI:*"
+            "curl -fsSL:*"
             "nix flake metadata:*"
             "jq:*"
           ];
