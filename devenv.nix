@@ -71,7 +71,7 @@
       update-devenv-nix = ''
         In @packages/devenv/package.nix update `devenvNixVersion`, `devenvNixRev`, and update the hash in the `devenvNixSrc = fetchFromGitHub` call if necessary.
 
-        1. Run `nix flake metadata github:cachix/devenv --json | jq '.locks.nodes.nix | .original.ref, .locked.rev, .locked.narHash' | sed 's/devenv-//'` to get, respectively, devenvNixVersion, devenvNixRev and the NAR hash pinned by devenv's default (rolling main) branch — kept in sync with `src` in update-devenv-version, which tracks the same branch
+        1. Run `nix flake metadata github:cachix/devenv --json | jq '.locks.nodes.nix | .original.ref, .locked.rev, .locked.narHash' | sed 's/devenv-//'` to get, respectively, devenvNixVersion, devenvNixRev and the NAR hash pinned by devenv's default (rolling main) branch — kept in sync with `src` in update-devenv-version, which tracks the same branch. This always resolves from cachix/devenv's main branch, even when update-devenv-version has an active fork override in `src` (owner = "tarc") — the nix-input pin is intentionally decoupled from the devenv source override, so don't substitute the fork here
         2. Use these values to update `devenvNixVersion` and `devenvNixRev` in @packages/devenv/package.nix (they are let bindings), and the hash in the `devenvNixSrc = fetchFromGitHub` call of @packages/devenv/package.nix, if necessary
         3. Commit the changes if devenvNixVersion, devenvNixRev, or the hash were updated
       '';
@@ -145,7 +145,9 @@
             "nix-instantiate:*"
             "git:*"
             "sudo:nixos-rebuild"
+            "/run/wrappers/bin/sudo:nixos-rebuild"
             "rm -f:/tmp/boost-linux-amd64.tar.gz"
+            "rm -rf:/tmp/devenv-rebase"
             "boost:*"
             "curl -fsSLI:*"
             "curl -fsSL:*"
