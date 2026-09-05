@@ -14,6 +14,7 @@
   protobuf,
   sqlite,
   pkg-config,
+  cmake,
   glibcLocalesUtf8,
   boehmgc,
   libghostty-vt,
@@ -55,7 +56,7 @@ rustPlatform.buildRustPackage {
     hash = "sha256-dpV3r9svGeBK3LfZzb417ThGRlvqbLGzK4BiCuuUHLo=";
   };
 
-  cargoHash = "sha256-92gM+HXScZnBrCNDToGtuNzoivLexDbMQI7VOitYd7s=";
+  cargoHash = "sha256-HkmdXCyKTw8SH+bC4rqpS1mRz4kajjBlw23IkZxfFyU=";
 
   env = {
     RUSTFLAGS = "--cfg tracing_unstable";
@@ -75,6 +76,7 @@ rustPlatform.buildRustPackage {
     makeBinaryWrapper
     pkg-config
     protobuf
+    cmake
     rustPlatform.bindgenHook
   ];
 
