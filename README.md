@@ -60,8 +60,8 @@ deleting '/nix/store/yizz72bdc775f2lcas34c7xwsmvgzjqx-python3.14-six-1.17.0'
 deleting '/nix/store/f4s31w8mfym4fs375v3dkiv5b130zkm0-source.drv'
 deleting '/nix/store/xw09m9cnc9ayb2j53y2rj8jhm1h7kkxa-diffutils-3.12'
 deleting unused links...
-note: hard linking is currently saving 26.2 GiB
-815 store paths deleted, 8.9 GiB freed
+note: hard linking is currently saving 26.3 GiB
+795 store paths deleted, 5.6 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/r09kjy3x8xyppz8jhl0qqp483malvg66-hm_.configzsh.zshrc'
-deleting '/nix/store/sbsp6bpb7ax6g6dyg1j95phjkzl0c56a-devenv-2.2.2'
-deleting '/nix/store/hj6s65yd6iw2zr3d0n1lqz2k1v47k44y-hm_.configzsh.zshrc.drv'
-deleting '/nix/store/qy39krhhsirfcvin4v64n9hzxgqa2wlw-devenv-2.2.2.drv'
-deleting '/nix/store/fmplqlyy31v3whgfqg7wpqkhrwwbvkcy-home-configuration-reference-manpage.drv'
-deleting '/nix/store/v96xmpqzyvf88721lnfw75j9i25k3q4g-options.json.drv'
-deleting '/nix/store/pm1x0821frkk7mw6qhi3f9kryl16r212-home-manager-files.drv'
+deleting '/nix/store/2knqkhwyvih021c6h94jjjai518yckm2-home-manager-files.drv'
+deleting '/nix/store/za5nh6l24rr253rhlbzgqrqapkgzzpwv-hm_.configzsh.zshrc.drv'
+deleting '/nix/store/kcpppp2bls0fnyz0idr5ih9i3wqyfwr6-devenv-2.2.2.drv'
+deleting '/nix/store/5zzr15q6n5c09vmmpxw03nfgkyx2xvh7-devenv-2.2.2-vendor.drv'
+deleting '/nix/store/l9fr558lm9jr3f6xs1ccwj5sxf1c39wr-devenv-2.2.2-vendor-staging.drv'
+deleting '/nix/store/ji0xlivfy00py0km77nkvlb17dmmwagv-home-manager-path.drv'
+deleting '/nix/store/vb2q71dhfg66fxim3iypikjvz5z9pzli-source.drv'
 deleting unused links...
 note: hard linking is currently saving 26.2 GiB
-105 store paths deleted, 585.1 MiB freed
+37 store paths deleted, 146.5 MiB freed
 ```
 <!-- END mdsh -->
 
