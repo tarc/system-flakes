@@ -17,6 +17,8 @@ A single Nix flake providing NixOS + Home Manager configuration for the host `po
 
 There is no test suite; correctness is checked by `just switch` actually building/activating.
 
+Both `just switch` and `nix fmt` routinely take well over 2 minutes (building `devenv`/other packages from source, or fetching treefmt tooling) — run them in the background from the start rather than waiting on a foreground timeout to force the conversion.
+
 ## Architecture
 
 - **`flake.nix`** — the only flake output definition. Delegates host/module wiring to `ez-configs` (`config.ezConfigs`), which auto-discovers configs under `nixos-configurations/`, `home-configurations/`, `nixos-modules/`, `home-modules/`, and `overlays/` by directory convention — new files in those directories are picked up without touching `flake.nix`. Also defines the `treefmt` formatter used by `nix fmt`.
@@ -56,7 +58,7 @@ A mismatched revision **builds successfully** but crashes devenv's interactive s
 
 ## Known environment gotcha: sudo via PATH
 
-`sudo` (e.g. via `just switch` → `nixos-rebuild switch`) can fail with:
+`sudo` (e.g. via `just switch` → `nixos-rebuild switch`) can intermittently fail with:
 
 ```
 sudo: /run/current-system/sw/bin/sudo must be owned by uid 0 and have the setuid bit set
@@ -67,7 +69,7 @@ This is not a broken system — it's a `PATH` ordering issue. NixOS ships two `s
 - `/run/current-system/sw/bin/sudo` — a plain, non-setuid copy (not runnable as-is)
 - `/run/wrappers/bin/sudo` — the real one, setuid root, meant to actually be used
 
-If `/run/current-system/sw/bin` comes before `/run/wrappers/bin` in `PATH`, plain `sudo` resolves to the non-setuid copy and refuses to run (sudo checks that its own binary is setuid root before doing anything).
+If `/run/current-system/sw/bin` comes before `/run/wrappers/bin` in `PATH`, plain `sudo` resolves to the non-setuid copy and refuses to run (sudo checks that its own binary is setuid root before doing anything). This ordering isn't stable across shell sessions — plain `just switch` sometimes succeeds outright — so try it as-is first rather than pre-emptively reaching for the workaround below.
 
 Fix: call the wrapper directly instead of relying on `PATH`, e.g.:
 
