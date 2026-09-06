@@ -48,12 +48,10 @@ rustPlatform.buildRustPackage {
   inherit version;
 
   src = fetchFromGitHub {
-    # Fork with a fix for a 0x0 terminal size crash on WSL2, pending
-    # upstream review: https://github.com/cachix/devenv/pull/3158
-    owner = "tarc";
+    owner = "cachix";
     repo = "devenv";
-    rev = "a1ab92a9a06b9298a97c956ff5c356716a69f59f"; # fix/wsl-zero-terminal-size-temp
-    hash = "sha256-dpV3r9svGeBK3LfZzb417ThGRlvqbLGzK4BiCuuUHLo=";
+    rev = "8b203dc687f31b83835297524ae5e2166c234025";
+    hash = "sha256-RN1aL5r1VRXq+vQlvG5ESrMy4GQexA92TZJhrpFMixc=";
   };
 
   cargoHash = "sha256-HkmdXCyKTw8SH+bC4rqpS1mRz4kajjBlw23IkZxfFyU=";
