@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/dyhlmmf4i82xzxapavrjwysxbjp9cvh1-NerdFontsSymbolsOnly-3.4.0.tar.gz'
 deleting '/nix/store/wfk7hizfxni5fyaqg3x5pwnpy0qf5d13-cargo-nextest-0.9.143'
 deleting '/nix/store/z748aqzi90bajvybj7fbsxmrlxqbk89h-libidn2-2.3.8-bin'
 deleting '/nix/store/7nmh864alhk3322c786w2vskfp9n8knd-python312-compat.patch.drv'
 deleting '/nix/store/yizz72bdc775f2lcas34c7xwsmvgzjqx-python3.14-six-1.17.0'
+deleting '/nix/store/1i7mkjqls4qjc6fwz5dlwdl94wf5wrh6-activation-script'
 deleting '/nix/store/f4s31w8mfym4fs375v3dkiv5b130zkm0-source.drv'
 deleting '/nix/store/xw09m9cnc9ayb2j53y2rj8jhm1h7kkxa-diffutils-3.12'
 deleting unused links...
-note: hard linking is currently saving 26.3 GiB
-795 store paths deleted, 5.6 GiB freed
+note: hard linking is currently saving 26.6 GiB
+724 store paths deleted, 18.7 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/2knqkhwyvih021c6h94jjjai518yckm2-home-manager-files.drv'
-deleting '/nix/store/za5nh6l24rr253rhlbzgqrqapkgzzpwv-hm_.configzsh.zshrc.drv'
-deleting '/nix/store/kcpppp2bls0fnyz0idr5ih9i3wqyfwr6-devenv-2.2.2.drv'
-deleting '/nix/store/5zzr15q6n5c09vmmpxw03nfgkyx2xvh7-devenv-2.2.2-vendor.drv'
-deleting '/nix/store/l9fr558lm9jr3f6xs1ccwj5sxf1c39wr-devenv-2.2.2-vendor-staging.drv'
-deleting '/nix/store/ji0xlivfy00py0km77nkvlb17dmmwagv-home-manager-path.drv'
-deleting '/nix/store/vb2q71dhfg66fxim3iypikjvz5z9pzli-source.drv'
+deleting '/nix/store/jcihyspwrxcczmmna7vwn9xbsfvwbrqf-devenv-2.2.2.drv'
+deleting '/nix/store/2r0vpgj0glmr3wrp557cv081qj0yd2nm-devenv-2.2.2-vendor.drv'
+deleting '/nix/store/00a1am7g0jjf614dlwpzgj08chqgi3c5-home-manager-files'
+deleting '/nix/store/ph68bq8pk183a4fbm3y9w4h9x2yfz4k7-hm_.configzsh.zshrc'
+deleting '/nix/store/s5zmqkagpdk9nwfbv2yxryz76fzld6ql-devenv-2.2.2'
+deleting '/nix/store/yr09n64yaaps85xppbw4rg34cdbbn51g-devenv-2.2.2-vendor-staging.drv'
+deleting '/nix/store/fac6xvj3ryyr7njd9jn0975q06ldx5fx-source.drv'
 deleting unused links...
-note: hard linking is currently saving 26.2 GiB
-37 store paths deleted, 146.5 MiB freed
+note: hard linking is currently saving 26.6 GiB
+23 store paths deleted, 194.2 MiB freed
 ```
 <!-- END mdsh -->
 
