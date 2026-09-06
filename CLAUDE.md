@@ -29,6 +29,10 @@ There is no test suite; correctness is checked by `just switch` actually buildin
 - **`lib/`** — small shared helpers exposed as `systemFlakes` (`flake.lib.systemFlakes`), threaded into all modules via `ezConfigs.globalArgs`. `lib/constants.nix` holds cross-cutting constants; `maintainers/maintainer-list.nix` holds the nixpkgs-style maintainer entries referenced from package `meta.maintainers`.
 - **`devenv.nix`** — devenv-based dev shell for *this repo* (not the built system). Defines the Claude Code slash commands `/update-boost` and `/upgrade-system` (symlinked into `.claude/commands/` and `.opencode/commands/` at shell entry) and Claude Code's own permission rules for this repo — edit the command bodies here, not in `.claude/commands/`, which are generated symlinks.
 
+## Recomputing fetcher hashes
+
+@NIX-HASH-RECIPES.md documents the recipe for recomputing a fetcher's content hash (`hash`, `cargoHash`, ...) whenever its identity attribute (`rev`, `url`, `version`) changes — used by the `update-boost`, `update-devenv-version`, `update-devenv-nix`, `update-devenv`, and `rebase-devenv-branch` custom commands defined in `devenv.nix`.
+
 ## Updating `jfrog-boost`
 
 `packages/jfrog-boost/package.nix` fetches a prebuilt GitHub release tarball, so version bumps aren't automatic:

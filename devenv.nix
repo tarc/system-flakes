@@ -85,7 +85,7 @@
         1. Run the custom command `/update-devenv-version` to update @packages/devenv/package.nix
         2. Run the custom command `/update-devenv-nix` to update the nix source in @packages/devenv/package.nix
         3. Run `just switch` to switch to the updated configuration — always run this, even if steps 1-2 made no changes: whether a previous @packages/devenv/package.nix update was ever actually switched isn't reliably knowable, and `just switch` is cheap (Nix reuses already-built store paths) when nothing changed
-        4. If the switch fails on a cargoHash/Cargo.lock staleness issue — either the classic `hash mismatch in fixed-output derivation: specified: ... / got: ...`, or rustPlatform's own `ERROR: cargoHash or cargoSha256 is out of date` / `Cargo.lock is not the same in .../vendor` (this second form does NOT include a ready-to-use hash, even though it's the same underlying problem: `src` changed but `cargoHash` didn't, so Nix's fixed-output-derivation caching silently reused a stale vendored `Cargo.lock` instead of failing immediately) — update `cargoHash` in @packages/devenv/package.nix setting it to the empty string: `cargoHash = "";`, but only if the failure already reported a ready `got: sha256-...` value (the classic case), in which case skip the next step and use that value directly in the step after
+        4. If the switch fails on a cargoHash staleness issue (see the two failure shapes documented in @NIX-HASH-RECIPES.md — one of them reports no ready-to-use hash), update `cargoHash` in @packages/devenv/package.nix setting it to the empty string: `cargoHash = "";`, but only if the failure hasn't already reported a ready `got: sha256-...` value, in which case skip the next step and use that value directly in the step after
         5. Run `just switch` again to get the right cargo hash. It will be automatically computed and reported in the logs
         6. Use this hash to update `cargoHash` in @packages/devenv/package.nix
         7. Run `just switch` again to switch to the updated configuration
@@ -110,7 +110,7 @@
         In @packages/jfrog-boost/package.nix bump the version, and update the hash in the fetchurl call if necessary.
 
         1. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/jfrog/boost/releases/latest" | sed 's#.*/tag/##'` to get the latest version and decide if it needs to be updated
-        2. If the latest version is different from the current version, run `wget -O /tmp/boost-<os>-<arch'>.tar.gz https://github.com/jfrog/boost/releases/download/v<version>/boost-<os>-<arch'>.tar.gz`, substituting variables according to @packages/jfrog-boost/package.nix (`-O` overwrites any stale download left over from a previous run — plain `wget` appends `.1`/`.2` instead of overwriting), don't extract the compressed file
+        2. If the latest version is different from the current version, download it per the fetchurl recipe in @NIX-HASH-RECIPES.md: `wget -O /tmp/boost-<os>-<arch'>.tar.gz https://github.com/jfrog/boost/releases/download/v<version>/boost-<os>-<arch'>.tar.gz`, substituting variables according to @packages/jfrog-boost/package.nix, don't extract the compressed file
         3. Compute the hash with `nix hash file /tmp/boost-<os>-<arch'>.tar.gz`
         4. Update the version and hash in @packages/jfrog-boost/package.nix
         5. Remove the downloaded tarball: `rm -f /tmp/boost-<os>-<arch'>.tar.gz`
