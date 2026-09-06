@@ -54,7 +54,7 @@ rustPlatform.buildRustPackage {
     hash = "sha256-lYTGAqwfzHGX/iRW2n1fM3eLjGSpcsatWOuGaLpH470=";
   };
 
-  cargoHash = "sha256-HkmdXCyKTw8SH+bC4rqpS1mRz4kajjBlw23IkZxfFyU=";
+  cargoHash = "sha256-QQDGEOC2H/i7r3gXKDPl8tvnO6aHwY26KXjZl3uTag4=";
 
   env = {
     RUSTFLAGS = "--cfg tracing_unstable";
