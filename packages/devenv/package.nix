@@ -50,11 +50,11 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "cachix";
     repo = "devenv";
-    rev = "a6bbfa74fefb7916f4d8506e607a3ed8cb85428f";
-    hash = "sha256-/AfWjNWkUuT4qN+D4+Xklgu9/aZfi0di3lT3xBFXSsI=";
+    rev = "a7014c60a08855bdc9a4fddba220c28087afc21a";
+    hash = "sha256-ILhsVKEZdjjVbzbcM9lx4kX8Jz4JZ/LhZcPcKr/gFvE=";
   };
 
-  cargoHash = "sha256-E4oi3BnUssp8LhiK4w0yl7ndYjHZYS44LhgBwDIFPpo=";
+  cargoHash = "sha256-sN82rVNLXfzntBlz6seas3TSPHpj4lBpUROOIixc4Jo=";
 
   env = {
     RUSTFLAGS = "--cfg tracing_unstable";
