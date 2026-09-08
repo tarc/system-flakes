@@ -9,7 +9,7 @@
 }:
 let
   pname = "jfrog-boost";
-  version = "0.13.11";
+  version = "0.13.12";
   system = stdenv.hostPlatform.system;
   systemSplit = lib.strings.splitString "-" system;
   arch = builtins.head systemSplit;
@@ -27,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchurl {
     url = "https://github.com/jfrog/boost/releases/download/v${version}/boost-${os}-${arch'}.tar.gz";
-    hash = "sha256-YFDUWT2TqAkFVU7YqQPyRcnGprOsVreoa3qWJOoxu6o=";
+    hash = "sha256-NTnNWZ+NQAY/AUV+f2x7CRH8waHfahHUIEyH6pCZC70=";
   };
 
   sourceRoot = ".";
