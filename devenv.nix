@@ -36,6 +36,7 @@
         update-devenv-nix
         update-devenv
         rebase-devenv-branch
+        gc
         ;
     };
   };
@@ -124,8 +125,15 @@
         2. Run `just update` to update flake.lock. If there's no change to the flake.lock file and no committed changes in the previous step, finish
         3. Run `just switch` to switch
         4. If there was a successful switch and the first step (update-boost) committed a new version, run `boost init` to fix jfrog-boost installation
-        5. Run `touch README.md` and `nix fmt` to format README.md
+        5. Run the custom command `/gc` to format README.md and garbage-collect the devenv store
         6. Commit the changes
+      '';
+
+      gc = ''
+        Format README.md and garbage-collect the devenv store.
+
+        1. Run `touch README.md` and `nix fmt` to format README.md
+        2. Run `devenv gc --no-tui` to garbage-collect the devenv store
       '';
     };
     permissions = {
