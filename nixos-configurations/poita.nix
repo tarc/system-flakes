@@ -25,6 +25,7 @@ in
     embedme
     jfrog-boost
     gh
+    htop
     lshw
     mesa-demos
     nixd
