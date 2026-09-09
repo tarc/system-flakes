@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/nzlc6037q9bh3v6b209611f0kkr7i8l8-source'
 deleting '/nix/store/fq6xkzyq2wv4sv31ybnqx44n1808jva6-setuptools_rust-1.13.0.tar.gz.drv'
+deleting '/nix/store/wfk7hizfxni5fyaqg3x5pwnpy0qf5d13-cargo-nextest-0.9.143'
+deleting '/nix/store/z748aqzi90bajvybj7fbsxmrlxqbk89h-libidn2-2.3.8-bin'
 deleting '/nix/store/7nmh864alhk3322c786w2vskfp9n8knd-python312-compat.patch.drv'
 deleting '/nix/store/yizz72bdc775f2lcas34c7xwsmvgzjqx-python3.14-six-1.17.0'
-deleting '/nix/store/dz8r9dpdlmgcvbjyy6gyi8c0knvscbpn-source'
 deleting '/nix/store/f4s31w8mfym4fs375v3dkiv5b130zkm0-source.drv'
 deleting '/nix/store/xw09m9cnc9ayb2j53y2rj8jhm1h7kkxa-diffutils-3.12'
 deleting unused links...
-note: hard linking is currently saving 26.0 GiB
-364 store paths deleted, 2.3 GiB freed
+note: hard linking is currently saving 27.2 GiB
+411 store paths deleted, 4.5 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 523
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/dphcwb85qb0ksqvq33jy8nhwhcxxilgi" to "/nix/var/nix/profiles/system-523-link"
-deleting garbage...
+deleting '/nix/store/k16iprrgd0gwk2dlyqzfs7w85imqipyj-etc.drv'
+deleting '/nix/store/2qsii89149zlcwch58di89399hb9nqls-system-units.drv'
+deleting '/nix/store/0wg4gav80gr45ylqzgbygv9fkv33pqai-unit-home-manager-tarci.service.drv'
+deleting '/nix/store/6y50xl69vbdhhb68kfw6h4sh45zgy9ss-home-manager-generation.drv'
+deleting '/nix/store/s4d9kfmh0pwaikcsy8csv7qhjmcp7w2n-activation-script.drv'
+deleting '/nix/store/9w5ypj3vxiyajk7fyf1pl2z17k7ixigg-home-manager-path.drv'
+deleting '/nix/store/021rpm2ma4lrvh1rp2cvqnxhyqba20ly-home-manager-path'
 deleting unused links...
-note: hard linking is currently saving 26.2 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 27.2 GiB
+14 store paths deleted, 125.9 KiB freed
 ```
 <!-- END mdsh -->
 
