@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/63gkcqs26wpv2zjd4s2i78azwzvd9hs6-python3.14-tomli-w-1.2.0'
-deleting '/nix/store/7i9fbf2jajdc9l057vlw0yprdgzdp6z9-env-manifest.nix'
+deleting '/nix/store/pslbw1lyciw4jip0l1hj341z8ky8p1ah-devenv-profile.drv'
+deleting '/nix/store/q36sii6wf968ks324qf4ggbwm1da1r7a-karchive-6.29.0.tar.xz.drv'
 deleting '/nix/store/fq6xkzyq2wv4sv31ybnqx44n1808jva6-setuptools_rust-1.13.0.tar.gz.drv'
 deleting '/nix/store/7nmh864alhk3322c786w2vskfp9n8knd-python312-compat.patch.drv'
 deleting '/nix/store/yizz72bdc775f2lcas34c7xwsmvgzjqx-python3.14-six-1.17.0'
 deleting '/nix/store/f4s31w8mfym4fs375v3dkiv5b130zkm0-source.drv'
 deleting '/nix/store/xw09m9cnc9ayb2j53y2rj8jhm1h7kkxa-diffutils-3.12'
 deleting unused links...
-note: hard linking is currently saving 26.6 GiB
-419 store paths deleted, 2.6 GiB freed
+note: hard linking is currently saving 26.4 GiB
+607 store paths deleted, 1.9 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/i7lws36vq73n0qzlsdpylamhf2jy35xw-X-Restart-Triggers-dbus-broker'
-deleting '/nix/store/7jyj576bz0gzq1i0q3b6sjfcd9vnxh01-dbus-1'
-deleting '/nix/store/50wmmjz4xic5c135aiczn4nq7bpvv6n2-system-path'
-deleting '/nix/store/fvxn8cqz3b5qk8grmdamn3wv7c8hk4gb-unit-dbus-broker.service.drv'
-deleting '/nix/store/vvmby14n1ydkhsdqk6qwbwkc0w2frd93-X-Restart-Triggers-dbus-broker.drv'
-deleting '/nix/store/yzfak12kzgwd5sg17n7flxr0gk8j477l-dbus-1.drv'
-deleting '/nix/store/50m3xwsnqz05kg3i5bnvsk5kaa0pmhc5-system-path.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 527
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/cpj52cimbb98c0ab2n8bj9akk75nnrhc" to "/nix/var/nix/profiles/system-527-link"
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 26.6 GiB
-19 store paths deleted, 149.4 KiB freed
+note: hard linking is currently saving 26.4 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
