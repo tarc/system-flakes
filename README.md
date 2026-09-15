@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/2gnb756mawrfc4dbn3yv81l4xzj041p3-python3.14-isort-8.0.1'
 deleting '/nix/store/12qfwcqn2nwa9lbjx6ycx8acbyx57hbf-source.drv'
 deleting '/nix/store/5ska9gv7cnn8c6n165ldbs9sh70yhg68-source'
 deleting '/nix/store/fkqc9qh7vsv4pdbskx395hrdrxvpybmj-source.drv'
 deleting '/nix/store/hl8ixlmpd3qzdqd0xy0j6rl665fgb2wy-nlohmann_json-3.12.0'
 deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
 deleting '/nix/store/a3kjvvlm7f8abcmxh6f8dndiwc4vp726-clang-21.1.8-lib'
-deleting '/nix/store/i1m6jlggavx0dhffhb1z89ayp261v290-ch4rhd5jmv9v7qflzydj0y2fdlsznr68-source'
 deleting unused links...
-note: hard linking is currently saving 26.9 GiB
-440 store paths deleted, 4.6 GiB freed
+note: hard linking is currently saving 26.6 GiB
+501 store paths deleted, 5.5 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,15 +71,15 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/gzizr7pyyd0glf9fxfx9499ywpj7w0vj-unit-home-manager-tarci.service.drv'
-deleting '/nix/store/haw1ahgh7wmybdjlsbq2f5llm8ckl86x-home-manager-generation.drv'
-deleting '/nix/store/5imjf0fk0iz5xrhix9jsj3p9x51ljpnv-unit-home-manager-tarci.service'
-deleting '/nix/store/mlgsmq4iicnij26mc5k1xw4cwid39jzn-home-manager-generation'
-deleting '/nix/store/8nh31gy1rz55zzbq5jpi1k95sffjb3x1-activation-script.drv'
-deleting '/nix/store/ahjil8g72ag1128i61gqfs8j373k1x3k-home-manager-path'
-deleting '/nix/store/8hcgagskwsafrbvj7icibrp7lyzvm4g5-home-manager-path.drv'
+deleting '/nix/store/850b4zyayws7mkdyx5zqixzpag2c44g3-unit-home-manager-tarci.service.drv'
+deleting '/nix/store/3znpblzlgnlhy9g5jdbrafr34cpcfb28-unit-home-manager-tarci.service'
+deleting '/nix/store/px8ssq044g81jgal46p04a8fh2r0jqpm-home-manager-generation'
+deleting '/nix/store/wl7pmzg97ys7h0g2d2ljkk2sys8pji8b-home-manager-path'
+deleting '/nix/store/vh9nbjysif1l84b0p98ds0v1jd7r12cx-home-manager-generation.drv'
+deleting '/nix/store/d3rxsi829hg1vhc0hw2cwbgz887fn0ss-activation-script.drv'
+deleting '/nix/store/k83dswfmz40nmcssh3vqqsk95skvm1i2-home-manager-path.drv'
 deleting unused links...
-note: hard linking is currently saving 26.9 GiB
+note: hard linking is currently saving 26.6 GiB
 14 store paths deleted, 2.9 MiB freed
 ```
 <!-- END mdsh -->
