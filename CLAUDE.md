@@ -47,9 +47,11 @@ This is exactly what the `/update-boost` slash command automates, and `/upgrade-
 
 ## Keeping `libghostty-vt` in sync with devenv
 
-`packages/devenv/package.nix` builds `devenv` (currently from a fork, see the `src` comment) with Cargo's `pkg-config` feature for its native VT library, `libghostty-vt`, rather than building it from source. That means the actual native library linked in is whatever `pkgs.libghostty-vt` resolves to — and nixpkgs' own `libghostty-vt` package lags devenv's `Cargo.lock` badly (the library is pre-1.0 with no ABI stability, and devenv bumps it often).
+`packages/devenv/package.nix` builds `devenv` with Cargo's `pkg-config` feature for its native VT library, `libghostty-vt`, rather than building it from source. That means the actual native library linked in is whatever `pkgs.libghostty-vt` resolves to — and nixpkgs' own `libghostty-vt` package lags devenv's `Cargo.lock` badly (the library is pre-1.0 with no ABI stability, and devenv bumps it often).
 
-A mismatched revision **builds successfully** but crashes devenv's interactive shell at runtime instead of failing to compile (observed: `Shell session error / terminal error: invalid value`, with the terminal size itself perfectly valid) — there's no automatic signal that the versions have drifted, so this is easy to reintroduce.
+A mismatched revision **builds successfully** but crashes devenv's interactive shell at runtime instead of failing to compile (observed: `Shell session error / terminal error during VT creation (WxH): invalid value`, with the terminal size itself perfectly valid) — there's no automatic signal that the versions have drifted, so this is easy to reintroduce.
+
+**Verifying a fix/removal of this override requires an actual interactive shell session** (e.g. `cd` into a directory that auto-activates `devenv` via direnv, in a real terminal) — a non-interactive smoke test like `devenv shell -- echo ok` does **not** reproduce the crash, because it never allocates a real interactive VT the way an attached terminal does. This was tried once (removing the override on the theory nixpkgs had caught up, "verified" with `devenv shell -- echo ...`) and shipped a broken interactive shell to production before being caught and reverted — a clean `just switch` plus a non-interactive smoke test are both necessary but not sufficient here.
 
 `overlays/default.nix` works around this by overriding `libghostty-vt` to build from the `ghostty` flake input instead of nixpkgs, pinned to the exact commit devenv's `Cargo.lock` requires. When bumping `packages/devenv/package.nix` to a newer devenv revision:
 
