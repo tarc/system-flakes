@@ -170,6 +170,16 @@
     secrets.url = "git+ssh://git@github.com/tarc/nix-secrets.git";
     secrets.flake = false;
 
+    # Keep this in sync with the Ghostty revision pinned by libghostty-rs in
+    # the devenv fork built by packages/devenv/package.nix (see its
+    # GHOSTTY_COMMIT in crates/libghostty-vt-sys/build.rs, and devenv's own
+    # flake.nix which pins the same rev for the same reason). libghostty-vt
+    # is pre-1.0 and its C ABI changes without compatibility guarantees, so a
+    # mismatched revision here builds but crashes at runtime with e.g.
+    # "terminal error: invalid value" instead of failing to compile.
+    ghostty.url = "github:ghostty-org/ghostty/22d13172cde98a0a4dda05d3d6a3fcb0dd8ed018";
+    ghostty.flake = false;
+
     # Select defaults
     nixpkgs.follows = "nixpkgs-unstable";
     nixpkgs-lib.follows = "nixpkgs-unstable-lib";
