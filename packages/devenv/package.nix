@@ -27,14 +27,14 @@
 let
   version = "2.4.0";
   devenvNixVersion = "2.35";
-  devenvNixRev = "b9b81726b38469c55b9706d80d37d6c73cc7f76c";
+  devenvNixRev = "bd10d7f563420c6034b9d1dc75c4168fc01e5afc";
 
   devenvNixSrc = fetchFromGitHub {
     name = "devenv-nix-${devenvNixVersion}-source";
     owner = "cachix";
     repo = "nix";
     rev = devenvNixRev;
-    hash = "sha256-3NT3yTvoRT7+rxLDNovpyeTDIJkZlBoO72rcu2x9Y9o=";
+    hash = "sha256-acP7QvsB+dHghUeL9AwSSZ3qS//skpqjv484aveg1EQ=";
   };
 
   nix_components = (nixVersions.nixComponents_git.overrideSource devenvNixSrc).overrideScope (
