@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/2gnb756mawrfc4dbn3yv81l4xzj041p3-python3.14-isort-8.0.1'
-deleting '/nix/store/12qfwcqn2nwa9lbjx6ycx8acbyx57hbf-source.drv'
-deleting '/nix/store/5ska9gv7cnn8c6n165ldbs9sh70yhg68-source'
-deleting '/nix/store/fkqc9qh7vsv4pdbskx395hrdrxvpybmj-source.drv'
+deleting '/nix/store/lfxa0362ysihh9mdryqanpjmqcaxz0jx-devenv-shell.drv'
+deleting '/nix/store/g5wh9rbl5r8aj13yz4h8ny257abgrfah-zb22m3ggl8qswqkwa76vg6m9kzdbsnb3-source'
+deleting '/nix/store/1v4s2ishhyvdqnghi71fs3pp2ri5w1pq-source'
+deleting '/nix/store/i7bg5bjqwmj4n503rjrb9fq2v88hkfk7-graphene-1.10.8-dev'
 deleting '/nix/store/hl8ixlmpd3qzdqd0xy0j6rl665fgb2wy-nlohmann_json-3.12.0'
 deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
 deleting '/nix/store/a3kjvvlm7f8abcmxh6f8dndiwc4vp726-clang-21.1.8-lib'
 deleting unused links...
-note: hard linking is currently saving 26.6 GiB
-501 store paths deleted, 5.5 GiB freed
+note: hard linking is currently saving 26.2 GiB
+595 store paths deleted, 6.2 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/850b4zyayws7mkdyx5zqixzpag2c44g3-unit-home-manager-tarci.service.drv'
-deleting '/nix/store/3znpblzlgnlhy9g5jdbrafr34cpcfb28-unit-home-manager-tarci.service'
-deleting '/nix/store/px8ssq044g81jgal46p04a8fh2r0jqpm-home-manager-generation'
-deleting '/nix/store/wl7pmzg97ys7h0g2d2ljkk2sys8pji8b-home-manager-path'
-deleting '/nix/store/vh9nbjysif1l84b0p98ds0v1jd7r12cx-home-manager-generation.drv'
-deleting '/nix/store/d3rxsi829hg1vhc0hw2cwbgz887fn0ss-activation-script.drv'
-deleting '/nix/store/k83dswfmz40nmcssh3vqqsk95skvm1i2-home-manager-path.drv'
+deleting '/nix/store/0bs2ssahxbz2rrpvdd7zm47csikibazs-nix-cmd-2.35'
+deleting '/nix/store/x6g37rz7iqix7pg2mpwm8lg014mwnilp-nix-main-2.35'
+deleting '/nix/store/k4bzrsspazmf8581a8lb2a5afr1k23a6-nix-flake-2.35'
+deleting '/nix/store/pwm3nkvxl9f378whkcwhhi32ksklrsf4-nix-expr-2.35'
+deleting '/nix/store/ycvcrap4fh3s86n1fsyy4ansh6g677ks-nix-fetchers-2.35'
+deleting '/nix/store/nbzwzcy4qqysxp0yyb2zrqx9crv8nm4p-nix-store-2.35'
+deleting '/nix/store/92l7ray8hv5xs9zkhmkirgb04817i3r1-nix-util-2.35'
 deleting unused links...
-note: hard linking is currently saving 26.6 GiB
-14 store paths deleted, 2.9 MiB freed
+note: hard linking is currently saving 26.2 GiB
+50 store paths deleted, 229.6 MiB freed
 ```
 <!-- END mdsh -->
 
