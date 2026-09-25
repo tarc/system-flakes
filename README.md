@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/lfxa0362ysihh9mdryqanpjmqcaxz0jx-devenv-shell.drv'
-deleting '/nix/store/g5wh9rbl5r8aj13yz4h8ny257abgrfah-zb22m3ggl8qswqkwa76vg6m9kzdbsnb3-source'
-deleting '/nix/store/1v4s2ishhyvdqnghi71fs3pp2ri5w1pq-source'
-deleting '/nix/store/i7bg5bjqwmj4n503rjrb9fq2v88hkfk7-graphene-1.10.8-dev'
+deleting '/nix/store/y1z6s93i409agx3jdkpdch9pcm3gb7l6-itsdangerous-2.2.0.tar.gz.drv'
+deleting '/nix/store/byacvf46bsd3g0w6133afbrd0di05prd-python3.14-pyjwt-2.13.0'
 deleting '/nix/store/hl8ixlmpd3qzdqd0xy0j6rl665fgb2wy-nlohmann_json-3.12.0'
 deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
 deleting '/nix/store/a3kjvvlm7f8abcmxh6f8dndiwc4vp726-clang-21.1.8-lib'
+deleting '/nix/store/hh16ialdcxb56inqc9ailcjwd8la6lqv-source.drv'
+deleting '/nix/store/5kxpjrvs3j6wnhp1037ig44gsjx8nczc-Test2-Harness-1.000161.tar.gz.drv'
 deleting unused links...
-note: hard linking is currently saving 26.2 GiB
-595 store paths deleted, 6.2 GiB freed
+note: hard linking is currently saving 26.6 GiB
+1130 store paths deleted, 4.2 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/0bs2ssahxbz2rrpvdd7zm47csikibazs-nix-cmd-2.35'
-deleting '/nix/store/x6g37rz7iqix7pg2mpwm8lg014mwnilp-nix-main-2.35'
-deleting '/nix/store/k4bzrsspazmf8581a8lb2a5afr1k23a6-nix-flake-2.35'
-deleting '/nix/store/pwm3nkvxl9f378whkcwhhi32ksklrsf4-nix-expr-2.35'
-deleting '/nix/store/ycvcrap4fh3s86n1fsyy4ansh6g677ks-nix-fetchers-2.35'
-deleting '/nix/store/nbzwzcy4qqysxp0yyb2zrqx9crv8nm4p-nix-store-2.35'
-deleting '/nix/store/92l7ray8hv5xs9zkhmkirgb04817i3r1-nix-util-2.35'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 543
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/gm920q4h907wsfn4x0pvalg9zgqq4d78" to "/nix/var/nix/profiles/system-543-link"
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 26.2 GiB
-50 store paths deleted, 229.6 MiB freed
+note: hard linking is currently saving 26.6 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
