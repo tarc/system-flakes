@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/scagbfldzmb8s5yy05snkfhrffs6v13j-python3.14-platformdirs-4.10.0'
-deleting '/nix/store/2gnb756mawrfc4dbn3yv81l4xzj041p3-python3.14-isort-8.0.1'
-deleting '/nix/store/r8a159fqvj0mpczq0dq8d3dwdd2rsz8c-ninja-1.13.2'
-deleting '/nix/store/5yvi9mqsam1mn0b6b5rvnfdnxq7745x3-activate'
-deleting '/nix/store/hl8ixlmpd3qzdqd0xy0j6rl665fgb2wy-nlohmann_json-3.12.0'
-deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
-deleting '/nix/store/a3kjvvlm7f8abcmxh6f8dndiwc4vp726-clang-21.1.8-lib'
+deleting '/nix/store/y64m3miy9jd5h6hfwkdigbgp8ipb4cmr-python-namespaces-hook.sh'
+deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
+deleting '/nix/store/gpi7aysyvsbw6bbpmbkf3ya5liwczbcd-source.drv'
+deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
+deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
+deleting '/nix/store/rb8rna9gkhs0ybl6z2p904myslh8llg8-gettext-1.0'
+deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
 deleting unused links...
 note: hard linking is currently saving 26.6 GiB
-510 store paths deleted, 5.6 GiB freed
+2401 store paths deleted, 5.5 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,14 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/f78g5ksnbir16g5fyq55jqlj2pk19b25-unit-home-manager-tarci.service.drv'
-deleting '/nix/store/b9pyjk3903a4jqs3w2hmhqfnhw3k18kw-unit-home-manager-tarci.service'
-deleting '/nix/store/l1wdm99bm90ilxb96fgzq1id3l1q4f30-home-manager-generation'
-deleting '/nix/store/6p9azwa305vrqw1z18w6rffwaixnnphm-home-manager-generation.drv'
-deleting '/nix/store/zzcyxvvmmgh28cx8y81d9jxi05p0hhdd-activation-script.drv'
-deleting '/nix/store/4i4fyin2p4qj46n09qip443497mq600z-home-manager-path'
-deleting '/nix/store/2z9l5ml3nz8kxcscadvmivviwvwhwdr6-home-manager-path.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 26.6 GiB
-14 store paths deleted, 2.9 MiB freed
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
