@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/y64m3miy9jd5h6hfwkdigbgp8ipb4cmr-python-namespaces-hook.sh'
-deleting '/nix/store/3q9srqcs3ykgq39ikm3m6xpr3xrclygq-perl5.42.0-TermReadKey-2.38'
-deleting '/nix/store/gpi7aysyvsbw6bbpmbkf3ya5liwczbcd-source.drv'
-deleting '/nix/store/b741wk9snndfhbyr2r09whhjcvgjv6lh-dependent-map-0.4.0.1.tar.gz.drv'
-deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
-deleting '/nix/store/rb8rna9gkhs0ybl6z2p904myslh8llg8-gettext-1.0'
-deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
+deleting '/nix/store/47ijhpkc7w010c2k8c6jrxqi9x34wv8p-psqueues-0.2.8.3.tar.gz.drv'
+deleting '/nix/store/i4vml3y0wjw683nw0k75692bb5nrg2kb-either-5.0.3-r2.cabal.drv'
+deleting '/nix/store/q9rpisqji2z2hl782p21apw9xy4q42c4-source.drv'
+deleting '/nix/store/mi9pbb5q5jxsgdw3wrsvqy0qqn2kn8pm-tomlkit-0.12.5.tar.gz.drv'
+deleting '/nix/store/11xf968870djpz7ifgg4gz84cjzfmbc5-mod-0.2.1.0.tar.gz.drv'
+deleting '/nix/store/fyqq12byyka3s8qljp1ymhx6qkh9cmm6-libyaml-0.2.5'
+deleting '/nix/store/yj3vcp44gznbibzxrf434pqm4m4cjzbc-source.drv'
 deleting unused links...
-note: hard linking is currently saving 26.6 GiB
-2401 store paths deleted, 5.5 GiB freed
+note: hard linking is currently saving 15.1 GiB
+19155 store paths deleted, 29.8 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -77,7 +77,7 @@ removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 26.6 GiB
+note: hard linking is currently saving 15.1 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
