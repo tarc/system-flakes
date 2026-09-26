@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/47ijhpkc7w010c2k8c6jrxqi9x34wv8p-psqueues-0.2.8.3.tar.gz.drv'
-deleting '/nix/store/i4vml3y0wjw683nw0k75692bb5nrg2kb-either-5.0.3-r2.cabal.drv'
-deleting '/nix/store/q9rpisqji2z2hl782p21apw9xy4q42c4-source.drv'
-deleting '/nix/store/mi9pbb5q5jxsgdw3wrsvqy0qqn2kn8pm-tomlkit-0.12.5.tar.gz.drv'
-deleting '/nix/store/11xf968870djpz7ifgg4gz84cjzfmbc5-mod-0.2.1.0.tar.gz.drv'
-deleting '/nix/store/fyqq12byyka3s8qljp1ymhx6qkh9cmm6-libyaml-0.2.5'
-deleting '/nix/store/yj3vcp44gznbibzxrf434pqm4m4cjzbc-source.drv'
+deleting '/nix/store/2dh6ak9nfmcn2p858qi2y6c38bys6lcj-crate-thiserror-impl-1.0.58.tar.gz.drv'
+deleting '/nix/store/2a56x36sbq2b3bdgr533f9klwh640jg1-indexed-traversable-instances-0.1.2-r1.cabal.drv'
+deleting '/nix/store/sc6gyy9282n2crb9vrp1jjkbxsddwlma-olefile-0.47.zip.drv'
+deleting '/nix/store/ld4yyw3xia2g93davykr80llzpmlvfl9-source.drv'
+deleting '/nix/store/lqm8m8zkbb2l8k3jfi6pz2dxc3c8znmx-directory-ospath-streaming-0.2.2.tar.gz.drv'
+deleting '/nix/store/mq6x737p72wcnjb2s9f405b3qb0wrfpi-tailwindcss_4-4.1.11'
+deleting '/nix/store/3pjpc6ds35ysr69x08qr80y4j31f2dcm-vira-js-assets'
 deleting unused links...
-note: hard linking is currently saving 15.1 GiB
-19155 store paths deleted, 29.8 GiB freed
+note: hard linking is currently saving 7.7 GiB
+25377 store paths deleted, 42.0 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -77,7 +77,7 @@ removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
 deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 15.1 GiB
+note: hard linking is currently saving 7.7 GiB
 0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
