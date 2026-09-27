@@ -46,6 +46,11 @@ in
     startMenuLaunchers = true;
     wslConf.automount.root = "/mnt";
     useWindowsDriver = true;
+    # Register the binfmt_misc handler for Windows executables at boot.
+    # systemd mounts binfmt_misc after WSL registers its own, which can drop
+    # it: .exe files then fail with "cannot execute binary file: Exec format
+    # error" until it is registered again.
+    interop.register = true;
   };
 
   virtualisation.docker.enable = true;
