@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/2dh6ak9nfmcn2p858qi2y6c38bys6lcj-crate-thiserror-impl-1.0.58.tar.gz.drv'
-deleting '/nix/store/2a56x36sbq2b3bdgr533f9klwh640jg1-indexed-traversable-instances-0.1.2-r1.cabal.drv'
-deleting '/nix/store/sc6gyy9282n2crb9vrp1jjkbxsddwlma-olefile-0.47.zip.drv'
-deleting '/nix/store/ld4yyw3xia2g93davykr80llzpmlvfl9-source.drv'
-deleting '/nix/store/lqm8m8zkbb2l8k3jfi6pz2dxc3c8znmx-directory-ospath-streaming-0.2.2.tar.gz.drv'
-deleting '/nix/store/mq6x737p72wcnjb2s9f405b3qb0wrfpi-tailwindcss_4-4.1.11'
-deleting '/nix/store/3pjpc6ds35ysr69x08qr80y4j31f2dcm-vira-js-assets'
+deleting '/nix/store/d1bawvl02sv7qwr8ps0qvc0gd2x95vwk-tzcode2026c.tar.gz.drv'
+deleting '/nix/store/w1mgc6yccwwipvfy53ij2vx51xzlysm3-claude-skills-windows-desktop-check-SKILL.md.drv'
+deleting '/nix/store/5qckivrmdnwq61n793rvm45mg646v4g0-openmpi-5.0.10.tar.bz2.drv'
+deleting '/nix/store/hl8ixlmpd3qzdqd0xy0j6rl665fgb2wy-nlohmann_json-3.12.0'
+deleting '/nix/store/b30d9zi2pyvj509n98mzrc7kz8p8km3r-X11-1.10.3.tar.gz.drv'
+deleting '/nix/store/pcs82nkrad2j89jz69zd3ljx38mxxll5-options.json.drv'
+deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
 deleting unused links...
-note: hard linking is currently saving 7.7 GiB
-25377 store paths deleted, 42.0 GiB freed
+note: hard linking is currently saving 7.8 GiB
+1490 store paths deleted, 4.1 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,14 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-deleting garbage...
+deleting '/nix/store/3p34hjr5wx59vr4zyv5ll31clhnkvdmf-nixos-system-poita-26.11.20260926.d54020a'
+deleting '/nix/store/c6j8ka2ijnvhhw0mpqspxp6v4n90alyz-etc'
+deleting '/nix/store/7j855xli6fad82s9awlp55w52zw1x4gl-system-units'
+deleting '/nix/store/0nz7z6win6pj5pxbki15ifzgnqjsp8qv-nixos-system-poita-26.11.20260926.d54020a.drv'
+deleting '/nix/store/m2q89j34fbyf4dp7y33ad6mf38bb5p62-activate.drv'
+deleting '/nix/store/92sw3qkirrb8szihanikqkixlk5hkjzx-etc.drv'
+deleting '/nix/store/45hlmfadf4b2zgkwccwj4qkrbz840dmz-system-units.drv'
 deleting unused links...
-note: hard linking is currently saving 7.7 GiB
-0 store paths deleted, 0.0 KiB freed
+note: hard linking is currently saving 7.8 GiB
+29 store paths deleted, 211.7 MiB freed
 ```
 <!-- END mdsh -->
 
