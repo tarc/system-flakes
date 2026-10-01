@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/3q1h44sd1476vb7y50i567xa9axy5xn9-indexmap-2.2.6.tar.gz.drv'
-deleting '/nix/store/zwcyf4ifh27fv0hppbskd66dyy3lmn8g-LVM2.2.03.38.tgz.drv'
-deleting '/nix/store/ja79fv1miswwvzk1gvnkhq298lx92qgq-source.drv'
-deleting '/nix/store/r83d7wxqa7h3jjiflsn83h3f621jm3ga-ShellCheck-0.11.0'
-deleting '/nix/store/hl8ixlmpd3qzdqd0xy0j6rl665fgb2wy-nlohmann_json-3.12.0'
+deleting '/nix/store/v2pp60nnwgyzb5fv3an25049syjdrs98-libffado-2.4.9.tgz.drv'
+deleting '/nix/store/c4h4987bnz6g833kpbi266kj8wlyg4c7-devenv-files.drv'
+deleting '/nix/store/icbkh1dqckhbsgif23qpc57viqr4cddc-gupnp-igd-1.6.0.tar.xz.drv'
 deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
+deleting '/nix/store/ni3frm799m0km5fmh6g9rd6iwzxh0jkx-gupnp-1.6.9.tar.xz.drv'
 deleting '/nix/store/4g32afb2x1sbmvbj12br9cklq8myk5k2-matplotlib-3.11.1.tar.gz.drv'
+deleting '/nix/store/l8wd4951vs18hwpig3cfs5rhv8xbacn4-jaraco_text-4.0.0.tar.gz.drv'
 deleting unused links...
-note: hard linking is currently saving 9.5 GiB
-1250 store paths deleted, 9.6 GiB freed
+note: hard linking is currently saving 9.7 GiB
+2333 store paths deleted, 4.6 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/p6ghfiazb0nrxl39p7nbw2f3m5bqzvc1-home-manager-files.drv'
-deleting '/nix/store/lwqnjw814lmf3lkxbckbbw3j1ikpzqz5-hm_.configzsh.zshrc.drv'
-deleting '/nix/store/n5073rjx1shkndfnnq31jxx412g8v34x-devenv-2.4.0.drv'
-deleting '/nix/store/3gn8s2azc4jr5883krrfnpg3q53mvj41-devenv-2.4.0'
-deleting '/nix/store/pg2f3hjqqaqzgsnb64yg9jlcamzds190-devenv-2.4.0-vendor.drv'
-deleting '/nix/store/xjrzxg4in21m1ybyhsvzrvdly4r58vai-devenv-2.4.0-vendor-staging.drv'
-deleting '/nix/store/0cnf7w4p7cgszzaykl7mwzh09hya5fsg-source.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 551
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/gfn4a4yymsxfv5x2h8zlvmlb3s0csikm" to "/nix/var/nix/profiles/system-551-link"
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 9.5 GiB
-25 store paths deleted, 211.7 MiB freed
+note: hard linking is currently saving 9.7 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
