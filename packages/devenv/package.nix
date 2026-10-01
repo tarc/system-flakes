@@ -56,6 +56,14 @@ rustPlatform.buildRustPackage {
 
   cargoHash = "sha256-47SWOQBLEy+MGUrS+l5QSQluxM4skqUUJLAX4MC66ds=";
 
+  # Link libghostty-vt dynamically: statically linking its Zig-built archive
+  # fails with GCC 16 (`ld.bfd: .eh_frame_hdr refers to overlapping FDEs`).
+  # Mirrors nixpkgs' devenv package.
+  postPatch = ''
+    substituteInPlace Cargo.toml \
+      --replace-fail '"pkg-config",' '"pkg-config", "link-dynamic",'
+  '';
+
   env = {
     RUSTFLAGS = "--cfg tracing_unstable";
     LIBSQLITE3_SYS_USE_PKG_CONFIG = "1";
