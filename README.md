@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/46dkzpqqaj57b4f5qsdz9xn2svfcg5cp-libzip-1.11.4.tar.gz.drv'
-deleting '/nix/store/qwjkq90ffv4m5cza9cp0hfyk9gv4hmjm-source.drv'
-deleting '/nix/store/8hhwp3pz4z2y8la5a626ck1v99c9pzvv-reallocarray-test-musl.patch.drv'
-deleting '/nix/store/34nilhga0rfdsg90jwvh3y3bsisklqg8-python3.14-pycodestyle-2.14.0'
-deleting '/nix/store/8zpnh6jk32v7pm6n01s7pr3x7mz3pdrj-ascent.dat.drv'
-deleting '/nix/store/ja79fv1miswwvzk1gvnkhq298lx92qgq-source.drv'
+deleting '/nix/store/8b75xh1xw805rsm9p47z3rr7rsk6sbpv-crate-fluent-uri-0.1.4.tar.gz.drv'
+deleting '/nix/store/vaa2rz4gi7piqcfr006b9dkw4bmf5wg2-crate-gloo-timers-0.3.0.tar.gz.drv'
+deleting '/nix/store/qrl05v643vs09yxchyghyqpnq734r3jc-crate-home-0.5.12.tar.gz.drv'
+deleting '/nix/store/ni3frm799m0km5fmh6g9rd6iwzxh0jkx-gupnp-1.6.9.tar.xz.drv'
 deleting '/nix/store/4g32afb2x1sbmvbj12br9cklq8myk5k2-matplotlib-3.11.1.tar.gz.drv'
+deleting '/nix/store/psfvr5r1inl2kmmm4iw7wyx5y1wfn2a9-crate-group-0.14.0.tar.gz.drv'
+deleting '/nix/store/l8wd4951vs18hwpig3cfs5rhv8xbacn4-jaraco_text-4.0.0.tar.gz.drv'
 deleting unused links...
 note: hard linking is currently saving 8.3 GiB
-801 store paths deleted, 1.7 GiB freed
+5952 store paths deleted, 7.6 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,9 +72,11 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 552
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/f8mmdv7dy91j3lb8fc3amjk11nnhz6sf" to "/nix/var/nix/profiles/system-552-link"
 deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 8.3 GiB
