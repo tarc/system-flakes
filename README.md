@@ -61,7 +61,7 @@ deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
 deleting '/nix/store/4g32afb2x1sbmvbj12br9cklq8myk5k2-matplotlib-3.11.1.tar.gz.drv'
 deleting unused links...
 note: hard linking is currently saving 10.6 GiB
-275 store paths deleted, 358.5 MiB freed
+290 store paths deleted, 171.2 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/843wgxxp1kpci43f2y5p2hh6pw72x0j1-system-units'
-deleting '/nix/store/0cyqnys4bl77jk5bd4wv0bdapk4pjkak-unit-home-manager-tarci.service'
-deleting '/nix/store/a8pm6rgnsyn0mpw41gpg0hsk4njir00a-home-manager-generation'
-deleting '/nix/store/8hdr90qiivmbb6v8444fkmy6ahwlzhwv-hm-putter.json.drv'
-deleting '/nix/store/1fckghfyd92azxa212d57zm3h72lh5m7-hm-putter.json'
-deleting '/nix/store/30mgykvvqyn9bnfmj7alvflh0114zwns-home-manager-files'
-deleting '/nix/store/10wzsl76xd505sndvycvhjl8kw1rjrwb-home-manager-files.drv'
+deleting '/nix/store/2dcdmmvbxs7vm38nvhi5416xin5hhigp-activation-script.drv'
+deleting '/nix/store/qgn6plsl35i96nvs8v1phaw4z1vijbk8-home-manager-path.drv'
+deleting '/nix/store/5caclmfishxf362a6m7jviy3zap7qygr-home-configuration-reference-manpage.drv'
+deleting '/nix/store/a3pfvdz2ldh9f0v6dqa5zd17x9czdwaw-options.json.drv'
+deleting '/nix/store/00ibrb5mi3n0m264li6nvb8a667nv6vn-home-manager-generation'
+deleting '/nix/store/fc8gc8x4nfm6x91k868fcsxg7af7gb1y-home-manager-path'
+deleting '/nix/store/g0084bc25sqxi9w303cvf3vmz7srgp44-home-configuration-reference-manpage'
 deleting unused links...
 note: hard linking is currently saving 10.6 GiB
-15 store paths deleted, 161.2 KiB freed
+17 store paths deleted, 9.3 MiB freed
 ```
 <!-- END mdsh -->
 
