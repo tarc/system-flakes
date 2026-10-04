@@ -80,6 +80,7 @@ in
   };
 
   home-manager.useGlobalPkgs = true;
+  home-manager.backupFileExtension = "hm-bak";
 
   programs.zsh.enable = true;
 

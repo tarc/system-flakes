@@ -5,6 +5,7 @@
 {
   imports = [
     ezModules.bat
+    ezModules.claude-code
     ezModules.clipboard
     ezModules.devenv
     ezModules.direnv

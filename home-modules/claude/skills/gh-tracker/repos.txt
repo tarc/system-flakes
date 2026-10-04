@@ -1,0 +1,5 @@
+# Repositories the dashboard tracks (owner/repo per line)
+gpui-ce/gpui-ce
+gpui-ce/gpui-component
+cachix/factorseal
+tarc/factorseal

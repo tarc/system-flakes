@@ -1,0 +1,313 @@
+{
+  "repo": "cachix/factorseal",
+  "fork": "tarc/factorseal",
+  "checkout": "/home/tarci/projects/factorseal",
+  "base": "831aa3c",
+  "original": {
+    "branch": "feature/wsl2-interop-broker",
+    "number": 40
+  },
+  "prs": [
+    {
+      "key": "umbrella",
+      "lane": "umbrella",
+      "number": 40,
+      "branch": "feature/wsl2-interop-broker",
+      "on": "831aa3c",
+      "title": "Run Desktop on Windows with a WSL2 bridge, and check it from WSL2",
+      "note": "The original branch, kept as the reference and index. It also carries the series' two changes (the seal-and-deny check fix and the v17/v18 protocol split), so its tree is byte-identical to the stack plus the spikes draft. Review happens in the stacked PRs."
+    },
+    {
+      "key": "1",
+      "lane": "stack",
+      "order": 1,
+      "number": 41,
+      "branch": "stack/1-common-fixes",
+      "on": "831aa3c",
+      "title": "Fixes for every platform: browser extension, approvals across a seal, SecretSpec deadline",
+      "note": "Reviewable and testable on Linux. Browser extension and prompt fixes, pending approvals kept across a seal, SecretSpec answered before its 30 s deadline, claim env vars, category-list layout."
+    },
+    {
+      "key": "2",
+      "lane": "stack",
+      "order": 2,
+      "number": 42,
+      "branch": "stack/2-windows-fixes",
+      "on": "stack/1-common-fixes",
+      "title": "Windows fixes: unseal without admin, parser spawn, pipe buffer, console window, tray",
+      "note": "No WSL. hardwareseal 0.1.2, the parser spawn and 512-byte pipe buffer fixes split out of the broker's first live run, connection-failure events, icon, no console window, tray click, and build-windows.sh."
+    },
+    {
+      "key": "3",
+      "lane": "stack",
+      "order": 3,
+      "number": 43,
+      "branch": "stack/3-wsl2-broker",
+      "on": "stack/2-windows-fixes",
+      "title": "Add an experimental WSL2 interop broker for the vault's named pipe",
+      "note": "Protocol v17 (WSL origin hint). Grants for relayed requests capped at five minutes. Approved through the CLI; the popup comes next."
+    },
+    {
+      "key": "4",
+      "lane": "stack",
+      "order": 4,
+      "number": 44,
+      "branch": "stack/4-approval-popup",
+      "on": "stack/3-wsl2-broker",
+      "title": "Show the permission approval popup on every platform, with checks driven from WSL2",
+      "note": "Largest PR. Popup port, input guard, taskbar flash, stays open on seal, plus the check harness (check.sh popup, drive.ps1, uia-dump, test vault). The harness sends its requests through the broker, so it follows #3."
+    },
+    {
+      "key": "5",
+      "lane": "stack",
+      "order": 5,
+      "number": 45,
+      "branch": "stack/5-secretspec-approvals",
+      "on": "stack/4-approval-popup",
+      "title": "SecretSpec approvals: show what launched it, and approve a write once",
+      "note": "Protocol v18 (launch chain, single-use approvals). #36 also bumps the protocol: whichever lands second renumbers."
+    },
+    {
+      "key": "6",
+      "lane": "stack",
+      "order": 6,
+      "number": 46,
+      "branch": "stack/6-accessibility",
+      "on": "stack/5-secretspec-approvals",
+      "title": "Expose the approval popup and main window to screen readers and UI Automation",
+      "note": "Split out of the popup PR because the popup's accessible text names the SecretSpec prompts."
+    },
+    {
+      "key": "7",
+      "lane": "stack",
+      "order": 7,
+      "number": 47,
+      "branch": "stack/7-browser-windows",
+      "on": "stack/6-accessibility",
+      "title": "Bring the browser prompt forward on Windows, and check the extension in Edge and Chrome from WSL2",
+      "note": "browser-check.sh covers acceptance items 2-8, 12 and 13."
+    },
+    {
+      "key": "8",
+      "lane": "optional",
+      "order": 8,
+      "number": 48,
+      "branch": "stack/8-agent-tooling",
+      "on": "stack/7-browser-windows",
+      "draft": true,
+      "title": "Notes and a Claude Code skill for the Windows Desktop checks",
+      "note": "Optional, draft. AGENTS.md, CLAUDE.md and a devenv-generated skill that documents the check scripts, so it sits on top of the stack. Nothing depends on it."
+    },
+    {
+      "key": "spikes",
+      "lane": "optional",
+      "order": 9,
+      "number": 49,
+      "branch": "stack/spikes-wsl2-transport",
+      "on": "831aa3c",
+      "draft": true,
+      "title": "Record the WSL2 transport spikes",
+      "note": "Optional, draft, independent of everything else. Three standalone crates outside the workspace: Hyper-V sockets, mirrored loopback with a token, interop."
+    }
+  ],
+  "checks": {
+    "1": [
+      {
+        "name": "Linux clippy",
+        "result": "pass",
+        "detail": "-D warnings",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Linux tests",
+        "result": "pass",
+        "detail": "594 passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows",
+        "result": "",
+        "detail": "not run here: the build script arrives in layer 2",
+        "at": "2026-10-01T23:30:00+00:00"
+      }
+    ],
+    "2": [
+      {
+        "name": "Linux clippy",
+        "result": "pass",
+        "detail": "-D warnings",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Linux tests",
+        "result": "pass",
+        "detail": "598 passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows clippy + Desktop tests",
+        "result": "pass",
+        "detail": "43 Desktop tests passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows live",
+        "result": "pass",
+        "detail": "no console window, tray click",
+        "at": "2026-10-02T02:00:00+00:00"
+      }
+    ],
+    "3": [
+      {
+        "name": "Linux clippy",
+        "result": "pass",
+        "detail": "-D warnings",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Linux tests",
+        "result": "pass",
+        "detail": "599 passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows clippy + Desktop tests",
+        "result": "pass",
+        "detail": "43 Desktop tests passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows live",
+        "result": "pass",
+        "detail": "via #44's grant check (5-min cap)",
+        "at": "2026-10-02T02:00:00+00:00"
+      }
+    ],
+    "4": [
+      {
+        "name": "Linux clippy",
+        "result": "pass",
+        "detail": "-D warnings",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Linux tests",
+        "result": "pass",
+        "detail": "602 passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows clippy + Desktop tests",
+        "result": "pass",
+        "detail": "51 Desktop tests passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows live",
+        "result": "pass",
+        "detail": "popup grant; seal then deny",
+        "at": "2026-10-02T02:00:00+00:00"
+      }
+    ],
+    "5": [
+      {
+        "name": "Linux clippy",
+        "result": "pass",
+        "detail": "-D warnings",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Linux tests",
+        "result": "pass",
+        "detail": "610 passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows clippy + Desktop tests",
+        "result": "pass",
+        "detail": "52 Desktop tests passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows live",
+        "result": "pass",
+        "detail": "write-once via popup and CLI",
+        "at": "2026-10-02T02:00:00+00:00"
+      }
+    ],
+    "6": [
+      {
+        "name": "Linux clippy",
+        "result": "pass",
+        "detail": "-D warnings",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Linux tests",
+        "result": "pass",
+        "detail": "611 passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows clippy + Desktop tests",
+        "result": "pass",
+        "detail": "53 Desktop tests passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      }
+    ],
+    "7": [
+      {
+        "name": "Linux clippy",
+        "result": "pass",
+        "detail": "-D warnings",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Linux tests",
+        "result": "pass",
+        "detail": "611 passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows clippy + Desktop tests",
+        "result": "pass",
+        "detail": "53 Desktop tests passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows live",
+        "result": "pass",
+        "detail": "Edge 154: 105/105",
+        "at": "2026-10-02T02:00:00+00:00"
+      }
+    ],
+    "8": [
+      {
+        "name": "Linux clippy",
+        "result": "pass",
+        "detail": "-D warnings",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Linux tests",
+        "result": "pass",
+        "detail": "611 passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      },
+      {
+        "name": "Windows clippy + Desktop tests",
+        "result": "pass",
+        "detail": "53 Desktop tests passed",
+        "at": "2026-10-01T23:30:00+00:00"
+      }
+    ],
+    "umbrella": [
+      {
+        "name": "stack + spikes == this branch",
+        "result": "pass",
+        "detail": "byte-identical tree acc6911, pushed",
+        "at": "2026-10-02T02:00:00+00:00"
+      }
+    ]
+  }
+}

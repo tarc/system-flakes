@@ -75,6 +75,9 @@
             {
               treefmt.config = {
                 projectRootFile = "README.md";
+                # Live ~/.claude files (out-of-store links): mdformat would
+                # rewrite SKILL.md YAML frontmatter into thematic breaks.
+                settings.global.excludes = [ "home-modules/claude/**" ];
                 programs = {
                   # clang-format.enable = true;
                   cmake-format.enable = true;

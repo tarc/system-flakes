@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# pre-push hook: runs the repository's fast CI jobs locally before a push.
+# Installed from ~/.claude/skills/ci-local (see SKILL.md there).
+#   skip once:  git push --no-verify   (or CI_LOCAL_SKIP=1 git push)
+#   full run:   ~/.claude/skills/ci-local/ci-local.sh --full
+[ "${CI_LOCAL_SKIP:-}" = 1 ] && exit 0
+
+# The checks run on the working tree; with uncommitted changes to tracked
+# files the result would not describe the commits being pushed.
+if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "pre-push: tracked files have uncommitted changes; commit or stash them first," >&2
+    echo "pre-push: or skip the local CI with: git push --no-verify" >&2
+    exit 1
+fi
+
+echo "pre-push: running fast CI jobs locally (ci-local --fast)" >&2
+exec "$HOME/.claude/skills/ci-local/ci-local.sh" --fast

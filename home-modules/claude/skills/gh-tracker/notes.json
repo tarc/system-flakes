@@ -1,0 +1,42 @@
+{
+  "gpui-ce/gpui-ce#256": {
+    "note": "Domen's fix, merged 2026-10-01 by @philocalyst after your before/after video."
+  },
+  "gpui-ce/gpui-ce#288": {
+    "note": "Rebased onto main (c6b17e6) 2026-10-02 to clear the Rust 1.99 GOLDEN_RATIO clippy failure; lint jobs, Linux tests (except this machine's known gpui_ce_wgpu GPU segfault) and doc tests pass locally. #290 sits on top.",
+    "related": ["gpui-ce/gpui-ce#290"]
+  },
+  "gpui-ce/gpui-ce#290": {
+    "note": "Sits on top of #288 (first two commits are #288's); rebased with it onto main 2026-10-02, same local results. Shrinks to one commit once #288 merges.",
+    "related": ["gpui-ce/gpui-ce#288", "gpui-ce/gpui-ce#289"]
+  },
+  "gpui-ce/gpui-ce#304": {
+    "note": "Rebased onto main 2026-10-02. Profiler clippy step then flagged Rust 1.99's fetch_update deprecation: fixed in bc98cbf (try_update). CI on bc98cbf passed all but fmt (@philocalyst: \"then fmt. please ensure that you're doing due dillegence\"); fmt fixed in ccbb222, pushed through the new ci-local pre-push hook."
+  },
+  "gpui-ce/gpui-component#3": {
+    "note": "Superseded by gpui-component #4, which moved back to gpui-ce 0.2.2 (crates.io), where these APIs still exist. Closed 2026-10-01 after the new main built and passed its tests natively on Windows.",
+    "related": ["gpui-ce/gpui-component#1", "gpui-ce/gpui-component#4"]
+  },
+  "gpui-ce/gpui-component#1": {
+    "note": "Merged without the Windows/macOS fix from your comment; carried on in #3, then superseded by #4.",
+    "related": ["gpui-ce/gpui-component#3"]
+  },
+  "gpui-ce/gpui-component#5": {
+    "note": "Unblocks CI on main (red on every platform since #4). Windows clippy and tests verified natively.",
+    "related": ["gpui-ce/gpui-component#4", "gpui-ce/gpui-component#3"]
+  },
+  "cachix/factorseal#40": {
+    "note": "Draft. Windows Desktop through a WSL2 bridge."
+  },
+  "local": [
+    {
+      "id": "gpui-ce__gpui-component__branch__fix-fps-frame-events",
+      "repo": "gpui-ce/gpui-component",
+      "branch": "fix/fps-frame-events",
+      "title": "Read draw events from GPUI's frame trace in the FPS sampler",
+      "note": "Parked: pushed to tarc/gpui-component, no PR. main targets gpui-ce 0.2.2, which predates FrameEvent. Rebase onto the new layout when gpui-component moves to a newer gpui-ce.",
+      "related": ["gpui-ce/gpui-component#4"],
+      "updated": "2026-10-01T16:00:00Z"
+    }
+  ]
+}

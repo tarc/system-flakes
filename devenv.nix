@@ -126,7 +126,7 @@
         3. Run `just switch` to switch
         4. If there was a successful switch and the first step (update-boost) committed a new version, run `boost init` to fix jfrog-boost installation
         5. Run the custom command `/gc` to format README.md and garbage-collect the devenv store
-        6. Commit the changes
+        6. Commit only the changes made by the previous steps (`flake.lock`, `packages/jfrog-boost/`, `README.md`); leave pending edits under `home-modules/claude/` for a separate commit
       '';
 
       gc = ''

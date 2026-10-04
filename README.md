@@ -61,7 +61,7 @@ deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
 deleting '/nix/store/4g32afb2x1sbmvbj12br9cklq8myk5k2-matplotlib-3.11.1.tar.gz.drv'
 deleting unused links...
 note: hard linking is currently saving 10.6 GiB
-404 store paths deleted, 2.7 GiB freed
+275 store paths deleted, 358.5 MiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 553
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
-finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/y56mk21rap6zf039p2b4fva8ckw36z3h" to "/nix/var/nix/profiles/system-553-link"
-deleting garbage...
+deleting '/nix/store/843wgxxp1kpci43f2y5p2hh6pw72x0j1-system-units'
+deleting '/nix/store/0cyqnys4bl77jk5bd4wv0bdapk4pjkak-unit-home-manager-tarci.service'
+deleting '/nix/store/a8pm6rgnsyn0mpw41gpg0hsk4njir00a-home-manager-generation'
+deleting '/nix/store/8hdr90qiivmbb6v8444fkmy6ahwlzhwv-hm-putter.json.drv'
+deleting '/nix/store/1fckghfyd92azxa212d57zm3h72lh5m7-hm-putter.json'
+deleting '/nix/store/30mgykvvqyn9bnfmj7alvflh0114zwns-home-manager-files'
+deleting '/nix/store/10wzsl76xd505sndvycvhjl8kw1rjrwb-home-manager-files.drv'
 deleting unused links...
 note: hard linking is currently saving 10.6 GiB
-0 store paths deleted, 0.0 KiB freed
+15 store paths deleted, 161.2 KiB freed
 ```
 <!-- END mdsh -->
 
