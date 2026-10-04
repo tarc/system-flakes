@@ -198,9 +198,6 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
-    agenix.inputs.darwin.follows = "nix-darwin";
-    agenix.inputs.home-manager.follows = "home-manager";
-    agenix.inputs.systems.follows = "systems";
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
