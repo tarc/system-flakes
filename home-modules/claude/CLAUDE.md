@@ -26,6 +26,8 @@ On this machine (WSL2), the whole Linux filesystem lives in one virtual disk on 
 
       GH_TOKEN=$GITHUB_TOKEN GIT_TERMINAL_PROMPT=0 git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push ...
 
+- Never pipe `git push` (or `fetch`/`pull`) through `tail`, `head` or `grep`: the pipeline's exit status becomes the last command's, so a failed push reports success. It happened in gsd-core while GitHub's API and SSH were unreachable and the rest of the internet was up. Run the push bare and check its exit code, then confirm with `git ls-remote origin <branch>`.
+
 - Never call `ScheduleWakeup` to wait on a `Bash(run_in_background: true)` command or other harness-tracked async work (e.g. a Monitor-tracked process). Just end the turn — the harness re-invokes automatically on completion. This is a recurring slip across projects (system-flakes `/update-devenv`, `/upgrade-system`) despite `ScheduleWakeup`'s own tool description saying not to do this. Reserve `ScheduleWakeup` for `/loop` dynamic-pacing mode, or for actively polling *external* state the harness cannot observe (a CI run, a remote queue).
 
 - `gh pr checks` prints a `cancelled` check as `fail`. `cancel-in-progress` concurrency cancels superseded runs on every new push and on PR `edited` events, so several "failures" completing in the same second are usually supersession. Read `conclusion` from `gh api repos/<owner>/<repo>/commits/<sha>/check-runs` before reporting red.
