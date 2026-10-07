@@ -22,6 +22,7 @@ in
     # auggie
     claude-agent-acp
     claude-code
+    codex
     embedme
     jfrog-boost
     gh
