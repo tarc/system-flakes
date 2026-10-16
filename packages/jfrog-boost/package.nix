@@ -9,7 +9,7 @@
 }:
 let
   pname = "jfrog-boost";
-  version = "0.15.1";
+  version = "0.16.0";
   system = stdenv.hostPlatform.system;
   systemSplit = lib.strings.splitString "-" system;
   arch = builtins.head systemSplit;
@@ -27,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchurl {
     url = "https://github.com/jfrog/boost/releases/download/v${version}/boost-${os}-${arch'}.tar.gz";
-    hash = "sha256-NEcMGgGsw7DY+U8V7BwljMsYuyxVV9tX8VrbwRc757s=";
+    hash = "sha256-bHQcGjtgc21CIfna8QIksbBSadOnWjEhAQoMDXem4Go=";
   };
 
   sourceRoot = ".";
@@ -51,10 +51,8 @@ stdenv.mkDerivation (finalAttrs: {
     mkdir -p $out/bin
 
     cp boost $out/bin/
-    cp boost-ci $out/bin/
 
     chmod +x $out/bin/boost
-    chmod +x $out/bin/boost-ci
 
     runHook postInstall
   '';
