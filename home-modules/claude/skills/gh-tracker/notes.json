@@ -1,9 +1,17 @@
 {
+  "cachix/factorseal#41": {
+    "note": "Merged 2026-10-08 by @domenkozar, without review comments: the first outside PR merged in factorseal. Bottom of the stack.",
+    "related": ["cachix/factorseal#42"]
+  },
+  "cachix/factorseal#42": {
+    "note": "Next in the stack: #41 merged 2026-10-08, so this now shows only its own 12 commits. CI still awaits maintainer approval.",
+    "related": ["cachix/factorseal#41", "cachix/factorseal#43"]
+  },
   "gpui-ce/gpui-ce#256": {
     "note": "Domen's fix, merged 2026-10-01 by @philocalyst after your before/after video."
   },
   "gpui-ce/gpui-ce#288": {
-    "note": "Rebased onto main (c6b17e6) 2026-10-02 to clear the Rust 1.99 GOLDEN_RATIO clippy failure; lint jobs, Linux tests (except this machine's known gpui_ce_wgpu GPU segfault) and doc tests pass locally. #290 sits on top.",
+    "note": "Approved (\"LGTM\") by @cameronpcampbell 2026-10-07; CI green (12/12). Waiting for a merge, usually by @philocalyst. #290 sits on top.",
     "related": ["gpui-ce/gpui-ce#290"]
   },
   "gpui-ce/gpui-ce#290": {
