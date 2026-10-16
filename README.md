@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/7idn96xls9kg5q86s7jlx15jm4qank0p-source.drv'
-deleting '/nix/store/41d462rhm7akbbsyas4ijrivviqzkp09-source.drv'
-deleting '/nix/store/gwv35hlkzsjj32d0npc2jmcyav9nnffk-crate-log-0.4.27.tar.gz.drv'
-deleting '/nix/store/b30d9zi2pyvj509n98mzrc7kz8p8km3r-X11-1.10.3.tar.gz.drv'
+deleting '/nix/store/k2m6vahi01nhjg1xyj95plrnpvfykimk-libxslt-1.1.45-bin'
+deleting '/nix/store/mk5plyv9rrsck1mz8yjra5zphcjai2lj-source'
+deleting '/nix/store/f3vw7mz8a6zmdhlnm0mf1g6j945afi72-boehm-gc-8.2.12-dev'
+deleting '/nix/store/34nilhga0rfdsg90jwvh3y3bsisklqg8-python3.14-pycodestyle-2.14.0'
+deleting '/nix/store/r83d7wxqa7h3jjiflsn83h3f621jm3ga-ShellCheck-0.11.0'
 deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
-deleting '/nix/store/cfs3gfwcgfh3vp2rmdaj8zncy6d3x2if-source.drv'
-deleting '/nix/store/4g32afb2x1sbmvbj12br9cklq8myk5k2-matplotlib-3.11.1.tar.gz.drv'
+deleting '/nix/store/47jivjg58n3xbayg0zqxlkrcxln38i79-source'
 deleting unused links...
-note: hard linking is currently saving 10.6 GiB
-3241 store paths deleted, 7.0 GiB freed
+note: hard linking is currently saving 10.9 GiB
+306 store paths deleted, 5.0 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/yg3icqd3z8m265if98l7k1ambic0s3an-source.drv'
-deleting '/nix/store/1x94g35y9hxxa0ipj3v96rn0cbid7xbn-system-units'
-deleting '/nix/store/9k6mwi35mscxbvikhk9zh368hcfs16ra-unit-dbus-broker.service'
-deleting '/nix/store/wwwrp13k5qyslijpcy0nicqi5ss4c245-X-Restart-Triggers-dbus-broker'
-deleting '/nix/store/jxanxfdxhwsr3id84jh2iazj3rc49dd3-dbus-1'
-deleting '/nix/store/5lg18qv7bgrpsr8dy7lgcp1z14rcprry-system-path'
-deleting '/nix/store/np442w66n363ydl8xp92lzkmdj5bih4a-codex-0.160.0'
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/nqnxqs04hdgpjm40lybws6qpka2igw5c" to "/nix/var/nix/profiles/system-561-link"
+removing stale link from "/nix/var/nix/gcroots/auto/cdd8qy5zr0r5kmai6abf2n1wsv9kxmqr" to "/nix/var/nix/profiles/system-560-link"
+deleting garbage...
+deleting '/nix/store/s466znq1i80yiwlc0myw8x95kywjmkdd-nixos-system-poita-26.11.20261008.8edc0c7'
+deleting '/nix/store/h96ra8ymdknq8cydnh41f5rgr0kapjb9-nixos-system-poita-26.11.20261008.8edc0c7.drv'
+deleting '/nix/store/b9rivybipn1ly4faz739r5dr2yyc3dl1-activate.drv'
 deleting unused links...
-note: hard linking is currently saving 10.6 GiB
-24 store paths deleted, 555.0 MiB freed
+note: hard linking is currently saving 10.9 GiB
+3 store paths deleted, 38.8 KiB freed
 ```
 <!-- END mdsh -->
 
