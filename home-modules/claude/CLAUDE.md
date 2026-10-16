@@ -8,6 +8,8 @@ When the setup is becomes complex create `devenv.nix` and run commands within:
 
 See https://devenv.sh/ad-hoc-developer-environments/
 
+Every C++ project is set up with conan-flake (https://codeberg.org/tarcisio/conan-flake, docs https://tarcisio.codeberg.page/conan-flake/, clone at `~/projects/conan-flake`). Dependencies, test frameworks included, come from a `conanfile.py`, never from apt, vcpkg or Nix packages. In a devenv repo use `languages.cplusplus.conan` from the devenv fork: `devenv.yaml` overrides `devenv` with `github:tarc/devenv/feature/conan-flake` and adds the `conan-flake` input (see `examples/devenv-module-recipe`).
+
 ## System configuration is Nix-managed
 
 Never edit, or suggest editing, `~/.zshrc`, `~/.config/*`, or any other system/user configuration file directly. They are home-manager/NixOS symlinks into the read-only Nix store. The configuration is versioned in `~/projects/system-flakes/` (home-manager modules in `home-modules/`). When a config change is needed, first check whether system-flakes already handles it (e.g. `programs.devenv.enable` already installs devenv and its zsh hook); if not, propose the change as an edit to the relevant module there.
