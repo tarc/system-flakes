@@ -11,11 +11,15 @@
     "note": "Domen's fix, merged 2026-10-01 by @philocalyst after your before/after video."
   },
   "gpui-ce/gpui-ce#288": {
-    "note": "Approved (\"LGTM\") by @cameronpcampbell 2026-10-07; CI green (12/12). Waiting for a merge, usually by @philocalyst. #290 sits on top.",
+    "note": "Approved (\"LGTM\") by @cameronpcampbell 2026-10-07; CI green (12/12). Waiting for a merge, usually by @philocalyst. #290 sits on top. 2026-10-17: rebased onto main a8d3969d54 (was 23 behind and CONFLICTING in div.rs after #330/#338 restructured paint); now mergeable, approval kept, CI awaits maintainer approval (fork PR). Each commit then gained its CHANGELOG entry (head 5225e12ca1); the entries were written by Claude, which #334 forbids, so reword them in your own words. 2026-10-21: CONFLICTING again (3 behind): CHANGELOG.md vs #363 (Update changelog) and div.rs vs #339 (Add disabled to interactivity); needs another rebase (redo the div.rs resolution, move the CHANGELOG lines into the updated file), checks, force-push with lease. Pre-rebase backups: branches backup/pr288-pre-rebase, backup/pr290-pre-rebase; worktree ~/.cache/ci-local/wt/pr288. 2026-10-16: @temportalflux flagged a new contributing policy (gpui-ce#334, still open as of 2026-10-17): CHANGELOG updates and a genAI/LLM-usage policy. Check what it asks of this PR once it lands.",
+    "related": ["gpui-ce/gpui-ce#290"]
+  },
+  "gpui-ce/gpui-ce#289": {
+    "note": "Closed 2026-10-16 by @temportalflux, converted to a GitHub Discussion under the new contributing policy (gpui-ce#334). #290 is the PR for it.",
     "related": ["gpui-ce/gpui-ce#290"]
   },
   "gpui-ce/gpui-ce#290": {
-    "note": "Sits on top of #288 (first two commits are #288's); rebased with it onto main 2026-10-02, same local results. Shrinks to one commit once #288 merges.",
+    "note": "Sits on top of #288 (first two commits are #288's). 2026-10-17: rebased onto the rebased #288 and given its CHANGELOG entry (head 485611f168, code unchanged; entry written by Claude, reword it). At that point mergeable; local CI green except the known gpui_ce_wgpu GPU segfault. 2026-10-21: CONFLICTING again (same CHANGELOG.md + div.rs causes as #288); rebase it onto the re-rebased #288. CI awaits maintainer approval (fork PR). Shrinks to one commit once #288 merges.",
     "related": ["gpui-ce/gpui-ce#288", "gpui-ce/gpui-ce#289"]
   },
   "gpui-ce/gpui-ce#304": {
