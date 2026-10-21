@@ -38,6 +38,8 @@ On this machine (WSL2), the whole Linux filesystem lives in one virtual disk on 
 
 - In Bash tool commands, `\\` is collapsed to `\` — even inside a quoted `<<'EOF'` heredoc, where bash itself would keep it. Lone backslashes survive, so a doubled backslash in a regex or escape is silently halved. Write content containing `\\` with the Write tool, not a heredoc or `echo`.
 
+- The Bash tool's shell is zsh, where `$var:` followed by a modifier letter is a history modifier, even inside double quotes: `"$t:crates/x"` gives `abc123rates/x` (`:c`), and `"$t:hello"` gives `.ello` (`:h`, dirname). A colon followed by a non-modifier letter (`"$t:main"`) happens to survive. Brace the variable whenever a colon follows it: `"${t}:path"`, as in `git show "${tree}:crates/x.rs"`.
+
 ## Verify before asserting
 
 - Before stating that something can't work, is missing, has no owner, or behaves a certain way ("it aborts", "it retries", "it caches"), run the one command that would disprove it — above all when the claim is load-bearing or about to be posted publicly. Plausible reasoning has repeatedly produced confident, wrong conclusions. A normalisation ("A tracks B") is a claim too: check it against like-for-like data.
