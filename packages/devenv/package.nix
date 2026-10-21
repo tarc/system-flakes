@@ -54,7 +54,7 @@ rustPlatform.buildRustPackage {
     hash = "sha256-nZdDCcSYpVAVFR/Lv2sdToMYH9WIPbsolucA7qAQJ3k=";
   };
 
-  cargoHash = "sha256-47SWOQBLEy+MGUrS+l5QSQluxM4skqUUJLAX4MC66ds=";
+  cargoHash = "sha256-GZ8WB6x3MT9V7LpPXLuR8911kYtfBVdynXA3Yb02D2o=";
 
   # Link libghostty-vt dynamically: statically linking its Zig-built archive
   # fails with GCC 16 (`ld.bfd: .eh_frame_hdr refers to overlapping FDEs`).
