@@ -36,6 +36,7 @@ Results print as a table, with logs in `~/.cache/ci-local/<repo>/<job>.log` (or 
 ## Known local-vs-CI differences
 
 - gpui-ce: the `gpui_ce_wgpu --lib` test binary segfaults (SIGSEGV, GPU driver stack) on this machine but passes in CI's test-linux. When the change doesn't touch `crates/gpui_wgpu`, treat it as local and run `just test-doc` separately, since the failure stops the recipe chain before doc tests.
+- gpui-ce: `gpui_ce_wgpu --test headless_primitives` (a zero-test target) also SIGSEGVs, but only inside the full `just test` run. Run alone it passed 5/5 on both the PR branches and `main` (2026-10-17, #288/#290), so it is intermittent. Confirm with `cargo +<toolchain> test -p gpui_ce_wgpu --test headless_primitives` several times on the branch and on `main` before calling a run green. Note too that a failing `just test` skips `just test-doc`.
 - gpui-component: `lint` (macOS in CI) can't build the webview crate on Linux without WebKitGTK, which the flake shell lacks. `no-default-features` and `gpui-shell-core` reference packages renamed or removed in #4, so they fail in CI too (as of 2026-10-02). `cargo machete` flags `syntect` unused in crates/base on main.
 - macOS can't run here. Say so.
 
