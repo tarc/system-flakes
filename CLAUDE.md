@@ -17,6 +17,8 @@ A single Nix flake providing NixOS + Home Manager configuration for the host `po
 
 There is no test suite; correctness is checked by `just switch` actually building/activating.
 
+`just` comes from this repo's devenv shell (`devenv.nix`), not the system profile. An interactive shell gets it from the devenv zsh hook; a non-interactive one (Claude's Bash tool) gets `command not found: just`, so run `devenv shell -- just switch` from the repo root.
+
 Both `just switch` and `nix fmt` routinely take well over 2 minutes (building `devenv`/other packages from source, or fetching treefmt tooling) — run them in the background from the start rather than waiting on a foreground timeout to force the conversion.
 
 ## Architecture
