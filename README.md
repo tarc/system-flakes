@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/x40kx79gaf2svwlkkkzmgkc60sp5m6b0-glslang-12201278a1a05c0ce0b6eb6026c65cd3e9247aa041b1c260324bf29cee559dd23ba1.tar.gz.drv'
 deleting '/nix/store/34nilhga0rfdsg90jwvh3y3bsisklqg8-python3.14-pycodestyle-2.14.0'
-deleting '/nix/store/fxw81kpvcfkxqbvf0c3mqdhdy8mymp04-source'
-deleting '/nix/store/iraw069yfi6jvwjj7a6ai7bs0i0z5j6d-optics-extra-0.4.2.1-r5.cabal.drv'
+deleting '/nix/store/pspff0rp45gfx1gf0xpwp38z1i08qc0x-lerc-4.2.0-dev'
+deleting '/nix/store/z12r8jhhd69nk9zq06ifhv2f494ljsk8-boehm-gc-8.2.12-dev'
+deleting '/nix/store/dyrr87aqdyjvy7ln449b49f46pg12vmh-libcap-text-verifier-0-unstable'
+deleting '/nix/store/waqsd8dbxcgmpn9gi7czala2di63py8l-cfg_aliases-0.2.2'
 deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
-deleting '/nix/store/ymc296bfq75wwf7n44gzz8xng7xrsaci-nlohmann_json-3.12.0'
-deleting '/nix/store/47jivjg58n3xbayg0zqxlkrcxln38i79-source'
+deleting '/nix/store/n29b8f47325qbd0a0gc3468x8645h13m-clap_lex-1.1.0'
 deleting unused links...
-note: hard linking is currently saving 10.7 GiB
-886 store paths deleted, 4.7 GiB freed
+note: hard linking is currently saving 11.0 GiB
+731 store paths deleted, 7.6 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/x6k0mlfxd2fmb8fpaykzflm9vwy470df-hm-putter.json'
-deleting '/nix/store/8150v6q01pgglgjg14cznjb6d8hzm8q2-home-manager-files'
-deleting '/nix/store/djbjas10wb4y9vpflfayz5mk6zsjm1x4-hm_.configzsh.zshrc'
-deleting '/nix/store/l25378kiw8d0rlfqj3q900i95z8n9d4l-home-manager-path'
-deleting '/nix/store/d34jpsdaigkybc2zhm2x14xqfpy5phzh-activation-script.drv'
-deleting '/nix/store/15hc18kkhczaniqbi1ifzs1q2hin1r23-home-manager-path.drv'
-deleting '/nix/store/8kvya1h810mpqjw7v10kwgzgyply9z40-source.drv'
+deleting '/nix/store/wj11ilbg724ggs6l2av2ljgmf7pb346w-devenv-2.4.0-vendor.drv'
+deleting '/nix/store/vxcppyqqjpqils8kfpvslswlhis060pf-devenv-2.4.0-vendor-staging.drv'
+deleting '/nix/store/mbkwa20rk5x4wlfrzgi87jn2fv008vf4-source.drv'
+deleting '/nix/store/27gq6f025lcj1wsw0j7n5jss25ij8k28-hm-putter.json'
+deleting '/nix/store/wk654m4bj7ijbqrsikmyry4bgb8b5ymm-home-manager-files'
+deleting '/nix/store/xv886kijhz6a111vv5rrqlvj8nissbb1-hm_.configzsh.zshrc'
+deleting '/nix/store/cls51cwh4g4z47qnvrsgfb7xfb10dksk-devenv-2.4.0'
 deleting unused links...
-note: hard linking is currently saving 10.6 GiB
-45 store paths deleted, 154.4 MiB freed
+note: hard linking is currently saving 11.0 GiB
+25 store paths deleted, 207.8 MiB freed
 ```
 <!-- END mdsh -->
 
