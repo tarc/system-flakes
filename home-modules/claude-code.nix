@@ -17,6 +17,7 @@ let
     "ci-local"
     "gh-tracker"
     "pr-stack"
+    "wsl-keep-awake"
     "wsl-windows-rust"
   ];
 in
