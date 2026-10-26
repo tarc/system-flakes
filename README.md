@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/34nilhga0rfdsg90jwvh3y3bsisklqg8-python3.14-pycodestyle-2.14.0'
 deleting '/nix/store/pspff0rp45gfx1gf0xpwp38z1i08qc0x-lerc-4.2.0-dev'
 deleting '/nix/store/z12r8jhhd69nk9zq06ifhv2f494ljsk8-boehm-gc-8.2.12-dev'
+deleting '/nix/store/wwhwcvivqpcws0g2jahwh14ib6kpyrw4-dry-activate'
 deleting '/nix/store/dyrr87aqdyjvy7ln449b49f46pg12vmh-libcap-text-verifier-0-unstable'
 deleting '/nix/store/waqsd8dbxcgmpn9gi7czala2di63py8l-cfg_aliases-0.2.2'
+deleting '/nix/store/cqkl6mzkm5hrylnkrg5kbv4fx8jv76zm-agenix.sh'
 deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
-deleting '/nix/store/n29b8f47325qbd0a0gc3468x8645h13m-clap_lex-1.1.0'
 deleting unused links...
-note: hard linking is currently saving 11.0 GiB
-731 store paths deleted, 7.6 GiB freed
+note: hard linking is currently saving 12.0 GiB
+631 store paths deleted, 8.4 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/wj11ilbg724ggs6l2av2ljgmf7pb346w-devenv-2.4.0-vendor.drv'
-deleting '/nix/store/vxcppyqqjpqils8kfpvslswlhis060pf-devenv-2.4.0-vendor-staging.drv'
-deleting '/nix/store/mbkwa20rk5x4wlfrzgi87jn2fv008vf4-source.drv'
-deleting '/nix/store/27gq6f025lcj1wsw0j7n5jss25ij8k28-hm-putter.json'
-deleting '/nix/store/wk654m4bj7ijbqrsikmyry4bgb8b5ymm-home-manager-files'
-deleting '/nix/store/xv886kijhz6a111vv5rrqlvj8nissbb1-hm_.configzsh.zshrc'
-deleting '/nix/store/cls51cwh4g4z47qnvrsgfb7xfb10dksk-devenv-2.4.0'
+deleting '/nix/store/lmf6ly2s337flj30gc5dlzfiy55sw0sv-nix-store-c-2.35'
+deleting '/nix/store/96lrnxlaiw4hqf7ll1nwlqan0d10b0fk-nix-store-c-2.35.drv'
+deleting '/nix/store/z3vdlv9czyxsg9n3pdca1zlj5wzxwsld-nix-store-2.35.drv'
+deleting '/nix/store/5gi6j4gd6icvnafr4g709v08s4gv3438-nix-fetchers-2.35'
+deleting '/nix/store/h17w7icf1mx2zwrxv78bdih2nr2cmn9b-nix-store-2.35'
+deleting '/nix/store/48pqzx5lys9aj2m9j1nx41066qhifpsq-devenv-2.4.0-vendor.drv'
+deleting '/nix/store/712gzbwicjywn2vc91px0vzdcyyqf0am-devenv-2.4.0-vendor-staging.drv'
 deleting unused links...
-note: hard linking is currently saving 11.0 GiB
-25 store paths deleted, 207.8 MiB freed
+note: hard linking is currently saving 12.0 GiB
+48 store paths deleted, 227.9 MiB freed
 ```
 <!-- END mdsh -->
 
