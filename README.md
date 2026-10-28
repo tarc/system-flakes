@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/pspff0rp45gfx1gf0xpwp38z1i08qc0x-lerc-4.2.0-dev'
+deleting '/nix/store/clxbs7ffpfcmpmq070ihk9ga34x1yhcz-source.drv'
+deleting '/nix/store/hpyl5vk16g1yaisz2rj5lxi37p8d6giv-source.drv'
+deleting '/nix/store/mk5plyv9rrsck1mz8yjra5zphcjai2lj-source'
+deleting '/nix/store/80anshz7jxkmq48p1m6z82w3xnpwpcaw-rhash-1.4.6'
+deleting '/nix/store/z5jfjzvl6v8gq7b8jdqb8dkm5z7bhp26-outcome-1.3.0.post0.tar.gz.drv'
 deleting '/nix/store/z12r8jhhd69nk9zq06ifhv2f494ljsk8-boehm-gc-8.2.12-dev'
 deleting '/nix/store/wwhwcvivqpcws0g2jahwh14ib6kpyrw4-dry-activate'
-deleting '/nix/store/dyrr87aqdyjvy7ln449b49f46pg12vmh-libcap-text-verifier-0-unstable'
-deleting '/nix/store/waqsd8dbxcgmpn9gi7czala2di63py8l-cfg_aliases-0.2.2'
-deleting '/nix/store/cqkl6mzkm5hrylnkrg5kbv4fx8jv76zm-agenix.sh'
-deleting '/nix/store/z25irbb8f4gv5l4i6qq5wjqz3872p852-source'
 deleting unused links...
 note: hard linking is currently saving 12.0 GiB
-631 store paths deleted, 8.4 GiB freed
+446 store paths deleted, 4.7 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/lmf6ly2s337flj30gc5dlzfiy55sw0sv-nix-store-c-2.35'
-deleting '/nix/store/96lrnxlaiw4hqf7ll1nwlqan0d10b0fk-nix-store-c-2.35.drv'
-deleting '/nix/store/z3vdlv9czyxsg9n3pdca1zlj5wzxwsld-nix-store-2.35.drv'
-deleting '/nix/store/5gi6j4gd6icvnafr4g709v08s4gv3438-nix-fetchers-2.35'
-deleting '/nix/store/h17w7icf1mx2zwrxv78bdih2nr2cmn9b-nix-store-2.35'
-deleting '/nix/store/48pqzx5lys9aj2m9j1nx41066qhifpsq-devenv-2.4.0-vendor.drv'
-deleting '/nix/store/712gzbwicjywn2vc91px0vzdcyyqf0am-devenv-2.4.0-vendor-staging.drv'
+deleting '/nix/store/xn8k979s24xglsfjbvkhm4sjr1fwsdmf-home-manager-generation'
+deleting '/nix/store/i07fkp4s8m45pnjxp0h3h1vfhsma3pai-home-manager-path'
+deleting '/nix/store/wq41ax3ncj64ysszbbvb0c8m9hdsnb8g-system-units.drv'
+deleting '/nix/store/nlnxn2w8a5jm2gza7bg1bc353h779m96-unit-home-manager-tarci.service.drv'
+deleting '/nix/store/2vwhcrczlnripg24xrdjf03lsqf3c12b-home-manager-generation.drv'
+deleting '/nix/store/q4jq7h78d4hik1wxsgdmscavsnm5al34-activation-script.drv'
+deleting '/nix/store/8hzvr0g7q59zg0zjli1gi1qs2bylcznw-home-manager-path.drv'
 deleting unused links...
 note: hard linking is currently saving 12.0 GiB
-48 store paths deleted, 227.9 MiB freed
+14 store paths deleted, 3.5 MiB freed
 ```
 <!-- END mdsh -->
 
