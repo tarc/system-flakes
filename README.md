@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/cknb4w6cjmladqd0qh20n1q1aljc5iji-python3.14-flexparser-0.4.drv'
+deleting '/nix/store/clxbs7ffpfcmpmq070ihk9ga34x1yhcz-source.drv'
+deleting '/nix/store/hpyl5vk16g1yaisz2rj5lxi37p8d6giv-source.drv'
+deleting '/nix/store/mk5plyv9rrsck1mz8yjra5zphcjai2lj-source'
 deleting '/nix/store/z5jfjzvl6v8gq7b8jdqb8dkm5z7bhp26-outcome-1.3.0.post0.tar.gz.drv'
-deleting '/nix/store/dyhlmmf4i82xzxapavrjwysxbjp9cvh1-NerdFontsSymbolsOnly-3.4.0.tar.gz'
-deleting '/nix/store/pspff0rp45gfx1gf0xpwp38z1i08qc0x-lerc-4.2.0-dev'
-deleting '/nix/store/4jcmmsyz3pjnap26kxvg12inc9flcnpd-spirv_cross'
-deleting '/nix/store/z12r8jhhd69nk9zq06ifhv2f494ljsk8-boehm-gc-8.2.12-dev'
 deleting '/nix/store/wwhwcvivqpcws0g2jahwh14ib6kpyrw4-dry-activate'
-deleting '/nix/store/jqx0vr4gfdv1h93wfivkabhda1dpjzqx-translate_c'
+deleting '/nix/store/pc3214ya90y0b5kx388gfsjz414bw6jk-etc-os-release.drv'
 deleting unused links...
-note: hard linking is currently saving 12.3 GiB
-622 store paths deleted, 7.9 GiB freed
+note: hard linking is currently saving 12.0 GiB
+567 store paths deleted, 3.3 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/mhagvz5n4i8nlnfysasnbg3i6zzdjr9z-activation-script.drv'
-deleting '/nix/store/li4q9xgdd75m3zniyn42bspvv5ygpivh-home-manager-path'
-deleting '/nix/store/kblnrcsvgvyd8sp47fgxgzrr8f06r2bh-hm_.configzsh.zshrc'
-deleting '/nix/store/akzg3ywa8c07p10dvpzvmylsn444kf30-devenv-2.4.0'
-deleting '/nix/store/18gqdgb44nwc0rzpka9j3v469v29zlrd-home-manager-path.drv'
-deleting '/nix/store/5rl7k1dj0af22s46g5w5f47pzmzr6smv-hm_.configzsh.zshrc.drv'
-deleting '/nix/store/k7hafxjyqlbjw3fk4rhja0sd4aj6wckw-devenv-2.4.0.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 574
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/12qbc3pby3vv73crjkrbwj402a11pnjb" to "/nix/var/nix/profiles/system-574-link"
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 12.3 GiB
-22 store paths deleted, 209.0 MiB freed
+note: hard linking is currently saving 12.0 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
