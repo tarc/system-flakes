@@ -32,7 +32,7 @@ Both `just switch` and `nix fmt` routinely take well over 2 minutes (building `d
 - **`overlays/`** — package overrides/additions, applied both to the system (`overlays/default.nix`) and, redundantly, inside `flake.nix`'s `perSystem.pkgs` for `mdsh`. Notable: `jfrog-boost` and `devenv` are packaged from `packages/` and exposed as overlay outputs; `mdsh` is overridden to a fork (`tarc/mdsh`) pinned by rev; `libghostty-vt` is overridden to build from the `ghostty` flake input (see below) instead of nixpkgs. `overlays/default.nix` receives `inputs` (in addition to `pkgs`/`systemFlakes`) via `ezConfigs.globalArgs`, so an overlay there can reference flake inputs directly — most standalone files under `overlays/` ignore it (`{ ... }:`) since they don't need it.
 - **`packages/`** — custom package derivations not in nixpkgs: `jfrog-boost` (fetches a prebuilt release binary — version/hash must be bumped manually, see below), `devpod`/`devpod-desktop` (patched via files in that dir), `devenv`.
 - **`lib/`** — small shared helpers exposed as `systemFlakes` (`flake.lib.systemFlakes`), threaded into all modules via `ezConfigs.globalArgs`. `lib/constants.nix` holds cross-cutting constants; `maintainers/maintainer-list.nix` holds the nixpkgs-style maintainer entries referenced from package `meta.maintainers`.
-- **`devenv.nix`** — devenv-based dev shell for *this repo* (not the built system). Defines the Claude Code slash commands `/update-boost` and `/upgrade-system` (symlinked into `.claude/commands/` and `.opencode/commands/` at shell entry) and Claude Code's own permission rules for this repo — edit the command bodies here, not in `.claude/commands/`, which are generated symlinks.
+- **`devenv.nix`** — devenv-based dev shell for *this repo* (not the built system). Defines the custom slash commands (`/upgrade-all-then-push`, `/upgrade-system`, `/update-devenv`, `/update-boost`, ...; `opencode.commands` reuses `claude.code.commands` whole, so a new command reaches both runtimes, symlinked into `.claude/commands/` and `.opencode/commands/` at shell entry) and Claude Code's own permission rules for this repo — edit the command bodies here, not in `.claude/commands/`, which are generated symlinks.
 
 ## Recomputing fetcher hashes
 
@@ -46,7 +46,7 @@ Both `just switch` and `nix fmt` routinely take well over 2 minutes (building `d
 1. If newer than `version` in the package, `wget` the matching `boost-<os>-<arch>.tar.gz` asset and hash it with `nix hash file`.
 1. Update `version` and `hash` in the derivation.
 
-This is exactly what the `/update-boost` slash command automates, and `/upgrade-system` chains it with `just update` → `just switch` → (`boost init` if boost was bumped) → `nix fmt` on `README.md` → commit.
+This is exactly what the `/update-boost` slash command automates, and `/upgrade-system` chains it with `just update` → `just switch` → (`boost init` if boost was bumped) → `nix fmt` on `README.md` → commit. `/upgrade-all-then-push` runs `/update-devenv`, then `/upgrade-system`, then pushes.
 
 ## Keeping `libghostty-vt` in sync with devenv
 

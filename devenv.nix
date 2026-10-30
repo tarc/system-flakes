@@ -3,11 +3,17 @@
   pkgs,
   ...
 }:
-# let
-#   claudeAgents = config.claude.code.agents;
-#   openCodeModel = "opencode/kimi-k3";
-#   claudeCodeModel = "opus";
-# in
+let
+  # claudeAgents = config.claude.code.agents;
+  # openCodeModel = "opencode/kimi-k3";
+  # claudeCodeModel = "opus";
+
+  # Shared by the command bodies and the permission rules below.
+  devenvPackage = "packages/devenv/package.nix";
+  boostPackage = "packages/jfrog-boost/package.nix";
+  devenvFork = "git@github.com:tarc/devenv.git";
+  devenvRebaseDir = "/tmp/devenv-rebase";
+in
 {
   name = "system-flakes";
 
@@ -28,17 +34,7 @@
 
   opencode = {
     enable = true;
-    commands = {
-      inherit (config.claude.code.commands)
-        update-boost
-        upgrade-system
-        update-devenv-version
-        update-devenv-nix
-        update-devenv
-        rebase-devenv-branch
-        gc
-        ;
-    };
+    inherit (config.claude.code) commands;
   };
 
   claude.code = {
@@ -56,64 +52,64 @@
     };
     commands = {
       update-devenv-version = ''
-        In @packages/devenv/package.nix bump the version, and update the hash in the `src = fetchFromGitHub` call if necessary.
+        In @${devenvPackage} bump the version, and update the hash in the `src = fetchFromGitHub` call if necessary.
 
-        1. Check whether `src = fetchFromGitHub` in @packages/devenv/package.nix has `owner = "tarc"` and `repo = "devenv"` — this is an overridden scenario (a fork branch pinned in place of upstream cachix/devenv, typically with a comment above `src` linking to a cachix/devenv PR, and a comment on the `rev` line naming the branch). If it's not overridden (owner/repo are anything else), skip straight to step 7.
-        2. In the overridden scenario, look for the branch in git@github.com:tarc/devenv.git that `src`'s `rev` belongs to: run `git ls-remote git@github.com:tarc/devenv.git | grep <rev>` to find a live branch whose tip is exactly that commit.
+        1. Check whether `src = fetchFromGitHub` in @${devenvPackage} has `owner = "tarc"` and `repo = "devenv"` — this is an overridden scenario (a fork branch pinned in place of upstream cachix/devenv, typically with a comment above `src` linking to a cachix/devenv PR, and a comment on the `rev` line naming the branch). If it's not overridden (owner/repo are anything else), skip straight to step 7.
+        2. In the overridden scenario, look for the branch in ${devenvFork} that `src`'s `rev` belongs to: run `git ls-remote ${devenvFork} | grep <rev>` to find a live branch whose tip is exactly that commit.
         3. If step 2 finds nothing (e.g. the branch was deleted after merging), fall back to the PR referenced in the comment above `src` (e.g. `https://github.com/cachix/devenv/pull/<number>`): run `curl -fsSL "https://api.github.com/repos/cachix/devenv/pulls/<number>" | jq -r '.head.ref, .merged'` to recover the branch name and merge status directly, even though the PR may already be closed.
         4. Decide, based on steps 2-3: the override is FINISHED if the PR is merged (or the branch is gone and the PR shows merged) — go to step 5. Otherwise it's still PENDING — go to step 6.
-        5. [FINISHED] Revert the override: set `owner = "cachix"` in @packages/devenv/package.nix and remove the comment block above `src`. Do not commit yet and do not stop — continue to step 7, so the normal flow below still runs this same pass and actually advances `rev`/`hash` to upstream's current HEAD (don't leave `rev` stale at whatever commit the override happened to be pinned to).
-        6. [PENDING] Run the custom command `/rebase-devenv-branch <branch>` (the branch name from step 2 or 3) to rebase it onto cachix/devenv's main, then run `git ls-remote git@github.com:tarc/devenv.git "refs/heads/<branch-or-its-rebase-devenv-branch--temp-variant>"` to get the new HEAD commit and `nix flake metadata "github:tarc/devenv/<new-rev>" --json | jq '.locked.narHash'` to get its hash. Update `rev`/`hash` in @packages/devenv/package.nix to these new values (`owner`/`repo` stay "tarc"/"devenv"; update the branch-name comment on `rev` too if `rebase-devenv-branch` created a new branch). Commit, then STOP — steps 7-12 below only apply to the non-overridden case and must not run this pass.
-        7. Remove any stale `-temp` branches left on git@github.com:tarc/devenv.git: run `git ls-remote --heads git@github.com:tarc/devenv.git '*-temp'` and delete each match with `git push git@github.com:tarc/devenv.git --delete refs/heads/<branch>`. These are always disposable rebase-devenv-branch working copies, so it's safe to remove all of them here — this step only runs in the non-overridden tail (step 1 skipped here, or step 5's revert fell through to here), never during step 6's pending path, so it never touches a branch that's still actively pinned as `src`. This covers both a `-temp` branch left over from the override just reverted in step 5, and any that accumulated during ordinary (never-overridden) runs.
+        5. [FINISHED] Revert the override: set `owner = "cachix"` in @${devenvPackage} and remove the comment block above `src`. Do not commit yet and do not stop — continue to step 7, so the normal flow below still runs this same pass and actually advances `rev`/`hash` to upstream's current HEAD (don't leave `rev` stale at whatever commit the override happened to be pinned to).
+        6. [PENDING] Run the custom command `/rebase-devenv-branch <branch>` (the branch name from step 2 or 3) to rebase it onto cachix/devenv's main, then run `git ls-remote ${devenvFork} "refs/heads/<branch-or-its-rebase-devenv-branch--temp-variant>"` to get the new HEAD commit and `nix flake metadata "github:tarc/devenv/<new-rev>" --json | jq '.locked.narHash'` to get its hash. Update `rev`/`hash` in @${devenvPackage} to these new values (`owner`/`repo` stay "tarc"/"devenv"; update the branch-name comment on `rev` too if `rebase-devenv-branch` created a new branch). Commit, then STOP — steps 7-12 below only apply to the non-overridden case and must not run this pass.
+        7. Remove any stale `-temp` branches left on ${devenvFork}: run `git ls-remote --heads ${devenvFork} '*-temp'` and delete each match with `git push ${devenvFork} --delete refs/heads/<branch>`. These are always disposable rebase-devenv-branch working copies, so it's safe to remove all of them here — this step only runs in the non-overridden tail (step 1 skipped here, or step 5's revert fell through to here), never during step 6's pending path, so it never touches a branch that's still actively pinned as `src`. This covers both a `-temp` branch left over from the override just reverted in step 5, and any that accumulated during ordinary (never-overridden) runs.
         8. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/cachix/devenv/releases/latest" | sed 's#.*/tag/v##'` to get the latest released version, used only as a human-readable version label (this does NOT pin `src` — see step 10)
-        9. Update the version in @packages/devenv/package.nix (it's in the let binding, the `version` variable) to the latest released version, if necessary
+        9. Update the version in @${devenvPackage} (it's in the let binding, the `version` variable) to the latest released version, if necessary
         10. Run `nix flake metadata github:cachix/devenv --json | jq '.locked | .rev, .narHash'` to get, respectively, the latest commit and NAR hash of devenv's default branch — `src` intentionally tracks the rolling main branch, not the release tag from step 8
-        11. Use these values to update devenv's rev and hash in the `src = fetchFromGitHub` call of @packages/devenv/package.nix, if necessary
+        11. Use these values to update devenv's rev and hash in the `src = fetchFromGitHub` call of @${devenvPackage}, if necessary
         12. Commit the changes if the version or hash was updated (this includes any revert from step 5)
       '';
 
       update-devenv-nix = ''
-        In @packages/devenv/package.nix update `devenvNixVersion`, `devenvNixRev`, and update the hash in the `devenvNixSrc = fetchFromGitHub` call if necessary.
+        In @${devenvPackage} update `devenvNixVersion`, `devenvNixRev`, and update the hash in the `devenvNixSrc = fetchFromGitHub` call if necessary.
 
         1. Run `nix flake metadata github:cachix/devenv --json | jq '.locks.nodes.nix | .original.ref, .locked.rev, .locked.narHash' | sed 's/devenv-//'` to get, respectively, devenvNixVersion, devenvNixRev and the NAR hash pinned by devenv's default (rolling main) branch — kept in sync with `src` in update-devenv-version, which tracks the same branch. This always resolves from cachix/devenv's main branch, even when update-devenv-version has an active fork override in `src` (owner = "tarc") — the nix-input pin is intentionally decoupled from the devenv source override, so don't substitute the fork here
-        2. Use these values to update `devenvNixVersion` and `devenvNixRev` in @packages/devenv/package.nix (they are let bindings), and the hash in the `devenvNixSrc = fetchFromGitHub` call of @packages/devenv/package.nix, if necessary
+        2. Use these values to update `devenvNixVersion` and `devenvNixRev` in @${devenvPackage} (they are let bindings), and the hash in the `devenvNixSrc = fetchFromGitHub` call of @${devenvPackage}, if necessary
         3. Commit the changes if devenvNixVersion, devenvNixRev, or the hash were updated
       '';
 
       update-devenv = ''
-        Update @packages/devenv/package.nix (both version and nix) and try to switch the system. If the switch fails, update `cargoHash` and try again.
+        Update @${devenvPackage} (both version and nix) and try to switch the system. If the switch fails, update `cargoHash` and try again.
 
-        1. Run the custom command `/update-devenv-version` to update @packages/devenv/package.nix
-        2. Run the custom command `/update-devenv-nix` to update the nix source in @packages/devenv/package.nix
-        3. Run `just switch` to switch to the updated configuration — always run this, even if steps 1-2 made no changes: whether a previous @packages/devenv/package.nix update was ever actually switched isn't reliably knowable, and `just switch` is cheap (Nix reuses already-built store paths) when nothing changed
-        4. If the switch fails on a cargoHash staleness issue (see the two failure shapes documented in @NIX-HASH-RECIPES.md — one of them reports no ready-to-use hash), update `cargoHash` in @packages/devenv/package.nix setting it to the empty string: `cargoHash = "";`, but only if the failure hasn't already reported a ready `got: sha256-...` value, in which case skip the next step and use that value directly in the step after
+        1. Run the custom command `/update-devenv-version` to update @${devenvPackage}
+        2. Run the custom command `/update-devenv-nix` to update the nix source in @${devenvPackage}
+        3. Run `just switch` to switch to the updated configuration — always run this, even if steps 1-2 made no changes: whether a previous @${devenvPackage} update was ever actually switched isn't reliably knowable, and `just switch` is cheap (Nix reuses already-built store paths) when nothing changed
+        4. If the switch fails on a cargoHash staleness issue (see the two failure shapes documented in @NIX-HASH-RECIPES.md — one of them reports no ready-to-use hash), update `cargoHash` in @${devenvPackage} setting it to the empty string: `cargoHash = "";`, but only if the failure hasn't already reported a ready `got: sha256-...` value, in which case skip the next step and use that value directly in the step after
         5. Run `just switch` again to get the right cargo hash. It will be automatically computed and reported in the logs
-        6. Use this hash to update `cargoHash` in @packages/devenv/package.nix
+        6. Use this hash to update `cargoHash` in @${devenvPackage}
         7. Run `just switch` again to switch to the updated configuration
         8. Commit the changes if the switch succeeds and the cargo hash is updated
       '';
 
       rebase-devenv-branch = ''
-        Branch to rebase in git@github.com:tarc/devenv.git: $1
+        Branch to rebase in ${devenvFork}: $1
 
-        1. Note: authentication for git@github.com:tarc/devenv.git uses the `$DEVENV_GITHUB_TOKEN` env var, scoped specifically for this repo — not `$GITHUB_TOKEN`, which is a generic token used for unrelated purposes (e.g. nixpkgs-review)
+        1. Note: authentication for ${devenvFork} uses the `$DEVENV_GITHUB_TOKEN` env var, scoped specifically for this repo — not `$GITHUB_TOKEN`, which is a generic token used for unrelated purposes (e.g. nixpkgs-review)
         2. If no branch name was given above, stop and report the error
-        3. Run `git ls-remote --exit-code git@github.com:tarc/devenv.git "refs/heads/$1"` to verify the branch exists on the fork; fail if it doesn't (non-zero exit code)
+        3. Run `git ls-remote --exit-code ${devenvFork} "refs/heads/$1"` to verify the branch exists on the fork; fail if it doesn't (non-zero exit code)
         4. Determine the working branch: if `$1` already ends with `-temp`, the working branch is `$1` itself; otherwise the working branch is `$1-temp`, created from `$1`
-        5. Clone `git@github.com:tarc/devenv.git` into a fresh temporary directory and check out the working branch there: `git checkout -b <working-branch> "origin/$1"` if it needs to be created, or `git checkout <working-branch>` if it already exists
+        5. Clone `${devenvFork}` into `${devenvRebaseDir}` (first remove it with `rm -rf ${devenvRebaseDir}` if a previous run left it behind) and check out the working branch there: `git checkout -b <working-branch> "origin/$1"` if it needs to be created, or `git checkout <working-branch>` if it already exists
         6. Fetch cachix/devenv's main branch: `git fetch https://github.com/cachix/devenv.git main`
         7. Rebase the working branch onto it: `git rebase FETCH_HEAD`
         8. Force-push the rebased working branch back to the fork: `git push --force-with-lease origin HEAD:refs/heads/<working-branch>`
-        9. Remove the temporary clone directory
+        9. Remove the clone: `rm -rf ${devenvRebaseDir}`
       '';
 
       update-boost = ''
-        In @packages/jfrog-boost/package.nix bump the version, and update the hash in the fetchurl call if necessary.
+        In @${boostPackage} bump the version, and update the hash in the fetchurl call if necessary.
 
         1. Run `curl -fsSLI -o /dev/null -w '%{url_effective}' "https://github.com/jfrog/boost/releases/latest" | sed 's#.*/tag/##'` to get the latest version and decide if it needs to be updated
-        2. If the latest version is different from the current version, download it per the fetchurl recipe in @NIX-HASH-RECIPES.md: `wget -O /tmp/boost-<os>-<arch'>.tar.gz https://github.com/jfrog/boost/releases/download/v<version>/boost-<os>-<arch'>.tar.gz`, substituting variables according to @packages/jfrog-boost/package.nix, don't extract the compressed file
+        2. If the latest version is different from the current version, download it per the fetchurl recipe in @NIX-HASH-RECIPES.md: `wget -O /tmp/boost-<os>-<arch'>.tar.gz https://github.com/jfrog/boost/releases/download/v<version>/boost-<os>-<arch'>.tar.gz`, substituting variables according to @${boostPackage}, don't extract the compressed file
         3. Compute the hash with `nix hash file /tmp/boost-<os>-<arch'>.tar.gz`
-        4. Update the version and hash in @packages/jfrog-boost/package.nix
+        4. Update the version and hash in @${boostPackage}
         5. Remove the downloaded tarball: `rm -f /tmp/boost-<os>-<arch'>.tar.gz`
         6. Commit the changes if the version or hash was updated
       '';
@@ -121,12 +117,21 @@
       upgrade-system = ''
         Update jfrog-boost, update flake.lock, format README.md, switch, fix boost if needed and commit.
 
-        1. Run the custom command `/update-boost` to update @packages/jfrog-boost/package.nix
+        1. Run the custom command `/update-boost` to update @${boostPackage}
         2. Run `just update` to update flake.lock. If there's no change to the flake.lock file and no committed changes in the previous step, finish
         3. Run `just switch` to switch
         4. If there was a successful switch and the first step (update-boost) committed a new version, run `boost init` to fix jfrog-boost installation
         5. Run the custom command `/gc` to format README.md and garbage-collect the devenv store
-        6. Commit only the changes made by the previous steps (`flake.lock`, `packages/jfrog-boost/`, `README.md`); stage them by explicit path (never `git add -A`, `git add .` or `git commit -a`) and leave pending edits under `home-modules/claude/` for a separate commit
+        6. Commit only the changes made by the previous steps (`flake.lock`, `${dirOf boostPackage}/`, `README.md`); stage them by explicit path (never `git add -A`, `git add .` or `git commit -a`) and leave pending edits under `home-modules/claude/` for a separate commit
+      '';
+
+      upgrade-all-then-push = ''
+        Update devenv, then upgrade the rest of the system, then push everything.
+
+        1. Run the custom command `/update-devenv` and let it finish completely: its last `just switch` has succeeded and any `cargoHash` fix is committed. If it fails, stop and report, without running the next steps or pushing
+        2. Run the custom command `/upgrade-system`. If it finishes early because nothing changed, still go on to step 3, so the commits from step 1 get pushed. If it fails, stop and report without pushing
+        3. If `git status -sb` shows `main` ahead of `origin/main`, run `git push origin main` on its own, never piped through `tail`, `head` or `grep` (the pipe's exit status would hide a failed push), and check its exit code. Then confirm that `git ls-remote origin main` matches `git rev-parse HEAD`
+        4. Report the commits each step made and the pushed head. Pending edits under `home-modules/claude/` stay uncommitted, as `/upgrade-system` leaves them; mention any that `git status` shows
       '';
 
       gc = ''
@@ -146,8 +151,8 @@
         };
         Edit = {
           allow = [
-            "packages/jfrog-boost/package.nix"
-            "packages/devenv/package.nix"
+            boostPackage
+            devenvPackage
           ];
         };
         Bash = {
@@ -158,7 +163,7 @@
             "sudo:nixos-rebuild"
             "/run/wrappers/bin/sudo:nixos-rebuild"
             "rm -f:/tmp/boost-linux-amd64.tar.gz"
-            "rm -rf:/tmp/devenv-rebase"
+            "rm -rf:${devenvRebaseDir}"
             "boost:*"
             "curl -fsSLI:*"
             "curl -fsSL:*"
