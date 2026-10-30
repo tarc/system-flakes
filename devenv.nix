@@ -114,13 +114,13 @@ in
       '';
 
       rebase-devenv-branch = ''
-        Branch to rebase in ${devenvFork}: $1
+        Branch to rebase in ${devenvFork}: $0
 
         1. Note: authentication for ${devenvFork} uses the `$DEVENV_GITHUB_TOKEN` env var, scoped specifically for this repo — not `$GITHUB_TOKEN`, which is a generic token used for unrelated purposes (e.g. nixpkgs-review)
         2. If no branch name was given above, stop and report the error
-        3. Run `git ls-remote --exit-code ${devenvFork} "refs/heads/$1"` to verify the branch exists on the fork; fail if it doesn't (non-zero exit code)
-        4. Determine the working branch: if `$1` already ends with `-temp`, the working branch is `$1` itself; otherwise the working branch is `$1-temp`, created from `$1`
-        5. Clone `${devenvFork}` into `${devenvRebaseDir}` (first remove it with `rm -rf ${devenvRebaseDir}` if a previous run left it behind) and check out the working branch there: `git checkout -b <working-branch> "origin/$1"` if it needs to be created, or `git checkout <working-branch>` if it already exists
+        3. Run `git ls-remote --exit-code ${devenvFork} "refs/heads/$0"` to verify the branch exists on the fork; fail if it doesn't (non-zero exit code)
+        4. Determine the working branch: if `$0` already ends with `-temp`, the working branch is `$0` itself; otherwise the working branch is `$0-temp`, created from `$0`
+        5. Clone `${devenvFork}` into `${devenvRebaseDir}` (first remove it with `rm -rf ${devenvRebaseDir}` if a previous run left it behind) and check out the working branch there: `git checkout -b <working-branch> "origin/$0"` if it needs to be created, or `git checkout <working-branch>` if it already exists
         6. Fetch cachix/devenv's main branch: `git fetch https://github.com/cachix/devenv.git main`
         7. Rebase the working branch onto it: `git rebase FETCH_HEAD`
         8. Force-push the rebased working branch back to the fork: `git push --force-with-lease origin HEAD:refs/heads/<working-branch>`
