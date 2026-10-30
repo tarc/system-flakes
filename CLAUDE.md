@@ -61,6 +61,8 @@ A mismatched revision **builds successfully** but crashes devenv's interactive s
 1. Check whether the required commit moved: either the `GHOSTTY_COMMIT` constant in `crates/libghostty-vt-sys/build.rs` of the `libghostty-rs` repo devenv vendors, or more directly devenv's own `flake.nix`, which pins the same `ghostty` input for the same reason (see its comment there: "Keep this in sync with the Ghostty revision pinned by libghostty-rs").
 1. If it moved, update the `ghostty` input's URL in this repo's `flake.nix` to match, before running `just update`.
 
+The `/sync-devenv-ghostty` command does both steps, reading the pin from the exact devenv commit `src` builds (the fork's commit when `src` is overridden), and `/update-devenv` runs it before switching. It still can't check the interactive shell for you.
+
 ## Known environment gotcha: sudo via PATH
 
 `sudo` (e.g. via `just switch` → `nixos-rebuild switch`) can intermittently fail with:

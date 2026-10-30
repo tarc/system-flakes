@@ -71,9 +71,32 @@ in
       update-devenv-nix = ''
         In @${devenvPackage} update `devenvNixVersion`, `devenvNixRev`, and update the hash in the `devenvNixSrc = fetchFromGitHub` call if necessary.
 
-        1. Run `nix flake metadata github:cachix/devenv --json | jq '.locks.nodes.nix | .original.ref, .locked.rev, .locked.narHash' | sed 's/devenv-//'` to get, respectively, devenvNixVersion, devenvNixRev and the NAR hash pinned by devenv's default (rolling main) branch — kept in sync with `src` in update-devenv-version, which tracks the same branch. This always resolves from cachix/devenv's main branch, even when update-devenv-version has an active fork override in `src` (owner = "tarc") — the nix-input pin is intentionally decoupled from the devenv source override, so don't substitute the fork here
-        2. Use these values to update `devenvNixVersion` and `devenvNixRev` in @${devenvPackage} (they are let bindings), and the hash in the `devenvNixSrc = fetchFromGitHub` call of @${devenvPackage}, if necessary
-        3. Commit the changes if devenvNixVersion, devenvNixRev, or the hash were updated
+        1. Run the custom command `/resolve-devenv-ref upstream` to get the reference of the devenv flake to read the pin from. While `src` tracks cachix/devenv, that's the exact commit `src` builds, so a commit pushed upstream after update-devenv-version ran can't leave this pin ahead of `src`. While `src` has a fork override (owner = "tarc"), it's cachix/devenv's main branch: the nix-input pin is intentionally decoupled from the devenv source override, so don't substitute the fork here
+        2. Run `nix flake metadata "<ref>" --json | jq '.locks.nodes.nix | .original.ref, .locked.rev, .locked.narHash' | sed 's/devenv-//'` to get, respectively, devenvNixVersion, devenvNixRev and the NAR hash pinned by that devenv commit
+        3. Use these values to update `devenvNixVersion` and `devenvNixRev` in @${devenvPackage} (they are let bindings), and the hash in the `devenvNixSrc = fetchFromGitHub` call of @${devenvPackage}, if necessary
+        4. Commit the changes if devenvNixVersion, devenvNixRev, or the hash were updated
+      '';
+
+      resolve-devenv-ref = ''
+        Report the flake reference of the devenv commit that @${devenvPackage} builds. Mode: $0
+
+        1. If no mode was given above, use `src`; if it is neither `src` nor `upstream`, stop and report the error
+        2. Read `owner`, `repo` and `rev` from the `src = fetchFromGitHub` call in @${devenvPackage}
+        3. Mode `src`: the reference is `github:<owner>/<repo>/<rev>`, the exact commit `src` builds, which is a commit of the fork when `src` is overridden (owner = "tarc", see update-devenv-version). Use it for pins that must match the code being built
+        4. Mode `upstream`: when `owner` is `cachix`, the reference is `github:cachix/devenv/<rev>`, the same commit as mode `src`. When `src` is overridden, it is `github:cachix/devenv`, cachix/devenv's main branch at query time, for pins that are intentionally decoupled from a fork override
+        5. Report the reference; change nothing and commit nothing
+      '';
+
+      sync-devenv-ghostty = ''
+        Keep the `ghostty` input in @flake.nix on the Ghostty revision that the devenv commit built by @${devenvPackage} requires (see "Keeping `libghostty-vt` in sync with devenv" in @CLAUDE.md).
+
+        1. Check that `git status --short flake.nix flake.lock` prints nothing; otherwise stop and report, so the commit below holds only the Ghostty pin
+        2. Run the custom command `/resolve-devenv-ref src` to get the reference of the exact devenv commit `src` builds. Don't fall back to upstream when `src` is overridden: the fork's Cargo.lock decides which libghostty-vt gets linked
+        3. Run `nix flake metadata "<ref>" --json | jq -r '.locks.nodes.ghostty.locked.rev'` to get the Ghostty revision that devenv commit pins. If it prints `null` (that commit has no `ghostty` input), stop and report it instead of guessing a revision
+        4. Run `jq -r '.nodes.ghostty.locked.rev' flake.lock` to get the revision this repo pins. If both revisions match, report it and stop
+        5. Otherwise set `ghostty.url` in @flake.nix to `github:ghostty-org/ghostty/<revision from step 3>`, run `nix flake update ghostty` to relock only that input, and check that step 4's command now prints the step 3 revision
+        6. Commit `flake.nix` and `flake.lock`, staged by explicit path
+        7. Report that the Ghostty pin moved, and that after the next switch an interactive devenv shell must be opened in a real terminal: a mismatched revision builds fine and only crashes there, and a non-interactive `devenv shell -- <cmd>` doesn't reproduce it
       '';
 
       update-devenv = ''
@@ -81,12 +104,13 @@ in
 
         1. Run the custom command `/update-devenv-version` to update @${devenvPackage}
         2. Run the custom command `/update-devenv-nix` to update the nix source in @${devenvPackage}
-        3. Run `just switch` to switch to the updated configuration — always run this, even if steps 1-2 made no changes: whether a previous @${devenvPackage} update was ever actually switched isn't reliably knowable, and `just switch` is cheap (Nix reuses already-built store paths) when nothing changed
-        4. If the switch fails on a cargoHash staleness issue (see the two failure shapes documented in @NIX-HASH-RECIPES.md — one of them reports no ready-to-use hash), update `cargoHash` in @${devenvPackage} setting it to the empty string: `cargoHash = "";`, but only if the failure hasn't already reported a ready `got: sha256-...` value, in which case skip the next step and use that value directly in the step after
-        5. Run `just switch` again to get the right cargo hash. It will be automatically computed and reported in the logs
-        6. Use this hash to update `cargoHash` in @${devenvPackage}
-        7. Run `just switch` again to switch to the updated configuration
-        8. Commit the changes if the switch succeeds and the cargo hash is updated
+        3. Run the custom command `/sync-devenv-ghostty` to keep the `ghostty` input of @flake.nix on the revision this devenv commit requires
+        4. Run `just switch` to switch to the updated configuration — always run this, even if steps 1-3 made no changes: whether a previous @${devenvPackage} update was ever actually switched isn't reliably knowable, and `just switch` is cheap (Nix reuses already-built store paths) when nothing changed
+        5. If the switch fails on a cargoHash staleness issue (see the two failure shapes documented in @NIX-HASH-RECIPES.md — one of them reports no ready-to-use hash), update `cargoHash` in @${devenvPackage} setting it to the empty string: `cargoHash = "";`, but only if the failure hasn't already reported a ready `got: sha256-...` value, in which case skip the next step and use that value directly in the step after
+        6. Run `just switch` again to get the right cargo hash. It will be automatically computed and reported in the logs
+        7. Use this hash to update `cargoHash` in @${devenvPackage}
+        8. Run `just switch` again to switch to the updated configuration
+        9. Commit the changes if the switch succeeds and the cargo hash is updated
       '';
 
       rebase-devenv-branch = ''
@@ -131,7 +155,7 @@ in
         1. Run the custom command `/update-devenv` and let it finish completely: its last `just switch` has succeeded and any `cargoHash` fix is committed. If it fails, stop and report, without running the next steps or pushing
         2. Run the custom command `/upgrade-system`. If it finishes early because nothing changed, still go on to step 3, so the commits from step 1 get pushed. If it fails, stop and report without pushing
         3. If `git status -sb` shows `main` ahead of `origin/main`, run `git push origin main` on its own, never piped through `tail`, `head` or `grep` (the pipe's exit status would hide a failed push), and check its exit code. Then confirm that `git ls-remote origin main` matches `git rev-parse HEAD`
-        4. Report the commits each step made and the pushed head. Pending edits under `home-modules/claude/` stay uncommitted, as `/upgrade-system` leaves them; mention any that `git status` shows
+        4. Report the commits each step made and the pushed head, and pass on any interactive-shell check that `/sync-devenv-ghostty` asked for. Pending edits under `home-modules/claude/` stay uncommitted, as `/upgrade-system` leaves them; mention any that `git status` shows
       '';
 
       gc = ''
@@ -153,6 +177,7 @@ in
           allow = [
             boostPackage
             devenvPackage
+            "flake.nix"
           ];
         };
         Bash = {
@@ -168,6 +193,7 @@ in
             "curl -fsSLI:*"
             "curl -fsSL:*"
             "nix flake metadata:*"
+            "nix flake update ghostty"
             "jq:*"
           ];
         };
