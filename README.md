@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/4lfh102fr2srbjsqifag166b1000d441-firewall-start.drv'
-deleting '/nix/store/cjz5azxlk55d5f1a7yngfkcprn5rkp2f-source.drv'
 deleting '/nix/store/cknb4w6cjmladqd0qh20n1q1aljc5iji-python3.14-flexparser-0.4.drv'
 deleting '/nix/store/clxbs7ffpfcmpmq070ihk9ga34x1yhcz-source.drv'
 deleting '/nix/store/hpyl5vk16g1yaisz2rj5lxi37p8d6giv-source.drv'
 deleting '/nix/store/mk5plyv9rrsck1mz8yjra5zphcjai2lj-source'
 deleting '/nix/store/z5jfjzvl6v8gq7b8jdqb8dkm5z7bhp26-outcome-1.3.0.post0.tar.gz.drv'
+deleting '/nix/store/pspff0rp45gfx1gf0xpwp38z1i08qc0x-lerc-4.2.0-dev'
+deleting '/nix/store/wwhwcvivqpcws0g2jahwh14ib6kpyrw4-dry-activate'
 deleting unused links...
 note: hard linking is currently saving 12.0 GiB
-321 store paths deleted, 1.4 GiB freed
+403 store paths deleted, 2.8 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,9 +72,11 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 575
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/c5dfsh5fi1jwi2zf61hd4jlyz4vww2dj" to "/nix/var/nix/profiles/system-575-link"
 deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 12.0 GiB
