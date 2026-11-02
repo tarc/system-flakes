@@ -61,7 +61,7 @@ deleting '/nix/store/wwhwcvivqpcws0g2jahwh14ib6kpyrw4-dry-activate'
 deleting '/nix/store/jqx0vr4gfdv1h93wfivkabhda1dpjzqx-translate_c'
 deleting unused links...
 note: hard linking is currently saving 12.0 GiB
-540 store paths deleted, 6.6 GiB freed
+532 store paths deleted, 5.3 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -72,11 +72,11 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 <!-- BEGIN mdsh -->
 ```text
 removing old generations of profile /nix/var/nix/profiles/system
-removing profile version 576
+removing profile version 577
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
 finding garbage collector roots...
-removing stale link from "/nix/var/nix/gcroots/auto/3v05r4fq262w87hdk5snx4zgbcjij8ik" to "/nix/var/nix/profiles/system-576-link"
+removing stale link from "/nix/var/nix/gcroots/auto/kdgn10lmd6979dck136r3qr12z83by3b" to "/nix/var/nix/profiles/system-577-link"
 deleting garbage...
 deleting unused links...
 note: hard linking is currently saving 12.0 GiB
