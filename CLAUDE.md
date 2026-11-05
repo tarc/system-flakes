@@ -11,6 +11,9 @@ A single Nix flake providing NixOS + Home Manager configuration for the host `po
 - `just switch` — rebuild and activate the NixOS system (`sudo nixos-rebuild switch --flake .#poita`). Requires sudo.
 - `just boot` — same, but only takes effect on next boot.
 - `just update` — `nix flake update --flake .` (updates `flake.lock`).
+- `just update-held`, `just hold-status` — update everything but nixpkgs, and check a nixpkgs hold (see "Holding nixpkgs" below).
+- `just boost-status` — `current` or `stale`: whether the boost integrations match the packaged version.
+- `just devenv-pins` — compares the devenv, nix and Ghostty pins with upstream, ending with `status: current` or `status: stale`. `/update-devenv` uses it to skip its sub-commands when nothing moved.
 - `just fmt` / `nix fmt` — run `treefmt` (nixfmt, deadnix, mdformat, just, mdsh) over the tree. **Warning:** `mdsh` executes shell commands embedded in `README.md` and rewrites their output in place — running `nix fmt` can trigger real commands (e.g. `nix-collect-garbage`).
 - `just` (no args) — lists all recipes.
 - `flake-archive | cachix-cache push` — push the current flake inputs' closure to the Cachix cache.
@@ -19,7 +22,7 @@ There is no test suite; correctness is checked by `just switch` actually buildin
 
 `just` comes from this repo's devenv shell (`devenv.nix`), not the system profile. An interactive shell gets it from the devenv zsh hook, and Claude Code started from such a terminal in the repo inherits that environment (`DEVENV_ROOT` set, `just` on `PATH`), so its Bash tool can run `just switch` directly. If `command -v just` finds nothing (Claude Code started elsewhere, e.g. from another directory or an IDE), run `devenv shell -- just switch` from the repo root instead.
 
-Both `just switch` and `nix fmt` routinely take well over 2 minutes (building `devenv`/other packages from source, or fetching treefmt tooling) — run them in the background from the start rather than waiting on a foreground timeout to force the conversion.
+`just switch`, `nix fmt` and `devenv gc --no-tui` routinely take well over 2 minutes (building `devenv`/other packages from source, fetching treefmt tooling, or scanning the store; `devenv gc` has passed the 10-minute foreground limit) — run them in the background from the start rather than waiting on a foreground timeout to force the conversion.
 
 ## Architecture
 
@@ -46,7 +49,29 @@ Both `just switch` and `nix fmt` routinely take well over 2 minutes (building `d
 1. If newer than `version` in the package, `wget` the matching `boost-<os>-<arch>.tar.gz` asset and hash it with `nix hash file`.
 1. Update `version` and `hash` in the derivation.
 
-This is exactly what the `/update-boost` slash command automates, and `/upgrade-system` chains it with `just update` → `just switch` → (`boost init` if boost was bumped) → `nix fmt` on `README.md` → commit. `/upgrade-all-then-push` runs `/update-devenv`, then `/upgrade-system`, then pushes.
+This is exactly what the `/update-boost` slash command automates, and `/upgrade-system` chains it with `just update` → `just switch` → (`boost init` if `just boost-status` prints `stale`) → `/gc` (`devenv gc`, then `nix fmt` on `README.md`) → commit. `/upgrade-all-then-push` runs `/update-devenv`, then `/upgrade-system`, then pushes.
+
+## Holding nixpkgs
+
+A nixpkgs channel sometimes ships a package with a stale fixed-output hash, which fails `just switch` on something this repo doesn't own. `/upgrade-system` handles that on its own, in both directions:
+
+- **Hold:** when a switch fails with a hash mismatch whose `specified:` hash isn't in this repo, it keeps nixpkgs at the revision committed in `flake.lock`, updates every other input (`just update-held`), writes `nixpkgs-hold.json` and carries on. Any other failure still stops the run.
+- **Release:** every run still starts with a full `just update`. `just hold-status` evaluates the hold's `attr` under the new lock, without building anything. It prints `held` while the hash is still `stale`. Once it prints `released`, the run tries the new nixpkgs, and removes the file if the switch succeeds. If a different stale hash fails that switch, the hold is rewritten and keeps its `since`.
+
+Each run reports a new, continuing or released hold at the end, and records it in the commit body. `git log -- nixpkgs-hold.json` is the full history.
+
+`nixpkgs-hold.json` exists only during a hold:
+
+```json
+{
+  "rev": "<nixpkgs-unstable revision committed in HEAD's flake.lock, the one being held>",
+  "since": "<date the hold started, YYYY-MM-DD>",
+  "attr": "<attribute of the failing derivation under pkgs, such as opencode.node_modules>",
+  "stale": "<the specified: hash from the failure>",
+  "got": "<the got: hash from the failure>",
+  "note": "<what failed, and the upstream fix if known>"
+}
+```
 
 ## Keeping `libghostty-vt` in sync with devenv
 
@@ -61,7 +86,7 @@ A mismatched revision **builds successfully** but crashes devenv's interactive s
 1. Check whether the required commit moved: either the `GHOSTTY_COMMIT` constant in `crates/libghostty-vt-sys/build.rs` of the `libghostty-rs` repo devenv vendors, or more directly devenv's own `flake.nix`, which pins the same `ghostty` input for the same reason (see its comment there: "Keep this in sync with the Ghostty revision pinned by libghostty-rs").
 1. If it moved, update the `ghostty` input's URL in this repo's `flake.nix` to match, before running `just update`.
 
-The `/sync-devenv-ghostty` command does both steps, reading the pin from the exact devenv commit `src` builds (the fork's commit when `src` is overridden), and `/update-devenv` runs it before switching. It still can't check the interactive shell for you.
+The `/sync-devenv-ghostty` command does both steps, reading the pin from the exact devenv commit `src` builds (the fork's commit when `src` is overridden), and `/update-devenv` runs it before switching whenever `just devenv-pins` reports that something moved. It still can't check the interactive shell for you.
 
 ## Known environment gotcha: sudo via PATH
 

@@ -1,0 +1,8 @@
+{
+  "rev": "5c9de89ec55bff981cb8da1a4ee92b10f1438ffc",
+  "since": "2026-11-04",
+  "attr": "opencode.node_modules",
+  "stale": "sha256-xfOVcw1+waLVNhFDwzOtzxrUSQEogvn88YomydOlhwc=",
+  "got": "sha256-prx9dX7kUvs/E3zopkaPk5LXh3xJAy5sZeum/W8L7cA=",
+  "note": "opencode 2.2.5 bump left a stale node_modules hash; fixed by NixOS/nixpkgs#582675"
+}

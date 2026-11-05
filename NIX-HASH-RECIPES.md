@@ -43,3 +43,23 @@ The resulting failure reports the correct hash in one of two shapes:
 - **rustPlatform's own consistency check**: `ERROR: cargoHash or cargoSha256 is out of date` / `Cargo.lock is not the same in .../vendor` — this does **not** hand you a ready value; you still have to go through the empty-`cargoHash`-then-rebuild cycle above to get one. This shape can appear even when `cargoHash` was already a real (but stale) value, precisely because of the FOD-caching-by-hash-string behavior noted at the top of this file — Nix reused a cached vendor derivation from a previous `src` instead of re-fetching and immediately catching the mismatch.
 
 Used by: `update-devenv` (`packages/devenv/package.nix`'s `cargoHash`), the `mdsh` overlay's `versionCargoHash`.
+
+## Stale hash inside nixpkgs
+
+A nixpkgs package can carry a stale fixed-output hash of its own, for example after a version bump merged without updating it. The `specified:` hash in the failure then appears nowhere in this repo, so there is nothing here to recompute. `/upgrade-system` holds nixpkgs back instead (see "Holding nixpkgs" in `CLAUDE.md`).
+
+Checking a suspect costs far less than a full `just switch`:
+
+```
+nix eval --raw '.#nixosConfigurations.poita.pkgs.<attr>.outputHash'   # is it still the stale hash?
+d=$(nix eval --raw '.#nixosConfigurations.poita.pkgs.<attr>.drvPath')
+nix build "${d}^*" --no-link                                          # does it really fail?
+```
+
+A merged fix isn't necessarily in your channel yet: `nixpkgs-unstable` can trail `nixos-unstable-small` by hundreds of commits. To check:
+
+```
+GH_TOKEN=$GITHUB_TOKEN gh api "repos/NixOS/nixpkgs/compare/<channel>...<fix-commit>" --jq '.status, .ahead_by'
+```
+
+`ahead` means the channel doesn't have the fix yet; `behind` or `identical` means it does.
