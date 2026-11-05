@@ -30,6 +30,8 @@ On this machine (WSL2), the whole Linux filesystem lives in one virtual disk on 
 
 - Never pipe `git push` (or `fetch`/`pull`) through `tail`, `head` or `grep`: the pipeline's exit status becomes the last command's, so a failed push reports success. It happened in gsd-core while GitHub's API and SSH were unreachable and the rest of the internet was up. Run the push bare and check its exit code, then confirm with `git ls-remote origin <branch>`.
 
+- A wrapper that prints a command's exit status must also return it: `cmd > log 2>&1; rc=$?; echo "exit=$rc"; exit $rc`. Ending on `echo "exit=$?"` makes the script exit 0, so a background task reports success for a failed command. It happened with a failed `just switch` in system-flakes, noticed only by reading the output.
+
 - Never call `ScheduleWakeup` to wait on a `Bash(run_in_background: true)` command or other harness-tracked async work (e.g. a Monitor-tracked process). Just end the turn — the harness re-invokes automatically on completion. This is a recurring slip across projects (system-flakes `/update-devenv`, `/upgrade-system`) despite `ScheduleWakeup`'s own tool description saying not to do this. Reserve `ScheduleWakeup` for `/loop` dynamic-pacing mode, or for actively polling *external* state the harness cannot observe (a CI run, a remote queue).
 
 - `gh pr checks` prints a `cancelled` check as `fail`. `cancel-in-progress` concurrency cancels superseded runs on every new push and on PR `edited` events, so several "failures" completing in the same second are usually supersession. Read `conclusion` from `gh api repos/<owner>/<repo>/commits/<sha>/check-runs` before reporting red.
@@ -39,6 +41,8 @@ On this machine (WSL2), the whole Linux filesystem lives in one virtual disk on 
 - In Bash tool commands, `\\` is collapsed to `\` — even inside a quoted `<<'EOF'` heredoc, where bash itself would keep it. Lone backslashes survive, so a doubled backslash in a regex or escape is silently halved. Write content containing `\\` with the Write tool, not a heredoc or `echo`.
 
 - The Bash tool's shell is zsh, where `$var:` followed by a modifier letter is a history modifier, even inside double quotes: `"$t:crates/x"` gives `abc123rates/x` (`:c`), and `"$t:hello"` gives `.ello` (`:h`, dirname). A colon followed by a non-modifier letter (`"$t:main"`) happens to survive. Brace the variable whenever a colon follows it: `"${t}:path"`, as in `git show "${tree}:crates/x.rs"`. With a redirect the slip destroys the target, because the shell truncates it before `git show` runs: `git show "$B:scripts/ci-timeout-report.cjs" > file` mangles the ref to `<sha>js`, git fails, and the file is left empty; `git show "$B:scripts/x.cjs" > file` drops the path (`:s` swallows it), exits 0, and silently writes the whole commit into the file.
+
+- zsh aborts a command when a glob matches nothing (`no matches found`), and the `(N)` qualifier doesn't help because the Bash tool's shell sets `NO_BARE_GLOB_QUAL`. For paths that may not exist, use `find <dir> -name 'x*' -print -delete` or similar instead of a glob.
 
 ## Verify before asserting
 
