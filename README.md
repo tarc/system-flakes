@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/cjz5azxlk55d5f1a7yngfkcprn5rkp2f-source.drv'
-deleting '/nix/store/cknb4w6cjmladqd0qh20n1q1aljc5iji-python3.14-flexparser-0.4.drv'
-deleting '/nix/store/clxbs7ffpfcmpmq070ihk9ga34x1yhcz-source.drv'
 deleting '/nix/store/hpyl5vk16g1yaisz2rj5lxi37p8d6giv-source.drv'
 deleting '/nix/store/mk5plyv9rrsck1mz8yjra5zphcjai2lj-source'
+deleting '/nix/store/zh5dih82zvcw6y1xl8f1zk9klbiigchs-source'
 deleting '/nix/store/z5jfjzvl6v8gq7b8jdqb8dkm5z7bhp26-outcome-1.3.0.post0.tar.gz.drv'
+deleting '/nix/store/vgrpjwja92ak32gnbg8yqij4c4d7ixib-activate'
+deleting '/nix/store/fmc6184b953hqyv1vjxxrw2sz0zzfxdg-devenv-files-cleanup.drv'
 deleting '/nix/store/wwhwcvivqpcws0g2jahwh14ib6kpyrw4-dry-activate'
 deleting unused links...
-note: hard linking is currently saving 12.3 GiB
-313 store paths deleted, 492.4 MiB freed
+note: hard linking is currently saving 12.1 GiB
+371 store paths deleted, 1.9 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,15 +71,15 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/jgqbkq5kk6h91f36xdlbn4c44wpady26-system-units.drv'
-deleting '/nix/store/bm39rl3wsqnyxr2gx4sn32mlzpga973v-unit-dbus-broker.service.drv'
-deleting '/nix/store/bc664gdlqkxx4iilncbqph8j7gip5ymk-user-units.drv'
-deleting '/nix/store/s0305c5593w4a7jinl2p3p8ybbmnmyfx-unit-dbus-broker.service.drv'
-deleting '/nix/store/f078hhhi87mpgns7f813qrxck81icn9l-X-Restart-Triggers-dbus-broker.drv'
-deleting '/nix/store/xcrk4s1mxx01pf5apz6yi8pz6n772p5l-dbus-1.drv'
-deleting '/nix/store/wh7qjd8pw4v96z6zazdwckz5vsyranmv-system-path.drv'
+deleting '/nix/store/r2pwmxy0z5bh2mi71g2a3rd9j8631yc1-dbus-1'
+deleting '/nix/store/k78aidf0f4hvb9mk062dmw4l3slh7lhi-user-units.drv'
+deleting '/nix/store/3wi8wfj5j5b6c68zbhxsxa2mlys7qzgs-unit-dbus-broker.service.drv'
+deleting '/nix/store/xbx4vig5pwk2hdq6li27k7my2rni4zjm-X-Restart-Triggers-dbus-broker.drv'
+deleting '/nix/store/h9lv8knxv88rzraapfsfgfcwipig2jxv-dbus-1.drv'
+deleting '/nix/store/iy5nih12hspcg3jfn8s9wyjif3pmg7bn-system-path'
+deleting '/nix/store/yzz7x41b5bqkkin892nr2lijs5srr10y-system-path.drv'
 deleting unused links...
-note: hard linking is currently saving 12.3 GiB
+note: hard linking is currently saving 12.0 GiB
 19 store paths deleted, 151.7 KiB freed
 ```
 <!-- END mdsh -->
