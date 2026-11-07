@@ -232,7 +232,7 @@ devenv-pins:
     check temp-branches "$temp" ""
     echo "status: $verdict"
     if [ "$verdict" = current ]; then
-      {{ record }} step "\`just devenv-pins\`: every pin is current (devenv \`${rev:0:7}\`, nix $nix_version, Ghostty \`${ghostty:0:7}\`), so the sub-commands were skipped" || true
+      {{ record }} step "\`just devenv-pins\`: devenv \`${rev:0:7}\`, its nix $nix_version and Ghostty \`${ghostty:0:7}\` are all current, so the sub-commands were skipped" || true
     else
       {{ record }} step "\`just devenv-pins\`: stale (${moved[*]}), so the sub-commands run" || true
     fi
