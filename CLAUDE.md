@@ -14,6 +14,7 @@ A single Nix flake providing NixOS + Home Manager configuration for the host `po
 - `just update-held`, `just hold-status` — update everything but nixpkgs, and check a nixpkgs hold (see "Holding nixpkgs" below).
 - `just boost-status` — `current` or `stale`: whether the boost integrations match the packaged version.
 - `just devenv-pins` — compares the devenv, nix and Ghostty pins with upstream, ending with `status: current` or `status: stale`. `/update-devenv` uses it to skip its sub-commands when nothing moved.
+- `just report new|add|close|render|list` — the run reports of the main custom commands (see "Run reports" below).
 - `just fmt` / `nix fmt` — run `treefmt` (nixfmt, deadnix, mdformat, just, mdsh) over the tree. **Warning:** `mdsh` executes shell commands embedded in `README.md` and rewrites their output in place — running `nix fmt` can trigger real commands (e.g. `nix-collect-garbage`).
 - `just` (no args) — lists all recipes.
 - `flake-archive | cachix-cache push` — push the current flake inputs' closure to the Cachix cache.
@@ -50,6 +51,40 @@ There is no test suite; correctness is checked by `just switch` actually buildin
 1. Update `version` and `hash` in the derivation.
 
 This is exactly what the `/update-boost` slash command automates, and `/upgrade-system` chains it with `just update` → `just switch` → (`boost init` if `just boost-status` prints `stale`) → `/gc` (`devenv gc`, then `nix fmt` on `README.md`) → commit. `/upgrade-all-then-push` runs `/update-devenv`, then `/upgrade-system`, then pushes.
+
+## Run reports
+
+`/upgrade-all-then-push`, `/update-devenv` and `/upgrade-system` each keep a run report, filled in while they run rather than summarized at the end. `just report` (`scripts/run-report.mjs`) keeps one JSON file per invocation in `.run-reports/` (gitignored), so two runs of the same command, even inside one parent, get separate reports.
+
+- `just report new <command>` starts a report. If another report is still open, the new one becomes its child, so a parent's report includes every sub-command's report, in the order they ran. `new --root` starts fresh and marks anything left open by an interrupted run as interrupted; `/upgrade-all-then-push` uses it. Reports left open more than 3 hours count as interrupted too.
+- `just report add <section> '<text>'` adds a fact to the innermost open report. Run it in the same Bash call that establishes the fact. For text with an apostrophe, pass it on stdin with a quoted heredoc (`just report add note <<'EOF'`). Sections: `headline` (the outcome, written last; it replaces any earlier one), `step`, `result`, `note`, `open`, and `log:<Name>` and `status:<Name>` for tracked state such as the nixpkgs hold.
+- `just report close` closes the innermost report. For an outermost report it prints the rendered report and saves it as `.md` next to the JSON: relay that as the final message, editing only for flow. Inside a parent it prints `nested`, and the parent's report will include it. If nothing called the command, the parent is left over from an interrupted run: run the `just report render` that `close` names, and relay that.
+- `just report render [file]` renders a report (by default the latest outermost one), and `just report list [count]` lists recent reports.
+
+Write each entry so it reads on its own, since it can end up nested under a parent's step. The rendered template:
+
+```markdown
+<headline: the outcome, the final head, the tree state>
+
+**<Name> log: <newest status>**
+- <log items from every report, oldest first>
+
+**By step**
+- **/<sub-command>:** <its headline>
+  - <its steps, with commits as `<sha>: <what>`>
+- <own steps>
+
+**Result**
+- <result lines of the report that recorded one last: the state the run ended in>
+
+**Worth noting**
+- <notes from every report, oldest first>
+
+**Still open**
+- <open items from every report, oldest first>
+```
+
+Sections with nothing in them are left out.
 
 ## Holding nixpkgs
 

@@ -93,6 +93,11 @@ devenv-pins:
     check temp-branches "$temp" ""
     echo "status: $status"
 
+# Keep a run report for a custom command: new, add, close, render or list (see CLAUDE.md)
+[positional-arguments]
+report *ARGS:
+    @node scripts/run-report.mjs "$@"
+
 # Auto-format the project tree
 fmt:
     treefmt

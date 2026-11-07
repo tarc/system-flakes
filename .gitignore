@@ -13,3 +13,6 @@ devenv.local.nix
 # opencode
 opencode.jsonc
 .opencode/commands
+
+# run reports (scripts/run-report.mjs)
+.run-reports/

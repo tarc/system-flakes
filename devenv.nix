@@ -14,6 +14,11 @@ let
   nixpkgsHold = "nixpkgs-hold.json";
   devenvFork = "git@github.com:tarc/devenv.git";
   devenvRebaseDir = "/tmp/devenv-rebase";
+
+  # Opening paragraph of the commands that keep a run report (see "Run reports" in CLAUDE.md).
+  runReport = newArgs: ''
+    Keep a run report as you go (see "Run reports" in `CLAUDE.md`): run `just report new ${newArgs}` before step 1, add each fact with `just report add` in the same Bash call that establishes it, and finish with `just report close`, also when stopping early.
+  '';
 in
 {
   name = "system-flakes";
@@ -103,6 +108,7 @@ in
       update-devenv = ''
         Update @${devenvPackage} (both version and nix) and try to switch the system. If the switch fails, update `cargoHash` and try again.
 
+        ${runReport "update-devenv"}
         1. Run `just devenv-pins`. If it prints `status: current`, devenv, its nix pin and Ghostty are all up to date: report that and skip to step 5. Any other result, including a failed check, means go on to step 2
         2. Run the custom command `/update-devenv-version` to update @${devenvPackage}
         3. Run the custom command `/update-devenv-nix` to update the nix source in @${devenvPackage}
@@ -113,6 +119,8 @@ in
         8. Use this hash to update `cargoHash` in @${devenvPackage}
         9. Run `just switch` again to switch to the updated configuration
         10. Commit the changes if the switch succeeds and the cargo hash is updated
+
+        What to report: a `step` for the pin check, for each sub-command that ran (its commit as `<sha>: <what>`, or that nothing changed), for each switch and for any `cargoHash` fix; the system path after the last switch as `result`; an `open` item for the interactive-shell check when `/sync-devenv-ghostty` moved the Ghostty pin; a `note` for anything that ran for the first time or behaved unexpectedly; and last the `headline`
       '';
 
       rebase-devenv-branch = ''
@@ -143,26 +151,29 @@ in
       upgrade-system = ''
         Update jfrog-boost, update flake.lock, switch, fix boost if needed, format README.md and commit. A stale hash in a nixpkgs package doesn't stop the run: nixpkgs is held back, and released on its own once it builds (see "Holding nixpkgs" in `CLAUDE.md`).
 
+        ${runReport "upgrade-system"}
         1. Run the custom command `/update-boost` to update @${boostPackage}
         2. Run `just update` to update flake.lock
         3. Run `just hold-status`. If it prints `held`, run `just update-held`, so nixpkgs stays at the held revision and the other inputs still update. `released` means the hold's stale hash is gone, so this run tries the new nixpkgs. `none` means there is no hold
-        4. If `flake.lock` has no uncommitted change, step 1 committed nothing, and `just boost-status` prints `current`, skip to step 11
+        4. If `flake.lock` has no uncommitted change, step 1 committed nothing, and `just boost-status` prints `current`, there is nothing to switch or commit: skip the remaining steps
         5. Run `just switch` to switch
         6. If the switch failed with `hash mismatch in fixed-output derivation` and its `specified:` hash appears nowhere in `packages/`, `overlays/` or `flake.nix`, the stale hash is in nixpkgs, so hold it. While `flake.lock` still has the failing nixpkgs, write `${nixpkgsHold}` (format in `CLAUDE.md`, keeping `since` if the file exists) and check that its `attr` evaluates to that `specified:` hash. Then run `just update-held` and `just switch`. Stop and report without committing if that switch fails too, or if the first one failed any other way
         7. If step 3 printed `released` and the switch in step 5 succeeded, remove the hold with `git rm -f ${nixpkgsHold}`
         8. If `just boost-status` prints `stale`, run `boost init --claude --opencode --copilot < /dev/null` to fix the jfrog-boost installation. Without a TTY it needs explicit targets, and these are the integrations installed here
         9. Run the custom command `/gc` to garbage-collect the devenv store and format README.md
         10. Commit only the changes made by the previous steps (`flake.lock`, `${dirOf boostPackage}/`, `README.md`, and `${nixpkgsHold}` unless step 7 already staged its removal); stage them by explicit path (never `git add -A`, `git add .` or `git commit -a`) and leave pending edits under `home-modules/claude/` for a separate commit. If this run started, kept or released a hold, say so in the commit body
-        11. Report the nixpkgs state for the log, when there was a hold: a new one (held revision, failing derivation, `got` hash), one still in effect (also its `since`), or a release (its `since`, and the new nixpkgs revision)
+
+        What to report: a `step` each for the boost check (its commit as `<sha>: <what>`, or no change), the lock update, every switch, `boost init`, `/gc` (what each half freed) and the commit; whenever a hold exists or ends, `log:Nixpkgs` items (held revision and its `since`, failing derivation and `got` hash for a new hold, the nixpkgs revision this run tried, and how far the fix is when known) and a `status:Nixpkgs` of `new hold`, `hold still in effect` or `hold released`; the system path as `result`; a `note` for anything that ran for the first time, and for measurements worth comparing across runs; an `open` item for what remains; and last the `headline`
       '';
 
       upgrade-all-then-push = ''
         Update devenv, then upgrade the rest of the system, then push everything.
 
+        ${runReport "--root upgrade-all-then-push"}
         1. Run the custom command `/update-devenv` and let it finish completely: its last `just switch` has succeeded and any `cargoHash` fix is committed. If it fails, stop and report, without running the next steps or pushing
         2. Run the custom command `/upgrade-system`. If it finishes early because nothing changed, still go on to step 3, so the commits from step 1 get pushed. If it fails, stop and report without pushing. A nixpkgs hold isn't a failure: push what it committed
         3. If `git status -sb` shows `main` ahead of `origin/main`, run `git push origin main` on its own, never piped through `tail`, `head` or `grep` (the pipe's exit status would hide a failed push), and check its exit code. Then confirm that `git ls-remote origin main` matches `git rev-parse HEAD`
-        4. Report the commits each step made and the pushed head, pass on any nixpkgs hold or release that `/upgrade-system` reported, and pass on any interactive-shell check that `/sync-devenv-ghostty` asked for. Pending edits under `home-modules/claude/` stay uncommitted, as `/upgrade-system` leaves them; mention any that `git status` shows
+        4. Add a `step` for the push (`<old>..<new>`, or nothing to push) and the `headline`: the outcome, the pushed head and the tree state, naming any pending edits under `home-modules/claude/` (they stay uncommitted, as `/upgrade-system` leaves them). `just report close` then prints the whole report, which already holds the sub-commands' reports, any nixpkgs hold and any interactive-shell check: relay it
       '';
 
       gc = ''
@@ -202,6 +213,7 @@ in
             "curl -fsSL:*"
             "nix flake metadata:*"
             "nix flake update ghostty"
+            "just report:*"
             "jq:*"
           ];
         };
