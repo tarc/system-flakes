@@ -42,6 +42,10 @@ On this machine (WSL2), the whole Linux filesystem lives in one virtual disk on 
 
 - The Bash tool's shell is zsh, where `$var:` followed by a modifier letter is a history modifier, even inside double quotes: `"$t:crates/x"` gives `abc123rates/x` (`:c`), and `"$t:hello"` gives `.ello` (`:h`, dirname). A colon followed by a non-modifier letter (`"$t:main"`) happens to survive. Brace the variable whenever a colon follows it: `"${t}:path"`, as in `git show "${tree}:crates/x.rs"`. With a redirect the slip destroys the target, because the shell truncates it before `git show` runs: `git show "$B:scripts/ci-timeout-report.cjs" > file` mangles the ref to `<sha>js`, git fails, and the file is left empty; `git show "$B:scripts/x.cjs" > file` drops the path (`:s` swallows it), exits 0, and silently writes the whole commit into the file.
 
+- In the Bash tool's zsh, `status` is a read-only special parameter (another name for `$?`): `status=$(...)` aborts the command with `read-only variable: status`, and the lines after it never run. Use another name, such as `verdict`. Scripts run through `#!/usr/bin/env bash` aren't affected.
+
+- `pgrep -f` and `pkill -f` also match the Bash tool's own shell, whose command line contains the pattern: `pkill -f` killed its own shell (exit 144) before it reached the target, and `pgrep -f` then reported the stopped process as running. Find the PID with `ps -eo pid,args | grep '[p]attern'` and kill that PID.
+
 - zsh aborts a command when a glob matches nothing (`no matches found`), and the `(N)` qualifier doesn't help because the Bash tool's shell sets `NO_BARE_GLOB_QUAL`. For paths that may not exist, use `find <dir> -name 'x*' -print -delete` or similar instead of a glob.
 
 ## Verify before asserting
