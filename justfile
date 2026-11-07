@@ -143,6 +143,48 @@ hold-status:
       {{ record }} log:Nixpkgs "This run tried nixpkgs-unstable \`${locked:0:7}\`: \`$attr\` no longer evaluates to the stale hash$far, so the switch tries it" || true
     fi
 
+# For each package in nixpkgs-pins.json, print whether its pin can go: `<name> pinned` or `<name> releasable`
+pin-status:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    pins=nixpkgs-pins.json
+    if [ ! -e "$pins" ]; then
+      echo none
+      exit 0
+    fi
+    rev=$(jq -er .rev "$pins")
+    since=$(jq -r '.since // "?"' "$pins")
+    locked=$(jq -er '.nodes["nixpkgs-unstable"].locked.rev' flake.lock)
+    system=$(nix eval --impure --raw --expr builtins.currentSystem)
+    for name in $(jq -r '.packages | keys[]' "$pins"); do
+      reason=$(jq -r --arg n "$name" '.packages[$n]' "$pins")
+      if [ "$locked" = "$rev" ]; then
+        # A lock at the pinned revision (a held nixpkgs) says nothing about newer ones.
+        verdict=pinned
+        why="the locked nixpkgs is the pinned revision itself, so there is nothing newer to check"
+      else
+        # The unpinned package of the locked nixpkgs, as cache.nixos.org builds it.
+        out=$(nix eval --raw "github:NixOS/nixpkgs/$locked#legacyPackages.$system.$name.outPath" 2>/dev/null || true)
+        if [ -z "$out" ]; then
+          verdict=pinned
+          why="it doesn't evaluate in nixpkgs \`${locked:0:7}\`"
+        elif [ "$(curl -s -o /dev/null -w '%{http_code}' -m 20 "https://cache.nixos.org/$(basename "$out" | cut -d- -f1).narinfo")" = 200 ]; then
+          verdict=releasable
+          why="cache.nixos.org has \`$(basename "$out" | cut -d- -f2-)\` for nixpkgs \`${locked:0:7}\`"
+        else
+          verdict=pinned
+          why="cache.nixos.org has no \`$(basename "$out" | cut -d- -f2-)\` for nixpkgs \`${locked:0:7}\` yet"
+        fi
+      fi
+      echo "$name $verdict"
+      if [ "$verdict" = pinned ]; then
+        {{ record }} status:Pins 'pins still in effect' || true
+        {{ record }} log:Pins "\`$name\` stays pinned to nixpkgs \`${rev:0:7}\` since $since ($reason): $why" || true
+      else
+        {{ record }} log:Pins "\`$name\` can leave its pin to nixpkgs \`${rev:0:7}\`: $why" || true
+      fi
+    done
+
 # Print whether the boost integrations match the packaged version: current or stale
 boost-status:
     #!/usr/bin/env bash

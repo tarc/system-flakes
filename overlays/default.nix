@@ -34,6 +34,7 @@ in
       # (import ./auggie.nix { inherit systemFlakes; })
       (import ./embedme.nix { inherit systemFlakes; })
       (import ./mdsh.nix { inherit systemFlakes; })
+      (import ./nixpkgs-pins.nix { inherit systemFlakes; })
     ];
   };
 }

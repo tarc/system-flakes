@@ -13,6 +13,7 @@ A single Nix flake providing NixOS + Home Manager configuration for the host `po
 - `just boot` — same, but only takes effect on next boot.
 - `just update` — `nix flake update --flake .` (updates `flake.lock`).
 - `just update-held`, `just hold-status` — update everything but nixpkgs, and check a nixpkgs hold (see "Holding nixpkgs" below).
+- `just pin-status` — for each package pinned to an older nixpkgs, whether its pin can go (see "Pinning packages to an older nixpkgs" below).
 - `just boost-status` — `current` or `stale`: whether the boost integrations match the packaged version.
 - `just devenv-pins` — compares the devenv, nix and Ghostty pins with upstream, ending with `status: current` or `status: stale`. `/update-devenv` uses it to skip its sub-commands when nothing moved.
 - `just report new|add|close|render|list` — the run reports of the main custom commands (see "Run reports" below).
@@ -62,7 +63,7 @@ This is exactly what the `/update-boost` slash command automates, and `/upgrade-
 - `just report close` closes the innermost report. For an outermost report it prints the rendered report and saves it as `.md` next to the JSON: relay that as the final message, editing only for flow. Inside a parent it prints `nested`, and the parent's report will include it. If nothing called the command, the parent is left over from an interrupted run: run the `just report render` that `close` names, and relay that.
 - `just report render [file]` renders a report (by default the latest outermost one), and `just report list [count]` lists recent reports.
 
-Recipes record their own outcome while a report is open (`add --if-open`, which skips a stale report): `just switch` and `just boot` (outcome, time, skipped substituters, and for a switch the system path as `result`), `just update`, `just update-held`, `just hold-status` (the nixpkgs log of a hold still in effect, with the fix distance when the hold has a `fix`), `just devenv-pins` and `just gc`. Don't repeat what they record: add what needs judgment, such as commits, holds that start or end, notes, open items and the headline.
+Recipes record their own outcome while a report is open (`add --if-open`, which skips a stale report): `just switch` and `just boot` (outcome, time, skipped substituters, and for a switch the system path as `result`), `just update`, `just update-held`, `just hold-status` (the nixpkgs log of a hold still in effect, with the fix distance when the hold has a `fix`), `just pin-status` (the pins log), `just devenv-pins` and `just gc`. Don't repeat what they record: add what needs judgment, such as commits, holds that start or end, notes, open items and the headline.
 
 Write each entry so it reads on its own, since it can end up nested under a parent's step. The rendered template:
 
@@ -111,6 +112,25 @@ Each run reports a new, continuing or released hold at the end, and records it i
   "fix": "<optional: the upstream fix commit; `just hold-status` then reports how far the tried revision is from it>"
 }
 ```
+
+## Pinning packages to an older nixpkgs
+
+A hold keeps all of nixpkgs back. A pin keeps back single packages instead, while the rest of nixpkgs moves on, for a package the new nixpkgs can't provide here. The first case: zed-editor 1.27.0 wasn't on cache.nixos.org, and building it locally ran out of memory, since its final crate alone needs about 10 GB.
+
+`nixpkgs-pins.json` lists the pinned top-level packages and the revision they come from. `overlays/nixpkgs-pins.nix` takes each of them from that revision (a locked `fetchTree` of nixpkgs, so no flake input), and does nothing when the file doesn't exist:
+
+```json
+{
+  "rev": "<nixpkgs revision the pinned packages come from, one that built here>",
+  "narHash": "<its narHash, as in flake.lock>",
+  "since": "<date the pins started, YYYY-MM-DD>",
+  "packages": {
+    "<attribute>": "<why it's pinned>"
+  }
+}
+```
+
+Pins come off on their own: right after `just update`, `/upgrade-system` runs `just pin-status`, which checks whether cache.nixos.org has each package's build for the newest nixpkgs, without building anything. It runs before a hold can put the lock back, and it keeps every pin when the lock is the pinned revision itself. It drops the entries reported `releasable`, removes the file once it's empty, and logs every pin it keeps or drops in the run report and the commit body. Adding a pin is a manual decision: add the entry, then `git add` the file, since a flake only sees tracked files.
 
 ## Keeping `libghostty-vt` in sync with devenv
 
