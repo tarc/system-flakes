@@ -91,8 +91,23 @@ function newReport(args) {
   console.log(parent ? `report ${name}, inside ${parent}` : `report ${name}`);
 }
 
+// The innermost open report, or null when none is open or it went stale.
+function openTop() {
+  const top = loadStack().at(-1);
+  const report = top ? tryLoad(top) : null;
+  if (!report || Date.now() - Date.parse(report.updated) > STALE_MS) return null;
+  return top;
+}
+
 function add(args) {
-  const section = args.shift() || die('usage: add <section> [text]  (text on stdin if omitted)');
+  // Recipes pass --if-open: they record their outcome only during a run
+  // that keeps a report, and never into a stale one.
+  const ifOpen = args[0] === '--if-open';
+  if (ifOpen) {
+    args.shift();
+    if (!openTop()) return;
+  }
+  const section = args.shift() || die('usage: add [--if-open] <section> [text]  (text on stdin if omitted)');
   let text = args.join(' ');
   if (!text.trim() && !process.stdin.isTTY) text = fs.readFileSync(0, 'utf8');
   text = text.trim().replace(/\s*\n\s*/g, ' ');
@@ -239,5 +254,5 @@ switch (cmd) {
     list(args);
     break;
   default:
-    die('usage: new [--root] <command> | add <section> [text] | close | render [file] | list [count]');
+    die('usage: new [--root] <command> | add [--if-open] <section> [text] | close | render [file] | list [count]');
 }

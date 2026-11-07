@@ -8,7 +8,8 @@ A single Nix flake providing NixOS + Home Manager configuration for the host `po
 
 ## Commands
 
-- `just switch` — rebuild and activate the NixOS system (`sudo nixos-rebuild switch --flake .#poita`). Requires sudo.
+- `just switch` — rebuild and activate the NixOS system (`sudo nixos-rebuild switch --flake .#poita`). Requires sudo. Like `just boot`, it leaves out configured substituters that don't answer (`just live-substituters` probes them), since a dead one costs a timeout on every path no other cache has.
+- `just gc` — `devenv gc --no-tui`, then `nix fmt` with a touched `README.md`, whose embedded commands collect the system's garbage (what `/gc` runs).
 - `just boot` — same, but only takes effect on next boot.
 - `just update` — `nix flake update --flake .` (updates `flake.lock`).
 - `just update-held`, `just hold-status` — update everything but nixpkgs, and check a nixpkgs hold (see "Holding nixpkgs" below).
@@ -23,7 +24,7 @@ There is no test suite; correctness is checked by `just switch` actually buildin
 
 `just` comes from this repo's devenv shell (`devenv.nix`), not the system profile. An interactive shell gets it from the devenv zsh hook, and Claude Code started from such a terminal in the repo inherits that environment (`DEVENV_ROOT` set, `just` on `PATH`), so its Bash tool can run `just switch` directly. If `command -v just` finds nothing (Claude Code started elsewhere, e.g. from another directory or an IDE), run `devenv shell -- just switch` from the repo root instead.
 
-`just switch`, `nix fmt` and `devenv gc --no-tui` routinely take well over 2 minutes (building `devenv`/other packages from source, fetching treefmt tooling, or scanning the store; `devenv gc` has passed the 10-minute foreground limit) — run them in the background from the start rather than waiting on a foreground timeout to force the conversion.
+`just switch`, `nix fmt`, `devenv gc --no-tui` and so `just gc` routinely take well over 2 minutes (building `devenv`/other packages from source, fetching treefmt tooling, or scanning the store; `devenv gc` has passed the 10-minute foreground limit) — run them in the background from the start rather than waiting on a foreground timeout to force the conversion.
 
 ## Architecture
 
@@ -50,7 +51,7 @@ There is no test suite; correctness is checked by `just switch` actually buildin
 1. If newer than `version` in the package, `wget` the matching `boost-<os>-<arch>.tar.gz` asset and hash it with `nix hash file`.
 1. Update `version` and `hash` in the derivation.
 
-This is exactly what the `/update-boost` slash command automates, and `/upgrade-system` chains it with `just update` → `just switch` → (`boost init` if `just boost-status` prints `stale`) → `/gc` (`devenv gc`, then `nix fmt` on `README.md`) → commit. `/upgrade-all-then-push` runs `/update-devenv`, then `/upgrade-system`, then pushes.
+This is exactly what the `/update-boost` slash command automates, and `/upgrade-system` chains it with `just update` → `just switch` → (`boost init` if `just boost-status` prints `stale`) → `/gc` (`just gc`) → commit. `/upgrade-all-then-push` runs `/update-devenv`, then `/upgrade-system`, then pushes.
 
 ## Run reports
 
@@ -60,6 +61,8 @@ This is exactly what the `/update-boost` slash command automates, and `/upgrade-
 - `just report add <section> '<text>'` adds a fact to the innermost open report. Run it in the same Bash call that establishes the fact. For text with an apostrophe, pass it on stdin with a quoted heredoc (`just report add note <<'EOF'`). Sections: `headline` (the outcome, written last; it replaces any earlier one), `step`, `result`, `note`, `open`, and `log:<Name>` and `status:<Name>` for tracked state such as the nixpkgs hold.
 - `just report close` closes the innermost report. For an outermost report it prints the rendered report and saves it as `.md` next to the JSON: relay that as the final message, editing only for flow. Inside a parent it prints `nested`, and the parent's report will include it. If nothing called the command, the parent is left over from an interrupted run: run the `just report render` that `close` names, and relay that.
 - `just report render [file]` renders a report (by default the latest outermost one), and `just report list [count]` lists recent reports.
+
+Recipes record their own outcome while a report is open (`add --if-open`, which skips a stale report): `just switch` and `just boot` (outcome, time, skipped substituters, and for a switch the system path as `result`), `just update`, `just update-held`, `just hold-status` (the nixpkgs log of a hold still in effect, with the fix distance when the hold has a `fix`), `just devenv-pins` and `just gc`. Don't repeat what they record: add what needs judgment, such as commits, holds that start or end, notes, open items and the headline.
 
 Write each entry so it reads on its own, since it can end up nested under a parent's step. The rendered template:
 
@@ -104,7 +107,8 @@ Each run reports a new, continuing or released hold at the end, and records it i
   "attr": "<attribute of the failing derivation under pkgs, such as opencode.node_modules>",
   "stale": "<the specified: hash from the failure>",
   "got": "<the got: hash from the failure>",
-  "note": "<what failed, and the upstream fix if known>"
+  "note": "<what failed, and the upstream fix if known>",
+  "fix": "<optional: the upstream fix commit; `just hold-status` then reports how far the tried revision is from it>"
 }
 ```
 

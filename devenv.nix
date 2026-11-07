@@ -120,7 +120,7 @@ in
         9. Run `just switch` again to switch to the updated configuration
         10. Commit the changes if the switch succeeds and the cargo hash is updated
 
-        What to report: a `step` for the pin check, for each sub-command that ran (its commit as `<sha>: <what>`, or that nothing changed), for each switch and for any `cargoHash` fix; the system path after the last switch as `result`; an `open` item for the interactive-shell check when `/sync-devenv-ghostty` moved the Ghostty pin; a `note` for anything that ran for the first time or behaved unexpectedly; and last the `headline`
+        What to report: `just devenv-pins` and `just switch` record their own outcomes, the switch also the system path as `result`. Add a `step` for each sub-command that ran (its commit as `<sha>: <what>`, or that nothing changed) and for any `cargoHash` fix; an `open` item for the interactive-shell check when `/sync-devenv-ghostty` moved the Ghostty pin; a `note` for anything that ran for the first time or behaved unexpectedly; and last the `headline`
       '';
 
       rebase-devenv-branch = ''
@@ -163,7 +163,7 @@ in
         9. Run the custom command `/gc` to garbage-collect the devenv store and format README.md
         10. Commit only the changes made by the previous steps (`flake.lock`, `${dirOf boostPackage}/`, `README.md`, and `${nixpkgsHold}` unless step 7 already staged its removal); stage them by explicit path (never `git add -A`, `git add .` or `git commit -a`) and leave pending edits under `home-modules/claude/` for a separate commit. If this run started, kept or released a hold, say so in the commit body
 
-        What to report: a `step` each for the boost check (its commit as `<sha>: <what>`, or no change), the lock update, every switch, `boost init`, `/gc` (what each half freed) and the commit; whenever a hold exists or ends, `log:Nixpkgs` items (held revision and its `since`, failing derivation and `got` hash for a new hold, the nixpkgs revision this run tried, and how far the fix is when known) and a `status:Nixpkgs` of `new hold`, `hold still in effect` or `hold released`; the system path as `result`; a `note` for anything that ran for the first time, and for measurements worth comparing across runs; an `open` item for what remains; and last the `headline`
+        What to report: `just update`, `just hold-status`, `just update-held`, `just switch` and `just gc` record their own outcomes, including the nixpkgs log of a hold still in effect and the system path. Add a `step` for the boost check (its commit as `<sha>: <what>`, or no change), for `boost init` when it runs, and for the commit; for a new hold, a `status:Nixpkgs` of `new hold` and `log:Nixpkgs` items with the held revision, the failing derivation and its `got` hash; after a release, a `status:Nixpkgs` of `hold released` and a `log:Nixpkgs` item with the hold's `since` and the new nixpkgs revision; a `note` for anything that ran for the first time, and for measurements worth comparing across runs; an `open` item for what remains; and last the `headline`
       '';
 
       upgrade-all-then-push = ''
@@ -179,8 +179,7 @@ in
       gc = ''
         Garbage-collect the devenv store and format README.md.
 
-        1. Run `devenv gc --no-tui` to garbage-collect the devenv store
-        2. Run `touch README.md` and `nix fmt` to format README.md
+        1. Run `just gc` in the background, since it takes minutes. It runs `devenv gc --no-tui`, then `touch README.md` and `nix fmt` (leaving out substituters that don't answer), and records what each freed in an open run report
       '';
     };
     permissions = {
