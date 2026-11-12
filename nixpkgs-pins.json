@@ -1,8 +1,0 @@
-{
-  "rev": "5c9de89ec55bff981cb8da1a4ee92b10f1438ffc",
-  "narHash": "sha256-WDValiY9se78X2Wh7aWWaq/c7HN29U555+OKbHEzYrw=",
-  "since": "2026-11-07",
-  "packages": {
-    "zed-editor": "zed-editor 1.27.0 isn't cached for nixpkgs 4fe25e1, and building it here runs out of memory"
-  }
-}

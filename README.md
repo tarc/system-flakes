@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/7bnhxdc1q58fv1w6fj3yv0b73cbi1mab-env-manifest.nix'
-deleting '/nix/store/dyhlmmf4i82xzxapavrjwysxbjp9cvh1-NerdFontsSymbolsOnly-3.4.0.tar.gz'
-deleting '/nix/store/pspff0rp45gfx1gf0xpwp38z1i08qc0x-lerc-4.2.0-dev'
-deleting '/nix/store/4jcmmsyz3pjnap26kxvg12inc9flcnpd-spirv_cross'
-deleting '/nix/store/z12r8jhhd69nk9zq06ifhv2f494ljsk8-boehm-gc-8.2.12-dev'
+deleting '/nix/store/zbbk7dpxf6n2gvzcdk4n17714blkprhh-python3.14-pycodestyle-2.15.0'
 deleting '/nix/store/wwhwcvivqpcws0g2jahwh14ib6kpyrw4-dry-activate'
-deleting '/nix/store/jqx0vr4gfdv1h93wfivkabhda1dpjzqx-translate_c'
+deleting '/nix/store/i0wqi7xg7m0qy2gxpjn598iwxjs5xlzi-activation-script'
+deleting '/nix/store/rjjclhqmqlnzckgcj6m4wa0zpis2vwx2-quote-1.0.47'
+deleting '/nix/store/8wqfkrkl0hmf08l3px15r7lps4nkddih-python3.14-charset-normalizer-3.5.1'
+deleting '/nix/store/nx7bncf095avdxaqwdin6qgb5d61qkq0-setuptools-rust-hook.sh.drv'
+deleting '/nix/store/q3kyzcsli6nirdb8pz2jkx79hy3zzv5m-source.drv'
 deleting unused links...
 note: hard linking is currently saving 12.3 GiB
-666 store paths deleted, 13.3 GiB freed
+1237 store paths deleted, 18.1 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/qz6xbjhhwvvp8r19905708qbcqibhlgd-activation-script.drv'
-deleting '/nix/store/rw2nkp754iy0q78ha35v45aihf2l2x5q-system-path'
-deleting '/nix/store/a255y52cd785cknx237z70za6nxsiyid-system-path.drv'
-deleting '/nix/store/yrsqsyaczsrsllijdqny6j3glnaszwqi-hm_.configzsh.zshrc'
-deleting '/nix/store/l8lprjk43ngff8rxrb5pd5ymls4a5ks5-hm_.configzsh.zshrc.drv'
-deleting '/nix/store/dafr6i1i82mhg1q4b0zyba3mz6chqg3q-home-manager-path.drv'
-deleting '/nix/store/2clhiwmyf13zf7ljg64h3zp2hn2cvlzw-home-manager-path'
+deleting '/nix/store/bms482i4zqiv1brxpcc92lllbalw19w0-devenv-2.4.0.drv'
+deleting '/nix/store/7bb1qmq64a0i1mws02y9ss7qpwvj8k7k-devenv-2.4.0-vendor.drv'
+deleting '/nix/store/wbshlfibv48rzvkbamxsc2l6zwb1z0nn-devenv-2.4.0-vendor-staging.drv'
+deleting '/nix/store/2yfc9wpfl6l3hcdycjyqvkwycdy1bg3l-home-manager-path'
+deleting '/nix/store/bd52fi6gsgn5iplxh8wkc1z3qqrjg8il-devenv-2.4.0'
+deleting '/nix/store/xpnjfy6b12k4m351p7mavvf2ikvxvff6-source.drv'
+deleting '/nix/store/mwi24ps2k5ih4i8qrf0r8pcwgj8y5q2s-source.drv'
 deleting unused links...
 note: hard linking is currently saving 12.3 GiB
-39 store paths deleted, 3.8 MiB freed
+65 store paths deleted, 477.5 MiB freed
 ```
 <!-- END mdsh -->
 
