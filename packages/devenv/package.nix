@@ -9,6 +9,7 @@
   testers,
   cachix,
   nixVersions,
+  aws-lc,
   openssl,
   dbus,
   protobuf,
@@ -18,6 +19,7 @@
   glibcLocalesUtf8,
   boehmgc,
   libghostty-vt,
+  zstd,
   llvmPackages,
   nixd,
   bash,
@@ -86,7 +88,11 @@ rustPlatform.buildRustPackage {
     rustPlatform.bindgenHook
   ];
 
+  # nixpkgs' cargo setup hook makes crates link system libraries
+  # (`cargoUseSystemLibs`), so aws-lc-sys and zstd-sys need them here.
+  # Mirrors nixpkgs' devenv package (84f55dc24).
   buildInputs = [
+    aws-lc
     openssl
     sqlite
     dbus
@@ -99,6 +105,7 @@ rustPlatform.buildRustPackage {
     nix_components.nix-cmd-c
     nix_components.nix-fetchers-c
     nix_components.nix-main-c
+    zstd
   ];
 
   nativeCheckInputs = [
