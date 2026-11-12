@@ -170,5 +170,31 @@ Fix: call the wrapper directly instead of relying on `PATH`, e.g.:
 
 Do not attempt to fix this by changing permissions/ownership on `/run/current-system/sw/bin/sudo` or `/nix/store/*/bin/sudo` — that binary is intentionally non-setuid; the setuid wrapper is what to use instead.
 
+## Known environment gotcha: a newer Nix waiting for the store lock
+
+A `just switch` that brings a newer Nix can hang without any error: the log stops after `copying path '…-nixos-rebuild-ng-…'`, and `nix-instantiate --find-file nixos-system` sits at 0% CPU. nixos-rebuild-ng re-execs into the new configuration's own nixos-rebuild, whose Nix runs as root and opens the store directly. When that Nix brings a store database migration, it first waits for an exclusive lock on `/nix/var/nix/db/big-lock`. Nix 2.34.9 → 2.35.6 brought `20260309-drop-redundant-indexreferrer`, and the switch waited 6.5 hours on 2026-11-12. Every nix-daemon worker holds that lock shared for as long as its client stays connected. The workers of `devenv shell` and `devenv mcp` stay connected for the whole session, so the wait never ends. `/nix/var/nix/db/schema` doesn't change; migrations are rows of the database's `SchemaMigrations` table.
+
+To check:
+
+```
+sudo lslocks -o PID,COMMAND,MODE,BLOCKER,PATH | grep big-lock   # a WRITE* waiter, and the workers (nix-daemon <client pid>) blocking it
+nix run nixpkgs#sqlite -- -readonly /nix/var/nix/db/db.sqlite 'select * from SchemaMigrations;'
+```
+
+Fix: apply the migration with the new Nix while no worker holds the lock, then switch. The older Nix ignores migration names it doesn't know, so the running system keeps working. The new Nix is already in the store; the hung switch's log names it (`copying path '…-nix-<version>'`):
+
+```
+sudo /nix/store/<hash>-nix-<version>/bin/nix --extra-experimental-features nix-command store info --store local
+```
+
+It returns at once when nothing else holds the lock, and waits otherwise. Clearing the holders is up to the user:
+
+- Claude Code usually runs inside a `devenv shell` that holds one of the locks, and its own `devenv mcp` holds another.
+- The workers ignore SIGTERM, and Claude Code's auto mode refuses to `kill -9` them.
+- So the user exits the devenv shells (or runs `sudo kill -9 <worker pids>`), or shuts WSL down. On 2026-11-12, the waiting switch applied the migration while WSL shut down.
+- Restarting nix-daemon doesn't help: with `KillMode=process`, old workers keep running.
+
+Don't leave the migration to the new system either: its nix-daemon runs the new Nix, so its fresh workers would wait behind the old ones in the same way.
+
 [`ez-configs`]: https://github.com/ehllie/ez-configs
 [`flake-parts`]: https://flake.parts
