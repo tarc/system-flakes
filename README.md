@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
+deleting '/nix/store/dyhlmmf4i82xzxapavrjwysxbjp9cvh1-NerdFontsSymbolsOnly-3.4.0.tar.gz'
+deleting '/nix/store/sp2ghwdd0zns4fracch5bvmk8jm0l8vx-crate-zlib-rs-0.5.2.tar.gz.drv'
+deleting '/nix/store/4svidf3rf9app5sm6i83vsa093msa2ql-hwloc-2.15.0'
 deleting '/nix/store/zbbk7dpxf6n2gvzcdk4n17714blkprhh-python3.14-pycodestyle-2.15.0'
-deleting '/nix/store/wwhwcvivqpcws0g2jahwh14ib6kpyrw4-dry-activate'
-deleting '/nix/store/i0wqi7xg7m0qy2gxpjn598iwxjs5xlzi-activation-script'
-deleting '/nix/store/rjjclhqmqlnzckgcj6m4wa0zpis2vwx2-quote-1.0.47'
+deleting '/nix/store/y4aild21rwy0r98rkyq76hwiyv2hbz39-dsd0067qz4cylyhwqh1fk82lm5m9m18q-source'
 deleting '/nix/store/8wqfkrkl0hmf08l3px15r7lps4nkddih-python3.14-charset-normalizer-3.5.1'
 deleting '/nix/store/nx7bncf095avdxaqwdin6qgb5d61qkq0-setuptools-rust-hook.sh.drv'
-deleting '/nix/store/q3kyzcsli6nirdb8pz2jkx79hy3zzv5m-source.drv'
 deleting unused links...
-note: hard linking is currently saving 12.3 GiB
-1237 store paths deleted, 18.1 GiB freed
+note: hard linking is currently saving 15.1 GiB
+526 store paths deleted, 5.8 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/bms482i4zqiv1brxpcc92lllbalw19w0-devenv-2.4.0.drv'
-deleting '/nix/store/7bb1qmq64a0i1mws02y9ss7qpwvj8k7k-devenv-2.4.0-vendor.drv'
-deleting '/nix/store/wbshlfibv48rzvkbamxsc2l6zwb1z0nn-devenv-2.4.0-vendor-staging.drv'
-deleting '/nix/store/2yfc9wpfl6l3hcdycjyqvkwycdy1bg3l-home-manager-path'
-deleting '/nix/store/bd52fi6gsgn5iplxh8wkc1z3qqrjg8il-devenv-2.4.0'
-deleting '/nix/store/xpnjfy6b12k4m351p7mavvf2ikvxvff6-source.drv'
-deleting '/nix/store/mwi24ps2k5ih4i8qrf0r8pcwgj8y5q2s-source.drv'
+deleting '/nix/store/myf6zqsmk0pszhgd0c7wpp89iccijp99-activation-script.drv'
+deleting '/nix/store/xd4ka5bnakcri8iiasb9rhp3bsxrvzq2-shutdown-ramfs-contents.json.drv'
+deleting '/nix/store/qcr30cjggsvcxbrl76f45c6vdkc3vsvd-home-manager-path'
+deleting '/nix/store/hrsqavl1dzrisy9hibj748a4b47nsaw0-home-manager-path.drv'
+deleting '/nix/store/ib047n90a81f4d8d6d4nwfncyxz9jfk2-go-md2man-2.0.7-go-modules.drv'
+deleting '/nix/store/vxfvyfx4b15ink8liidmxifcgrnxiaki-source'
+deleting '/nix/store/51pp743ycwmkg7mvlc7dhm8ricfcf773-etc-os-release.drv'
 deleting unused links...
-note: hard linking is currently saving 12.3 GiB
-65 store paths deleted, 477.5 MiB freed
+note: hard linking is currently saving 14.9 GiB
+98 store paths deleted, 312.1 MiB freed
 ```
 <!-- END mdsh -->
 
