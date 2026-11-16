@@ -81,6 +81,25 @@
         "type": "github"
       }
     },
+    "factorseal": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1794844562,
+        "narHash": "sha256-wUkdgDDC/cEqXzgoTVgBgWh0Zgi1sDOyerxedj0bd7U=",
+        "ref": "feature/wsl2-keyring",
+        "rev": "dc597ff1007980dd90b2037a8636f70b0beb9f90",
+        "revCount": 540,
+        "type": "git",
+        "url": "file:///home/tarci/projects/factorseal"
+      },
+      "original": {
+        "ref": "feature/wsl2-keyring",
+        "type": "git",
+        "url": "file:///home/tarci/projects/factorseal"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -197,6 +216,22 @@
         "type": "github"
       }
     },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1791956154,
+        "narHash": "sha256-jBYGPi4udQ9uo4KQp9m2J0546nJVQitG15gvZSaVVAs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "55bfb4d7437bd4e09ab7cba58a43bd68eb310044",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-src": {
       "flake": false,
       "locked": {
@@ -271,6 +306,7 @@
         "devenv-nixpkgs": "devenv-nixpkgs",
         "devenv-nixpkgs-lib": "devenv-nixpkgs-lib",
         "ez-configs": "ez-configs",
+        "factorseal": "factorseal",
         "flake-parts": "flake-parts",
         "ghostty": "ghostty",
         "home-manager": [

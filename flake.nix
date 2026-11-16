@@ -168,6 +168,11 @@
     systems.url = "github:nix-systems/default";
     agenix.url = "github:ryantm/agenix";
     rust-overlay.url = "github:oxalica/rust-overlay";
+    # FactorSeal: its CLI first (to move gnome-keyring's items into the
+    # vault), then its NixOS module (mode = "wsl": the WSL keyring served
+    # from the vault on Windows). The local work branch until it is
+    # published.
+    factorseal.url = "git+file:///home/tarci/projects/factorseal?ref=feature/wsl2-keyring";
 
     # Non flake inputs
     secrets.url = "git+ssh://git@github.com/tarc/nix-secrets.git";

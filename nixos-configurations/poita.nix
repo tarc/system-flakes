@@ -13,11 +13,17 @@ in
   imports = [
     inputs.nixos-wsl.nixosModules.default
     inputs.agenix.nixosModules.default
+    inputs.factorseal.nixosModules.default
   ];
 
   system.stateVersion = "24.05";
 
   environment.systemPackages = with pkgs; [
+    # FactorSeal's CLI on the PATH (`factorseal wsl-setup`, which its
+    # Windows installer runs here). Its module (below, mode = "wsl") came in
+    # a second switch, after gnome-keyring's items were moved into the vault
+    # (factorseal's docs/plans/gnome-keyring-import.md, "Rollout on poita").
+    inputs.factorseal.packages.${pkgs.stdenv.hostPlatform.system}.default
     age
     # auggie
     claude-agent-acp
@@ -85,7 +91,15 @@ in
 
   programs.zsh.enable = true;
 
-  services.gnome.gnome-keyring.enable = true;
+  # org.freedesktop.secrets comes from the FactorSeal vault on Windows:
+  # `factorseal wsl-keyring`, started by D-Bus activation. Needs
+  # `factorseal wsl-setup` once and NixOS switched on in FactorSeal Desktop
+  # (Settings, WSL keyrings). Items in gnome-keyring stay in its files.
+  services.factorseal = {
+    enable = true;
+    mode = "wsl";
+  };
+  services.gnome.gnome-keyring.enable = false;
 
   age.identityPaths = [ "${home}/.ssh/id_ed25519" ];
 
