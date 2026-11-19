@@ -52,16 +52,16 @@ nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/dyhlmmf4i82xzxapavrjwysxbjp9cvh1-NerdFontsSymbolsOnly-3.4.0.tar.gz'
-deleting '/nix/store/sp2ghwdd0zns4fracch5bvmk8jm0l8vx-crate-zlib-rs-0.5.2.tar.gz.drv'
-deleting '/nix/store/4svidf3rf9app5sm6i83vsa093msa2ql-hwloc-2.15.0'
-deleting '/nix/store/zbbk7dpxf6n2gvzcdk4n17714blkprhh-python3.14-pycodestyle-2.15.0'
-deleting '/nix/store/y4aild21rwy0r98rkyq76hwiyv2hbz39-dsd0067qz4cylyhwqh1fk82lm5m9m18q-source'
+deleting '/nix/store/dl0999vzig90cv7n5v9xjcsyzxickj6j-notify-8.2.0'
 deleting '/nix/store/8wqfkrkl0hmf08l3px15r7lps4nkddih-python3.14-charset-normalizer-3.5.1'
 deleting '/nix/store/nx7bncf095avdxaqwdin6qgb5d61qkq0-setuptools-rust-hook.sh.drv'
+deleting '/nix/store/c2q3c32db38c3fpyynv4y9mnybaj5nj0-unicode-script-0.5.8'
+deleting '/nix/store/d3p6hkbfvd9ylk3gd7lhp0pvdngz6vh4-wayland-cursor-0.31.14'
+deleting '/nix/store/papxwgajjqb60yf5k036j0bgjxp1zdsf-shuttle-0.8.1'
+deleting '/nix/store/rhgz9j8szbpknzzjd87nsjxbfrahq5zx-object-0.37.3'
 deleting unused links...
-note: hard linking is currently saving 15.1 GiB
-526 store paths deleted, 5.8 GiB freed
+note: hard linking is currently saving 11.7 GiB
+2418 store paths deleted, 9.2 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/myf6zqsmk0pszhgd0c7wpp89iccijp99-activation-script.drv'
-deleting '/nix/store/xd4ka5bnakcri8iiasb9rhp3bsxrvzq2-shutdown-ramfs-contents.json.drv'
-deleting '/nix/store/qcr30cjggsvcxbrl76f45c6vdkc3vsvd-home-manager-path'
-deleting '/nix/store/hrsqavl1dzrisy9hibj748a4b47nsaw0-home-manager-path.drv'
-deleting '/nix/store/ib047n90a81f4d8d6d4nwfncyxz9jfk2-go-md2man-2.0.7-go-modules.drv'
-deleting '/nix/store/vxfvyfx4b15ink8liidmxifcgrnxiaki-source'
-deleting '/nix/store/51pp743ycwmkg7mvlc7dhm8ricfcf773-etc-os-release.drv'
+deleting '/nix/store/n19r6nhrn58xzm90lm5vp8kcmcnnjbfv-ktextwidgets-6.31.0.tar.xz.drv'
+deleting '/nix/store/3812b3l4kvmgd5fggi4xsknhm7k7pja7-karchive-6.31.0.tar.xz.drv'
+deleting '/nix/store/71xywbmqn75m4ikx2s25vd6wllfn6z8g-kconfig-6.31.0.tar.xz.drv'
+deleting '/nix/store/6r9kkvpc0mg15wl8jxmkr9klm1pdi0lf-kjobwidgets-6.31.0.tar.xz.drv'
+deleting '/nix/store/9w7g2mgwcx3yf4ma77ay533q8l878xrm-unit-gcr-ssh-agent.socket.drv'
+deleting '/nix/store/krbqqk8ajv2qg7yq0dgpq4hn83bjbqg7-qtconnectivity-6.12.0.drv'
+deleting '/nix/store/r1jih6w2m4hj9qlm02zq44q62ymmlspr-nixos-version.drv'
 deleting unused links...
-note: hard linking is currently saving 14.9 GiB
-98 store paths deleted, 312.1 MiB freed
+note: hard linking is currently saving 10.9 GiB
+518 store paths deleted, 2.6 GiB freed
 ```
 <!-- END mdsh -->
 
