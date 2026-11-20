@@ -60,8 +60,8 @@ deleting '/nix/store/d3p6hkbfvd9ylk3gd7lhp0pvdngz6vh4-wayland-cursor-0.31.14'
 deleting '/nix/store/papxwgajjqb60yf5k036j0bgjxp1zdsf-shuttle-0.8.1'
 deleting '/nix/store/rhgz9j8szbpknzzjd87nsjxbfrahq5zx-object-0.37.3'
 deleting unused links...
-note: hard linking is currently saving 11.7 GiB
-2418 store paths deleted, 9.2 GiB freed
+note: hard linking is currently saving 8.8 GiB
+9617 store paths deleted, 12.5 GiB freed
 ```
 <!-- END mdsh -->
 
@@ -71,16 +71,16 @@ sudo nix-collect-garbage --delete-old 2>&1 | tail -n 10
 
 <!-- BEGIN mdsh -->
 ```text
-deleting '/nix/store/n19r6nhrn58xzm90lm5vp8kcmcnnjbfv-ktextwidgets-6.31.0.tar.xz.drv'
-deleting '/nix/store/3812b3l4kvmgd5fggi4xsknhm7k7pja7-karchive-6.31.0.tar.xz.drv'
-deleting '/nix/store/71xywbmqn75m4ikx2s25vd6wllfn6z8g-kconfig-6.31.0.tar.xz.drv'
-deleting '/nix/store/6r9kkvpc0mg15wl8jxmkr9klm1pdi0lf-kjobwidgets-6.31.0.tar.xz.drv'
-deleting '/nix/store/9w7g2mgwcx3yf4ma77ay533q8l878xrm-unit-gcr-ssh-agent.socket.drv'
-deleting '/nix/store/krbqqk8ajv2qg7yq0dgpq4hn83bjbqg7-qtconnectivity-6.12.0.drv'
-deleting '/nix/store/r1jih6w2m4hj9qlm02zq44q62ymmlspr-nixos-version.drv'
+removing old generations of profile /nix/var/nix/profiles/system
+removing profile version 596
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+removing old generations of profile /nix/var/nix/profiles/per-user/root/channels
+finding garbage collector roots...
+removing stale link from "/nix/var/nix/gcroots/auto/dk7ass5wzsn3m8nc3a46zniv9rxwlnlp" to "/nix/var/nix/profiles/system-596-link"
+deleting garbage...
 deleting unused links...
-note: hard linking is currently saving 10.9 GiB
-518 store paths deleted, 2.6 GiB freed
+note: hard linking is currently saving 8.8 GiB
+0 store paths deleted, 0.0 KiB freed
 ```
 <!-- END mdsh -->
 
